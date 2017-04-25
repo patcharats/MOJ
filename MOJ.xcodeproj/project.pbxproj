@@ -7,15 +7,110 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		271073921EABF03E00DA14F4 /* ComplainCreateNew.swift in Sources */ = {isa = PBXBuildFile; fileRef = 271073911EABF03E00DA14F4 /* ComplainCreateNew.swift */; };
+		271073951EABF0A100DA14F4 /* ComplainRegister.swift in Sources */ = {isa = PBXBuildFile; fileRef = 271073941EABF0A100DA14F4 /* ComplainRegister.swift */; };
+		271073971EABF0AD00DA14F4 /* ComplainDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 271073961EABF0AD00DA14F4 /* ComplainDetail.swift */; };
+		271073991EAC9B0F00DA14F4 /* PsychoNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 271073981EAC9B0F00DA14F4 /* PsychoNavigationController.swift */; };
+		2710739B1EACBD8200DA14F4 /* StringHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2710739A1EACBD8200DA14F4 /* StringHelper.swift */; };
+		2710739F1EACE49800DA14F4 /* ChangePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2710739E1EACE49800DA14F4 /* ChangePasswordViewController.swift */; };
+		271073A11EACE66000DA14F4 /* AccountParameter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 271073A01EACE66000DA14F4 /* AccountParameter.swift */; };
+		274158D21E87CCC40086A756 /* EditUserInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 274158D11E87CCC40086A756 /* EditUserInfoViewController.swift */; };
+		274158DA1E87D40D0086A756 /* PdfDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 274158D91E87D40D0086A756 /* PdfDetailViewController.swift */; };
+		274158DF1E87DAEE0086A756 /* PDFReader.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 274158DE1E87DAEE0086A756 /* PDFReader.storyboard */; };
+		274158E71E87DAF90086A756 /* PDFDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 274158E01E87DAF90086A756 /* PDFDocument.swift */; };
+		274158E81E87DAF90086A756 /* PDFPageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 274158E11E87DAF90086A756 /* PDFPageCollectionViewCell.swift */; };
+		274158E91E87DAF90086A756 /* PDFPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 274158E21E87DAF90086A756 /* PDFPageView.swift */; };
+		274158EA1E87DAF90086A756 /* PDFThumbnailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 274158E31E87DAF90086A756 /* PDFThumbnailCell.swift */; };
+		274158EB1E87DAF90086A756 /* PDFThumbnailCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 274158E41E87DAF90086A756 /* PDFThumbnailCollectionViewController.swift */; };
+		274158EC1E87DAF90086A756 /* PDFViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 274158E51E87DAF90086A756 /* PDFViewController.swift */; };
+		274158ED1E87DAF90086A756 /* TiledView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 274158E61E87DAF90086A756 /* TiledView.swift */; };
+		27546B8D1EAB9E27005B5B18 /* PsychoAdminViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27546B8C1EAB9E27005B5B18 /* PsychoAdminViewController.swift */; };
+		27546B8F1EABA411005B5B18 /* NewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27546B8E1EABA411005B5B18 /* NewsViewController.swift */; };
+		27546B931EABABF4005B5B18 /* ContactDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27546B921EABABF4005B5B18 /* ContactDetailViewController.swift */; };
+		27546B951EABB3AF005B5B18 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27546B941EABB3AF005B5B18 /* SearchView.swift */; };
+		27546B981EABC5E1005B5B18 /* TalkWithMinisterPostDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27546B971EABC5E1005B5B18 /* TalkWithMinisterPostDetail.swift */; };
+		27546B9A1EABCB79005B5B18 /* TalkWithMinisterRegister.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27546B991EABCB79005B5B18 /* TalkWithMinisterRegister.swift */; };
+		27546B9C1EABCBDF005B5B18 /* TalkWithMinisterMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27546B9B1EABCBDF005B5B18 /* TalkWithMinisterMessage.swift */; };
+		27546B9E1EABDC7E005B5B18 /* PsychoSeviceCreateNew.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27546B9D1EABDC7E005B5B18 /* PsychoSeviceCreateNew.swift */; };
+		27546BA01EABDC8F005B5B18 /* PsychoServiceRenew.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27546B9F1EABDC8F005B5B18 /* PsychoServiceRenew.swift */; };
+		27546BA21EABE603005B5B18 /* ComplainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27546BA11EABE603005B5B18 /* ComplainViewController.swift */; };
+		2760107B1EAE4B9E008D97F4 /* TutorialPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2760107A1EAE4B9E008D97F4 /* TutorialPageViewController.swift */; };
+		276010801EAE5050008D97F4 /* ProsonalInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2760107F1EAE5050008D97F4 /* ProsonalInformation.swift */; };
+		276010821EAE508B008D97F4 /* OccupationAndEducation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 276010811EAE508B008D97F4 /* OccupationAndEducation.swift */; };
+		276010841EAE5098008D97F4 /* OtherDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 276010831EAE5098008D97F4 /* OtherDetail.swift */; };
+		276010861EAE50CB008D97F4 /* FileEvidence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 276010851EAE50CB008D97F4 /* FileEvidence.swift */; };
+		2760108B1EAE591B008D97F4 /* PartOne.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2760108A1EAE591B008D97F4 /* PartOne.swift */; };
+		2760108D1EAE592D008D97F4 /* PartTwo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2760108C1EAE592D008D97F4 /* PartTwo.swift */; };
+		2760108F1EAE5939008D97F4 /* PartThree.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2760108E1EAE5939008D97F4 /* PartThree.swift */; };
 		27E6949A1E879F0F008ACE01 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27E694991E879F0F008ACE01 /* AppDelegate.swift */; };
 		27E6949C1E879F0F008ACE01 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27E6949B1E879F0F008ACE01 /* ViewController.swift */; };
 		27E6949F1E879F0F008ACE01 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 27E6949D1E879F0F008ACE01 /* Main.storyboard */; };
 		27E694A21E879F0F008ACE01 /* MOJ.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 27E694A01E879F0F008ACE01 /* MOJ.xcdatamodeld */; };
 		27E694A41E879F0F008ACE01 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 27E694A31E879F0F008ACE01 /* Assets.xcassets */; };
 		27E694A71E879F0F008ACE01 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 27E694A51E879F0F008ACE01 /* LaunchScreen.storyboard */; };
+		27E694B21E879F81008ACE01 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 27E694B11E879F81008ACE01 /* SWRevealViewController.m */; };
+		27E694C31E87A156008ACE01 /* MenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27E694B81E87A156008ACE01 /* MenuTableViewController.swift */; };
+		27E694C51E87A156008ACE01 /* DowloadFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27E694BA1E87A156008ACE01 /* DowloadFormViewController.swift */; };
+		27E694C61E87A156008ACE01 /* TalkWithMiniterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27E694BB1E87A156008ACE01 /* TalkWithMiniterViewController.swift */; };
+		27E694C71E87A156008ACE01 /* PsychoServiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27E694BC1E87A156008ACE01 /* PsychoServiceViewController.swift */; };
+		27E694C91E87A156008ACE01 /* NoticeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27E694BE1E87A156008ACE01 /* NoticeViewController.swift */; };
+		27E694CA1E87A156008ACE01 /* JobViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27E694BF1E87A156008ACE01 /* JobViewController.swift */; };
+		27E694CB1E87A156008ACE01 /* ContactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27E694C01E87A156008ACE01 /* ContactViewController.swift */; };
+		27E694CC1E87A156008ACE01 /* ApplicationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27E694C11E87A156008ACE01 /* ApplicationViewController.swift */; };
+		27E694CD1E87A156008ACE01 /* HowToViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27E694C21E87A156008ACE01 /* HowToViewController.swift */; };
+		27E694D01E87AAF7008ACE01 /* Quark-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 27E694CE1E87AAF7008ACE01 /* Quark-Bold.otf */; };
+		27E694D11E87AAF7008ACE01 /* Quark-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 27E694CF1E87AAF7008ACE01 /* Quark-Light.otf */; };
+		27E694D41E87B33E008ACE01 /* NewDetailViewContoller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27E694D31E87B33E008ACE01 /* NewDetailViewContoller.swift */; };
+		27E694D61E87BDC4008ACE01 /* ForgetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27E694D51E87BDC4008ACE01 /* ForgetPasswordViewController.swift */; };
+		27E694D91E87BE78008ACE01 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27E694D81E87BE78008ACE01 /* RegisterViewController.swift */; };
+		27E694DB1E87BF5D008ACE01 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27E694DA1E87BF5D008ACE01 /* LoginViewController.swift */; };
+		40CFA9715AE105E04E51523A /* Pods_MOJ.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E55A0DEFE3EBF83BC9EEEEC /* Pods_MOJ.framework */; };
+		CD49B7311EA9DD35005BD84E /* Design.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD49B7301EA9DD35005BD84E /* Design.swift */; };
+		CD78DCD41EA84E9600BC4CDB /* FacebookData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD78DCD21EA84E9600BC4CDB /* FacebookData.swift */; };
+		CD78DCD51EA84E9600BC4CDB /* AccountData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD78DCD31EA84E9600BC4CDB /* AccountData.swift */; };
+		CD78DCD91EA84EE300BC4CDB /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD78DCD71EA84EE300BC4CDB /* Network.swift */; };
+		CD78DCE71EA8620100BC4CDB /* AlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD78DCE61EA8620100BC4CDB /* AlertView.swift */; };
+		CDFD67B01EAF27DB009CDF61 /* NewsData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDFD67AF1EAF27DB009CDF61 /* NewsData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0CDE17F71C2BDFEF6A447958 /* Pods-MOJ.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MOJ.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MOJ/Pods-MOJ.debug.xcconfig"; sourceTree = "<group>"; };
+		0E55A0DEFE3EBF83BC9EEEEC /* Pods_MOJ.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MOJ.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		271073911EABF03E00DA14F4 /* ComplainCreateNew.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComplainCreateNew.swift; sourceTree = "<group>"; };
+		271073941EABF0A100DA14F4 /* ComplainRegister.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComplainRegister.swift; sourceTree = "<group>"; };
+		271073961EABF0AD00DA14F4 /* ComplainDetail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComplainDetail.swift; sourceTree = "<group>"; };
+		271073981EAC9B0F00DA14F4 /* PsychoNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PsychoNavigationController.swift; sourceTree = "<group>"; };
+		2710739A1EACBD8200DA14F4 /* StringHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringHelper.swift; sourceTree = "<group>"; };
+		2710739E1EACE49800DA14F4 /* ChangePasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangePasswordViewController.swift; sourceTree = "<group>"; };
+		271073A01EACE66000DA14F4 /* AccountParameter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountParameter.swift; sourceTree = "<group>"; };
+		274158D11E87CCC40086A756 /* EditUserInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditUserInfoViewController.swift; sourceTree = "<group>"; };
+		274158D91E87D40D0086A756 /* PdfDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PdfDetailViewController.swift; sourceTree = "<group>"; };
+		274158DE1E87DAEE0086A756 /* PDFReader.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = PDFReader.storyboard; sourceTree = "<group>"; };
+		274158E01E87DAF90086A756 /* PDFDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PDFDocument.swift; sourceTree = "<group>"; };
+		274158E11E87DAF90086A756 /* PDFPageCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PDFPageCollectionViewCell.swift; sourceTree = "<group>"; };
+		274158E21E87DAF90086A756 /* PDFPageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PDFPageView.swift; sourceTree = "<group>"; };
+		274158E31E87DAF90086A756 /* PDFThumbnailCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PDFThumbnailCell.swift; sourceTree = "<group>"; };
+		274158E41E87DAF90086A756 /* PDFThumbnailCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PDFThumbnailCollectionViewController.swift; sourceTree = "<group>"; };
+		274158E51E87DAF90086A756 /* PDFViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PDFViewController.swift; sourceTree = "<group>"; };
+		274158E61E87DAF90086A756 /* TiledView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TiledView.swift; sourceTree = "<group>"; };
+		27546B8C1EAB9E27005B5B18 /* PsychoAdminViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PsychoAdminViewController.swift; sourceTree = "<group>"; };
+		27546B8E1EABA411005B5B18 /* NewsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsViewController.swift; sourceTree = "<group>"; };
+		27546B921EABABF4005B5B18 /* ContactDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactDetailViewController.swift; sourceTree = "<group>"; };
+		27546B941EABB3AF005B5B18 /* SearchView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
+		27546B971EABC5E1005B5B18 /* TalkWithMinisterPostDetail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TalkWithMinisterPostDetail.swift; sourceTree = "<group>"; };
+		27546B991EABCB79005B5B18 /* TalkWithMinisterRegister.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TalkWithMinisterRegister.swift; sourceTree = "<group>"; };
+		27546B9B1EABCBDF005B5B18 /* TalkWithMinisterMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TalkWithMinisterMessage.swift; sourceTree = "<group>"; };
+		27546B9D1EABDC7E005B5B18 /* PsychoSeviceCreateNew.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PsychoSeviceCreateNew.swift; sourceTree = "<group>"; };
+		27546B9F1EABDC8F005B5B18 /* PsychoServiceRenew.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PsychoServiceRenew.swift; sourceTree = "<group>"; };
+		27546BA11EABE603005B5B18 /* ComplainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComplainViewController.swift; sourceTree = "<group>"; };
+		2760107A1EAE4B9E008D97F4 /* TutorialPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TutorialPageViewController.swift; sourceTree = "<group>"; };
+		2760107F1EAE5050008D97F4 /* ProsonalInformation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProsonalInformation.swift; sourceTree = "<group>"; };
+		276010811EAE508B008D97F4 /* OccupationAndEducation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OccupationAndEducation.swift; sourceTree = "<group>"; };
+		276010831EAE5098008D97F4 /* OtherDetail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OtherDetail.swift; sourceTree = "<group>"; };
+		276010851EAE50CB008D97F4 /* FileEvidence.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileEvidence.swift; sourceTree = "<group>"; };
+		2760108A1EAE591B008D97F4 /* PartOne.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PartOne.swift; sourceTree = "<group>"; };
+		2760108C1EAE592D008D97F4 /* PartTwo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PartTwo.swift; sourceTree = "<group>"; };
+		2760108E1EAE5939008D97F4 /* PartThree.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PartThree.swift; sourceTree = "<group>"; };
 		27E694961E879F0F008ACE01 /* MOJ.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MOJ.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		27E694991E879F0F008ACE01 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		27E6949B1E879F0F008ACE01 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -24,6 +119,31 @@
 		27E694A31E879F0F008ACE01 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		27E694A61E879F0F008ACE01 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		27E694A81E879F0F008ACE01 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		27E694AF1E879F81008ACE01 /* MOJ-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MOJ-Bridging-Header.h"; sourceTree = "<group>"; };
+		27E694B01E879F81008ACE01 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
+		27E694B11E879F81008ACE01 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
+		27E694B81E87A156008ACE01 /* MenuTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuTableViewController.swift; sourceTree = "<group>"; };
+		27E694BA1E87A156008ACE01 /* DowloadFormViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DowloadFormViewController.swift; sourceTree = "<group>"; };
+		27E694BB1E87A156008ACE01 /* TalkWithMiniterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TalkWithMiniterViewController.swift; sourceTree = "<group>"; };
+		27E694BC1E87A156008ACE01 /* PsychoServiceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PsychoServiceViewController.swift; sourceTree = "<group>"; };
+		27E694BE1E87A156008ACE01 /* NoticeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoticeViewController.swift; sourceTree = "<group>"; };
+		27E694BF1E87A156008ACE01 /* JobViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JobViewController.swift; sourceTree = "<group>"; };
+		27E694C01E87A156008ACE01 /* ContactViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactViewController.swift; sourceTree = "<group>"; };
+		27E694C11E87A156008ACE01 /* ApplicationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApplicationViewController.swift; sourceTree = "<group>"; };
+		27E694C21E87A156008ACE01 /* HowToViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HowToViewController.swift; sourceTree = "<group>"; };
+		27E694CE1E87AAF7008ACE01 /* Quark-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Quark-Bold.otf"; sourceTree = "<group>"; };
+		27E694CF1E87AAF7008ACE01 /* Quark-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Quark-Light.otf"; sourceTree = "<group>"; };
+		27E694D31E87B33E008ACE01 /* NewDetailViewContoller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewDetailViewContoller.swift; sourceTree = "<group>"; };
+		27E694D51E87BDC4008ACE01 /* ForgetPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForgetPasswordViewController.swift; sourceTree = "<group>"; };
+		27E694D81E87BE78008ACE01 /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		27E694DA1E87BF5D008ACE01 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		C1C0523448A40D6E5D403B74 /* Pods-MOJ.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MOJ.release.xcconfig"; path = "Pods/Target Support Files/Pods-MOJ/Pods-MOJ.release.xcconfig"; sourceTree = "<group>"; };
+		CD49B7301EA9DD35005BD84E /* Design.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Design.swift; sourceTree = "<group>"; };
+		CD78DCD21EA84E9600BC4CDB /* FacebookData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FacebookData.swift; sourceTree = "<group>"; };
+		CD78DCD31EA84E9600BC4CDB /* AccountData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountData.swift; sourceTree = "<group>"; };
+		CD78DCD71EA84EE300BC4CDB /* Network.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
+		CD78DCE61EA8620100BC4CDB /* AlertView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertView.swift; sourceTree = "<group>"; };
+		CDFD67AF1EAF27DB009CDF61 /* NewsData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,17 +151,128 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				40CFA9715AE105E04E51523A /* Pods_MOJ.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		271073931EABF04B00DA14F4 /* Complain */ = {
+			isa = PBXGroup;
+			children = (
+				27546BA11EABE603005B5B18 /* ComplainViewController.swift */,
+				271073961EABF0AD00DA14F4 /* ComplainDetail.swift */,
+				271073941EABF0A100DA14F4 /* ComplainRegister.swift */,
+				271073911EABF03E00DA14F4 /* ComplainCreateNew.swift */,
+			);
+			name = Complain;
+			sourceTree = "<group>";
+		};
+		274158DB1E87D4120086A756 /* DowloadForm */ = {
+			isa = PBXGroup;
+			children = (
+				27E694BA1E87A156008ACE01 /* DowloadFormViewController.swift */,
+				274158D91E87D40D0086A756 /* PdfDetailViewController.swift */,
+			);
+			name = DowloadForm;
+			sourceTree = "<group>";
+		};
+		274158DC1E87DAC70086A756 /* Library */ = {
+			isa = PBXGroup;
+			children = (
+				274158DD1E87DAD10086A756 /* PDFReader */,
+				27E694AE1E879F38008ACE01 /* SWRevealViewController */,
+			);
+			name = Library;
+			sourceTree = "<group>";
+		};
+		274158DD1E87DAD10086A756 /* PDFReader */ = {
+			isa = PBXGroup;
+			children = (
+				274158DE1E87DAEE0086A756 /* PDFReader.storyboard */,
+				274158E01E87DAF90086A756 /* PDFDocument.swift */,
+				274158E11E87DAF90086A756 /* PDFPageCollectionViewCell.swift */,
+				274158E21E87DAF90086A756 /* PDFPageView.swift */,
+				274158E31E87DAF90086A756 /* PDFThumbnailCell.swift */,
+				274158E41E87DAF90086A756 /* PDFThumbnailCollectionViewController.swift */,
+				274158E51E87DAF90086A756 /* PDFViewController.swift */,
+				274158E61E87DAF90086A756 /* TiledView.swift */,
+			);
+			name = PDFReader;
+			sourceTree = "<group>";
+		};
+		27546B8B1EAB9DE6005B5B18 /* PsychoService */ = {
+			isa = PBXGroup;
+			children = (
+				276010891EAE563B008D97F4 /* reNew */,
+				2760107C1EAE4D89008D97F4 /* CreateNew */,
+				2760107A1EAE4B9E008D97F4 /* TutorialPageViewController.swift */,
+				271073981EAC9B0F00DA14F4 /* PsychoNavigationController.swift */,
+				27E694BC1E87A156008ACE01 /* PsychoServiceViewController.swift */,
+				27546B8C1EAB9E27005B5B18 /* PsychoAdminViewController.swift */,
+				27546B9D1EABDC7E005B5B18 /* PsychoSeviceCreateNew.swift */,
+				27546B9F1EABDC8F005B5B18 /* PsychoServiceRenew.swift */,
+			);
+			name = PsychoService;
+			sourceTree = "<group>";
+		};
+		27546B901EABA499005B5B18 /* TalkWithMinister */ = {
+			isa = PBXGroup;
+			children = (
+				27E694BB1E87A156008ACE01 /* TalkWithMiniterViewController.swift */,
+				27546B971EABC5E1005B5B18 /* TalkWithMinisterPostDetail.swift */,
+				27546B991EABCB79005B5B18 /* TalkWithMinisterRegister.swift */,
+				27546B9B1EABCBDF005B5B18 /* TalkWithMinisterMessage.swift */,
+			);
+			name = TalkWithMinister;
+			sourceTree = "<group>";
+		};
+		27546B911EABABD1005B5B18 /* Contact */ = {
+			isa = PBXGroup;
+			children = (
+				27E694C01E87A156008ACE01 /* ContactViewController.swift */,
+				27546B921EABABF4005B5B18 /* ContactDetailViewController.swift */,
+			);
+			name = Contact;
+			sourceTree = "<group>";
+		};
+		27546B961EABB3C9005B5B18 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				27546B941EABB3AF005B5B18 /* SearchView.swift */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		2760107C1EAE4D89008D97F4 /* CreateNew */ = {
+			isa = PBXGroup;
+			children = (
+				2760107F1EAE5050008D97F4 /* ProsonalInformation.swift */,
+				276010811EAE508B008D97F4 /* OccupationAndEducation.swift */,
+				276010831EAE5098008D97F4 /* OtherDetail.swift */,
+				276010851EAE50CB008D97F4 /* FileEvidence.swift */,
+			);
+			name = CreateNew;
+			sourceTree = "<group>";
+		};
+		276010891EAE563B008D97F4 /* reNew */ = {
+			isa = PBXGroup;
+			children = (
+				2760108A1EAE591B008D97F4 /* PartOne.swift */,
+				2760108C1EAE592D008D97F4 /* PartTwo.swift */,
+				2760108E1EAE5939008D97F4 /* PartThree.swift */,
+			);
+			name = reNew;
+			sourceTree = "<group>";
+		};
 		27E6948D1E879F0F008ACE01 = {
 			isa = PBXGroup;
 			children = (
 				27E694981E879F0F008ACE01 /* MOJ */,
 				27E694971E879F0F008ACE01 /* Products */,
+				C7432844A8EB529E9B9BE079 /* Pods */,
+				676FF56029E9422A1EFE1002 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -56,15 +287,135 @@
 		27E694981E879F0F008ACE01 /* MOJ */ = {
 			isa = PBXGroup;
 			children = (
+				27546B961EABB3C9005B5B18 /* View */,
+				CD78DCDB1EA8539B00BC4CDB /* Helper */,
+				CD78DCD61EA84ED900BC4CDB /* Network */,
+				CD78DCD11EA84E7C00BC4CDB /* DataClass */,
+				27E694B71E87A14C008ACE01 /* ViewController */,
 				27E694991E879F0F008ACE01 /* AppDelegate.swift */,
 				27E6949B1E879F0F008ACE01 /* ViewController.swift */,
 				27E6949D1E879F0F008ACE01 /* Main.storyboard */,
+				274158DC1E87DAC70086A756 /* Library */,
+				27E694B31E879FDD008ACE01 /* Support */,
+			);
+			path = MOJ;
+			sourceTree = "<group>";
+		};
+		27E694AE1E879F38008ACE01 /* SWRevealViewController */ = {
+			isa = PBXGroup;
+			children = (
+				27E694B01E879F81008ACE01 /* SWRevealViewController.h */,
+				27E694B11E879F81008ACE01 /* SWRevealViewController.m */,
+				27E694AF1E879F81008ACE01 /* MOJ-Bridging-Header.h */,
+			);
+			name = SWRevealViewController;
+			sourceTree = "<group>";
+		};
+		27E694B31E879FDD008ACE01 /* Support */ = {
+			isa = PBXGroup;
+			children = (
+				27E694B41E879FF2008ACE01 /* font */,
 				27E694A31E879F0F008ACE01 /* Assets.xcassets */,
 				27E694A51E879F0F008ACE01 /* LaunchScreen.storyboard */,
 				27E694A81E879F0F008ACE01 /* Info.plist */,
 				27E694A01E879F0F008ACE01 /* MOJ.xcdatamodeld */,
 			);
-			path = MOJ;
+			name = Support;
+			sourceTree = "<group>";
+		};
+		27E694B41E879FF2008ACE01 /* font */ = {
+			isa = PBXGroup;
+			children = (
+				27E694CE1E87AAF7008ACE01 /* Quark-Bold.otf */,
+				27E694CF1E87AAF7008ACE01 /* Quark-Light.otf */,
+			);
+			name = font;
+			sourceTree = "<group>";
+		};
+		27E694B71E87A14C008ACE01 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				27E694D71E87BDC9008ACE01 /* Register */,
+				271073931EABF04B00DA14F4 /* Complain */,
+				274158DB1E87D4120086A756 /* DowloadForm */,
+				27546B901EABA499005B5B18 /* TalkWithMinister */,
+				27546B8B1EAB9DE6005B5B18 /* PsychoService */,
+				27E694D21E87B2FB008ACE01 /* News */,
+				27546B911EABABD1005B5B18 /* Contact */,
+				27E694B81E87A156008ACE01 /* MenuTableViewController.swift */,
+				27E694C11E87A156008ACE01 /* ApplicationViewController.swift */,
+				27E694C21E87A156008ACE01 /* HowToViewController.swift */,
+			);
+			name = ViewController;
+			sourceTree = "<group>";
+		};
+		27E694D21E87B2FB008ACE01 /* News */ = {
+			isa = PBXGroup;
+			children = (
+				27546B8E1EABA411005B5B18 /* NewsViewController.swift */,
+				27E694D31E87B33E008ACE01 /* NewDetailViewContoller.swift */,
+				27E694BE1E87A156008ACE01 /* NoticeViewController.swift */,
+				27E694BF1E87A156008ACE01 /* JobViewController.swift */,
+			);
+			name = News;
+			sourceTree = "<group>";
+		};
+		27E694D71E87BDC9008ACE01 /* Register */ = {
+			isa = PBXGroup;
+			children = (
+				27E694DA1E87BF5D008ACE01 /* LoginViewController.swift */,
+				27E694D81E87BE78008ACE01 /* RegisterViewController.swift */,
+				27E694D51E87BDC4008ACE01 /* ForgetPasswordViewController.swift */,
+				274158D11E87CCC40086A756 /* EditUserInfoViewController.swift */,
+				2710739E1EACE49800DA14F4 /* ChangePasswordViewController.swift */,
+			);
+			name = Register;
+			sourceTree = "<group>";
+		};
+		676FF56029E9422A1EFE1002 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0E55A0DEFE3EBF83BC9EEEEC /* Pods_MOJ.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C7432844A8EB529E9B9BE079 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				0CDE17F71C2BDFEF6A447958 /* Pods-MOJ.debug.xcconfig */,
+				C1C0523448A40D6E5D403B74 /* Pods-MOJ.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		CD78DCD11EA84E7C00BC4CDB /* DataClass */ = {
+			isa = PBXGroup;
+			children = (
+				CD78DCD21EA84E9600BC4CDB /* FacebookData.swift */,
+				CD78DCD31EA84E9600BC4CDB /* AccountData.swift */,
+				CDFD67AF1EAF27DB009CDF61 /* NewsData.swift */,
+			);
+			name = DataClass;
+			sourceTree = "<group>";
+		};
+		CD78DCD61EA84ED900BC4CDB /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				CD78DCD71EA84EE300BC4CDB /* Network.swift */,
+				271073A01EACE66000DA14F4 /* AccountParameter.swift */,
+			);
+			name = Network;
+			sourceTree = "<group>";
+		};
+		CD78DCDB1EA8539B00BC4CDB /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				CD78DCE61EA8620100BC4CDB /* AlertView.swift */,
+				CD49B7301EA9DD35005BD84E /* Design.swift */,
+				2710739A1EACBD8200DA14F4 /* StringHelper.swift */,
+			);
+			name = Helper;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -74,9 +425,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 27E694AB1E879F0F008ACE01 /* Build configuration list for PBXNativeTarget "MOJ" */;
 			buildPhases = (
+				14E032FE8A9F638CBBD280D3 /* [CP] Check Pods Manifest.lock */,
 				27E694921E879F0F008ACE01 /* Sources */,
 				27E694931E879F0F008ACE01 /* Frameworks */,
 				27E694941E879F0F008ACE01 /* Resources */,
+				BBBFDE24E76ABCD6B2AACB43 /* [CP] Embed Pods Frameworks */,
+				7158E5F1A4242C1397FF9015 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -99,6 +453,8 @@
 				TargetAttributes = {
 					27E694951E879F0F008ACE01 = {
 						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = MAV4HPKY6C;
+						LastSwiftMigration = 0820;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -126,7 +482,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				274158DF1E87DAEE0086A756 /* PDFReader.storyboard in Resources */,
 				27E694A71E879F0F008ACE01 /* LaunchScreen.storyboard in Resources */,
+				27E694D01E87AAF7008ACE01 /* Quark-Bold.otf in Resources */,
+				27E694D11E87AAF7008ACE01 /* Quark-Light.otf in Resources */,
 				27E694A41E879F0F008ACE01 /* Assets.xcassets in Resources */,
 				27E6949F1E879F0F008ACE01 /* Main.storyboard in Resources */,
 			);
@@ -134,14 +493,116 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		14E032FE8A9F638CBBD280D3 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		7158E5F1A4242C1397FF9015 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MOJ/Pods-MOJ-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BBBFDE24E76ABCD6B2AACB43 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MOJ/Pods-MOJ-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		27E694921E879F0F008ACE01 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				27546B8D1EAB9E27005B5B18 /* PsychoAdminViewController.swift in Sources */,
+				2760108F1EAE5939008D97F4 /* PartThree.swift in Sources */,
+				27546BA21EABE603005B5B18 /* ComplainViewController.swift in Sources */,
+				2760107B1EAE4B9E008D97F4 /* TutorialPageViewController.swift in Sources */,
+				27E694C51E87A156008ACE01 /* DowloadFormViewController.swift in Sources */,
+				27E694D41E87B33E008ACE01 /* NewDetailViewContoller.swift in Sources */,
 				27E694A21E879F0F008ACE01 /* MOJ.xcdatamodeld in Sources */,
+				27E694CB1E87A156008ACE01 /* ContactViewController.swift in Sources */,
+				CDFD67B01EAF27DB009CDF61 /* NewsData.swift in Sources */,
+				27E694DB1E87BF5D008ACE01 /* LoginViewController.swift in Sources */,
 				27E6949C1E879F0F008ACE01 /* ViewController.swift in Sources */,
+				274158E91E87DAF90086A756 /* PDFPageView.swift in Sources */,
+				2710739F1EACE49800DA14F4 /* ChangePasswordViewController.swift in Sources */,
+				CD78DCD41EA84E9600BC4CDB /* FacebookData.swift in Sources */,
+				27E694C71E87A156008ACE01 /* PsychoServiceViewController.swift in Sources */,
+				271073991EAC9B0F00DA14F4 /* PsychoNavigationController.swift in Sources */,
+				27E694C31E87A156008ACE01 /* MenuTableViewController.swift in Sources */,
+				274158EC1E87DAF90086A756 /* PDFViewController.swift in Sources */,
 				27E6949A1E879F0F008ACE01 /* AppDelegate.swift in Sources */,
+				2760108B1EAE591B008D97F4 /* PartOne.swift in Sources */,
+				27546B8F1EABA411005B5B18 /* NewsViewController.swift in Sources */,
+				27E694C61E87A156008ACE01 /* TalkWithMiniterViewController.swift in Sources */,
+				27E694D91E87BE78008ACE01 /* RegisterViewController.swift in Sources */,
+				CD78DCD51EA84E9600BC4CDB /* AccountData.swift in Sources */,
+				27E694D61E87BDC4008ACE01 /* ForgetPasswordViewController.swift in Sources */,
+				27E694CD1E87A156008ACE01 /* HowToViewController.swift in Sources */,
+				27546B951EABB3AF005B5B18 /* SearchView.swift in Sources */,
+				CD78DCD91EA84EE300BC4CDB /* Network.swift in Sources */,
+				276010841EAE5098008D97F4 /* OtherDetail.swift in Sources */,
+				271073951EABF0A100DA14F4 /* ComplainRegister.swift in Sources */,
+				27546BA01EABDC8F005B5B18 /* PsychoServiceRenew.swift in Sources */,
+				27E694CA1E87A156008ACE01 /* JobViewController.swift in Sources */,
+				27546B981EABC5E1005B5B18 /* TalkWithMinisterPostDetail.swift in Sources */,
+				274158E81E87DAF90086A756 /* PDFPageCollectionViewCell.swift in Sources */,
+				274158EA1E87DAF90086A756 /* PDFThumbnailCell.swift in Sources */,
+				276010821EAE508B008D97F4 /* OccupationAndEducation.swift in Sources */,
+				274158E71E87DAF90086A756 /* PDFDocument.swift in Sources */,
+				27E694C91E87A156008ACE01 /* NoticeViewController.swift in Sources */,
+				274158DA1E87D40D0086A756 /* PdfDetailViewController.swift in Sources */,
+				27546B9E1EABDC7E005B5B18 /* PsychoSeviceCreateNew.swift in Sources */,
+				2760108D1EAE592D008D97F4 /* PartTwo.swift in Sources */,
+				274158EB1E87DAF90086A756 /* PDFThumbnailCollectionViewController.swift in Sources */,
+				2710739B1EACBD8200DA14F4 /* StringHelper.swift in Sources */,
+				276010861EAE50CB008D97F4 /* FileEvidence.swift in Sources */,
+				CD49B7311EA9DD35005BD84E /* Design.swift in Sources */,
+				271073921EABF03E00DA14F4 /* ComplainCreateNew.swift in Sources */,
+				27546B9A1EABCB79005B5B18 /* TalkWithMinisterRegister.swift in Sources */,
+				27E694B21E879F81008ACE01 /* SWRevealViewController.m in Sources */,
+				271073A11EACE66000DA14F4 /* AccountParameter.swift in Sources */,
+				274158D21E87CCC40086A756 /* EditUserInfoViewController.swift in Sources */,
+				27E694CC1E87A156008ACE01 /* ApplicationViewController.swift in Sources */,
+				274158ED1E87DAF90086A756 /* TiledView.swift in Sources */,
+				27546B931EABABF4005B5B18 /* ContactDetailViewController.swift in Sources */,
+				CD78DCE71EA8620100BC4CDB /* AlertView.swift in Sources */,
+				27546B9C1EABCBDF005B5B18 /* TalkWithMinisterMessage.swift in Sources */,
+				276010801EAE5050008D97F4 /* ProsonalInformation.swift in Sources */,
+				271073971EABF0AD00DA14F4 /* ComplainDetail.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -260,24 +721,39 @@
 		};
 		27E694AC1E879F0F008ACE01 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0CDE17F71C2BDFEF6A447958 /* Pods-MOJ.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = MAV4HPKY6C;
 				INFOPLIST_FILE = MOJ/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.patcharats.MOJ;
+				PRODUCT_BUNDLE_IDENTIFIER = com.application.mojservice;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "MOJ/MOJ-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
 		27E694AD1E879F0F008ACE01 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C1C0523448A40D6E5D403B74 /* Pods-MOJ.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = MAV4HPKY6C;
 				INFOPLIST_FILE = MOJ/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.patcharats.MOJ;
+				PRODUCT_BUNDLE_IDENTIFIER = com.application.mojservice;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "MOJ/MOJ-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
@@ -301,6 +777,7 @@
 				27E694AD1E879F0F008ACE01 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

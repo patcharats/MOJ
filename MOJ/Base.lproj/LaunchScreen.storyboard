@@ -1,19 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
-    <customFonts key="customFonts">
-        <array key="Quark-Bold.otf">
-            <string>Quark-Bold</string>
-        </array>
-    </customFonts>
     <scenes>
         <!--View Controller-->
         <scene sceneID="EHf-IW-A2E">
@@ -27,36 +21,16 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="สำนักงานปลัดกระทรวงยุติธรรม" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="abW-P0-tx2">
-                                <rect key="frame" x="16" y="624" width="343" height="35"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="35" id="q9z-J5-EjI"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="Quark-Bold" family="Quark" pointSize="17"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d5f-TW-ams">
-                                <rect key="frame" x="16" y="273" width="343" height="121"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="121" id="zgc-cw-Jcp"/>
-                                </constraints>
-                                <string key="text">แอพลิเคชั่นสำหรับ
-ให้บริการประชาชน</string>
-                                <fontDescription key="fontDescription" name="Quark-Bold" family="Quark" pointSize="25"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="launch" translatesAutoresizingMaskIntoConstraints="NO" id="Nhg-by-EWk">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.110781543" green="0.18295663600000001" blue="0.25777035949999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="d5f-TW-ams" firstAttribute="trailing" secondItem="Ze5-6b-2t3" secondAttribute="trailingMargin" id="Evh-dh-lBf"/>
-                            <constraint firstItem="d5f-TW-ams" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leadingMargin" id="Fga-M3-d4f"/>
-                            <constraint firstItem="abW-P0-tx2" firstAttribute="trailing" secondItem="Ze5-6b-2t3" secondAttribute="trailingMargin" id="Jxe-iI-MVj"/>
-                            <constraint firstItem="d5f-TW-ams" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="N3r-sk-RtI"/>
-                            <constraint firstItem="d5f-TW-ams" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="N6l-Tl-n1U"/>
-                            <constraint firstItem="abW-P0-tx2" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leadingMargin" id="eco-HQ-KWu"/>
-                            <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="abW-P0-tx2" secondAttribute="bottom" constant="8" id="yDG-sU-eif"/>
+                            <constraint firstAttribute="trailing" secondItem="Nhg-by-EWk" secondAttribute="trailing" id="92C-dh-eYn"/>
+                            <constraint firstItem="Nhg-by-EWk" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="9XD-Nf-ibA"/>
+                            <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="Nhg-by-EWk" secondAttribute="bottom" id="XkB-t3-hPA"/>
+                            <constraint firstItem="Nhg-by-EWk" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="fhJ-dC-q0C"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -65,4 +39,7 @@
             <point key="canvasLocation" x="52" y="374.66266866566718"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="launch" width="1079" height="1882"/>
+    </resources>
 </document>
