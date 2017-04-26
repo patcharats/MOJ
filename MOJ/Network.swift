@@ -30,41 +30,57 @@ class Network: NSObject {
     let API_FEED = "feeds/"
     let API_FEED_STATUS = "feeds/status/"
     let API_FEED_UPDATE = "feeds/update/"
+    let activityIndicator = ActivityIndicatorView()
     
-    func post(name:String,param:Parameters,completionHandler:@escaping (Any,String,String) -> ()){
+    func post(name:String,param:Parameters,viewController:UIViewController,completionHandler:@escaping (Any,String,String) -> ()){
         
+        
+//        let headers: HTTPHeaders = [
+//            "Authorization": "Basic QWxhZGRpbjpvcGVuIHNlc2FtZQ==",
+//            "Accept": "application/json"
+//        ]
+//        
+//        Alamofire.request("https://httpbin.org/headers", headers: headers).responseJSON { response in
+//            debugPrint(response)
+//        }
+        
+        
+        print("******** api :\(self.API_BASE_URL+name)")
+        activityIndicator.showActivityIndicator(uiView: viewController.view)
         Alamofire.request(API_BASE_URL+name, method: .post, parameters: param, encoding: JSONEncoding.default)
             .responseJSON { response in
                 if let result = response.result.value {
                     let JSON = result as! NSDictionary
-                    print("******** api :\(self.API_BASE_URL+name)")
+                    
                     print("******** request :\(NSString(data: (response.request?.httpBody)!, encoding: String.Encoding.utf8.rawValue)!)")
                     print("******** response :\(JSON)")
                     
                     let status = JSON[self.KEY_RESPONSE_STATUS] as! NSDictionary
                     let code = status[self.KEY_RESPONSE_CODE] as! String
                     let message = status[self.KEY_RESPONSE_MESSAGE] as! String
-                    
+                    self.activityIndicator.hideActivityIndicator(uiView: viewController.view)
                     completionHandler(JSON,code,message)
+                    
                 }
         }
     }
     
-    func get(name:String,param:String,completionHandler:@escaping (Any,String,String) -> ()){
+    func get(name:String,param:String,viewController:UIViewController,completionHandler:@escaping (Any,String,String) -> ()){
         
         print("******** api :\(self.API_BASE_URL+name+param)")
+        activityIndicator.showActivityIndicator(uiView: viewController.view)
         Alamofire.request(API_BASE_URL+name+param, method: .get)
             .responseJSON { response in
                 if let result = response.result.value {
                     let JSON = result as! NSDictionary
                     
                     print("******** response :\(JSON)")
-                    
-                    
                     let status = JSON[self.KEY_RESPONSE_STATUS] as! NSDictionary
                     let code = status[self.KEY_RESPONSE_CODE] as! String
                     let message = status[self.KEY_RESPONSE_MESSAGE] as! String
+                    self.activityIndicator.hideActivityIndicator(uiView: viewController.view)
                     completionHandler(JSON,code,message)
+                    
                 }
         }
     }

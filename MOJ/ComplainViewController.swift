@@ -35,17 +35,7 @@ class ComplainViewController: UIViewController,UITableViewDelegate, UITableViewD
         design.roundViewTop(view: cell.titleLabel, radius: 5)
         design.roundViewBottom(view: cell.view, radius: 5)
         design.roundView(view: cell.proceedLabel, radius: 5)
-        design.roundView(view: cell.succeedLabel, radius: 5)
-        
-        let processStatus = true
-        if processStatus {
-            cell.proceedLabel.isHidden = true
-            cell.succeedLabel.isHidden = false
-        }
-        else{
-            cell.proceedLabel.isHidden = false
-            cell.succeedLabel.isHidden = true
-        }
+
         
         return cell
     }
@@ -81,7 +71,6 @@ class complainCell: UITableViewCell {
     
     @IBOutlet weak var complainCodeLabel: UILabel!
     @IBOutlet weak var proceedLabel: UILabel!
-    @IBOutlet weak var succeedLabel: UILabel!
 
     @IBOutlet var alertImage: UIImageView!
     

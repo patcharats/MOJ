@@ -43,7 +43,7 @@ class DowloadFormViewController: UIViewController,UITableViewDelegate, UITableVi
         tableView.dataSource = self
         tableView.backgroundColor = UIColor.clear
         
-        network.get(name: network.API_DOCUMENT, param:"", completionHandler: {
+        network.get(name: network.API_DOCUMENT, param:"", viewController: self, completionHandler: {
             (json:Any,Code:String,Message:String) in
             let jsonSwifty = JSON(json)
             self.docid = jsonSwifty[self.KEY_DOC_DATA].arrayValue.map({$0[self.KEY_DOC_ID].stringValue})

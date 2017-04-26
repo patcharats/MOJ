@@ -39,7 +39,7 @@ class ApplicationViewController: UIViewController,UITableViewDelegate, UITableVi
         tableView.dataSource = self
         tableView.backgroundColor = UIColor.clear
         
-        network.get(name: network.API_APPLICATION, param:"", completionHandler: {
+        network.get(name: network.API_APPLICATION, param:"", viewController: self, completionHandler: {
             (json:Any,Code:String,Message:String) in
             let jsonSwifty = JSON(json)
             self.appid = jsonSwifty[self.KEY_APP_DATA].arrayValue.map({$0[self.KEY_APP_ID].stringValue})

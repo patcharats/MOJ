@@ -59,7 +59,7 @@ class EditUserInfoViewController: UIViewController {
         param.lastname = lastname
         param.email = email
 
-        network.post(name: network.API_UPDATE_PROFILE, param: param.getUpdateProfileParameter(), completionHandler: {
+        network.post(name: network.API_UPDATE_PROFILE, param: param.getUpdateProfileParameter(), viewController: self, completionHandler: {
             (JSON : Any,Code:String,Message:String) in
             
             if(Code == "00000"){

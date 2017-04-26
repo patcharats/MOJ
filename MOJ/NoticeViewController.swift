@@ -41,7 +41,7 @@ class NoticeViewController: UIViewController,UITableViewDelegate, UITableViewDat
         
         let accountID = accountData.getAccountID()
         
-        network.get(name: network.API_FEED, param:accountID+"/6", completionHandler: {
+        network.get(name: network.API_FEED, param:accountID+"/6", viewController: self, completionHandler: {
             (json:Any,Code:String,Message:String) in
             let jsonSwifty = JSON(json)
             self.lastupd = jsonSwifty[self.KEY_NEWS_DATA].arrayValue.map({$0[self.KEY_NEWS_LAST_UPDATE].stringValue})

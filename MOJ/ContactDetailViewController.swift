@@ -54,7 +54,7 @@ class ContactDetailViewController: UIViewController,UITableViewDelegate, UITable
         tableView.dataSource = self
         tableView.backgroundColor = UIColor.clear
         print(selectDpid)
-        network.get(name: network.API_DEPARTMENT, param: selectDpid, completionHandler: {
+        network.get(name: network.API_DEPARTMENT, param: selectDpid, viewController: self, completionHandler: {
             (json:Any,Code:String,Message:String) in
             let jsonSwifty = JSON(json)
 

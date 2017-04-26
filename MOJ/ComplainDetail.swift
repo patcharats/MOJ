@@ -45,7 +45,6 @@ class ComplainDetail: UIViewController,UITableViewDelegate, UITableViewDataSourc
         design.roundViewTop(view: cell.titleLabel, radius: 5)
         design.roundViewBottom(view: cell.viewDetail, radius: 5)
         design.roundView(view: cell.proceedLabel, radius: 5)
-        design.roundView(view: cell.succeedLabel, radius: 5)
         cell.detailTextView.font = UIFont(name: "Quark-Bold", size: 15)
         
         if indexPath.row == 0 {
@@ -58,16 +57,7 @@ class ComplainDetail: UIViewController,UITableViewDelegate, UITableViewDataSourc
             cell.viewDetail.isHidden = true
             cell.viewRyply.isHidden = false
         }
-        
-        let processStatus = true
-        if processStatus {
-            cell.proceedLabel.isHidden = true
-            cell.succeedLabel.isHidden = false
-        }
-        else{
-            cell.proceedLabel.isHidden = false
-            cell.succeedLabel.isHidden = true
-        }
+       
         
         return cell
     }
@@ -91,7 +81,6 @@ class complainDetailCell: UITableViewCell {
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var complainCodeLabel: UILabel!
     @IBOutlet weak var proceedLabel: UILabel!
-    @IBOutlet weak var succeedLabel: UILabel!
     @IBOutlet weak var alertImage: UIImageView!
     @IBOutlet var imageView1: UIImageView!
     @IBOutlet var imageView2: UIImageView!

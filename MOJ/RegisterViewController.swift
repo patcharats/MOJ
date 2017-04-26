@@ -64,7 +64,7 @@ class RegisterViewController: UIViewController {
         param.email = email
         param.password = stringHelper.getAesString(plainText: password!)
         param.channal = "email"
-        network.post(name: network.API_REGISTER, param: param.getRegisterParameter(), completionHandler: {
+        network.post(name: network.API_REGISTER, param: param.getRegisterParameter(), viewController: self, completionHandler: {
             (JSON : Any,Code:String,Message:String) in
             
             if(Code == "00000"){

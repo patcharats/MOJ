@@ -28,7 +28,7 @@ class ForgetPasswordViewController: UIViewController {
         }
         else{
             param.email = email
-            network.post(name: network.API_FORGOT_PASSWORD, param: param.getForgetPasswordParameter(), completionHandler: {
+            network.post(name: network.API_FORGOT_PASSWORD, param: param.getForgetPasswordParameter(), viewController: self, completionHandler: {
                 (JSON : Any,Code:String,Message:String) in
                 
                 if(Code == "00000"){

@@ -71,6 +71,7 @@
 		CD78DCD91EA84EE300BC4CDB /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD78DCD71EA84EE300BC4CDB /* Network.swift */; };
 		CD78DCE71EA8620100BC4CDB /* AlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD78DCE61EA8620100BC4CDB /* AlertView.swift */; };
 		CDFD67B01EAF27DB009CDF61 /* NewsData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDFD67AF1EAF27DB009CDF61 /* NewsData.swift */; };
+		CDFD89671EB06EBD00BCB86F /* ActivityIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDFD89661EB06EBD00BCB86F /* ActivityIndicatorView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -144,6 +145,7 @@
 		CD78DCD71EA84EE300BC4CDB /* Network.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
 		CD78DCE61EA8620100BC4CDB /* AlertView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertView.swift; sourceTree = "<group>"; };
 		CDFD67AF1EAF27DB009CDF61 /* NewsData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsData.swift; sourceTree = "<group>"; };
+		CDFD89661EB06EBD00BCB86F /* ActivityIndicatorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityIndicatorView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -414,6 +416,7 @@
 				CD78DCE61EA8620100BC4CDB /* AlertView.swift */,
 				CD49B7301EA9DD35005BD84E /* Design.swift */,
 				2710739A1EACBD8200DA14F4 /* StringHelper.swift */,
+				CDFD89661EB06EBD00BCB86F /* ActivityIndicatorView.swift */,
 			);
 			name = Helper;
 			sourceTree = "<group>";
@@ -571,6 +574,7 @@
 				27E694D91E87BE78008ACE01 /* RegisterViewController.swift in Sources */,
 				CD78DCD51EA84E9600BC4CDB /* AccountData.swift in Sources */,
 				27E694D61E87BDC4008ACE01 /* ForgetPasswordViewController.swift in Sources */,
+				CDFD89671EB06EBD00BCB86F /* ActivityIndicatorView.swift in Sources */,
 				27E694CD1E87A156008ACE01 /* HowToViewController.swift in Sources */,
 				27546B951EABB3AF005B5B18 /* SearchView.swift in Sources */,
 				CD78DCD91EA84EE300BC4CDB /* Network.swift in Sources */,

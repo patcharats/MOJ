@@ -60,7 +60,8 @@ class AccountData: NSObject {
     }
     
     func isLogin()->Bool{
-        return userdefault.bool(forKey: KEY_IS_LOGIN) 
+        return userdefault.bool(forKey: KEY_IS_LOGIN)
+        
     }
     
     // isAdmin
@@ -80,7 +81,12 @@ class AccountData: NSObject {
     }
     
     func getAccountID()->String{
-        return userdefault.value(forKey: KEY_ACCOUNT_ID) as! String
+        
+        if userdefault.value(forKey: KEY_ACCOUNT_ID) != nil{
+            return userdefault.value(forKey: KEY_ACCOUNT_ID) as! String
+        }
+        
+        return ""
     }
     
     // AccountEmail
@@ -90,7 +96,12 @@ class AccountData: NSObject {
     }
     
     func getAccountEmail()->String{
-        return userdefault.value(forKey: KEY_ACCOUNT_EMAIL) as! String
+        
+        if userdefault.value(forKey: KEY_ACCOUNT_EMAIL) != nil{
+            return userdefault.value(forKey: KEY_ACCOUNT_EMAIL) as! String
+        }
+        
+        return ""
     }
     
     // AccountFirstname
@@ -100,7 +111,12 @@ class AccountData: NSObject {
     }
     
     func getAccountFirstName()->String{
-        return userdefault.value(forKey: KEY_ACCOUNT_FIRST_NAME) as! String
+        
+        if userdefault.value(forKey: KEY_ACCOUNT_FIRST_NAME) != nil{
+            return userdefault.value(forKey: KEY_ACCOUNT_FIRST_NAME) as! String
+        }
+        
+        return ""
     }
     
     // AccountLastname
@@ -110,7 +126,12 @@ class AccountData: NSObject {
     }
     
     func getAccountLastName()->String{
-        return userdefault.value(forKey: KEY_ACCOUNT_LAST_NAME) as! String
+        
+        if userdefault.value(forKey: KEY_ACCOUNT_LAST_NAME) != nil{
+            return userdefault.value(forKey: KEY_ACCOUNT_LAST_NAME) as! String
+        }
+        
+        return ""
     }
     
     // AccountPhoneNo
@@ -120,7 +141,12 @@ class AccountData: NSObject {
     }
     
     func getAccountPhoneNo()->String{
-        return userdefault.value(forKey: KEY_ACCOUNT_PHONE_NO) as! String
+        
+        if userdefault.value(forKey: KEY_ACCOUNT_PHONE_NO) != nil{
+            return userdefault.value(forKey: KEY_ACCOUNT_PHONE_NO) as! String
+        }
+        
+        return ""
     }
     
     // AccountToken
@@ -130,7 +156,12 @@ class AccountData: NSObject {
     }
     
     func getAccountToken()->String{
-        return userdefault.value(forKey: KEY_ACCOUNT_TOKEN) as! String
+        
+        if userdefault.value(forKey: KEY_ACCOUNT_TOKEN) != nil{
+            return userdefault.value(forKey: KEY_ACCOUNT_TOKEN) as! String
+        }
+        
+        return ""
     }
     
     // AccountLastLogin
@@ -140,7 +171,12 @@ class AccountData: NSObject {
     }
     
     func getAccountLastLogin()->String{
-        return userdefault.value(forKey: KEY_ACCOUNT_LAST_LOGIN) as! String
+        
+        if userdefault.value(forKey: KEY_ACCOUNT_LAST_LOGIN) != nil{
+            return userdefault.value(forKey: KEY_ACCOUNT_LAST_LOGIN) as! String
+        }
+        
+        return ""
     }
     
 }

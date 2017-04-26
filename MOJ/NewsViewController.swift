@@ -70,7 +70,11 @@ class NewsViewController: UIViewController,UITableViewDelegate, UITableViewDataS
         
         let accountID = accountData.getAccountID()
         
-        network.get(name: network.API_FEED_STATUS, param:accountID, completionHandler: {
+        if accountID.characters.count < 1{
+            accountID == "0"
+        }
+        
+        network.get(name: network.API_FEED_STATUS, param:accountID, viewController: self, completionHandler: {
             (json:Any,Code:String,Message:String) in
             let jsonSwifty = JSON(json)
             self.groupNewsgrpid = jsonSwifty[self.KEY_NEWS_DATA].arrayValue.map({$0[self.KEY_NEWS_GROUP_ID].stringValue})
@@ -81,7 +85,7 @@ class NewsViewController: UIViewController,UITableViewDelegate, UITableViewDataS
             self.tableViewGroup.reloadData()
         })
         
-        network.get(name: network.API_FEED, param:accountID, completionHandler: {
+        network.get(name: network.API_FEED, param:accountID, viewController: self, completionHandler: {
             (json:Any,Code:String,Message:String) in
             let jsonSwifty = JSON(json)
             self.lastupd = jsonSwifty[self.KEY_NEWS_DATA].arrayValue.map({$0[self.KEY_NEWS_LAST_UPDATE].stringValue})

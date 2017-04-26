@@ -89,7 +89,7 @@ class LoginViewController: UIViewController {
         param.password = stringHelper.getAesString(plainText: password!)
         param.channal = channel
         param.facebook_token = token
-        network.post(name: network.API_LOGIN, param: param.getLoginParameter(), completionHandler: {
+        network.post(name: network.API_LOGIN, param: param.getLoginParameter(), viewController: self, completionHandler: {
             (JSON : Any,Code:String,Message:String) in
             
             

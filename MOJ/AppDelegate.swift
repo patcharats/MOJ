@@ -26,7 +26,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         setupNavigationBar()
         IQKeyboardManager.sharedManager().enable = true
         FBSDKSettings.setAppID(FACEBOOK_APP_ID)
-        setRootView(isLogin: account.isLogin())
+        //setRootView(isLogin: account.isLogin())
         
         return FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
     }
