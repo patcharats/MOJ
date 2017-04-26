@@ -83,8 +83,15 @@ class DowloadFormViewController: UIViewController,UITableViewDelegate, UITableVi
         return cell
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        showRemotePDFDocument(remotePDFDocumentURLPath: docurl[indexPath.row],title:name[indexPath.row])
+    }
+    
     func downloadButton(sender: UIButton!) {
-        showRemotePDFDocument(remotePDFDocumentURLPath: docurl[sender.tag],title:name[sender.tag])
+        
+        let url = URL(string: docurl[sender.tag])
+        UIApplication.shared.open(url!, options: [:], completionHandler: nil)
+        
     }
     
     func shareButton(sender: UIButton!) {
@@ -92,29 +99,12 @@ class DowloadFormViewController: UIViewController,UITableViewDelegate, UITableVi
         let activityViewController = UIActivityViewController(activityItems: [url!], applicationActivities: nil)
         
         activityViewController.popoverPresentationController?.sourceRect = CGRect(x: 150, y: 150, width: 0, height: 0)
-
-        activityViewController.excludedActivityTypes = [
-            UIActivityType.postToWeibo,
-            UIActivityType.postToFlickr,
-            UIActivityType.assignToContact,
-            UIActivityType.saveToCameraRoll,
-            UIActivityType.addToReadingList,
-            UIActivityType.postToFlickr,
-            UIActivityType.postToVimeo,
-            UIActivityType.postToTencentWeibo
-        ]
         
         self.present(activityViewController, animated: true, completion: nil)
         
 
     }
-    
-    func prepare(for segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == PDF_DETAIL_VIEW_CONTROLLER {
-            _ = segue.destination as! PdfDetailViewController
-        }
-        
-    }
+
 
     
     func setupMenuButton() {
@@ -138,8 +128,8 @@ class DowloadFormViewController: UIViewController,UITableViewDelegate, UITableVi
     
 
     func showRemotePDFDocument(remotePDFDocumentURLPath:String,title:String) {
-        let remote = "http://www.pdf995.com/samples/pdf.pdf"
-        if let remotePDFDocumentURL = URL(string: remote),
+        //let remote = "http://www.pdf995.com/samples/pdf.pdf"
+        if let remotePDFDocumentURL = URL(string: remotePDFDocumentURLPath),
             let doc = document(remotePDFDocumentURL) {
             showDocument(doc, title: title)
         } else {

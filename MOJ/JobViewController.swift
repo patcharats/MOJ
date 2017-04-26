@@ -13,6 +13,7 @@ class JobViewController: UIViewController,UITableViewDelegate, UITableViewDataSo
     let design = Design()
     let accountData = AccountData()
     let network = Network()
+    let stringHelper = StringHelper()
     @IBOutlet var menuButton: UIBarButtonItem!
     @IBOutlet weak var tableView: UITableView!
     
@@ -28,7 +29,9 @@ class JobViewController: UIViewController,UITableViewDelegate, UITableViewDataSo
     let KEY_NEWS_TITLE = "newstitle"
     let KEY_NEWS_URL = "newsurl"
     let KEY_NEWS_LAST_UPDATE = "lastupd"
-    
+    var selectNewsUrl:String = ""
+    var selectTitle:String = ""
+    let NEWS_DETAIL = "NewsDetailViewController"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -67,11 +70,33 @@ class JobViewController: UIViewController,UITableViewDelegate, UITableViewDataSo
         cell.backgroundColor = UIColor.clear
         design.roundView(view: cell.view, radius: 5)
         cell.titleLabel.text = newstitle[indexPath.row]
+        cell.titleLabel.font = UIFont(name: "Quark-Bold", size: 15)
+        cell.titleLabel.numberOfLines = 0
         cell.titleLabel.lineBreakMode = NSLineBreakMode.byWordWrapping
-        cell.titleLabel.numberOfLines = 3
-        cell.dateLabel.text = lastupd[indexPath.row]
+        
+        
+        cell.dateLabel.text = stringHelper.getDatefromString(dateString: lastupd[indexPath.row])
         return cell
     }
+    
+  
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+       
+            selectNewsUrl = newsurl[indexPath.row]
+            selectTitle = newstitle[indexPath.row]
+            
+            performSegue(withIdentifier: NEWS_DETAIL, sender: nil)
+        
+        
+    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == NEWS_DETAIL{
+            let controller = segue.destination as! NewDetailViewController
+            controller.selectNewsUrl = selectNewsUrl
+            controller.selectTitle = selectTitle
+        }
+    }
+    
     
     func setupMenuButton() {
         if revealViewController() != nil {

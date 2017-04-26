@@ -75,8 +75,6 @@ class LoginViewController: UIViewController {
                 if (error == nil){
                     
                     self.facebookdata.getFacebookData(json: result!)
-//                    self.email = self.facebookdata.facebookEmail
-//                    self.facebook_id = self.facebookdata.facebookID
                     self.channel = "facebook"
                     self.getLogin()
                 }
@@ -84,11 +82,19 @@ class LoginViewController: UIViewController {
         }
     }
     
+
+    
     func getLogin(){
-        param.username = email
-        param.password = stringHelper.getAesString(plainText: password!)
+        
+        if channel == "facebook"{
+            param.facebook_token = token
+        }
+        else{
+            param.password = stringHelper.getAesString(plainText: password!)
+        }
         param.channal = channel
-        param.facebook_token = token
+        param.username = email
+        
         network.post(name: network.API_LOGIN, param: param.getLoginParameter(), viewController: self, completionHandler: {
             (JSON : Any,Code:String,Message:String) in
             
@@ -109,6 +115,7 @@ class LoginViewController: UIViewController {
         email = emailTextfield.text!
         password = passwordTextfield.text!
         channel = "email"
+        token = ""
         if (email?.isEmpty)! || (password?.isEmpty)! {
             alertView.alert(title: alertView.ALERT_NULL_INPUT, message: "", buttonTitle: alertView.ALERT_OK, controller: self)
         }

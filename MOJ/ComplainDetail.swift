@@ -7,9 +7,60 @@
 //
 
 import Foundation
+import SwiftyJSON
 class ComplainDetail: UIViewController,UITableViewDelegate, UITableViewDataSource{
     
     let design = Design()
+    let network = Network()
+    let accountData = AccountData()
+    var selectComplaintID:String = ""
+    
+    
+    // detail
+    
+    
+    let KEY_COMPLAIN_DATA = "data"
+    let KEY_COMPLAIN_CATAGORIE_ID = "cmpltcatid"
+    let KEY_COMPLAIN_CODE = "cmpltcode"
+    let KEY_COMPLAIN_CONTENT = "cmpltcontent"
+    let KEY_COMPLAIN_CONTENT_ID = "cmpltconttentid"
+    let KEY_COMPLAIN_DATE = "cmpltdattm"
+    let KEY_COMPLAIN_ID = "cmpltid"
+    let KEY_COMPLAIN_STATUS = "cmpltstatus"
+    let KEY_COMPLAIN_SUBJECT = "cmpltsubject"
+    let KEY_COMPLAIN_USER_ID = "cmpltuserid"
+     let KEY_COMPLAIN_IMAGE = "image"
+    let KEY_COMPLAIN_IMAGE_ID = "cpltImgId"
+    let KEY_COMPLAIN_IMAGE_NAME = "cpltImgRename"
+    
+    var cmpltcatid:[String] = []
+    var cmpltcode:[String] = []
+    var cmpltcontent:[String] = []
+    var cmpltconttentid:[String] = []
+    var cmpltid:[String] = []
+    var cmpltdattm:[String] = []
+    var cmpltstatus:[String] = []
+    var cmpltsubject:[String] = []
+    var cmpltuserid:[String] = []
+    var images:[String:Any] = [:]
+    var cpltImgId:[String] = []
+    var cpltImgRename:[String] = []
+    
+    // reply
+    
+    let KEY_COMPLAIN_INST_NAME = "instName"
+    let KEY_COMPLAIN_REPLY_DATE = "reptDateTime"
+    let KEY_COMPLAIN_REPLY_DETAIL = "reptDetail"
+    let KEY_COMPLAIN_REPLY_ID = "reptId"
+    let KEY_COMPLAIN_REPLY_STATUS = "respStatus"
+    
+    var instName:[String] = []
+    var reptDateTime:[String] = []
+    var reptDetail:[String] = []
+    var reptId:[String] = []
+    var respStatus:[String] = []
+    
+    @IBOutlet var addButton: UIBarButtonItem!
     @IBOutlet var tableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -17,12 +68,65 @@ class ComplainDetail: UIViewController,UITableViewDelegate, UITableViewDataSourc
         tableView.delegate = self
         tableView.dataSource = self
         tableView.backgroundColor = UIColor.clear
+        
+        if accountData.isLogin() {
+            addButton.image = UIImage(named: "ic_add")
+            addButton.isEnabled = true
+        }
+        else{
+            addButton.image = UIImage(named: "")
+            addButton.isEnabled = false
+        }
+        
+        var accountID = accountData.getAccountID()
+
+        network.get(name: network.API_COMPLAINT, param: accountID+"/"+selectComplaintID, viewController: self, completionHandler: {
+            (json:Any,Code:String,Message:String) in
+            let jsonSwifty = JSON(json)
+            
+            self.cmpltcatid = jsonSwifty[self.KEY_COMPLAIN_DATA].arrayValue.map({$0[self.KEY_COMPLAIN_CATAGORIE_ID].stringValue})
+            self.cmpltcode = jsonSwifty[self.KEY_COMPLAIN_DATA].arrayValue.map({$0[self.KEY_COMPLAIN_CODE].stringValue})
+            self.cmpltcontent = jsonSwifty[self.KEY_COMPLAIN_DATA].arrayValue.map({$0[self.KEY_COMPLAIN_CONTENT].stringValue})
+            self.cmpltconttentid = jsonSwifty[self.KEY_COMPLAIN_DATA].arrayValue.map({$0[self.KEY_COMPLAIN_CONTENT_ID].stringValue})
+            self.cmpltid = jsonSwifty[self.KEY_COMPLAIN_DATA].arrayValue.map({$0[self.KEY_COMPLAIN_ID].stringValue})
+            self.cmpltdattm = jsonSwifty[self.KEY_COMPLAIN_DATA].arrayValue.map({$0[self.KEY_COMPLAIN_DATE].stringValue})
+            self.cmpltstatus = jsonSwifty[self.KEY_COMPLAIN_DATA].arrayValue.map({$0[self.KEY_COMPLAIN_STATUS].stringValue})
+            self.cmpltsubject = jsonSwifty[self.KEY_COMPLAIN_DATA].arrayValue.map({$0[self.KEY_COMPLAIN_SUBJECT].stringValue})
+            self.cmpltuserid = jsonSwifty[self.KEY_COMPLAIN_DATA].arrayValue.map({$0[self.KEY_COMPLAIN_USER_ID].stringValue})
+            
+            
+            print("cmpltuserid :\(self.cmpltuserid)")
+            
+            self.images = jsonSwifty[self.KEY_COMPLAIN_IMAGE].dictionaryObject!
+            
+            print("images :\(self.images)")
+            
+            self.cpltImgId = self.images[self.KEY_COMPLAIN_IMAGE_ID] as! [String]
+            self.cpltImgRename = self.images[self.KEY_COMPLAIN_IMAGE_NAME] as! [String]
+            
+            print("cpltImgRename :\(self.cpltImgRename)")
+            
+            self.network.get(name: self.network.API_COMPLAINT_REPLY, param: "1"+"/"+self.selectComplaintID, viewController: self, completionHandler: {
+                (json:Any,Code:String,Message:String) in
+                let jsonSwifty = JSON(json)
+                self.instName = jsonSwifty[self.KEY_COMPLAIN_DATA].arrayValue.map({$0[self.KEY_COMPLAIN_INST_NAME].stringValue})
+                self.reptDateTime = jsonSwifty[self.KEY_COMPLAIN_DATA].arrayValue.map({$0[self.KEY_COMPLAIN_REPLY_DATE].stringValue})
+                self.reptDetail = jsonSwifty[self.KEY_COMPLAIN_DATA].arrayValue.map({$0[self.KEY_COMPLAIN_REPLY_DETAIL].stringValue})
+                self.reptId = jsonSwifty[self.KEY_COMPLAIN_DATA].arrayValue.map({$0[self.KEY_COMPLAIN_REPLY_ID].stringValue})
+                self.respStatus = jsonSwifty[self.KEY_COMPLAIN_DATA].arrayValue.map({$0[self.KEY_COMPLAIN_REPLY_STATUS].stringValue})
+                
+                self.tableView.reloadData()
+            })
+        })
+        
+        
+        
     }
     
 
     // MARK: UITableView
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 2
+        return reptId.count+1
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat
@@ -48,14 +152,27 @@ class ComplainDetail: UIViewController,UITableViewDelegate, UITableViewDataSourc
         cell.detailTextView.font = UIFont(name: "Quark-Bold", size: 15)
         
         if indexPath.row == 0 {
-            
             cell.viewDetail.isHidden = false
             cell.viewRyply.isHidden = true
+            
+            cell.detailTextView.text = cmpltcontent[indexPath.row]
+            cell.titleLabel.text = cmpltsubject[indexPath.row]
+            cell.dateLabel.text = cmpltdattm[indexPath.row]
+            cell.complainCodeLabel.text = cmpltcode[indexPath.row]
+            cell.proceedLabel.text = cmpltstatus[indexPath.row]
+            
+            cell.imageView1.sd_setImage(with: URL(string: cpltImgRename[0]), placeholderImage: UIImage(named: "image_def_bog"))
+            cell.imageView2.sd_setImage(with: URL(string: cpltImgRename[1]), placeholderImage: UIImage(named: "image_def_bog"))
+            cell.imageView3.isHidden = true
+            
         }
         else{
-
             cell.viewDetail.isHidden = true
             cell.viewRyply.isHidden = false
+            cell.ryplyDetailLabel.text = reptDetail[indexPath.row-1]
+            cell.ryplyDateLabel.text = reptDateTime[indexPath.row-1]
+            
+            
         }
        
         

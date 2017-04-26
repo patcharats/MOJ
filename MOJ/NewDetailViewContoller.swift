@@ -21,8 +21,12 @@ class NewDetailViewController: UIViewController,UIWebViewDelegate {
         if stringHelper.verifyUrl(urlString: selectNewsUrl) {
             
             setupWebView()
+            newsTextview.isHidden = true
+            webView.isHidden = false
         }
         else{
+            webView.isHidden = true
+            newsTextview.isHidden = false
             newsTextview.text = selectTitle
             newsTextview.font = UIFont(name: "Quark-Bold", size: 15)
         }

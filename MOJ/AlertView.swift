@@ -48,10 +48,14 @@ class AlertView: NSObject {
     let ALERT_CREATE_NEW_SUCCESS = "ส่งคำขอขึ้นทะเบียนเรียบร้อย"
     let ALERT_RENEW_SUCCESS = "ส่งคำขอต่ออายุบัตรเรียบร้อย"
     let ALERT_NULL_REASON = "กรุณาระบุเหตุผลที่ไม่อนุมัติ"
+    let ALERT_LOGIN = "กรุณาเข้าสู่ระบบ"
+    
+    let ALERT_LOGOUT = "คุณต้องการออกจากระบบ?"
     
     //news
     let ALERT_NEWS_NO_INTERNET = "ไม่สามารถคัดกรองข่าวสารได้ กรุณาเชื่อมต่ออินเตอร์เน็ตก่อนค่ะ"
     
+    let LOGIN_VIEW_CONTROLLER = "NavigationLogin"
     
     func alert(title:String,message:String,buttonTitle:String,controller: UIViewController){
         let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
@@ -91,5 +95,13 @@ class AlertView: NSObject {
         controller.present(alert, animated: true, completion: nil)
     }
     
+    
+    func setMainViewController(){
+        let mainStoryBoard = UIStoryboard(name: "Main", bundle: nil)
+        let swRevealViewController = mainStoryBoard.instantiateViewController(withIdentifier: LOGIN_VIEW_CONTROLLER)
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        appDelegate.window?.rootViewController = swRevealViewController
+        
+    }
     
 }

@@ -24,6 +24,7 @@ class NewsViewController: UIViewController,UITableViewDelegate, UITableViewDataS
     
     @IBOutlet var menuButton: UIBarButtonItem!
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet var filterButton: UIBarButtonItem!
     
     @IBOutlet weak var confirmFilterButton: UIButton!
     var newsgrpid:[Int] = []
@@ -68,11 +69,19 @@ class NewsViewController: UIViewController,UITableViewDelegate, UITableViewDataS
         design.roundView(view: viewGroup, radius: 5)
         design.roundView(view: confirmFilterButton, radius: 5)
         
-        let accountID = accountData.getAccountID()
-        
-        if accountID.characters.count < 1{
-            accountID == "0"
+        if accountData.isLogin() {
+            filterButton.isEnabled = true
+            filterButton.image = UIImage(named: "ic_filter")
         }
+        else{
+            filterButton.isEnabled = false
+            filterButton.image = UIImage(named: "")
+            
+        }
+
+        
+        var accountID = accountData.getAccountID()
+
         
         network.get(name: network.API_FEED_STATUS, param:accountID, viewController: self, completionHandler: {
             (json:Any,Code:String,Message:String) in
@@ -140,9 +149,10 @@ class NewsViewController: UIViewController,UITableViewDelegate, UITableViewDataS
             cell.backgroundColor = UIColor.clear
             design.roundView(view: cell.view, radius: 5)
             cell.titleLabel.text = newstitle[indexPath.row]
+            cell.titleLabel.font = UIFont(name: "Quark-Bold", size: 15)
+            cell.titleLabel.numberOfLines = 0
             cell.titleLabel.lineBreakMode = NSLineBreakMode.byWordWrapping
-            cell.titleLabel.numberOfLines = 3
-            cell.dateLabel.text = lastupd[indexPath.row]
+            cell.dateLabel.text = stringHelper.getDatefromString(dateString: lastupd[indexPath.row]) 
             cell.newsImageView.sd_setImage(with: URL(string: newsthumb[indexPath.row]), placeholderImage: UIImage(named: "image_def_bog"))
             return cell
         }

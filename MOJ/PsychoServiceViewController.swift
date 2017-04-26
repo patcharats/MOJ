@@ -10,14 +10,16 @@ import Foundation
 import UIKit
 class PsychoServiceViewController: UIViewController {
     let design = Design()
+    let alertView = AlertView()
     let DOCUMENT_COMPLETE = "เอกสารครบแล้ว"
     let DOCUMENT_NOT_COMPLETE = "เอกสารไม่ครบ"
-    let TYPE_NOT_FOUND = 1
-    let TYPE_45_EXPIRE = 2
-    let TYPE_EXPIRE = 3
-    let TYPE_COMPLETE = 4
-    let TYPE_NOT_COMPLETE = 5
     
+    let TYPE_NOT_LOGIN = 0
+    let TYPE_COMPLETE = 0001
+    let TYPE_NOT_COMPLETE = 0002
+    let TYPE_EXPIRE = 0003
+    let TYPE_45_EXPIRE = 0004
+    let TYPE_NOT_FOUND = 0005
     @IBOutlet var menuButton: UIBarButtonItem!
     @IBOutlet var idCardView: UIView!
     @IBOutlet var resultTextView: UITextView!
@@ -26,6 +28,8 @@ class PsychoServiceViewController: UIViewController {
     @IBOutlet var renewButton: UIButton!
     @IBOutlet var centerButton: UIButton!
     
+    @IBOutlet var createNewButton: UIButton!
+    @IBOutlet var addButton: UIBarButtonItem!
     @IBOutlet var expireLabel: UILabel!
     @IBOutlet var foundView: UIView!
     @IBOutlet var notfoundView: UIView!
@@ -35,11 +39,38 @@ class PsychoServiceViewController: UIViewController {
         
         setupMenuButton()
         setupDesign()
-        setupView(type: TYPE_EXPIRE)
+        
+        let account = AccountData()
+        if account.isLogin() {
+            setupView(type: TYPE_NOT_FOUND)
+            addButton.isEnabled = true
+            addButton.image = UIImage(named: "ic_add")
+        }
+        else{
+            setupView(type: TYPE_NOT_LOGIN)
+            addButton.isEnabled = false
+            addButton.image = UIImage(named: "")
+            
+            alertView.alertWithAction(title:"", message: self.alertView.ALERT_LOGIN, buttonTitle: self.alertView.ALERT_OK, controller: self, completionHandler: {
+                (button : Bool) in
+                if button {
+                    self.alertView.setMainViewController()
+                }
+            });
+        }
+        
+        
     }
+    
+    
     
     func setupView(type:Int){
         switch type {
+        case TYPE_NOT_LOGIN:
+            foundView.isHidden = true
+            notfoundView.isHidden = true
+            
+            break
         case TYPE_NOT_FOUND:
             foundView.isHidden = true
             notfoundView.isHidden = false
@@ -95,6 +126,7 @@ class PsychoServiceViewController: UIViewController {
     
     func setupDesign(){
         
+        design.roundView(view: createNewButton, radius: 5)
         design.roundView(view: renewButton, radius: 5)
         design.roundView(view: centerButton, radius: 5)
         design.roundView(view: statusLabel, radius: 5)

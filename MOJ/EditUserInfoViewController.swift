@@ -21,9 +21,11 @@ class EditUserInfoViewController: UIViewController {
     @IBOutlet var lastnameTextfield: UITextField!
     @IBOutlet var emailnameTextfield: UITextField!
     
+    @IBOutlet var phoneTextfield: UITextField!
     var firstname:String? = ""
     var lastname:String? = ""
     var email:String? = ""
+    var phone:String? = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,6 +41,7 @@ class EditUserInfoViewController: UIViewController {
         firstname = firstnameTextfield.text!
         lastname = lastnameTextfield.text!
         email = emailnameTextfield.text!
+        phone = phoneTextfield.text!
         
         if (firstname?.isEmpty)! || (lastname?.isEmpty)! || (email?.isEmpty)!{
             alertView.alert(title: alertView.ALERT_NULL_INPUT, message: "", buttonTitle: alertView.ALERT_OK, controller: self)
@@ -58,7 +61,8 @@ class EditUserInfoViewController: UIViewController {
         param.firstname = firstname
         param.lastname = lastname
         param.email = email
-
+        param.phoneno = phone
+        
         network.post(name: network.API_UPDATE_PROFILE, param: param.getUpdateProfileParameter(), viewController: self, completionHandler: {
             (JSON : Any,Code:String,Message:String) in
             

@@ -70,6 +70,8 @@ class ContactDetailViewController: UIViewController,UITableViewDelegate, UITable
         
     }
     
+    
+    
     // MARK: UITableView
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return name.count

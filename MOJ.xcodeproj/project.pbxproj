@@ -14,8 +14,8 @@
 		2710739B1EACBD8200DA14F4 /* StringHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2710739A1EACBD8200DA14F4 /* StringHelper.swift */; };
 		2710739F1EACE49800DA14F4 /* ChangePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2710739E1EACE49800DA14F4 /* ChangePasswordViewController.swift */; };
 		271073A11EACE66000DA14F4 /* AccountParameter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 271073A01EACE66000DA14F4 /* AccountParameter.swift */; };
+		27126CC81EB122D900E39402 /* ComplaintParameter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27126CC71EB122D900E39402 /* ComplaintParameter.swift */; };
 		274158D21E87CCC40086A756 /* EditUserInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 274158D11E87CCC40086A756 /* EditUserInfoViewController.swift */; };
-		274158DA1E87D40D0086A756 /* PdfDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 274158D91E87D40D0086A756 /* PdfDetailViewController.swift */; };
 		274158DF1E87DAEE0086A756 /* PDFReader.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 274158DE1E87DAEE0086A756 /* PDFReader.storyboard */; };
 		274158E71E87DAF90086A756 /* PDFDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 274158E01E87DAF90086A756 /* PDFDocument.swift */; };
 		274158E81E87DAF90086A756 /* PDFPageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 274158E11E87DAF90086A756 /* PDFPageCollectionViewCell.swift */; };
@@ -84,8 +84,8 @@
 		2710739A1EACBD8200DA14F4 /* StringHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringHelper.swift; sourceTree = "<group>"; };
 		2710739E1EACE49800DA14F4 /* ChangePasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangePasswordViewController.swift; sourceTree = "<group>"; };
 		271073A01EACE66000DA14F4 /* AccountParameter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountParameter.swift; sourceTree = "<group>"; };
+		27126CC71EB122D900E39402 /* ComplaintParameter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComplaintParameter.swift; sourceTree = "<group>"; };
 		274158D11E87CCC40086A756 /* EditUserInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditUserInfoViewController.swift; sourceTree = "<group>"; };
-		274158D91E87D40D0086A756 /* PdfDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PdfDetailViewController.swift; sourceTree = "<group>"; };
 		274158DE1E87DAEE0086A756 /* PDFReader.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = PDFReader.storyboard; sourceTree = "<group>"; };
 		274158E01E87DAF90086A756 /* PDFDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PDFDocument.swift; sourceTree = "<group>"; };
 		274158E11E87DAF90086A756 /* PDFPageCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PDFPageCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -175,7 +175,6 @@
 			isa = PBXGroup;
 			children = (
 				27E694BA1E87A156008ACE01 /* DowloadFormViewController.swift */,
-				274158D91E87D40D0086A756 /* PdfDetailViewController.swift */,
 			);
 			name = DowloadForm;
 			sourceTree = "<group>";
@@ -406,6 +405,7 @@
 			children = (
 				CD78DCD71EA84EE300BC4CDB /* Network.swift */,
 				271073A01EACE66000DA14F4 /* AccountParameter.swift */,
+				27126CC71EB122D900E39402 /* ComplaintParameter.swift */,
 			);
 			name = Network;
 			sourceTree = "<group>";
@@ -564,6 +564,7 @@
 				2710739F1EACE49800DA14F4 /* ChangePasswordViewController.swift in Sources */,
 				CD78DCD41EA84E9600BC4CDB /* FacebookData.swift in Sources */,
 				27E694C71E87A156008ACE01 /* PsychoServiceViewController.swift in Sources */,
+				27126CC81EB122D900E39402 /* ComplaintParameter.swift in Sources */,
 				271073991EAC9B0F00DA14F4 /* PsychoNavigationController.swift in Sources */,
 				27E694C31E87A156008ACE01 /* MenuTableViewController.swift in Sources */,
 				274158EC1E87DAF90086A756 /* PDFViewController.swift in Sources */,
@@ -588,7 +589,6 @@
 				276010821EAE508B008D97F4 /* OccupationAndEducation.swift in Sources */,
 				274158E71E87DAF90086A756 /* PDFDocument.swift in Sources */,
 				27E694C91E87A156008ACE01 /* NoticeViewController.swift in Sources */,
-				274158DA1E87D40D0086A756 /* PdfDetailViewController.swift in Sources */,
 				27546B9E1EABDC7E005B5B18 /* PsychoSeviceCreateNew.swift in Sources */,
 				2760108D1EAE592D008D97F4 /* PartTwo.swift in Sources */,
 				274158EB1E87DAF90086A756 /* PDFThumbnailCollectionViewController.swift in Sources */,

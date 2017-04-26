@@ -20,7 +20,6 @@ class AccountParameter: NSObject {
     var lastname:String? = ""
     var email:String? = ""
     var phoneno:String? = ""
-    var citizen_id:String? = ""
     var old_password:String? = ""
     var new_password:String? = ""
     var confirm_new_password:String? = ""
@@ -33,6 +32,7 @@ class AccountParameter: NSObject {
             "data": ["username": username!,
                      "password": password!,
                      "channel": channal!,
+                     "facebook_token":facebook_token!,
                      "device": getDevice()
             ]
         ]
@@ -50,8 +50,7 @@ class AccountParameter: NSObject {
                         "firstname": firstname,
                         "lastname": lastname,
                         "email": email,
-                        "phoneno": phoneno,
-                        "citizen_id": citizen_id],
+                        "phoneno": phoneno],
                      "device": getDevice()
             ]
         ]
@@ -66,8 +65,7 @@ class AccountParameter: NSObject {
                         "firstname": firstname,
                         "lastname": lastname,
                         "email": email,
-                        "phoneno": phoneno,
-                        "citizen_id": citizen_id],
+                        "phoneno": phoneno],
                      "device": getDevice()
             ]
         ]

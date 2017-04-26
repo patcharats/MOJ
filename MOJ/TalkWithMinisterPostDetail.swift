@@ -10,6 +10,7 @@ import Foundation
 class TalkWithMiniterPostDetail: UIViewController,UITableViewDelegate, UITableViewDataSource{
     let design = Design()
     let account = AccountData()
+    let alertView = AlertView()
     @IBOutlet var talkBarButton: UIBarButtonItem!
     @IBOutlet var loginButton: UIButton!
     @IBOutlet var tableView: UITableView!
@@ -22,18 +23,26 @@ class TalkWithMiniterPostDetail: UIViewController,UITableViewDelegate, UITableVi
         tableView.backgroundColor = UIColor.clear
         
         if account.isLogin() {
+            talkBarButton.isEnabled = true
             talkBarButton.image = UIImage(named: "ic_chat")
             loginButton.isHidden = true
             tableView.contentInset = UIEdgeInsetsMake(0, 0, 0, 0)
             
         }
         else{
+            talkBarButton.isEnabled = false
             talkBarButton.image = UIImage(named: "")
             loginButton.isHidden = false
             tableView.contentInset = UIEdgeInsetsMake(48, 0, 0, 0)
 
         }
     }
+    
+    @IBAction func loginButton(_ sender: Any) {
+        alertView.setMainViewController()
+    }
+    
+    
     
     
     // MARK: UITableView

@@ -10,8 +10,8 @@ import Foundation
 import UIKit
 
 class MenuTableViewController: UITableViewController {
-    let LOGIN_VIEW_CONTROLLER = "NavigationLogin"
-
+    
+    let alertView = AlertView()
     let design = Design()
     let account = AccountData()
     @IBOutlet var loginButton: UIButton!
@@ -44,22 +44,36 @@ class MenuTableViewController: UITableViewController {
 
 
     @IBAction func logout(_ sender: Any) {
-        if account.isLogin() {
-            if let bundle = Bundle.main.bundleIdentifier {
-                UserDefaults.standard.removePersistentDomain(forName: bundle)
-            }
+        
+        if self.account.isLogin() {
+            alertView.alertWith2Action(title:"", message: self.alertView.ALERT_LOGOUT, buttonTitle: self.alertView.ALERT_OK, controller: self, completionHandler: {
+                (button : Bool) in
+                
+                if button {
+                    
+                    if let bundle = Bundle.main.bundleIdentifier {
+                        UserDefaults.standard.removePersistentDomain(forName: bundle)
+                    }
+                    
+                    self.alertView.setMainViewController()
+                    
+                }
+            });
+        }
+        else{
+            self.alertView.setMainViewController()
         }
 
-        setMainViewController()
+        
+        
+        
+
+        
+        
+
     }
     
-    func setMainViewController(){
-        let mainStoryBoard = UIStoryboard(name: "Main", bundle: nil)
-        let swRevealViewController = mainStoryBoard.instantiateViewController(withIdentifier: LOGIN_VIEW_CONTROLLER)
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        appDelegate.window?.rootViewController = swRevealViewController
-        
-    }
+    
     
     
     override func didReceiveMemoryWarning() {

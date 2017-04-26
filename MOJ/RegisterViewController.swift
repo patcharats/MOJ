@@ -18,11 +18,13 @@ class RegisterViewController: UIViewController {
     @IBOutlet var lastnameTextfield: UITextField!
     @IBOutlet var emailnameTextfield: UITextField!
     @IBOutlet var passwordTextfield: UITextField!
+    @IBOutlet var phoneTextfield: UITextField!
     @IBOutlet var confirmPasswordTextfield: UITextField!
     
     var firstname:String? = ""
     var lastname:String? = ""
     var email:String? = ""
+    var phone:String? = ""
     var password:String? = ""
     var repassword:String? = ""
     
@@ -37,8 +39,9 @@ class RegisterViewController: UIViewController {
         email = emailnameTextfield.text!
         password = passwordTextfield.text!
         repassword = confirmPasswordTextfield.text!
+        phone = phoneTextfield.text!
         
-        if (firstname?.isEmpty)! || (lastname?.isEmpty)! || (email?.isEmpty)! || (password?.isEmpty)! || (repassword?.isEmpty)! {
+        if (firstname?.isEmpty)! || (lastname?.isEmpty)! || (phone?.isEmpty)! || (email?.isEmpty)! || (password?.isEmpty)! || (repassword?.isEmpty)! {
             alertView.alert(title: alertView.ALERT_NULL_INPUT, message: "", buttonTitle: alertView.ALERT_OK, controller: self)
             
         }
@@ -62,6 +65,7 @@ class RegisterViewController: UIViewController {
         param.firstname = firstname
         param.lastname = lastname
         param.email = email
+        param.phoneno = phone
         param.password = stringHelper.getAesString(plainText: password!)
         param.channal = "email"
         network.post(name: network.API_REGISTER, param: param.getRegisterParameter(), viewController: self, completionHandler: {

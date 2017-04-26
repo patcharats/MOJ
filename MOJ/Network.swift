@@ -30,6 +30,13 @@ class Network: NSObject {
     let API_FEED = "feeds/"
     let API_FEED_STATUS = "feeds/status/"
     let API_FEED_UPDATE = "feeds/update/"
+    
+    let API_COMPLAINTS = "complaints/"
+    let API_COMPLAINT = "complaint/"
+    let API_COMPLAINT_REPLY = "complaintreply/"
+    
+    let API_CONTACTS = "contacts/"
+    
     let activityIndicator = ActivityIndicatorView()
     
     func post(name:String,param:Parameters,viewController:UIViewController,completionHandler:@escaping (Any,String,String) -> ()){
@@ -47,6 +54,7 @@ class Network: NSObject {
         
         print("******** api :\(self.API_BASE_URL+name)")
         activityIndicator.showActivityIndicator(uiView: viewController.view)
+        print(param)
         Alamofire.request(API_BASE_URL+name, method: .post, parameters: param, encoding: JSONEncoding.default)
             .responseJSON { response in
                 if let result = response.result.value {
