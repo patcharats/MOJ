@@ -200,7 +200,7 @@ open class ImageSlideshow: UIView {
             pageControl.isHidden = false
         }
         pageControl.frame = CGRect(x: 0, y: 0, width: frame.size.width, height: 10)
-        pageControl.center = CGPoint(x: frame.size.width / 2, y: frame.size.height - 12.0)
+        pageControl.center = CGPoint(x: frame.size.width / 2, y: 12.0)
 
         layoutScrollView()
     }
@@ -208,7 +208,7 @@ open class ImageSlideshow: UIView {
     /// updates frame of the scroll view and its inner items
     func layoutScrollView() {
         let scrollViewBottomPadding: CGFloat = pageControlPosition.bottomPadding
-        scrollView.frame = CGRect(x: 0, y: 0, width: frame.size.width, height: frame.size.height - scrollViewBottomPadding)
+        scrollView.frame = CGRect(x: 0, y: scrollViewBottomPadding, width: frame.size.width, height: frame.size.height - scrollViewBottomPadding)
         scrollView.contentSize = CGSize(width: scrollView.frame.size.width * CGFloat(scrollViewImages.count), height: scrollView.frame.size.height)
 
         for (index, view) in self.slideshowItems.enumerated() {

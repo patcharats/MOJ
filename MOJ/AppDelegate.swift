@@ -13,12 +13,13 @@ import IQKeyboardManagerSwift
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
+    let SW_REVEAL_VIEW_CONTROLLER = "SWRevealViewController"
+    let HOWTO_VIEW_CONTROLLER = "HowToViewController"
     let FACEBOOK_APP_ID = "1803458506649088"
     let account = AccountData()
-    var window: UIWindow?
-    let SW_REVEAL_VIEW_CONTROLLER = "SWRevealViewController"
-    let LOGIN_VIEW_CONTROLLER = "NavigationLogin"
 
+    
+    var window: UIWindow?
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
         UserDefaults.standard.set(false, forKey: "_UIConstraintBasedLayoutLogUnsatisfiable")
@@ -26,19 +27,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         setupNavigationBar()
         IQKeyboardManager.sharedManager().enable = true
         FBSDKSettings.setAppID(FACEBOOK_APP_ID)
-        //setRootView(isLogin: account.isLogin())
+        setRootView(isShowHowto: account.isShowHowto())
         
         return FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
+        
+        
+        
+        
     }
 
-    func setRootView(isLogin:Bool){
+    func setRootView(isShowHowto:Bool){
         let rootView:String
         
-        if isLogin{
+        if isShowHowto{
             rootView = SW_REVEAL_VIEW_CONTROLLER
         }
         else{
-            rootView = LOGIN_VIEW_CONTROLLER
+            rootView = HOWTO_VIEW_CONTROLLER
         }
         
         let mainStoryBoard = UIStoryboard(name: "Main", bundle: nil)

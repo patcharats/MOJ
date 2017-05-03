@@ -8,12 +8,13 @@
 
 import Foundation
 import UIKit
+import SwiftyJSON
 
 class MenuTableViewController: UITableViewController {
-    
-    let alertView = AlertView()
     let design = Design()
+    let network = Network()
     let account = AccountData()
+    let alertView = AlertView()
     @IBOutlet var loginButton: UIButton!
     @IBOutlet var logoImageView: UIImageView!
     @IBOutlet var editProfile: UIButton!
@@ -36,7 +37,6 @@ class MenuTableViewController: UITableViewController {
             editProfile.isHidden = true
             loginButton.setTitle("เข้าสู่ระบบ", for: UIControlState.normal)
         }
-        
     }
 
 

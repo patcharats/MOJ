@@ -1,4 +1,4 @@
-//
+
 //  Network.swift
 //  test
 //
@@ -11,11 +11,9 @@ import Alamofire
 import SwiftyJSON
 import SystemConfiguration
 class Network: NSObject {
-    let KEY_RESPONSE_STATUS = "status"
-    let KEY_RESPONSE_CODE = "code"
-    let KEY_RESPONSE_MESSAGE = "message"
-    
+
     let API_BASE_URL = "http://mojapp.soft2serv.com/moj/api/1.0/"
+    
     let API_LOGIN = "login"
     let API_REGISTER = "register"
     let API_FORGOT_PASSWORD = "forgot-password"
@@ -23,39 +21,36 @@ class Network: NSObject {
     let API_ACCOUNT_PROFILE = "account-profile"
     let API_UPDATE_PROFILE = "update-profile"
     
-    
     let API_DEPARTMENT = "departments/"
     let API_APPLICATION = "app"
     let API_DOCUMENT = "doc/"
     let API_FEED = "feeds/"
     let API_FEED_STATUS = "feeds/status/"
     let API_FEED_UPDATE = "feeds/update/"
-    
     let API_COMPLAINTS = "complaints/"
     let API_COMPLAINT = "complaint/"
     let API_COMPLAINT_REPLY = "complaintreply/"
-    
     let API_CONTACTS = "contacts/"
+    let API_CONFIG = "config/all"
+    let API_CONFIG_PROVINCE = "config/province"
+    let KEY_RESPONSE_STATUS = "status"
+    let KEY_RESPONSE_CODE = "code"
+    let KEY_RESPONSE_MESSAGE = "message"
     
+    let accountData = AccountData()
     let activityIndicator = ActivityIndicatorView()
     
     func post(name:String,param:Parameters,viewController:UIViewController,completionHandler:@escaping (Any,String,String) -> ()){
         
         
-//        let headers: HTTPHeaders = [
-//            "Authorization": "Basic QWxhZGRpbjpvcGVuIHNlc2FtZQ==",
-//            "Accept": "application/json"
-//        ]
-//        
-//        Alamofire.request("https://httpbin.org/headers", headers: headers).responseJSON { response in
-//            debugPrint(response)
-//        }
-        
+        let header: HTTPHeaders = [
+            "token": accountData.getAccountToken()
+        ]
         
         print("******** api :\(self.API_BASE_URL+name)")
         activityIndicator.showActivityIndicator(uiView: viewController.view)
         print(param)
-        Alamofire.request(API_BASE_URL+name, method: .post, parameters: param, encoding: JSONEncoding.default)
+        Alamofire.request(API_BASE_URL+name, method: .post, parameters: param, encoding: JSONEncoding.default,headers: header)
             .responseJSON { response in
                 if let result = response.result.value {
                     let JSON = result as! NSDictionary

@@ -80,8 +80,7 @@ class NewsViewController: UIViewController,UITableViewDelegate, UITableViewDataS
         }
 
         
-        var accountID = accountData.getAccountID()
-
+        let accountID = accountData.getAccountID()
         
         network.get(name: network.API_FEED_STATUS, param:accountID, viewController: self, completionHandler: {
             (json:Any,Code:String,Message:String) in
@@ -105,6 +104,8 @@ class NewsViewController: UIViewController,UITableViewDelegate, UITableViewDataS
             self.tableView.reloadData()
             
         })
+        
+        
     }
     
 

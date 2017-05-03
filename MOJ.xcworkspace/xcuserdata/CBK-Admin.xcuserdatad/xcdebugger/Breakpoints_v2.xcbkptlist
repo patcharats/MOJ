@@ -6,145 +6,49 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "MOJ/NewsViewController.swift"
-            timestampString = "514886719.388635"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "105"
-            endingLineNumber = "105"
-            landmarkName = "tableView(_:numberOfRowsInSection:)"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "MOJ/NewsViewController.swift"
-            timestampString = "514886776.031083"
+            filePath = "MOJ/ComplainDetail.swift"
+            timestampString = "515502259.268426"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "88"
-            endingLineNumber = "88"
+            startingLineNumber = "107"
+            endingLineNumber = "107"
             landmarkName = "viewDidLoad()"
-            landmarkType = "5">
+            landmarkType = "7">
             <Locations>
                <Location
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "MOJ.NewsViewController.viewDidLoad () -&gt; ()"
+                  symbolName = "MOJ.ComplainDetail.(viewDidLoad () -&gt; ()).(closure #1)"
                   moduleName = "MOJ"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/CBK-Admin/Desktop/MOJ/MOJ/NewsViewController.swift"
-                  timestampString = "514891435.308793"
+                  urlString = "file:///Users/CBK-Admin/Desktop/MOJ/MOJ/ComplainDetail.swift"
+                  timestampString = "515502265.343954"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "88"
-                  endingLineNumber = "88"
-                  offsetFromSymbolStart = "3184">
+                  startingLineNumber = "107"
+                  endingLineNumber = "107"
+                  offsetFromSymbolStart = "11320">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "MOJ.NewsViewController.(viewDidLoad () -&gt; ()).(closure #2)"
+                  symbolName = "MOJ.ComplainDetail.(viewDidLoad () -&gt; ()).(closure #1).(closure #3)"
                   moduleName = "MOJ"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/CBK-Admin/Desktop/MOJ/MOJ/NewsViewController.swift"
-                  timestampString = "514891435.310409"
+                  urlString = "file:///Users/CBK-Admin/Desktop/MOJ/MOJ/ComplainDetail.swift"
+                  timestampString = "515502265.345523"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "90"
-                  endingLineNumber = "90"
+                  startingLineNumber = "109"
+                  endingLineNumber = "109"
                   offsetFromSymbolStart = "60">
                </Location>
             </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "MOJ/NewsViewController.swift"
-            timestampString = "514886776.99107"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "77"
-            endingLineNumber = "77"
-            landmarkName = "viewDidLoad()"
-            landmarkType = "5">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "MOJ.NewsViewController.viewDidLoad () -&gt; ()"
-                  moduleName = "MOJ"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/CBK-Admin/Desktop/MOJ/MOJ/NewsViewController.swift"
-                  timestampString = "514891435.314278"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "77"
-                  endingLineNumber = "77"
-                  offsetFromSymbolStart = "2880">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "MOJ.NewsViewController.(viewDidLoad () -&gt; ()).(closure #1)"
-                  moduleName = "MOJ"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/CBK-Admin/Desktop/MOJ/MOJ/NewsViewController.swift"
-                  timestampString = "514891435.315848"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "79"
-                  endingLineNumber = "79"
-                  offsetFromSymbolStart = "60">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "MOJ/NewsViewController.swift"
-            timestampString = "514886788.823587"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "90"
-            endingLineNumber = "90"
-            landmarkName = "viewDidLoad()"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "MOJ/NewsViewController.swift"
-            timestampString = "514886814.864551"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "74"
-            endingLineNumber = "74"
-            landmarkName = "viewDidLoad()"
-            landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

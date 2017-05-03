@@ -65,6 +65,7 @@
 		27E694D91E87BE78008ACE01 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27E694D81E87BE78008ACE01 /* RegisterViewController.swift */; };
 		27E694DB1E87BF5D008ACE01 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27E694DA1E87BF5D008ACE01 /* LoginViewController.swift */; };
 		40CFA9715AE105E04E51523A /* Pods_MOJ.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E55A0DEFE3EBF83BC9EEEEC /* Pods_MOJ.framework */; };
+		CD1E8D841EB9AEF80098C26B /* ConfigData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD1E8D831EB9AEF80098C26B /* ConfigData.swift */; };
 		CD49B7311EA9DD35005BD84E /* Design.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD49B7301EA9DD35005BD84E /* Design.swift */; };
 		CD78DCD41EA84E9600BC4CDB /* FacebookData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD78DCD21EA84E9600BC4CDB /* FacebookData.swift */; };
 		CD78DCD51EA84E9600BC4CDB /* AccountData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD78DCD31EA84E9600BC4CDB /* AccountData.swift */; };
@@ -139,6 +140,7 @@
 		27E694D81E87BE78008ACE01 /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		27E694DA1E87BF5D008ACE01 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		C1C0523448A40D6E5D403B74 /* Pods-MOJ.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MOJ.release.xcconfig"; path = "Pods/Target Support Files/Pods-MOJ/Pods-MOJ.release.xcconfig"; sourceTree = "<group>"; };
+		CD1E8D831EB9AEF80098C26B /* ConfigData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigData.swift; sourceTree = "<group>"; };
 		CD49B7301EA9DD35005BD84E /* Design.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Design.swift; sourceTree = "<group>"; };
 		CD78DCD21EA84E9600BC4CDB /* FacebookData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FacebookData.swift; sourceTree = "<group>"; };
 		CD78DCD31EA84E9600BC4CDB /* AccountData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountData.swift; sourceTree = "<group>"; };
@@ -396,6 +398,7 @@
 				CD78DCD21EA84E9600BC4CDB /* FacebookData.swift */,
 				CD78DCD31EA84E9600BC4CDB /* AccountData.swift */,
 				CDFD67AF1EAF27DB009CDF61 /* NewsData.swift */,
+				CD1E8D831EB9AEF80098C26B /* ConfigData.swift */,
 			);
 			name = DataClass;
 			sourceTree = "<group>";
@@ -607,6 +610,7 @@
 				27546B9C1EABCBDF005B5B18 /* TalkWithMinisterMessage.swift in Sources */,
 				276010801EAE5050008D97F4 /* ProsonalInformation.swift in Sources */,
 				271073971EABF0AD00DA14F4 /* ComplainDetail.swift in Sources */,
+				CD1E8D841EB9AEF80098C26B /* ConfigData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -22,8 +22,10 @@ class AccountData: NSObject {
     let KEY_ACCOUNT_DATA = "data"
     let KEY_ACCOUNT_ACCOUNT = "account"
     
+    let KEY_IS_SHOW_HOWTO = "isShow"
     let KEY_IS_LOGIN = "isLogin"
     let KEY_IS_ADMIN = "isAdmin"
+
     
     func getAccountData(json:Any){
         
@@ -35,7 +37,7 @@ class AccountData: NSObject {
         let accountEmail = account?[KEY_ACCOUNT_EMAIL]?.stringValue
         let accountFirstName = account?[KEY_ACCOUNT_FIRST_NAME]?.stringValue
         let accountLastName = account?[KEY_ACCOUNT_LAST_NAME]?.stringValue
-        //let accountPhoneNo = account?[KEY_ACCOUNT_PHONE_NO]?.stringValue
+        let accountPhoneNo = account?[KEY_ACCOUNT_PHONE_NO]?.stringValue
         
         let accountToken = data?[KEY_ACCOUNT_TOKEN]?.stringValue
         let accountLastLogin = data?[KEY_ACCOUNT_LAST_LOGIN]?.stringValue
@@ -48,9 +50,20 @@ class AccountData: NSObject {
         setAccountLastName(accountFirstName: accountLastName!)
         setAccountToken(accountToken: accountToken!)
         setAccountLastLogin(accountLastlogin: accountLastLogin!)
-        //setAccountPhoneNo(accountPhoneNo: accountPhoneNo!)
+        setAccountPhoneNo(accountPhoneNo: accountPhoneNo!)
         print("accountid :\(accountID!)")
         print("accountToken :\(accountToken!)")
+    }
+    
+    // isShow
+    
+    func setShowHowto(isShowHowto:Bool){
+        userdefault.set(isShowHowto, forKey: KEY_IS_SHOW_HOWTO)
+    }
+    
+    func isShowHowto()->Bool{
+        return userdefault.bool(forKey: KEY_IS_SHOW_HOWTO)
+        
     }
     
     // isLogin
