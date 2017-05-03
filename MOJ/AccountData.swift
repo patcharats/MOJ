@@ -37,7 +37,7 @@ class AccountData: NSObject {
         let accountEmail = account?[KEY_ACCOUNT_EMAIL]?.stringValue
         let accountFirstName = account?[KEY_ACCOUNT_FIRST_NAME]?.stringValue
         let accountLastName = account?[KEY_ACCOUNT_LAST_NAME]?.stringValue
-        let accountPhoneNo = account?[KEY_ACCOUNT_PHONE_NO]?.stringValue
+//        let accountPhoneNo = account?[KEY_ACCOUNT_PHONE_NO]?.stringValue
         
         let accountToken = data?[KEY_ACCOUNT_TOKEN]?.stringValue
         let accountLastLogin = data?[KEY_ACCOUNT_LAST_LOGIN]?.stringValue
@@ -50,7 +50,7 @@ class AccountData: NSObject {
         setAccountLastName(accountFirstName: accountLastName!)
         setAccountToken(accountToken: accountToken!)
         setAccountLastLogin(accountLastlogin: accountLastLogin!)
-        setAccountPhoneNo(accountPhoneNo: accountPhoneNo!)
+//        setAccountPhoneNo(accountPhoneNo: accountPhoneNo!)
         print("accountid :\(accountID!)")
         print("accountToken :\(accountToken!)")
     }

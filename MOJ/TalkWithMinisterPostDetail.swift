@@ -7,14 +7,37 @@
 //
 
 import Foundation
-class TalkWithMiniterPostDetail: UIViewController,UITableViewDelegate, UITableViewDataSource{
+import SwiftyJSON
+class TalkWithMiniterPostDetail: UIViewController,UITableViewDelegate, UITableViewDataSource,UITextFieldDelegate{
     let design = Design()
     let account = AccountData()
     let alertView = AlertView()
+    let network = Network()
+    let accountData = AccountData()
+    let stringHelper = StringHelper()
+    let param = ContactsParameter()
     @IBOutlet var talkBarButton: UIBarButtonItem!
     @IBOutlet var loginButton: UIButton!
     @IBOutlet var tableView: UITableView!
 
+    let KEY_CONTACTS_DATA = "data"
+    let KEY_CONTACTS_MESSAGE = "commentmsg"
+    let KEY_CONTACTS_ID = "commntid"
+    let KEY_CONTACTS_NAME = "commntuname"
+    let KEY_CONTACTS_USER_ID = "commntid"
+    let KEY_CONTACTS_DATE = "commntdattm"
+    let KEY_CONTACTS_RELATE_ID = "related_contactid"
+    var commentmsg:[String] = []
+    var commntdattm:[String] = []
+    var commntid:[String] = []
+    var commntuname:[String] = []
+    var commntusrid:[String] = []
+    var related_contactid:[String] = []
+    
+    var contactreply:String = ""
+    var contactviews:String = ""
+    var selectPostID:String = ""
+    var contentmsgText:String = ""
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -36,6 +59,23 @@ class TalkWithMiniterPostDetail: UIViewController,UITableViewDelegate, UITableVi
             tableView.contentInset = UIEdgeInsetsMake(48, 0, 0, 0)
 
         }
+        
+        //selectPostID+"/"+accountID
+        
+        let accountID = accountData.getAccountID()
+        network.get(name: network.API_CONTACTS, param:"20/123", viewController: self, completionHandler: {
+            (json:Any,Code:String,Message:String) in
+            let jsonSwifty = JSON(json)
+            self.commentmsg = jsonSwifty[self.KEY_CONTACTS_DATA].arrayValue.map({$0[self.KEY_CONTACTS_MESSAGE].stringValue})
+            self.commntdattm = jsonSwifty[self.KEY_CONTACTS_DATA].arrayValue.map({$0[self.KEY_CONTACTS_DATE].stringValue})
+            self.commntid = jsonSwifty[self.KEY_CONTACTS_DATA].arrayValue.map({$0[self.KEY_CONTACTS_ID].stringValue})
+            self.commntuname = jsonSwifty[self.KEY_CONTACTS_DATA].arrayValue.map({$0[self.KEY_CONTACTS_NAME].stringValue})
+            self.commntusrid = jsonSwifty[self.KEY_CONTACTS_DATA].arrayValue.map({$0[self.KEY_CONTACTS_USER_ID].stringValue})
+            self.related_contactid = jsonSwifty[self.KEY_CONTACTS_DATA].arrayValue.map({$0[self.KEY_CONTACTS_RELATE_ID].stringValue})
+            
+            self.tableView.reloadData()
+        })
+        
     }
     
     @IBAction func loginButton(_ sender: Any) {
@@ -47,7 +87,7 @@ class TalkWithMiniterPostDetail: UIViewController,UITableViewDelegate, UITableVi
     
     // MARK: UITableView
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 2
+        return commntid.count+1
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat
@@ -69,17 +109,49 @@ class TalkWithMiniterPostDetail: UIViewController,UITableViewDelegate, UITableVi
         design.roundView(view: cell.viewMessageBox, radius: 5)
         design.roundView(view: cell.sendMessageButton, radius: 5)
         
-        if indexPath.row == 0 {
+        if indexPath.row < commntid.count {
             cell.viewMessageBox.isHidden = true
+            cell.viewMessage.isHidden = false
+            cell.messageTextView.text = commentmsg[indexPath.row]
+            cell.postbyLabel.text = "by "+commntuname[indexPath.row]
+            cell.dateLabel.text = stringHelper.getDatefromString(dateString: commntdattm[indexPath.row])
         }
         else{
+            cell.viewMessageBox.isHidden = false
             cell.viewMessage.isHidden = true
+            cell.sendMessageTextField.text = ""
+            cell.sendMessageTextField.delegate = self
+            cell.sendMessageButton.addTarget(self, action: #selector(postButton), for: .touchUpInside)
         }
         
         return cell
     }
     
 
+    func textFieldDidBeginEditing(textField: UITextField!) {
+        contentmsgText = textField.text!
+    }
+    
+    
+    func postButton(sender: UIButton!) {
+        
+        param.contactid =  selectPostID
+        param.contentmsg = contentmsgText
+
+        print(contentmsgText)
+        
+        network.post(name: network.API_CONTACTS_REPLY, param: param.getPostReplyParameter(), viewController: self, completionHandler: {
+            (JSON : Any,Code:String,Message:String) in
+            
+            if(Code == "00000"){
+                
+            }
+            else{
+                self.alertView.alert(title:"", message: Message, buttonTitle: self.alertView.ALERT_OK, controller: self)
+            }
+            
+        })
+    }
     
     
     override func didReceiveMemoryWarning() {

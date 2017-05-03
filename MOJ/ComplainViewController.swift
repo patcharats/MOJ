@@ -13,7 +13,7 @@ class ComplainViewController: UIViewController,UITableViewDelegate, UITableViewD
     let design = Design()
     let network = Network()
     let accountData = AccountData()
-    
+    let stringHelper = StringHelper()
     @IBOutlet var noDataLabel: UILabel!
     @IBOutlet var addButton: UIBarButtonItem!
     let COMPLAIN_DETAIL = "ComplainDetail"
@@ -60,7 +60,7 @@ class ComplainViewController: UIViewController,UITableViewDelegate, UITableViewD
         }
         
         let accountID = accountData.getAccountID()
-        network.get(name: network.API_COMPLAINTS, param: "1", viewController: self, completionHandler: {
+        network.get(name: network.API_COMPLAINTS, param: accountID, viewController: self, completionHandler: {
             (json:Any,Code:String,Message:String) in
             let jsonSwifty = JSON(json)
             self.cmpltcatid = jsonSwifty[self.KEY_COMPLAIN_DATA].arrayValue.map({$0[self.KEY_COMPLAIN_CATAGORIE_ID].stringValue})
@@ -85,25 +85,7 @@ class ComplainViewController: UIViewController,UITableViewDelegate, UITableViewD
         })
     }
 
-    func getProcessStatus(status:String,label:UILabel){
-        switch status {
-        case "create":
-            label.text = "รับเรื่อง"
-            label.backgroundColor = design.hexStringToColor(hex: design.HEX_COLOR_BLUE)
-        case "process":
-            label.text = "กำลังดำเนินการ"
-            label.backgroundColor = design.hexStringToColor(hex: design.HEX_COLOR_YELLOW)
-        case "close":
-            label.text = "ปิดเรื่อง"
-            label.backgroundColor = design.hexStringToColor(hex: design.HEX_COLOR_GREEN)
-        case "reject":
-            label.text = "ไม่รับเรื่อง"
-            label.backgroundColor = design.hexStringToColor(hex: design.HEX_COLOR_RED)
-        default:
-            label.text = status
-            label.backgroundColor = UIColor.black
-        }
-    }
+    
     
     // MARK: UITableView
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -121,9 +103,9 @@ class ComplainViewController: UIViewController,UITableViewDelegate, UITableViewD
         cell.titleLabel.text = cmpltsubject[indexPath.row]
         cell.detailLabel.text = cmpltcontent[indexPath.row]
         cell.complainCodeLabel.text = cmpltcode[indexPath.row]
-        self.getProcessStatus(status: cmpltstatus[indexPath.row], label: cell.proceedLabel)
-        cell.dateLabel.text = cmpltdattm[indexPath.row]
-        
+        design.getProcessStatus(status: cmpltstatus[indexPath.row], label: cell.proceedLabel)
+        cell.dateLabel.text = stringHelper.getDatefromString(dateString: cmpltdattm[indexPath.row])
+        cell.alertImage.isHidden = true
         return cell
     }
 

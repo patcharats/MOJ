@@ -319,7 +319,7 @@
                                 </constraints>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" name="Quark-Bold" family="Quark" pointSize="17"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="* รหัสผ่าน" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Qau-Ms-a2D">
                                 <rect key="frame" x="8" y="256" width="359" height="35"/>
@@ -902,9 +902,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="* ชื่อ" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xj6-Ir-XwY">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="* ชื่อ" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xj6-Ir-XwY">
                                 <rect key="frame" x="8" y="115" width="359" height="35"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="35" id="09X-h1-6KF"/>
                                 </constraints>
@@ -922,9 +922,9 @@
                                 <fontDescription key="fontDescription" name="Quark-Bold" family="Quark" pointSize="17"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="* นามสกุล" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YUN-gm-nM6">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="* นามสกุล" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YUN-gm-nM6">
                                 <rect key="frame" x="8" y="158" width="359" height="35"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="35" id="D7e-W4-jEx"/>
                                 </constraints>
@@ -950,7 +950,7 @@
                                 </constraints>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" name="Quark-Bold" family="Quark" pointSize="17"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Dh-of-dzv">
                                 <rect key="frame" x="8" y="624" width="359" height="35"/>
@@ -963,7 +963,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="xRi-D0-Uro" kind="show" id="q56-LP-eiH"/>
+                                    <action selector="NextButton:" destination="ZTa-Qd-frh" eventType="touchUpInside" id="pnc-Na-osS"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="* เลขหลังบัตร" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Unm-GI-q04">
@@ -1022,7 +1022,14 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <segue destination="xRi-D0-Uro" kind="show" id="gHd-8W-0tg"/>
+                        <outlet property="birthdateTextfield" destination="hfq-Hx-a5e" id="Kyu-8T-Avs"/>
+                        <outlet property="firstNameTextfield" destination="xj6-Ir-XwY" id="Ohw-he-L2p"/>
+                        <outlet property="idBackNumberTextfiled" destination="Unm-GI-q04" id="Ygs-Qs-2ge"/>
+                        <outlet property="idNumberTextfield" destination="Lmt-Rv-4Rt" id="eVO-KJ-L84"/>
+                        <outlet property="lastNameTextfield" destination="YUN-gm-nM6" id="eH0-sK-ZWc"/>
+                        <outlet property="nextButton" destination="7Dh-of-dzv" id="MH0-Cb-rHn"/>
+                        <outlet property="titleNameTextfield" destination="fbn-Ys-Vtq" id="xDF-bl-cvD"/>
+                        <segue destination="xRi-D0-Uro" kind="show" identifier="ComplainCreate" id="O0k-oJ-7CD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3N7-X4-tbT" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1384,7 +1391,7 @@
                         <outlet property="menuButton" destination="URc-4Z-2ye" id="up6-cL-29H"/>
                         <outlet property="tableView" destination="PrB-MD-n7z" id="vdA-x6-sa4"/>
                         <outlet property="talkBarButton" destination="jbG-cM-iT2" id="xjA-mB-2Az"/>
-                        <segue destination="0ft-du-xh7" kind="show" id="q8o-Gb-rSD"/>
+                        <segue destination="0ft-du-xh7" kind="show" identifier="ContactDetail" id="q8o-Gb-rSD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yEN-Kh-39c" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1417,12 +1424,11 @@
                                     <action selector="loginButton:" destination="0ft-du-xh7" eventType="touchUpInside" id="tev-Dh-z85"/>
                                 </connections>
                             </button>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="89" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="KVW-iM-erX">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="89" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="KVW-iM-erX">
                                 <rect key="frame" x="8" y="72" width="359" height="595"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" rowHeight="241" id="M9S-nt-VaJ" customClass="PostDetailWithMinisterCell" customModule="MOJ" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="cell" rowHeight="241" id="M9S-nt-VaJ" customClass="PostDetailWithMinisterCell" customModule="MOJ" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="359" height="241"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="M9S-nt-VaJ" id="3gS-UH-bE5">
@@ -1561,9 +1567,13 @@
                         </subviews>
                         <color key="backgroundColor" red="0.93323183060000003" green="0.93339174989999996" blue="0.93322181699999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstAttribute="trailing" secondItem="KVW-iM-erX" secondAttribute="trailing" constant="8" id="7bM-ue-aXU"/>
                             <constraint firstItem="mTs-vk-e6N" firstAttribute="leading" secondItem="0u1-vD-xji" secondAttribute="leading" id="8Oa-0b-XQc"/>
                             <constraint firstAttribute="trailing" secondItem="mTs-vk-e6N" secondAttribute="trailing" id="DWS-Zq-8Iv"/>
                             <constraint firstItem="mTs-vk-e6N" firstAttribute="top" secondItem="EWd-X6-P4j" secondAttribute="bottom" id="hzL-7F-PGQ"/>
+                            <constraint firstItem="KVW-iM-erX" firstAttribute="top" secondItem="EWd-X6-P4j" secondAttribute="bottom" constant="8" id="jcy-xt-7qx"/>
+                            <constraint firstItem="VBA-5n-wGc" firstAttribute="top" secondItem="KVW-iM-erX" secondAttribute="bottom" id="pl1-06-ErW"/>
+                            <constraint firstItem="KVW-iM-erX" firstAttribute="leading" secondItem="0u1-vD-xji" secondAttribute="leading" constant="8" id="yOT-He-Ax2"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="ปรับบทลงโทษคนกระทำผิด" id="Uq4-xS-EBG">
@@ -3297,7 +3307,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0ZD-su-Rg6">
                                 <rect key="frame" x="0.0" y="64" width="375" height="170"/>
                                 <subviews>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" placeholder="  ชื่อหัวข้อการสนทนา..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="04c-9l-IkL">
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" borderStyle="roundedRect" placeholder="* ชื่อหัวข้อการสนทนา..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="04c-9l-IkL">
                                         <rect key="frame" x="8" y="8" width="359" height="126"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
@@ -3314,6 +3324,9 @@
                                             <constraint firstAttribute="width" constant="20" id="kFx-EG-qT9"/>
                                             <constraint firstAttribute="height" constant="20" id="ylz-AG-KYg"/>
                                         </constraints>
+                                        <connections>
+                                            <action selector="publicButton:" destination="HOd-8b-Pfn" eventType="touchUpInside" id="4nx-7E-FrE"/>
+                                        </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="บุคคลทั่วไปสามารถเห็นการสนทนานี้ได้" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kx0-vv-R7I">
                                         <rect key="frame" x="36" y="142" width="331" height="21"/>
@@ -3338,7 +3351,7 @@
                                     <constraint firstItem="Kx0-vv-R7I" firstAttribute="leading" secondItem="3wZ-DL-feL" secondAttribute="trailing" constant="8" id="thB-4s-wnN"/>
                                 </constraints>
                             </view>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" placeholder="   ข้อความ..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VPZ-D1-q0S">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" borderStyle="roundedRect" placeholder="* ข้อความ..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VPZ-D1-q0S">
                                 <rect key="frame" x="8" y="242" width="359" height="374"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="textColor"/>
@@ -3782,7 +3795,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="34"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="  ชื่อ" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="RFS-Tx-7k3">
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="ชื่อ" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="RFS-Tx-7k3">
                                                     <rect key="frame" x="8" y="4" width="165" height="30"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -3790,7 +3803,7 @@
                                                     <fontDescription key="fontDescription" name="Quark-Bold" family="Quark" pointSize="17"/>
                                                     <textInputTraits key="textInputTraits"/>
                                                 </textField>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="  นามสกุล" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6ba-ly-ugo">
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="นามสกุล" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6ba-ly-ugo">
                                                     <rect key="frame" x="181" y="4" width="186" height="30"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -3809,14 +3822,21 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="34"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="บัตรประจำตัว" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i33-xX-lWI">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="บัตรประจำตัว" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i33-xX-lWI">
                                                     <rect key="frame" x="8" y="13" width="109" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="109" id="ULB-gk-eYt"/>
+                                                        <constraint firstAttribute="height" constant="21" id="pok-VE-hK5"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" name="Quark-Bold" family="Quark" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="i33-xX-lWI" secondAttribute="bottom" id="BRI-EJ-wiJ"/>
+                                                <constraint firstItem="i33-xX-lWI" firstAttribute="leading" secondItem="lzp-2B-qUS" secondAttribute="leading" constant="8" id="DMu-yr-fIC"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.93323183060000003" green="0.93339174989999996" blue="0.93322181699999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </tableViewCell>
@@ -3827,14 +3847,20 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="นักจิตวิทยาหรือนักสังคมสงเคราะห์ตามประมวลกฎหมายวิธีพิจารณ์าความอาญาที่ได้ขึ้นทะเบียนกับกระทรวงยุติธรรม" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lwg-Fw-XEZ">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="นักจิตวิทยาหรือนักสังคมสงเคราะห์ตามประมวลกฎหมายวิธีพิจารณ์าความอาญาที่ได้ขึ้นทะเบียนกับกระทรวงยุติธรรม" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lwg-Fw-XEZ">
                                                     <rect key="frame" x="8" y="0.0" width="359" height="53"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="53" id="1AE-py-pll"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" name="Quark-Bold" family="Quark" pointSize="14"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="lwg-Fw-XEZ" secondAttribute="trailing" constant="8" id="79X-eZ-IpM"/>
+                                                <constraint firstItem="lwg-Fw-XEZ" firstAttribute="leading" secondItem="Sjg-TU-mwC" secondAttribute="leading" constant="8" id="eRb-iv-iEg"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.93323183060000003" green="0.93339174989999996" blue="0.93322181699999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </tableViewCell>
@@ -3845,15 +3871,21 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="34"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="  เลขที่ทะเบียน" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fhY-KO-Xge">
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="เลขที่ทะเบียน" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fhY-KO-Xge">
                                                     <rect key="frame" x="8" y="4" width="359" height="30"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="30" id="jFV-zb-tzZ"/>
+                                                    </constraints>
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" name="Quark-Bold" family="Quark" pointSize="17"/>
                                                     <textInputTraits key="textInputTraits"/>
                                                 </textField>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="fhY-KO-Xge" secondAttribute="trailing" constant="8" id="vr4-xK-duJ"/>
+                                                <constraint firstItem="fhY-KO-Xge" firstAttribute="leading" secondItem="1gl-WK-LMN" secondAttribute="leading" constant="8" id="x7j-Qd-DuR"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.93323183060000003" green="0.93339174989999996" blue="0.93322181699999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </tableViewCell>
@@ -3864,7 +3896,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="34"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="  ออกวันที่" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FWX-YU-y6E">
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="ออกวันที่" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FWX-YU-y6E">
                                                     <rect key="frame" x="8" y="4" width="165" height="30"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -3872,7 +3904,7 @@
                                                     <fontDescription key="fontDescription" name="Quark-Bold" family="Quark" pointSize="17"/>
                                                     <textInputTraits key="textInputTraits"/>
                                                 </textField>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="  หมดอายุ" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eQi-qA-3sl">
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="หมดอายุ" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eQi-qA-3sl">
                                                     <rect key="frame" x="181" y="4" width="186" height="30"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -3919,8 +3951,11 @@
                                 <state key="normal" title="ส่ง">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="sendButton:" destination="xRi-D0-Uro" eventType="touchUpInside" id="L7w-Re-hWJ"/>
+                                </connections>
                             </button>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" placeholder="  หัวข้อ" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kIN-Yr-QeN">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" borderStyle="roundedRect" placeholder="* หัวข้อ" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kIN-Yr-QeN">
                                 <rect key="frame" x="8" y="115" width="359" height="133"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -3930,14 +3965,14 @@
                                 <fontDescription key="fontDescription" name="Quark-Bold" family="Quark" pointSize="17"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" placeholder="  รายละเอียด" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Eql-2E-cJh">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" borderStyle="roundedRect" placeholder="* รายละเอียด" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Eql-2E-cJh">
                                 <rect key="frame" x="8" y="256" width="359" height="282"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" name="Quark-Bold" family="Quark" pointSize="17"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="  หมวดหมู่ร้องเรียน" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YqU-PE-6T1">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="* หมวดหมู่ร้องเรียน" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YqU-PE-6T1">
                                 <rect key="frame" x="8" y="72" width="359" height="35"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -3954,6 +3989,9 @@
                                     <constraint firstAttribute="width" constant="70" id="SU4-go-aqJ"/>
                                 </constraints>
                                 <state key="normal" image="image_def_add_btn"/>
+                                <connections>
+                                    <action selector="imageButton:" destination="xRi-D0-Uro" eventType="touchUpInside" id="eTR-D5-Er9"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.93323183060000003" green="0.93339174989999996" blue="0.93322181699999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -3982,6 +4020,13 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="catagoryTextfield" destination="YqU-PE-6T1" id="A7T-NX-heO"/>
+                        <outlet property="detatilTextfiled" destination="Eql-2E-cJh" id="7AU-QF-FUi"/>
+                        <outlet property="imageButton" destination="foG-7s-yy0" id="Bj9-Jg-YwR"/>
+                        <outlet property="sendButton" destination="RM5-p3-1Sd" id="viB-Va-PKs"/>
+                        <outlet property="titlesTextfile" destination="kIN-Yr-QeN" id="m7z-Kv-Pwd"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6fd-5k-Oo3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -4245,21 +4290,24 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jvX-3i-74V">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jvX-3i-74V">
                                 <rect key="frame" x="0.0" y="617" width="375" height="50"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="แสดงความคิดเห็น" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gXt-Is-dF3">
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="แสดงความคิดเห็น" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gXt-Is-dF3">
                                         <rect key="frame" x="8" y="10" width="359" height="30"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="ewx-fi-CWz"/>
+                                        </constraints>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" name="Quark-Bold" family="Quark" pointSize="17"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eQq-7G-hnd">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eQq-7G-hnd">
                                         <rect key="frame" x="317" y="13" width="44" height="24"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" red="0.76470988989999999" green="0.26113182309999999" blue="0.30878669019999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="44" id="HST-zS-i46"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" name="Quark-Bold" family="Quark" pointSize="17"/>
                                         <state key="normal" title="ส่ง">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -4267,14 +4315,27 @@
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.1939106285572052" green="0.25378715991973877" blue="0.32034331560134888" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="gXt-Is-dF3" secondAttribute="trailing" constant="8" id="6ph-Ez-lab"/>
+                                    <constraint firstItem="gXt-Is-dF3" firstAttribute="leading" secondItem="jvX-3i-74V" secondAttribute="leading" constant="8" id="8Da-0y-VDj"/>
+                                    <constraint firstAttribute="height" constant="50" id="DDF-Ly-RdU"/>
+                                    <constraint firstAttribute="bottom" secondItem="eQq-7G-hnd" secondAttribute="bottom" constant="13" id="FXS-sX-ZNa"/>
+                                    <constraint firstItem="gXt-Is-dF3" firstAttribute="centerX" secondItem="jvX-3i-74V" secondAttribute="centerX" id="Z2u-jf-rvV"/>
+                                    <constraint firstAttribute="trailing" secondItem="eQq-7G-hnd" secondAttribute="trailing" constant="14" id="fEx-f5-EXD"/>
+                                    <constraint firstItem="gXt-Is-dF3" firstAttribute="centerY" secondItem="jvX-3i-74V" secondAttribute="centerY" id="mYC-CN-nMp"/>
+                                    <constraint firstItem="eQq-7G-hnd" firstAttribute="top" secondItem="jvX-3i-74V" secondAttribute="top" constant="13" id="zQa-bC-ScN"/>
+                                </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" red="0.93323183060000003" green="0.93339174989999996" blue="0.93322181699999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="Bau-g9-630" firstAttribute="top" secondItem="jvX-3i-74V" secondAttribute="bottom" id="3dk-zW-pn8"/>
                             <constraint firstItem="uUz-0O-TLc" firstAttribute="top" secondItem="geH-dj-VQ1" secondAttribute="bottom" constant="8" id="HSB-iH-dOV"/>
                             <constraint firstItem="Bau-g9-630" firstAttribute="top" secondItem="uUz-0O-TLc" secondAttribute="bottom" id="I8O-4L-BD3"/>
                             <constraint firstItem="uUz-0O-TLc" firstAttribute="leading" secondItem="CrB-N5-pZK" secondAttribute="leading" constant="8" id="Job-Kc-yH5"/>
+                            <constraint firstItem="jvX-3i-74V" firstAttribute="leading" secondItem="CrB-N5-pZK" secondAttribute="leading" id="bZs-0C-eUs"/>
                             <constraint firstAttribute="trailing" secondItem="uUz-0O-TLc" secondAttribute="trailing" constant="8" id="hgj-em-9fg"/>
+                            <constraint firstAttribute="trailing" secondItem="jvX-3i-74V" secondAttribute="trailing" id="uVv-12-iwj"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="ร้องเรียน" id="auU-cX-ozu">
@@ -4417,7 +4478,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="34"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="  เลขเลขที่บัตรยืนยันตัวตน" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ht2-FI-ZTf">
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="เลขที่บัตรยืนยันตัวตน" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ht2-FI-ZTf">
                                                     <rect key="frame" x="8" y="4" width="165" height="30"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -4425,7 +4486,7 @@
                                                     <fontDescription key="fontDescription" name="Quark-Bold" family="Quark" pointSize="17"/>
                                                     <textInputTraits key="textInputTraits"/>
                                                 </textField>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="T3n-SX-DUH">
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="T3n-SX-DUH">
                                                     <rect key="frame" x="181" y="4" width="186" height="30"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -4444,15 +4505,21 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="34"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="  ออกโดย" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cc5-zd-oW7">
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="ออกโดย" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cc5-zd-oW7">
                                                     <rect key="frame" x="8" y="4" width="359" height="30"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="30" id="2E4-bd-n2C"/>
+                                                    </constraints>
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" name="Quark-Bold" family="Quark" pointSize="17"/>
                                                     <textInputTraits key="textInputTraits"/>
                                                 </textField>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="cc5-zd-oW7" secondAttribute="trailing" constant="8" id="bZ5-aW-9ww"/>
+                                                <constraint firstItem="cc5-zd-oW7" firstAttribute="leading" secondItem="ZyR-nn-h8N" secondAttribute="leading" constant="8" id="grW-63-Y3e"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.93323183060000003" green="0.93339174989999996" blue="0.93322181699999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </tableViewCell>
@@ -4463,7 +4530,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="34"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="  ออกวันที่" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CxA-Fv-FN8">
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="ออกวันที่" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CxA-Fv-FN8">
                                                     <rect key="frame" x="8" y="4" width="165" height="30"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -4471,7 +4538,7 @@
                                                     <fontDescription key="fontDescription" name="Quark-Bold" family="Quark" pointSize="17"/>
                                                     <textInputTraits key="textInputTraits"/>
                                                 </textField>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="  หมดอายุ" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="afq-KL-07e">
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="หมดอายุ" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="afq-KL-07e">
                                                     <rect key="frame" x="181" y="4" width="186" height="30"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -4490,15 +4557,21 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="34"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder=" คำนำหน้าชื่อ" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dHh-7W-cGt">
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="คำนำหน้าชื่อ" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dHh-7W-cGt">
                                                     <rect key="frame" x="8" y="4" width="359" height="30"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="30" id="XYu-FM-xC8"/>
+                                                    </constraints>
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" name="Quark-Bold" family="Quark" pointSize="17"/>
                                                     <textInputTraits key="textInputTraits"/>
                                                 </textField>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="dHh-7W-cGt" firstAttribute="leading" secondItem="TeZ-6x-zna" secondAttribute="leading" constant="8" id="3XV-AV-T8J"/>
+                                                <constraint firstAttribute="trailing" secondItem="dHh-7W-cGt" secondAttribute="trailing" constant="8" id="3pR-Tb-O46"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.93323183060000003" green="0.93339174989999996" blue="0.93322181699999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </tableViewCell>
@@ -4509,15 +4582,21 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="34"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="  ชื่อ" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xW2-Wt-vYz">
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="ชื่อ" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xW2-Wt-vYz">
                                                     <rect key="frame" x="8" y="4" width="359" height="30"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="30" id="Ifa-HK-hX3"/>
+                                                    </constraints>
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" name="Quark-Bold" family="Quark" pointSize="17"/>
                                                     <textInputTraits key="textInputTraits"/>
                                                 </textField>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="xW2-Wt-vYz" secondAttribute="trailing" constant="8" id="UZj-Vg-Ad4"/>
+                                                <constraint firstItem="xW2-Wt-vYz" firstAttribute="leading" secondItem="ZdY-4N-WZz" secondAttribute="leading" constant="8" id="dNq-Ou-45v"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.93323183060000003" green="0.93339174989999996" blue="0.93322181699999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </tableViewCell>
@@ -4528,15 +4607,21 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="34"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="  นามสกุล" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="W0A-Vb-8rY">
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="นามสกุล" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="W0A-Vb-8rY">
                                                     <rect key="frame" x="8" y="4" width="359" height="30"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="30" id="q7u-hz-5B4"/>
+                                                    </constraints>
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" name="Quark-Bold" family="Quark" pointSize="17"/>
                                                     <textInputTraits key="textInputTraits"/>
                                                 </textField>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="W0A-Vb-8rY" secondAttribute="trailing" constant="8" id="Ibf-1v-2gm"/>
+                                                <constraint firstItem="W0A-Vb-8rY" firstAttribute="leading" secondItem="1ej-Y4-RCi" secondAttribute="leading" constant="8" id="xvR-lz-hvX"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.93323183060000003" green="0.93339174989999996" blue="0.93322181699999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </tableViewCell>
@@ -4547,15 +4632,21 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="34"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="  วันเกิด" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fdo-vQ-ss5">
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="วันเกิด" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fdo-vQ-ss5">
                                                     <rect key="frame" x="8" y="4" width="359" height="30"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="30" id="Xsp-0b-PE5"/>
+                                                    </constraints>
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" name="Quark-Bold" family="Quark" pointSize="17"/>
                                                     <textInputTraits key="textInputTraits"/>
                                                 </textField>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="fdo-vQ-ss5" secondAttribute="trailing" constant="8" id="UjH-8r-oNH"/>
+                                                <constraint firstItem="fdo-vQ-ss5" firstAttribute="leading" secondItem="wex-Co-W0p" secondAttribute="leading" constant="8" id="WNO-bj-mqA"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.93323183060000003" green="0.93339174989999996" blue="0.93322181699999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </tableViewCell>
@@ -4566,15 +4657,21 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="34"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="  สัญชาติ" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FDh-kh-B5f">
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="สัญชาติ" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FDh-kh-B5f">
                                                     <rect key="frame" x="8" y="4" width="359" height="30"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="30" id="cgN-Ai-TNl"/>
+                                                    </constraints>
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" name="Quark-Bold" family="Quark" pointSize="17"/>
                                                     <textInputTraits key="textInputTraits"/>
                                                 </textField>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="FDh-kh-B5f" secondAttribute="trailing" constant="8" id="Kt0-5p-WaJ"/>
+                                                <constraint firstItem="FDh-kh-B5f" firstAttribute="leading" secondItem="dOL-ks-5tx" secondAttribute="leading" constant="8" id="UIa-KC-3lO"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.93323183060000003" green="0.93339174989999996" blue="0.93322181699999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </tableViewCell>
@@ -4585,14 +4682,20 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="34"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ที่อยู่ภูมิลำเนา" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vN0-hG-zyU">
-                                                    <rect key="frame" x="16" y="13" width="109" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ที่อยู่ภูมิลำเนา" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vN0-hG-zyU">
+                                                    <rect key="frame" x="16" y="13" width="71.5" height="21"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="21" id="5h3-N0-uiE"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" name="Quark-Bold" family="Quark" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="vN0-hG-zyU" secondAttribute="bottom" id="ASC-x0-Yyt"/>
+                                                <constraint firstItem="vN0-hG-zyU" firstAttribute="leading" secondItem="cRN-bJ-ZWj" secondAttribute="leading" constant="16" id="CYU-Lg-PtU"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.93323183060000003" green="0.93339174989999996" blue="0.93322181699999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </tableViewCell>
@@ -4603,7 +4706,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="34"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="  หมู่ที่" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="AIC-2o-YoK">
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="หมู่ที่" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="AIC-2o-YoK">
                                                     <rect key="frame" x="8" y="4" width="165" height="30"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -4611,7 +4714,7 @@
                                                     <fontDescription key="fontDescription" name="Quark-Bold" family="Quark" pointSize="17"/>
                                                     <textInputTraits key="textInputTraits"/>
                                                 </textField>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="  ซอย/ถนน" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1R5-vV-RkJ">
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="ซอย/ถนน" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1R5-vV-RkJ">
                                                     <rect key="frame" x="181" y="4" width="186" height="30"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -4630,7 +4733,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="34"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="  ตำบล" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aUV-2b-bmK">
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="ตำบล" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aUV-2b-bmK">
                                                     <rect key="frame" x="8" y="4" width="165" height="30"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -4638,7 +4741,7 @@
                                                     <fontDescription key="fontDescription" name="Quark-Bold" family="Quark" pointSize="17"/>
                                                     <textInputTraits key="textInputTraits"/>
                                                 </textField>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="  อำเภอ" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6Cd-by-Bwo">
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="อำเภอ" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6Cd-by-Bwo">
                                                     <rect key="frame" x="181" y="4" width="186" height="30"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -4657,7 +4760,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="34"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="  จังหวัด" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="msC-d3-DfA">
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="จังหวัด" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="msC-d3-DfA">
                                                     <rect key="frame" x="8" y="4" width="165" height="30"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -4665,7 +4768,7 @@
                                                     <fontDescription key="fontDescription" name="Quark-Bold" family="Quark" pointSize="17"/>
                                                     <textInputTraits key="textInputTraits"/>
                                                 </textField>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="  รหัสไปรษณีย์" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KRg-q3-4WB">
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="รหัสไปรษณีย์" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KRg-q3-4WB">
                                                     <rect key="frame" x="181" y="4" width="186" height="30"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -4684,26 +4787,42 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="34"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ที่อยู่ปัจจุบัน" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hyu-z2-Tb7">
-                                                    <rect key="frame" x="16" y="13" width="109" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ที่อยู่ปัจจุบัน" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hyu-z2-Tb7">
+                                                    <rect key="frame" x="16" y="13" width="63.5" height="21"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="21" id="EkL-JN-Xwa"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" name="Quark-Bold" family="Quark" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Es-rJ-OKO">
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Es-rJ-OKO">
                                                     <rect key="frame" x="105" y="12" width="20" height="20"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="20" id="28S-Xj-8ZC"/>
+                                                        <constraint firstAttribute="height" constant="20" id="ag6-YG-QLP"/>
+                                                    </constraints>
                                                 </button>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="เหมือนที่อยู่ภูมิลำเนา" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fz4-i6-KAW">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="เหมือนที่อยู่ภูมิลำเนา" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fz4-i6-KAW">
                                                     <rect key="frame" x="133" y="13" width="109" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="109" id="Zrs-gF-ZUv"/>
+                                                        <constraint firstAttribute="height" constant="21" id="j5g-pr-aIw"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" name="Quark-Bold" family="Quark" pointSize="16"/>
                                                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="4Es-rJ-OKO" secondAttribute="bottom" constant="2" id="AtZ-05-uPk"/>
+                                                <constraint firstAttribute="bottom" secondItem="fz4-i6-KAW" secondAttribute="bottom" id="Dfd-xo-e2R"/>
+                                                <constraint firstItem="4Es-rJ-OKO" firstAttribute="leading" secondItem="hyu-z2-Tb7" secondAttribute="trailing" constant="25.5" id="Ooh-B6-RlO"/>
+                                                <constraint firstAttribute="bottom" secondItem="hyu-z2-Tb7" secondAttribute="bottom" id="QGv-t5-SZS"/>
+                                                <constraint firstItem="fz4-i6-KAW" firstAttribute="leading" secondItem="4Es-rJ-OKO" secondAttribute="trailing" constant="8" id="oWt-Og-2gA"/>
+                                                <constraint firstItem="hyu-z2-Tb7" firstAttribute="leading" secondItem="BLb-qf-S0s" secondAttribute="leading" constant="16" id="wAm-Bn-gcq"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.93323183060000003" green="0.93339174989999996" blue="0.93322181699999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </tableViewCell>
@@ -4714,7 +4833,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="34"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="  หมู่ที่" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MUA-4R-mTr">
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder=" หมู่ที่" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MUA-4R-mTr">
                                                     <rect key="frame" x="8" y="4" width="165" height="30"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -4722,7 +4841,7 @@
                                                     <fontDescription key="fontDescription" name="Quark-Bold" family="Quark" pointSize="17"/>
                                                     <textInputTraits key="textInputTraits"/>
                                                 </textField>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="  ซอย/ถนน" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JY4-In-XYv">
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="ซอย/ถนน" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JY4-In-XYv">
                                                     <rect key="frame" x="181" y="4" width="186" height="30"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -4741,7 +4860,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="34"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="  ตำบล" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="G6s-GM-d4A">
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="ตำบล" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="G6s-GM-d4A">
                                                     <rect key="frame" x="8" y="4" width="165" height="30"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -4749,7 +4868,7 @@
                                                     <fontDescription key="fontDescription" name="Quark-Bold" family="Quark" pointSize="17"/>
                                                     <textInputTraits key="textInputTraits"/>
                                                 </textField>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="  อำเภอ" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ceh-B6-D9d">
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="อำเภอ" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ceh-B6-D9d">
                                                     <rect key="frame" x="181" y="4" width="186" height="30"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -4768,7 +4887,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="34"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="  จังหวัด" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wWL-QB-iSf">
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="จังหวัด" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wWL-QB-iSf">
                                                     <rect key="frame" x="8" y="4" width="165" height="30"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -4776,7 +4895,7 @@
                                                     <fontDescription key="fontDescription" name="Quark-Bold" family="Quark" pointSize="17"/>
                                                     <textInputTraits key="textInputTraits"/>
                                                 </textField>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="  รหัสไปรษณีย์" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="n7q-Eo-tQm">
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="รหัสไปรษณีย์" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="n7q-Eo-tQm">
                                                     <rect key="frame" x="181" y="4" width="186" height="30"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -4819,14 +4938,21 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="34"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="อาชีพปัจจุบัน" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aRd-cn-sUa">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="อาชีพปัจจุบัน" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aRd-cn-sUa">
                                                     <rect key="frame" x="16" y="13" width="109" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="109" id="f2b-TC-d7d"/>
+                                                        <constraint firstAttribute="height" constant="21" id="z9z-eD-Cfg"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" name="Quark-Bold" family="Quark" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="aRd-cn-sUa" firstAttribute="leading" secondItem="Wqt-3u-kn5" secondAttribute="leading" constant="16" id="0nE-07-E8l"/>
+                                                <constraint firstAttribute="bottom" secondItem="aRd-cn-sUa" secondAttribute="bottom" id="E13-Ry-R9R"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.93323183060000003" green="0.93339174989999996" blue="0.93322181699999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </tableViewCell>
@@ -4837,7 +4963,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="34"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder=" อาชีพ" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NNj-49-R5s">
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="อาชีพ" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NNj-49-R5s">
                                                     <rect key="frame" x="8" y="4" width="165" height="30"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -4845,7 +4971,7 @@
                                                     <fontDescription key="fontDescription" name="Quark-Bold" family="Quark" pointSize="17"/>
                                                     <textInputTraits key="textInputTraits"/>
                                                 </textField>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="  สังกัด" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="14H-GM-vta">
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="สังกัด" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="14H-GM-vta">
                                                     <rect key="frame" x="181" y="4" width="186" height="30"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -4864,15 +4990,21 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="34"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="  โทรศัพท์ที่ทำงาน" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WjJ-5G-JNz">
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="โทรศัพท์ที่ทำงาน" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WjJ-5G-JNz">
                                                     <rect key="frame" x="8" y="4" width="359" height="30"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="30" id="TCu-N7-sP9"/>
+                                                    </constraints>
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" name="Quark-Bold" family="Quark" pointSize="17"/>
                                                     <textInputTraits key="textInputTraits"/>
                                                 </textField>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="WjJ-5G-JNz" firstAttribute="leading" secondItem="yvn-Ay-gql" secondAttribute="leading" constant="8" id="avt-0b-cLB"/>
+                                                <constraint firstAttribute="trailing" secondItem="WjJ-5G-JNz" secondAttribute="trailing" constant="8" id="eHy-Fn-1Fh"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.93323183060000003" green="0.93339174989999996" blue="0.93322181699999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </tableViewCell>
@@ -4883,14 +5015,21 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="34"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="สถานที่ทำงาน" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RbW-94-CwK">
-                                                    <rect key="frame" x="16" y="13" width="109" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="สถานที่ทำงาน" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RbW-94-CwK">
+                                                    <rect key="frame" x="16" y="13" width="73" height="21"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="21" id="oWW-lJ-Rq7"/>
+                                                        <constraint firstAttribute="width" constant="73" id="onX-3I-CXs"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" name="Quark-Bold" family="Quark" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="RbW-94-CwK" secondAttribute="bottom" id="PCr-H4-UQK"/>
+                                                <constraint firstItem="RbW-94-CwK" firstAttribute="leading" secondItem="CpW-dC-crv" secondAttribute="leading" constant="16" id="bzQ-gw-c3E"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.93323183060000003" green="0.93339174989999996" blue="0.93322181699999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </tableViewCell>
@@ -4901,7 +5040,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="34"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="  หมู่ที่" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MYw-4M-NyP">
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="หมู่ที่" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MYw-4M-NyP">
                                                     <rect key="frame" x="8" y="4" width="165" height="30"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -4909,7 +5048,7 @@
                                                     <fontDescription key="fontDescription" name="Quark-Bold" family="Quark" pointSize="17"/>
                                                     <textInputTraits key="textInputTraits"/>
                                                 </textField>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="  ซอย/ถนน" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PS2-re-Xp9">
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="ซอย/ถนน" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PS2-re-Xp9">
                                                     <rect key="frame" x="181" y="4" width="186" height="30"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -4928,7 +5067,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="34"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="  จังหวัด" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HJ3-M7-w49">
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="จังหวัด" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HJ3-M7-w49">
                                                     <rect key="frame" x="8" y="4" width="165" height="30"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -4936,7 +5075,7 @@
                                                     <fontDescription key="fontDescription" name="Quark-Bold" family="Quark" pointSize="17"/>
                                                     <textInputTraits key="textInputTraits"/>
                                                 </textField>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="  อำเภอ" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DOf-nL-dEa">
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="อำเภอ" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DOf-nL-dEa">
                                                     <rect key="frame" x="181" y="4" width="186" height="30"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -4955,7 +5094,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="34"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="  ตำบล" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="i7Z-zd-66g">
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="ตำบล" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="i7Z-zd-66g">
                                                     <rect key="frame" x="8" y="4" width="165" height="30"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -4963,7 +5102,7 @@
                                                     <fontDescription key="fontDescription" name="Quark-Bold" family="Quark" pointSize="17"/>
                                                     <textInputTraits key="textInputTraits"/>
                                                 </textField>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="  รหัสไปรษณีย์" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="41R-Hb-lk2">
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="รหัสไปรษณีย์" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="41R-Hb-lk2">
                                                     <rect key="frame" x="181" y="4" width="186" height="30"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -4982,14 +5121,21 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="34"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text=" การศึกษา" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sDY-DT-EUz">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" การศึกษา" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sDY-DT-EUz">
                                                     <rect key="frame" x="16" y="13" width="109" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="109" id="8h4-dm-zwp"/>
+                                                        <constraint firstAttribute="height" constant="21" id="u5t-d8-gd3"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" name="Quark-Bold" family="Quark" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="sDY-DT-EUz" secondAttribute="bottom" id="O6j-Gj-kJh"/>
+                                                <constraint firstItem="sDY-DT-EUz" firstAttribute="leading" secondItem="mkn-uL-WjS" secondAttribute="leading" constant="16" id="b5z-rc-A4M"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.93323183060000003" green="0.93339174989999996" blue="0.93322181699999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </tableViewCell>
@@ -5000,15 +5146,21 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="34"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder=" ศึกษาระดับปริญญา" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4Lp-3z-rdB">
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="ศึกษาระดับปริญญา" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4Lp-3z-rdB">
                                                     <rect key="frame" x="8" y="4" width="359" height="30"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="30" id="v4X-Y8-pM7"/>
+                                                    </constraints>
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" name="Quark-Bold" family="Quark" pointSize="17"/>
                                                     <textInputTraits key="textInputTraits"/>
                                                 </textField>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="4Lp-3z-rdB" firstAttribute="leading" secondItem="VVq-KK-qP2" secondAttribute="leading" constant="8" id="19e-5c-nbV"/>
+                                                <constraint firstAttribute="trailing" secondItem="4Lp-3z-rdB" secondAttribute="trailing" constant="8" id="Bce-4i-Sif"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.93323183060000003" green="0.93339174989999996" blue="0.93322181699999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </tableViewCell>
@@ -5019,15 +5171,21 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="34"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder=" สาขา" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Te4-Sn-lAZ">
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="สาขา" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Te4-Sn-lAZ">
                                                     <rect key="frame" x="8" y="4" width="359" height="30"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="30" id="BqE-A0-MJE"/>
+                                                    </constraints>
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" name="Quark-Bold" family="Quark" pointSize="17"/>
                                                     <textInputTraits key="textInputTraits"/>
                                                 </textField>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="Te4-Sn-lAZ" secondAttribute="trailing" constant="8" id="mCX-zN-t7r"/>
+                                                <constraint firstItem="Te4-Sn-lAZ" firstAttribute="leading" secondItem="7nS-7k-eHa" secondAttribute="leading" constant="8" id="s5x-I5-MU4"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.93323183060000003" green="0.93339174989999996" blue="0.93322181699999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </tableViewCell>
@@ -5069,7 +5227,7 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="  เมื่อวันที่" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mZq-uf-nzg">
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="เมื่อวันที่" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mZq-uf-nzg">
                                                     <rect key="frame" x="16" y="89" width="343" height="30"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -5077,7 +5235,7 @@
                                                     <fontDescription key="fontDescription" name="Quark-Bold" family="Quark" pointSize="15"/>
                                                     <textInputTraits key="textInputTraits"/>
                                                 </textField>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="  จัดโดย" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="e6g-1Z-zzr">
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="จัดโดย" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="e6g-1Z-zzr">
                                                     <rect key="frame" x="16" y="51" width="343" height="30"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -5110,7 +5268,7 @@
                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Egg-ae-uId">
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Egg-ae-uId">
                                                     <rect key="frame" x="16" y="62" width="343" height="30"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -5125,7 +5283,7 @@
                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="  วันที่เริ่ม" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7jJ-WS-4jH">
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="  วันที่เริ่ม" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7jJ-WS-4jH">
                                                     <rect key="frame" x="16" y="121" width="343" height="30"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -5322,7 +5480,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="34"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="  เลขเลขที่บัตรยืนยันตัวตน" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UkU-Ca-zRK">
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="เลขที่บัตรยืนยันตัวตน" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UkU-Ca-zRK">
                                                     <rect key="frame" x="8" y="4" width="165" height="30"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -5330,7 +5488,7 @@
                                                     <fontDescription key="fontDescription" name="Quark-Bold" family="Quark" pointSize="17"/>
                                                     <textInputTraits key="textInputTraits"/>
                                                 </textField>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gER-Kt-qlt">
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gER-Kt-qlt">
                                                     <rect key="frame" x="181" y="4" width="186" height="30"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -5349,7 +5507,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="34"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="  ออกวันที่" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="l7r-cp-yUQ">
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="ออกวันที่" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="l7r-cp-yUQ">
                                                     <rect key="frame" x="8" y="4" width="165" height="30"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -5357,7 +5515,7 @@
                                                     <fontDescription key="fontDescription" name="Quark-Bold" family="Quark" pointSize="17"/>
                                                     <textInputTraits key="textInputTraits"/>
                                                 </textField>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="  หมดอายุ" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lTc-2v-aIh">
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="หมดอายุ" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lTc-2v-aIh">
                                                     <rect key="frame" x="181" y="4" width="186" height="30"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -5376,14 +5534,21 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="34"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ที่อยู่ภูมิลำเนา" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="90w-e8-tN3">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ที่อยู่ภูมิลำเนา" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="90w-e8-tN3">
                                                     <rect key="frame" x="16" y="13" width="109" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="109" id="9no-O6-2jW"/>
+                                                        <constraint firstAttribute="height" constant="21" id="Rg6-jo-YNr"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" name="Quark-Bold" family="Quark" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="90w-e8-tN3" secondAttribute="bottom" id="LqN-qM-50d"/>
+                                                <constraint firstItem="90w-e8-tN3" firstAttribute="leading" secondItem="ftx-GK-avm" secondAttribute="leading" constant="16" id="kvt-Zh-ogh"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.93323183060000003" green="0.93339174989999996" blue="0.93322181699999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </tableViewCell>
@@ -5394,7 +5559,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="34"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="  หมู่ที่" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4rJ-vC-C5b">
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="หมู่ที่" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4rJ-vC-C5b">
                                                     <rect key="frame" x="8" y="4" width="165" height="30"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -5402,7 +5567,7 @@
                                                     <fontDescription key="fontDescription" name="Quark-Bold" family="Quark" pointSize="17"/>
                                                     <textInputTraits key="textInputTraits"/>
                                                 </textField>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="  ซอย/ถนน" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bsL-bM-QIv">
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="ซอย/ถนน" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bsL-bM-QIv">
                                                     <rect key="frame" x="181" y="4" width="186" height="30"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -5421,7 +5586,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="34"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="  ตำบล" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cef-LT-b6x">
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="ตำบล" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cef-LT-b6x">
                                                     <rect key="frame" x="8" y="4" width="165" height="30"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -5429,7 +5594,7 @@
                                                     <fontDescription key="fontDescription" name="Quark-Bold" family="Quark" pointSize="17"/>
                                                     <textInputTraits key="textInputTraits"/>
                                                 </textField>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="  อำเภอ" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9OY-ud-16w">
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="อำเภอ" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9OY-ud-16w">
                                                     <rect key="frame" x="181" y="4" width="186" height="30"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -5448,7 +5613,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="34"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="  จังหวัด" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5sB-kC-GIh">
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="จังหวัด" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5sB-kC-GIh">
                                                     <rect key="frame" x="8" y="4" width="165" height="30"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -5456,7 +5621,7 @@
                                                     <fontDescription key="fontDescription" name="Quark-Bold" family="Quark" pointSize="17"/>
                                                     <textInputTraits key="textInputTraits"/>
                                                 </textField>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="  รหัสไปรษณีย์" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="oTV-0A-E2B">
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="รหัสไปรษณีย์" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="oTV-0A-E2B">
                                                     <rect key="frame" x="181" y="4" width="186" height="30"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -5475,17 +5640,23 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="34"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ที่อยู่ปัจจุบัน" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g4T-on-YDX">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ที่อยู่ปัจจุบัน" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g4T-on-YDX">
                                                     <rect key="frame" x="16" y="13" width="109" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="21" id="MtU-G5-nO0"/>
+                                                        <constraint firstAttribute="width" constant="109" id="iI3-8L-iwN"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" name="Quark-Bold" family="Quark" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tXM-da-Byg">
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tXM-da-Byg">
                                                     <rect key="frame" x="105" y="12" width="20" height="20"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="20" id="ChO-kh-bsa"/>
+                                                        <constraint firstAttribute="width" constant="20" id="VBH-kK-Rqu"/>
+                                                    </constraints>
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="เหมือนที่อยู่ภูมิลำเนา" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vE5-V3-zFO">
                                                     <rect key="frame" x="133" y="13" width="109" height="21"/>
@@ -5495,6 +5666,12 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="tXM-da-Byg" firstAttribute="leading" secondItem="oN3-Tt-d9W" secondAttribute="leading" constant="105" id="2k1-HN-zxo"/>
+                                                <constraint firstItem="g4T-on-YDX" firstAttribute="leading" secondItem="oN3-Tt-d9W" secondAttribute="leading" constant="16" id="3Vp-se-MDP"/>
+                                                <constraint firstAttribute="bottom" secondItem="tXM-da-Byg" secondAttribute="bottom" constant="2" id="Lw5-81-aE3"/>
+                                                <constraint firstAttribute="bottom" secondItem="g4T-on-YDX" secondAttribute="bottom" id="YbJ-Mz-lva"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.93323183060000003" green="0.93339174989999996" blue="0.93322181699999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </tableViewCell>
@@ -5505,7 +5682,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="34"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="  หมู่ที่" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OCj-OI-bI8">
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="หมู่ที่" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OCj-OI-bI8">
                                                     <rect key="frame" x="8" y="4" width="165" height="30"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -5513,7 +5690,7 @@
                                                     <fontDescription key="fontDescription" name="Quark-Bold" family="Quark" pointSize="17"/>
                                                     <textInputTraits key="textInputTraits"/>
                                                 </textField>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="  ซอย/ถนน" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jHR-rE-VQI">
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="ซอย/ถนน" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jHR-rE-VQI">
                                                     <rect key="frame" x="181" y="4" width="186" height="30"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -5532,7 +5709,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="34"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="  ตำบล" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="goO-MZ-Bed">
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="ตำบล" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="goO-MZ-Bed">
                                                     <rect key="frame" x="8" y="4" width="165" height="30"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -5540,7 +5717,7 @@
                                                     <fontDescription key="fontDescription" name="Quark-Bold" family="Quark" pointSize="17"/>
                                                     <textInputTraits key="textInputTraits"/>
                                                 </textField>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="  อำเภอ" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vIY-y4-jd7">
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="อำเภอ" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vIY-y4-jd7">
                                                     <rect key="frame" x="181" y="4" width="186" height="30"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -5559,7 +5736,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="34"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="  จังหวัด" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Qzl-5k-AVg">
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="จังหวัด" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Qzl-5k-AVg">
                                                     <rect key="frame" x="8" y="4" width="165" height="30"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -5567,7 +5744,7 @@
                                                     <fontDescription key="fontDescription" name="Quark-Bold" family="Quark" pointSize="17"/>
                                                     <textInputTraits key="textInputTraits"/>
                                                 </textField>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="  รหัสไปรษณีย์" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="B0Z-g4-lOc">
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="รหัสไปรษณีย์" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="B0Z-g4-lOc">
                                                     <rect key="frame" x="181" y="4" width="186" height="30"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -5610,16 +5787,22 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="34"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jF0-CY-afs">
+                                                <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jF0-CY-afs">
                                                     <rect key="frame" x="8" y="4" width="359" height="30"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <color key="backgroundColor" red="0.8283746179" green="0.29650567119999999" blue="0.35870332780000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="30" id="ze7-Jd-cOD"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" name="Quark-Bold" family="Quark" pointSize="17"/>
                                                     <state key="normal" title="เพิ่มข้อมูลปฎิบัติหน้าที่">
                                                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
                                                 </button>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="jF0-CY-afs" firstAttribute="leading" secondItem="ZvE-OR-ff9" secondAttribute="leading" constant="8" id="7ch-CO-pYD"/>
+                                                <constraint firstAttribute="trailing" secondItem="jF0-CY-afs" secondAttribute="trailing" constant="8" id="dAz-9Y-Gvn"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.93323183060000003" green="0.93339174989999996" blue="0.93322181699999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </tableViewCell>
@@ -5630,19 +5813,20 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="135"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zeC-GA-PoQ">
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zeC-GA-PoQ">
                                                     <rect key="frame" x="8" y="8" width="359" height="127"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <subviews>
-                                                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="  จังหวัด" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4sB-Mo-fJV">
+                                                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="จังหวัด" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4sB-Mo-fJV">
                                                             <rect key="frame" x="8" y="79" width="343" height="30"/>
-                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="30" id="l8Y-1j-z6Z"/>
+                                                            </constraints>
                                                             <nil key="textColor"/>
                                                             <fontDescription key="fontDescription" name="Quark-Bold" family="Quark" pointSize="17"/>
                                                             <textInputTraits key="textInputTraits"/>
                                                         </textField>
-                                                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder=" ปีที่ปฎิบัติ" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Yz1-k2-rJ1">
+                                                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="ปีที่ปฎิบัติ" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Yz1-k2-rJ1">
                                                             <rect key="frame" x="8" y="41" width="165" height="30"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -5650,7 +5834,7 @@
                                                             <fontDescription key="fontDescription" name="Quark-Bold" family="Quark" pointSize="17"/>
                                                             <textInputTraits key="textInputTraits"/>
                                                         </textField>
-                                                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="  จำนวนคดี" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="g0S-0l-OHN">
+                                                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="จำนวนคดี" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="g0S-0l-OHN">
                                                             <rect key="frame" x="181" y="41" width="170" height="30"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -5665,8 +5849,20 @@
                                                         </button>
                                                     </subviews>
                                                     <color key="backgroundColor" red="0.79991227388381958" green="0.80005055665969849" blue="0.7999035120010376" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="127" id="TOQ-zj-WCk"/>
+                                                        <constraint firstAttribute="bottom" secondItem="4sB-Mo-fJV" secondAttribute="bottom" constant="18" id="TQk-Av-yC9"/>
+                                                        <constraint firstAttribute="trailing" secondItem="4sB-Mo-fJV" secondAttribute="trailing" constant="8" id="eqa-8g-pXt"/>
+                                                        <constraint firstItem="4sB-Mo-fJV" firstAttribute="leading" secondItem="zeC-GA-PoQ" secondAttribute="leading" constant="8" id="kHz-Zt-i1Q"/>
+                                                    </constraints>
                                                 </view>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="zeC-GA-PoQ" secondAttribute="bottom" id="1BW-Mv-kgl"/>
+                                                <constraint firstAttribute="trailing" secondItem="zeC-GA-PoQ" secondAttribute="trailing" constant="8" id="Cv0-mQ-9h3"/>
+                                                <constraint firstItem="zeC-GA-PoQ" firstAttribute="leading" secondItem="4n6-Lo-YuR" secondAttribute="leading" constant="8" id="F2T-Ma-Q1i"/>
+                                                <constraint firstItem="zeC-GA-PoQ" firstAttribute="top" secondItem="4n6-Lo-YuR" secondAttribute="top" constant="8" id="mHi-HP-GW0"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.93323183060000003" green="0.93339174989999996" blue="0.93322181699999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </tableViewCell>
@@ -5704,14 +5900,13 @@
         <image name="radio_off" width="43" height="43"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="q56-LP-eiH"/>
-        <segue reference="ajA-1D-dAG"/>
         <segue reference="uGj-C4-SvP"/>
+        <segue reference="4rA-hW-oyU"/>
         <segue reference="PxF-VT-NSG"/>
-        <segue reference="sv0-QJ-Fkf"/>
-        <segue reference="kRs-M2-pUb"/>
-        <segue reference="0kd-Te-E1t"/>
         <segue reference="vjE-yf-aCp"/>
+        <segue reference="kRs-M2-pUb"/>
+        <segue reference="sv0-QJ-Fkf"/>
+        <segue reference="0kd-Te-E1t"/>
         <segue reference="PhN-F7-pql"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -8,33 +8,55 @@
 
 import Foundation
 import Alamofire
+
 class ComplaintParameter: NSObject {
     
-//    func getComplaintParameter() -> Parameters{
-//        
-//        //
-//        //{
-//        //    "data" : {
-//        //        "accountid" : 1,
-//        //        "cmpltservguide" : 1,
-//        //        "cmpltsubject" : "xxx",
-//        //        "cmpltcontent" : "detail",
-//        //        "cmpltstatus"  : "inw",
-//        //        "cmpltinstget" : 3,
-//        //        "posttime"     : "Y-m-d H:i:s"
-//        //        
-//        //    }
-//        //}
-//        let parameters: Parameters = [
-//            "data": ["username": username!,
-//                     "password": password!,
-//                     "channel": channal!,
-//                     "facebook_token":facebook_token!,
-//                     "device": getDevice()
-//            ]
-//        ]
-//        return parameters
-//    }
+    let stringHelper = StringHelper()
+    let accountData = AccountData()
+    
+    var cmpltservguide:Int = 0
+    var cmpltsubject:String = ""
+    var cmpltcontent:String = ""
+    var cmpltstatus:String = ""
+    var cmpltinstget:String = ""
+    
+    var pid:String = ""
+    var prename:String = ""
+    var firstname:String = ""
+    var lastname:String = ""
+    var birthdate:String = ""
+    var laser:String = ""
+    
+    func getCreateComplaintParameter()-> Parameters{
+        let parameters: Parameters = [
+            "data": ["accountid":accountData.getAccountID(),
+                     "cmpltservguide": cmpltservguide,
+                     "cmpltsubject": cmpltsubject,
+                     "cmpltcontent": cmpltcontent,
+                     "cmpltstatus": cmpltstatus,
+                     "cmpltinstget": cmpltinstget,
+                     "posttime": stringHelper.getCurrentDateTimeString(),
+            ]
+        ]
+        return parameters
+        
+    }
+    
+    
+    func getVerifyIDParameter()-> Parameters{
+        
+        let parameters: Parameters = [
+            "data": ["pid":pid,
+                     "prename": prename,
+                     "firstname": accountData.getAccountFirstName(),
+                     "lastname": accountData.getAccountLastName(),
+                     "birthdate": birthdate,
+                     "laser": laser
+            ]
+        ]
+        return parameters
+
+    }
 }
 
 

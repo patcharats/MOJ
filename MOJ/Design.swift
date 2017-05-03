@@ -15,6 +15,27 @@ class Design: NSObject {
     let HEX_COLOR_GREEN = "67AC47"
     let HEX_COLOR_RED = "B53447"
     
+    func getProcessStatus(status:String,label:UILabel){
+        switch status {
+        case "create":
+            label.text = "รับเรื่อง"
+            label.backgroundColor = hexStringToColor(hex: HEX_COLOR_BLUE)
+        case "process":
+            label.text = "กำลังดำเนินการ"
+            label.backgroundColor = hexStringToColor(hex: HEX_COLOR_YELLOW)
+        case "close":
+            label.text = "ปิดเรื่อง"
+            label.backgroundColor = hexStringToColor(hex: HEX_COLOR_GREEN)
+        case "reject":
+            label.text = "ไม่รับเรื่อง"
+            label.backgroundColor = hexStringToColor(hex: HEX_COLOR_RED)
+        default:
+            label.text = status
+            label.backgroundColor = UIColor.black
+        }
+    }
+    
+    
     func roundViewTop(view:UIView,radius:CGFloat){
         view.clipsToBounds = true
         view.layoutIfNeeded()

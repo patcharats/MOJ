@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -21,16 +22,20 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="launch" translatesAutoresizingMaskIntoConstraints="NO" id="Nhg-by-EWk">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo_splash" translatesAutoresizingMaskIntoConstraints="NO" id="bh6-OM-ybG">
+                                <rect key="frame" x="16" y="118" width="343" height="521"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="521" id="2Lz-LX-vy4"/>
+                                    <constraint firstAttribute="width" constant="343" id="QNb-kz-9fC"/>
+                                </constraints>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.110781543" green="0.18295663600000001" blue="0.25777035949999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="Nhg-by-EWk" secondAttribute="trailing" id="92C-dh-eYn"/>
-                            <constraint firstItem="Nhg-by-EWk" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="9XD-Nf-ibA"/>
-                            <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="Nhg-by-EWk" secondAttribute="bottom" id="XkB-t3-hPA"/>
-                            <constraint firstItem="Nhg-by-EWk" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="fhJ-dC-q0C"/>
+                            <constraint firstItem="bh6-OM-ybG" firstAttribute="trailing" secondItem="Ze5-6b-2t3" secondAttribute="trailingMargin" id="4qp-PR-UDw"/>
+                            <constraint firstItem="bh6-OM-ybG" firstAttribute="top" secondItem="Llm-lL-Icb" secondAttribute="bottom" constant="98" id="7fT-er-bd4"/>
+                            <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="bh6-OM-ybG" secondAttribute="bottom" constant="28" id="SYd-1U-GoZ"/>
+                            <constraint firstItem="bh6-OM-ybG" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leadingMargin" id="u7g-yc-3Fc"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -40,6 +45,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="launch" width="1079" height="1882"/>
+        <image name="logo_splash" width="620" height="1474"/>
     </resources>
 </document>

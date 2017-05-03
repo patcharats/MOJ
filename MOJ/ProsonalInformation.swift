@@ -13,9 +13,6 @@ class ProsonalInformation:UITableViewController{
         super.awakeFromNib()
     }
     
-//    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        return 0 // your number of cell here
-//    }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         // your cell coding

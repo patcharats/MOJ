@@ -17,8 +17,8 @@ class HowToViewController: UIViewController {
     @IBOutlet weak var checkboxButton: UIButton!
     @IBOutlet weak var startButton: UIButton!
     
-    let IMAGE_CHECK_BOX_TRUE = "radio_on"
-    let IMAGE_CHECK_BOX_FALSE = "radio_off"
+    let IMAGE_CHECK_BOX_TRUE = "checkbox_on"
+    let IMAGE_CHECK_BOX_FALSE = "checkbox_off"
     var imageName = ""
     var isShowHowto = false
     var accountData = AccountData()

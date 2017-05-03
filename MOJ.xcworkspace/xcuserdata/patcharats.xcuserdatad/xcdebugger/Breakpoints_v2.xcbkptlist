@@ -41,13 +41,13 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "MOJ/ContactDetailViewController.swift"
-            timestampString = "514920804.460376"
+            filePath = "MOJ/ComplainViewController.swift"
+            timestampString = "514929082.072169"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "84"
-            endingLineNumber = "84"
-            landmarkName = "tableView(_:cellForRowAt:)"
+            startingLineNumber = "54"
+            endingLineNumber = "54"
+            landmarkName = "viewDidLoad()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -57,13 +57,61 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "MOJ/ComplainViewController.swift"
-            timestampString = "514929082.072169"
+            filePath = "MOJ/TalkWithMinisterPostDetail.swift"
+            timestampString = "515526326.134842"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "54"
-            endingLineNumber = "54"
-            landmarkName = "viewDidLoad()"
+            startingLineNumber = "122"
+            endingLineNumber = "122"
+            landmarkName = "tableView(_:cellForRowAt:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MOJ/ComplainCreateNew.swift"
+            timestampString = "515529141.962491"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "125"
+            endingLineNumber = "125"
+            landmarkName = "sendButton(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MOJ/TalkWithMinisterMessage.swift"
+            timestampString = "515528807.047356"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "45"
+            endingLineNumber = "45"
+            landmarkName = "SetCheckBox()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MOJ/TalkWithMinisterMessage.swift"
+            timestampString = "515528807.047356"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "50"
+            endingLineNumber = "50"
+            landmarkName = "SetCheckBox()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

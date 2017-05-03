@@ -20,9 +20,21 @@ class StringHelper:NSObject{
         return false
     }
     
+    func getCurrentDateTimeString()->String{
+        let date = Date()
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy/MM/dd HH:mm:ss"
+        let datetime = formatter.string(from: date)
+        
+        return datetime
+    }
+    
     func getDatefromString(dateString:String)->String{
         
-        if dateString.contains("/"){
+        if dateString.isEmpty {
+            return dateString
+        }
+        else if dateString.contains("/"){
             let dateStringArr = dateString.components(separatedBy: "/")
             //7/27/2015  1:13:48 PM
             let day   = dateStringArr[1]
@@ -34,10 +46,11 @@ class StringHelper:NSObject{
             
             return day+" "+getMonthTH(month: month)+" "+year
         }
-        else{
+        else {
             let dateStringArr = dateString.components(separatedBy: "-")
             //2017-04-12 14:51:05
-            let dayandtime   = dateStringArr[2]
+            let dayandtime  = dateStringArr[2]
+            
             let dayStringArr  = dayandtime.components(separatedBy: " ")
             let day = dayStringArr[0]
             

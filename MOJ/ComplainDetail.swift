@@ -14,6 +14,7 @@ class ComplainDetail: UIViewController,UITableViewDelegate, UITableViewDataSourc
     let network = Network()
     let accountData = AccountData()
     var selectComplaintID:String = ""
+    let stringHelper = StringHelper()
     
     @IBOutlet weak var sendButton: UIButton!
     @IBOutlet weak var replyTextfield: UITextField!
@@ -84,13 +85,11 @@ class ComplainDetail: UIViewController,UITableViewDelegate, UITableViewDataSourc
         
         let accountID = accountData.getAccountID()
 
-        network.get(name: network.API_COMPLAINT, param: "1"+"/"+selectComplaintID, viewController: self, completionHandler: {
+        network.get(name: network.API_COMPLAINT, param: accountID+"/"+selectComplaintID, viewController: self, completionHandler: {
             (json:Any,Code:String,Message:String) in
             let jsonSwifty = JSON(json)
             
             self.cmpltcatid = jsonSwifty[self.KEY_COMPLAIN_DATA][self.KEY_COMPLAIN_CATAGORIE_ID].stringValue
-            print(self.cmpltcatid)
-            
             self.cmpltcode = jsonSwifty[self.KEY_COMPLAIN_DATA][self.KEY_COMPLAIN_CODE].stringValue
             self.cmpltcontent = jsonSwifty[self.KEY_COMPLAIN_DATA][self.KEY_COMPLAIN_CONTENT].stringValue
             self.cmpltconttentid = jsonSwifty[self.KEY_COMPLAIN_DATA][self.KEY_COMPLAIN_CONTENT_ID].stringValue
@@ -99,8 +98,8 @@ class ComplainDetail: UIViewController,UITableViewDelegate, UITableViewDataSourc
             self.cmpltstatus = jsonSwifty[self.KEY_COMPLAIN_DATA][self.KEY_COMPLAIN_STATUS].stringValue
             self.cmpltsubject = jsonSwifty[self.KEY_COMPLAIN_DATA][self.KEY_COMPLAIN_SUBJECT].stringValue
             self.cmpltuserid = jsonSwifty[self.KEY_COMPLAIN_DATA][self.KEY_COMPLAIN_USER_ID].stringValue
-            self.cpltImgId =  (jsonSwifty[self.KEY_COMPLAIN_IMAGE].arrayValue.map({$0[self.KEY_COMPLAIN_IMAGE_ID].stringValue}))
-            self.cpltImgRename =  (jsonSwifty[self.KEY_COMPLAIN_IMAGE].arrayValue.map({$0[self.KEY_COMPLAIN_IMAGE_NAME].stringValue}))
+            self.cpltImgId =  (jsonSwifty[self.KEY_COMPLAIN_DATA][self.KEY_COMPLAIN_IMAGE].arrayValue.map({$0[self.KEY_COMPLAIN_IMAGE_ID].stringValue}))
+            self.cpltImgRename =  (jsonSwifty[self.KEY_COMPLAIN_DATA][self.KEY_COMPLAIN_IMAGE].arrayValue.map({$0[self.KEY_COMPLAIN_IMAGE_NAME].stringValue}))
             
             print(self.cpltImgRename)
             
@@ -130,7 +129,7 @@ class ComplainDetail: UIViewController,UITableViewDelegate, UITableViewDataSourc
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat
     {
         if indexPath.row == 0 {
-            return 364
+            return 280
         }
         else{
             return 174
@@ -155,9 +154,12 @@ class ComplainDetail: UIViewController,UITableViewDelegate, UITableViewDataSourc
             
             cell.detailTextView.text = cmpltcontent
             cell.titleLabel.text = cmpltsubject
-            cell.dateLabel.text = cmpltdattm
+            
+            cell.dateLabel.text = stringHelper.getDatefromString(dateString: cmpltdattm)
             cell.complainCodeLabel.text = cmpltcode
             cell.proceedLabel.text = cmpltstatus
+            design.getProcessStatus(status: cmpltstatus, label: cell.proceedLabel)
+            cell.alertImage.isHidden = true
             
 //            cell.imageView1.sd_setImage(with: URL(string: cpltImgRename[0]), placeholderImage: UIImage(named: "image_def_bog"))
 //            cell.imageView2.sd_setImage(with: URL(string: cpltImgRename[1]), placeholderImage: UIImage(named: "image_def_bog"))
@@ -168,8 +170,8 @@ class ComplainDetail: UIViewController,UITableViewDelegate, UITableViewDataSourc
             cell.viewDetail.isHidden = true
             cell.viewRyply.isHidden = false
             cell.ryplyDetailLabel.text = reptDetail[indexPath.row-1]
-            cell.ryplyDateLabel.text = reptDateTime[indexPath.row-1]
-
+            cell.ryplyDateLabel.text = stringHelper.getDatefromString(dateString: reptDateTime[indexPath.row-1])
+            cell.replyComplainCodeLabel.text = ""
         }
        
         

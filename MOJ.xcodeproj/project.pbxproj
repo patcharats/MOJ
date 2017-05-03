@@ -29,7 +29,6 @@
 		27546B931EABABF4005B5B18 /* ContactDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27546B921EABABF4005B5B18 /* ContactDetailViewController.swift */; };
 		27546B951EABB3AF005B5B18 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27546B941EABB3AF005B5B18 /* SearchView.swift */; };
 		27546B981EABC5E1005B5B18 /* TalkWithMinisterPostDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27546B971EABC5E1005B5B18 /* TalkWithMinisterPostDetail.swift */; };
-		27546B9A1EABCB79005B5B18 /* TalkWithMinisterRegister.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27546B991EABCB79005B5B18 /* TalkWithMinisterRegister.swift */; };
 		27546B9C1EABCBDF005B5B18 /* TalkWithMinisterMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27546B9B1EABCBDF005B5B18 /* TalkWithMinisterMessage.swift */; };
 		27546B9E1EABDC7E005B5B18 /* PsychoSeviceCreateNew.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27546B9D1EABDC7E005B5B18 /* PsychoSeviceCreateNew.swift */; };
 		27546BA01EABDC8F005B5B18 /* PsychoServiceRenew.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27546B9F1EABDC8F005B5B18 /* PsychoServiceRenew.swift */; };
@@ -42,6 +41,7 @@
 		2760108B1EAE591B008D97F4 /* PartOne.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2760108A1EAE591B008D97F4 /* PartOne.swift */; };
 		2760108D1EAE592D008D97F4 /* PartTwo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2760108C1EAE592D008D97F4 /* PartTwo.swift */; };
 		2760108F1EAE5939008D97F4 /* PartThree.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2760108E1EAE5939008D97F4 /* PartThree.swift */; };
+		27B1011C1EBA377900EFC57A /* ContactsParameter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B1011B1EBA377900EFC57A /* ContactsParameter.swift */; };
 		27E6949A1E879F0F008ACE01 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27E694991E879F0F008ACE01 /* AppDelegate.swift */; };
 		27E6949C1E879F0F008ACE01 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27E6949B1E879F0F008ACE01 /* ViewController.swift */; };
 		27E6949F1E879F0F008ACE01 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 27E6949D1E879F0F008ACE01 /* Main.storyboard */; };
@@ -100,7 +100,6 @@
 		27546B921EABABF4005B5B18 /* ContactDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactDetailViewController.swift; sourceTree = "<group>"; };
 		27546B941EABB3AF005B5B18 /* SearchView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
 		27546B971EABC5E1005B5B18 /* TalkWithMinisterPostDetail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TalkWithMinisterPostDetail.swift; sourceTree = "<group>"; };
-		27546B991EABCB79005B5B18 /* TalkWithMinisterRegister.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TalkWithMinisterRegister.swift; sourceTree = "<group>"; };
 		27546B9B1EABCBDF005B5B18 /* TalkWithMinisterMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TalkWithMinisterMessage.swift; sourceTree = "<group>"; };
 		27546B9D1EABDC7E005B5B18 /* PsychoSeviceCreateNew.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PsychoSeviceCreateNew.swift; sourceTree = "<group>"; };
 		27546B9F1EABDC8F005B5B18 /* PsychoServiceRenew.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PsychoServiceRenew.swift; sourceTree = "<group>"; };
@@ -113,6 +112,7 @@
 		2760108A1EAE591B008D97F4 /* PartOne.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PartOne.swift; sourceTree = "<group>"; };
 		2760108C1EAE592D008D97F4 /* PartTwo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PartTwo.swift; sourceTree = "<group>"; };
 		2760108E1EAE5939008D97F4 /* PartThree.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PartThree.swift; sourceTree = "<group>"; };
+		27B1011B1EBA377900EFC57A /* ContactsParameter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactsParameter.swift; sourceTree = "<group>"; };
 		27E694961E879F0F008ACE01 /* MOJ.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MOJ.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		27E694991E879F0F008ACE01 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		27E6949B1E879F0F008ACE01 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -225,7 +225,6 @@
 			children = (
 				27E694BB1E87A156008ACE01 /* TalkWithMiniterViewController.swift */,
 				27546B971EABC5E1005B5B18 /* TalkWithMinisterPostDetail.swift */,
-				27546B991EABCB79005B5B18 /* TalkWithMinisterRegister.swift */,
 				27546B9B1EABCBDF005B5B18 /* TalkWithMinisterMessage.swift */,
 			);
 			name = TalkWithMinister;
@@ -409,6 +408,7 @@
 				CD78DCD71EA84EE300BC4CDB /* Network.swift */,
 				271073A01EACE66000DA14F4 /* AccountParameter.swift */,
 				27126CC71EB122D900E39402 /* ComplaintParameter.swift */,
+				27B1011B1EBA377900EFC57A /* ContactsParameter.swift */,
 			);
 			name = Network;
 			sourceTree = "<group>";
@@ -594,12 +594,12 @@
 				27E694C91E87A156008ACE01 /* NoticeViewController.swift in Sources */,
 				27546B9E1EABDC7E005B5B18 /* PsychoSeviceCreateNew.swift in Sources */,
 				2760108D1EAE592D008D97F4 /* PartTwo.swift in Sources */,
+				27B1011C1EBA377900EFC57A /* ContactsParameter.swift in Sources */,
 				274158EB1E87DAF90086A756 /* PDFThumbnailCollectionViewController.swift in Sources */,
 				2710739B1EACBD8200DA14F4 /* StringHelper.swift in Sources */,
 				276010861EAE50CB008D97F4 /* FileEvidence.swift in Sources */,
 				CD49B7311EA9DD35005BD84E /* Design.swift in Sources */,
 				271073921EABF03E00DA14F4 /* ComplainCreateNew.swift in Sources */,
-				27546B9A1EABCB79005B5B18 /* TalkWithMinisterRegister.swift in Sources */,
 				27E694B21E879F81008ACE01 /* SWRevealViewController.m in Sources */,
 				271073A11EACE66000DA14F4 /* AccountParameter.swift in Sources */,
 				274158D21E87CCC40086A756 /* EditUserInfoViewController.swift in Sources */,

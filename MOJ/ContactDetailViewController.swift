@@ -84,10 +84,15 @@ class ContactDetailViewController: UIViewController,UITableViewDelegate, UITable
         design.roundView(view: cell.view, radius: 5)
         design.roundView(view: cell.headerLabel, radius: 5)
         
+        if lat[indexPath.row] .contains("0.00") && lng [indexPath.row] .contains("0.00"){
+            cell.mapButton.isHidden = true
+        }
+        
         cell.addressTextView.font = UIFont(name: "Quark-Bold", size: 15)
         cell.titleLabel.text = name[indexPath.row]
         cell.mapButton.addTarget(self, action: #selector(mapButton), for: .touchUpInside)
         cell.mapButton.tag = indexPath.row
+        
         return cell
     }
     func mapButton(sender: UIButton!) {

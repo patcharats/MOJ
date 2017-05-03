@@ -95,7 +95,9 @@ class DowloadFormViewController: UIViewController,UITableViewDelegate, UITableVi
     }
     
     func shareButton(sender: UIButton!) {
+        
         let url = NSURL(string: shareurl[sender.tag])
+        
         let activityViewController = UIActivityViewController(activityItems: [url!], applicationActivities: nil)
         
         activityViewController.popoverPresentationController?.sourceRect = CGRect(x: 150, y: 150, width: 0, height: 0)
