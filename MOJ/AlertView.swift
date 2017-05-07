@@ -41,6 +41,7 @@ class AlertView: NSObject {
     let ALERT_CHANGE_PASSWORD_SUCCESS = "เปลี่ยนรหัสผ่านเรียบร้อย"
     
     // Complain
+    let INPUT_LIMIT_5_IMAGES = "ใส่ภาพได้สูงสุด 5 ภาพ"
     let ALERT_WRONG_FRONT_ID_NUMBER = "กรุณาระบุหมายเลขบัตรประชาชนให้ถูกต้อง"
     let ALERT_WRONG_BACK_ID_NUMBER = "กรุณาระบุหมายเลขหลังบัตรประชาชนให้ถูกต้อง"
     

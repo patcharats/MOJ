@@ -178,6 +178,14 @@ class NewsViewController: UIViewController,UITableViewDelegate, UITableViewDataS
         
         if network.isInternetAvailable() {
             viewGroupBackground.isHidden = false
+            
+            let accountID = accountData.getAccountID()
+            let newGroupID = ""
+            network.get(name: network.API_FEED, param:accountID+"/"+newGroupID, viewController: self, completionHandler: {
+                (json:Any,Code:String,Message:String) in
+                let jsonSwifty = JSON(json)
+            })
+            
         }
         else{
             alertView.alert(title: "", message: alertView.ALERT_NEWS_NO_INTERNET, buttonTitle: alertView.ALERT_OK, controller: self)

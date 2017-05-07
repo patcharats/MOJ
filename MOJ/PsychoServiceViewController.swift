@@ -8,9 +8,13 @@
 
 import Foundation
 import UIKit
+import SwiftyJSON
+
 class PsychoServiceViewController: UIViewController {
     let design = Design()
     let alertView = AlertView()
+    let network = Network()
+    let accountData = AccountData()
     let DOCUMENT_COMPLETE = "เอกสารครบแล้ว"
     let DOCUMENT_NOT_COMPLETE = "เอกสารไม่ครบ"
     
@@ -58,6 +62,14 @@ class PsychoServiceViewController: UIViewController {
                 }
             });
         }
+        
+        var accountID = accountData.getAccountID()
+
+        
+        network.get(name: network.API_SOCIAL_WORK_REQUEST, param:accountID, viewController: self, completionHandler: {
+            (json:Any,Code:String,Message:String) in
+            let jsonSwifty = JSON(json)
+        })
         
         
     }

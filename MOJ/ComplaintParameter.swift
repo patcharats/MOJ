@@ -27,6 +27,9 @@ class ComplaintParameter: NSObject {
     var birthdate:String = ""
     var laser:String = ""
     
+    var cmpltid:String = ""
+    var cmpltuserid:String = ""
+    
     func getCreateComplaintParameter()-> Parameters{
         let parameters: Parameters = [
             "data": ["accountid":accountData.getAccountID(),
@@ -57,6 +60,19 @@ class ComplaintParameter: NSObject {
         return parameters
 
     }
+    
+    
+    func getUploadImageParameter()-> NSDictionary{
+        let parameters: NSDictionary = [
+            "data": ["cmpltid":cmpltid,
+                     "cmpltuserid": cmpltuserid
+            ]
+        ]
+        return parameters
+        
+    }
+    
+    
 }
 
 

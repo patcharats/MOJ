@@ -63,7 +63,7 @@ class TalkWithMiniterViewController: UIViewController,UITableViewDelegate, UITab
         
         var accountID = accountData.getAccountID()
 
-        network.get(name: network.API_CONTACTS, param:"15", viewController: self, completionHandler: {
+        network.get(name: network.API_CONTACTS, param:accountID, viewController: self, completionHandler: {
             (json:Any,Code:String,Message:String) in
             let jsonSwifty = JSON(json)
             self.contactdattm = jsonSwifty[self.KEY_CONTACTS_DATA].arrayValue.map({$0[self.KEY_CONTACTS_DATE].stringValue})

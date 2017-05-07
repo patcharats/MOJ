@@ -9,7 +9,7 @@
 import Foundation
 import SwiftyJSON
 import Alamofire
-class ComplainCreateNew: UIViewController,UIPickerViewDelegate,UIPickerViewDataSource,UINavigationControllerDelegate, UIImagePickerControllerDelegate{
+class ComplainCreateNew: UIViewController,UIPickerViewDelegate,UIPickerViewDataSource,UINavigationControllerDelegate, UIImagePickerControllerDelegate,UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UICollectionViewDelegate{
     
     var titles = 0
     var firstname = ""
@@ -33,12 +33,17 @@ class ComplainCreateNew: UIViewController,UIPickerViewDelegate,UIPickerViewDataS
     let KEY_COMPLAINT_DATA = "data"
     let KEY_COMPLAINT_GUIDE_ID = "compltcatid"
     let KEY_COMPLAINT_GUIDE_NAME = "compltcatname"
+    let KEY_COMPLAINT_ID = "cmpltid"
+    let KEY_COMPLAINT_USER_ID = "cmpltuserid"
     var compltcatid:[Int] = []
     var compltcatname:[String] = []
+    var cmpltid :String = ""
+    var cmpltuserid :String = ""
     var param = ComplaintParameter()
-    
+    var imageArray:[UIImage] = []
     var imagePicker = UIImagePickerController()
     
+    @IBOutlet var collectionView: UICollectionView!
 
     @IBOutlet var imageButton: UIButton!
     var subject = ""
@@ -54,6 +59,9 @@ class ComplainCreateNew: UIViewController,UIPickerViewDelegate,UIPickerViewDataS
             self.compltcatname = jsonSwifty[self.KEY_COMPLAINT_DATA].arrayValue.map({$0[self.KEY_COMPLAINT_GUIDE_NAME].stringValue})
             
         })
+        collectionView.delegate = self
+        collectionView.dataSource = self
+        collectionView.backgroundColor = UIColor.clear
         
         
         pickerView = UIPickerView()
@@ -79,26 +87,31 @@ class ComplainCreateNew: UIViewController,UIPickerViewDelegate,UIPickerViewDataS
         selectCatagoryID = compltcatid[row]
     }
     
-    func imagePickerController(picker: UIImagePickerController!, didFinishPickingImage image: UIImage!, editingInfo: NSDictionary!){
-        self.dismiss(animated: true, completion: { () -> Void in
-          
-//            imageView.image = image
-           self.imageButton.setImage(image, for: UIControlState.normal)
-            
-        })
-        
     
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        let chosenImage = info[UIImagePickerControllerOriginalImage] as! UIImage
+        self.imageArray.insert(chosenImage, at: 0)
+        self.collectionView.reloadData()
+        picker.dismiss(animated: true, completion: nil);
+    }
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        picker.dismiss(animated: true, completion: nil);
     }
     
     @IBAction func imageButton(_ sender: Any) {
-        if UIImagePickerController.isSourceTypeAvailable(.savedPhotosAlbum){
-            
+        
+        if (imageArray.count == 5){
+            alertView.alert(title: alertView.INPUT_LIMIT_5_IMAGES, message: "", buttonTitle: alertView.ALERT_OK, controller: self)
+        }
+        else{
             imagePicker.delegate = self
-            imagePicker.sourceType = .savedPhotosAlbum;
             imagePicker.allowsEditing = false
-            
+            imagePicker.sourceType = .photoLibrary
             self.present(imagePicker, animated: true, completion: nil)
         }
+        
+        
     }
     
     @IBAction func sendButton(_ sender: Any) {
@@ -117,12 +130,20 @@ class ComplainCreateNew: UIViewController,UIPickerViewDelegate,UIPickerViewDataS
             param.cmpltsubject = subject
             
             network.post(name: network.API_COMPLAINT_POST, param: param.getCreateComplaintParameter(), viewController: self, completionHandler: {
-                (JSON : Any,Code:String,Message:String) in
-            
+                (json : Any,Code:String,Message:String) in
+                let jsonSwifty = JSON(json)
+                
                 if(Code == "00000"){
-                    self.alertView.alert(title:"", message: Message, buttonTitle: self.alertView.ALERT_OK, controller: self)
+                    self.cmpltid = jsonSwifty[self.KEY_COMPLAINT_DATA][self.KEY_COMPLAINT_ID].stringValue
+                    self.cmpltuserid = jsonSwifty[self.KEY_COMPLAINT_DATA][self.KEY_COMPLAINT_USER_ID].stringValue
                     
-                    _ = self.navigationController?.popToRootViewController(animated: true)
+                    print(self.cmpltid)
+                    print(self.cmpltuserid)
+                    
+                    if !self.imageArray.isEmpty{
+                        self.uploadImage()
+                    }
+                    
                     
                 }
                 else{
@@ -139,6 +160,29 @@ class ComplainCreateNew: UIViewController,UIPickerViewDelegate,UIPickerViewDataS
     }
 
     
+    func uploadImage(){
+        for (index, element) in self.imageArray.enumerated() {
+            let parameters = [
+                "cmpltid": cmpltid,
+                "cmpltuserid": cmpltuserid]
+            
+            
+            network.postImage(name: network.API_COMPLAINT_POST_IMAGE, param: parameters as NSDictionary, image: element, viewController: self, completionHandler: {
+                (JSON : Any,Code:String,Message:String) in
+                if(Code == "00000"){
+                        print("Item \(index): \(element)")
+                }
+                else{
+                    
+                }
+                
+                self.alertView.alert(title:"", message: Message, buttonTitle: self.alertView.ALERT_OK, controller: self)
+            })
+            
+        }
+        
+    }
+    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -148,6 +192,48 @@ class ComplainCreateNew: UIViewController,UIPickerViewDelegate,UIPickerViewDataS
         _ = navigationController?.popViewController(animated: true)
     }
     
-   
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath as IndexPath) as! imageCollectionViewCell
+        cell.backgroundColor = UIColor.clear
+        cell.imageView.image = imageArray[indexPath.row]
+        cell.removeImage.tag = indexPath.row
+        cell.removeImage.addTarget(self, action: #selector(removeImage), for: .touchUpInside)
+        return cell
+    }
     
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int
+    {
+        return imageArray.count
+    }
+    
+    
+    func removeImage(sender: UIButton!) {
+        imageArray.remove(at:sender.tag)
+        collectionView.reloadData()
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets
+    {
+        return UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+    }
+    
+    
+}
+
+
+class imageCollectionViewCell: UICollectionViewCell {
+    
+    @IBOutlet var imageView: UIImageView!
+    
+    @IBOutlet var removeImage: UIButton!
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        
+        self.backgroundColor = UIColor.clear
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+    }
 }

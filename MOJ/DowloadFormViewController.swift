@@ -92,6 +92,10 @@ class DowloadFormViewController: UIViewController,UITableViewDelegate, UITableVi
         let url = URL(string: docurl[sender.tag])
         UIApplication.shared.open(url!, options: [:], completionHandler: nil)
         
+        network.get(name: network.API_DOCUMENT, param:docid[sender.tag], viewController: self, completionHandler: {
+            (json:Any,Code:String,Message:String) in
+            let jsonSwifty = JSON(json)
+        })
     }
     
     func shareButton(sender: UIButton!) {

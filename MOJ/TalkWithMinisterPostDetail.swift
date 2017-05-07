@@ -92,11 +92,15 @@ class TalkWithMiniterPostDetail: UIViewController,UITableViewDelegate, UITableVi
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat
     {
-        if indexPath.row == 0 {
-            return 256
+     
+        
+        if indexPath.row == commntid.count {
+            return 157
         }
         else{
-            return 157
+            
+            let height = commentmsg[indexPath.row].height(withConstrainedWidth: self.view.frame.size.width - 30, font: UIFont(name: "Quark-Bold", size: 15)!)
+            return height + 58
         }
     }
     
@@ -110,6 +114,14 @@ class TalkWithMiniterPostDetail: UIViewController,UITableViewDelegate, UITableVi
         design.roundView(view: cell.sendMessageButton, radius: 5)
         
         if indexPath.row < commntid.count {
+            
+            let height = commentmsg[indexPath.row].height(withConstrainedWidth: cell.messageTextView.frame.size.width, font: UIFont(name: "Quark-Bold", size: 15)!)
+            cell.messageTextView.font = UIFont(name: "Quark-Bold", size: 15)
+            
+            cell.messageTextviewHeight.constant = height + 10
+            cell.viewMessageHeight.constant = height + 50
+            cell.messageTextView.isScrollEnabled = false
+            
             cell.viewMessageBox.isHidden = true
             cell.viewMessage.isHidden = false
             cell.messageTextView.text = commentmsg[indexPath.row]
@@ -175,6 +187,8 @@ class PostDetailWithMinisterCell: UITableViewCell {
     @IBOutlet weak var reviewerLabel: UILabel!
     @IBOutlet weak var replyLabel: UILabel!
     
+    @IBOutlet var viewMessageHeight: NSLayoutConstraint!
+    @IBOutlet var messageTextviewHeight: NSLayoutConstraint!
     @IBOutlet weak var viewMessageBox: UIView!
     @IBOutlet var sendMessageButton: UIButton!
     @IBOutlet var sendMessageTextField: UITextField!

@@ -31,6 +31,7 @@ class Network: NSObject {
     let API_COMPLAINT = "complaint/"
     let API_COMPLAINT_GUIDE = "compltguide"
     let API_COMPLAINT_POST = "compl"
+    let API_COMPLAINT_POST_IMAGE = "uploadComplaintImage"
     let API_COMPLAINT_REPLY = "complaintreply/"
     let API_VERIFY_ID = "idcardverify"
     let API_CONTACTS = "contacts/"
@@ -38,9 +39,12 @@ class Network: NSObject {
     let API_CONTACTS_NEW_POST = "contacts/newpost"
     let API_CONFIG = "config/all"
     let API_CONFIG_PROVINCE = "config/province"
+    let API_SOCIAL_WORK_REQUEST = "socialwrk/request/"
+    
     let KEY_RESPONSE_STATUS = "status"
     let KEY_RESPONSE_CODE = "code"
     let KEY_RESPONSE_MESSAGE = "message"
+    
     
     let accountData = AccountData()
     let activityIndicator = ActivityIndicatorView()
@@ -75,9 +79,13 @@ class Network: NSObject {
     
     func get(name:String,param:String,viewController:UIViewController,completionHandler:@escaping (Any,String,String) -> ()){
         
+        let header: HTTPHeaders = [
+            "token": accountData.getAccountToken()
+        ]
+        
         print("******** api :\(self.API_BASE_URL+name+param)")
         activityIndicator.showActivityIndicator(uiView: viewController.view)
-        Alamofire.request(API_BASE_URL+name+param, method: .get)
+        Alamofire.request(API_BASE_URL+name+param, method: .get, encoding: JSONEncoding.default,headers: header)
             .responseJSON { response in
                 if let result = response.result.value {
                     let JSON = result as! NSDictionary
@@ -93,6 +101,48 @@ class Network: NSObject {
         }
     }
     
+    func postImage(name:String,param:NSDictionary,image:UIImage,viewController:UIViewController,completionHandler:@escaping (Any,String,String) -> ()){
+        
+
+        let imageData = UIImagePNGRepresentation(image) as NSData?
+        let url = self.API_BASE_URL+name
+        
+        
+        
+        
+        
+        Alamofire.upload(
+            multipartFormData: { multipartFormData in
+                
+                if let imageData = UIImageJPEGRepresentation(image, 1) {
+                    multipartFormData.append(imageData, withName: "image",fileName: "image.png", mimeType: "image/png")
+                }
+                
+                for (key, value) in param {
+                    multipartFormData.append((value as AnyObject).data(using: String.Encoding.utf8.rawValue)!, withName: key as! String)
+                }
+                
+                
+                
+        },
+            to: url,
+            encodingCompletion: { encodingResult in
+                switch encodingResult {
+                case .success(let upload, _, _):
+                    upload.responseJSON { response in
+                        debugPrint(response)
+                    }
+                    upload.uploadProgress(closure: { (Progress) in
+                        print("Upload Progress: \(Progress.fractionCompleted)")
+                    })
+                    
+                case .failure(let encodingError):
+                    print(encodingError)
+                }
+        }
+        )
+        
+    }
     
     
     func isInternetAvailable() -> Bool
