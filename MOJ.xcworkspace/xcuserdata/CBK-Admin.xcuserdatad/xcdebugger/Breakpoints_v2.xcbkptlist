@@ -10,45 +10,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MOJ/ComplainDetail.swift"
-            timestampString = "515502259.268426"
+            timestampString = "516268314.999304"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "107"
-            endingLineNumber = "107"
-            landmarkName = "viewDidLoad()"
+            startingLineNumber = "146"
+            endingLineNumber = "146"
+            landmarkName = "tableView(_:cellForRowAt:)"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "MOJ.ComplainDetail.(viewDidLoad () -&gt; ()).(closure #1)"
-                  moduleName = "MOJ"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/CBK-Admin/Desktop/MOJ/MOJ/ComplainDetail.swift"
-                  timestampString = "515502265.343954"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "107"
-                  endingLineNumber = "107"
-                  offsetFromSymbolStart = "11320">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "MOJ.ComplainDetail.(viewDidLoad () -&gt; ()).(closure #1).(closure #3)"
-                  moduleName = "MOJ"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/CBK-Admin/Desktop/MOJ/MOJ/ComplainDetail.swift"
-                  timestampString = "515502265.345523"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "109"
-                  endingLineNumber = "109"
-                  offsetFromSymbolStart = "60">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

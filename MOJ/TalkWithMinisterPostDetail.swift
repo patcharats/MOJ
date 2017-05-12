@@ -49,14 +49,14 @@ class TalkWithMiniterPostDetail: UIViewController,UITableViewDelegate, UITableVi
             talkBarButton.isEnabled = true
             talkBarButton.image = UIImage(named: "ic_chat")
             loginButton.isHidden = true
-            tableView.contentInset = UIEdgeInsetsMake(0, 0, 0, 0)
+            tableView.contentInset = UIEdgeInsetsMake(0, 0, 50, 0)
             
         }
         else{
             talkBarButton.isEnabled = false
             talkBarButton.image = UIImage(named: "")
             loginButton.isHidden = false
-            tableView.contentInset = UIEdgeInsetsMake(48, 0, 0, 0)
+            tableView.contentInset = UIEdgeInsetsMake(48, 0, 50, 0)
 
         }
         
@@ -94,13 +94,14 @@ class TalkWithMiniterPostDetail: UIViewController,UITableViewDelegate, UITableVi
     {
      
         
-        if indexPath.row == commntid.count {
-            return 157
+        if indexPath.row == 0 {
+
+            return 200
         }
         else{
             
-            let height = commentmsg[indexPath.row].height(withConstrainedWidth: self.view.frame.size.width - 30, font: UIFont(name: "Quark-Bold", size: 15)!)
-            return height + 58
+            let height = commentmsg[indexPath.row-1].height(withConstrainedWidth: self.view.frame.size.width - 30, font: UIFont(name: "Quark-Bold", size: 15)!)
+            return height + 120
         }
     }
     
@@ -110,38 +111,38 @@ class TalkWithMiniterPostDetail: UIViewController,UITableViewDelegate, UITableVi
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath ) as! PostDetailWithMinisterCell
         cell.backgroundColor = UIColor.clear
         design.roundView(view: cell.viewMessage, radius: 5)
-        design.roundView(view: cell.viewMessageBox, radius: 5)
-        design.roundView(view: cell.sendMessageButton, radius: 5)
+        design.roundViewTop(view: cell.ryplyTitleLabel, radius: 5)
+        design.roundViewBottom(view: cell.viewReplyDetail, radius: 5)
+
         
-        if indexPath.row < commntid.count {
-            
-            let height = commentmsg[indexPath.row].height(withConstrainedWidth: cell.messageTextView.frame.size.width, font: UIFont(name: "Quark-Bold", size: 15)!)
-            cell.messageTextView.font = UIFont(name: "Quark-Bold", size: 15)
-            
-            cell.messageTextviewHeight.constant = height + 10
-            cell.viewMessageHeight.constant = height + 50
-            cell.messageTextView.isScrollEnabled = false
-            
-            cell.viewMessageBox.isHidden = true
+        if indexPath.row == 0 {
             cell.viewMessage.isHidden = false
-            cell.messageTextView.text = commentmsg[indexPath.row]
-            cell.postbyLabel.text = "by "+commntuname[indexPath.row]
-            cell.dateLabel.text = stringHelper.getDatefromString(dateString: commntdattm[indexPath.row])
+            cell.viewRyply.isHidden = true
+            
+//            let height = commentmsg[indexPath.row].height(withConstrainedWidth: cell.messageTextView.frame.size.width, font: UIFont(name: "Quark-Bold", size: 15)!)
+//            cell.messageTextView.font = UIFont(name: "Quark-Bold", size: 15)
+//            cell.messageTextView.isScrollEnabled = false
+//            cell.messageTextView.text = commentmsg[indexPath.row]
+//            cell.postbyLabel.text = "by "+commntuname[indexPath.row]
+//            cell.dateLabel.text = stringHelper.getDatefromString(dateString: commntdattm[indexPath.row])
         }
         else{
-            cell.viewMessageBox.isHidden = false
+            let height = commentmsg[indexPath.row-1].height(withConstrainedWidth: cell.ryplyDetailTextView.frame.size.width, font: UIFont(name: "Quark-Bold", size: 15)!)
+            
+            cell.messageReplyTextViewHeight.constant = height + 10
+            cell.viewReplyHeight.constant = height + 50
+            cell.ryplyDetailTextView.isScrollEnabled = false
+            cell.ryplyDetailTextView.font = UIFont(name: "Quark-Bold", size: 15)
+            
             cell.viewMessage.isHidden = true
-            cell.sendMessageTextField.text = ""
-            cell.sendMessageTextField.delegate = self
-            cell.sendMessageButton.addTarget(self, action: #selector(postButton), for: .touchUpInside)
+            cell.viewRyply.isHidden = false
+            cell.ryplyTitleLabel.text = "ตอบโดย "+commntuname[indexPath.row-1]
+            cell.ryplyDetailTextView.text = commentmsg[indexPath.row-1]
+            cell.ryplyDateLabel.text =  stringHelper.getDatefromString(dateString: commntdattm[indexPath.row-1])
+            cell.replyComplainCodeLabel.text = String(indexPath.row)
         }
         
         return cell
-    }
-    
-
-    func textFieldDidBeginEditing(textField: UITextField!) {
-        contentmsgText = textField.text!
     }
     
     
@@ -180,6 +181,13 @@ class TalkWithMiniterPostDetail: UIViewController,UITableViewDelegate, UITableVi
 
 class PostDetailWithMinisterCell: UITableViewCell {
     
+    @IBOutlet weak var messageTextviewHeight: NSLayoutConstraint!
+    @IBOutlet weak var viewMessageHeight: NSLayoutConstraint!
+    
+    @IBOutlet weak var messageReplyTextViewHeight: NSLayoutConstraint!
+    @IBOutlet weak var viewReplyHeight: NSLayoutConstraint!
+    
+    
     @IBOutlet weak var viewMessage: UIView!
     @IBOutlet var messageTextView: UITextView!
     @IBOutlet weak var postbyLabel: UILabel!
@@ -187,12 +195,13 @@ class PostDetailWithMinisterCell: UITableViewCell {
     @IBOutlet weak var reviewerLabel: UILabel!
     @IBOutlet weak var replyLabel: UILabel!
     
-    @IBOutlet var viewMessageHeight: NSLayoutConstraint!
-    @IBOutlet var messageTextviewHeight: NSLayoutConstraint!
-    @IBOutlet weak var viewMessageBox: UIView!
-    @IBOutlet var sendMessageButton: UIButton!
-    @IBOutlet var sendMessageTextField: UITextField!
+    @IBOutlet weak var viewRyply: UIView!
+    @IBOutlet weak var ryplyTitleLabel: UILabel!
+    @IBOutlet weak var ryplyDetailTextView: UITextView!
+    @IBOutlet weak var ryplyDateLabel: UILabel!
+    @IBOutlet weak var replyComplainCodeLabel: UILabel!
     
+    @IBOutlet weak var viewReplyDetail: UIView!
     
     override func awakeFromNib() {
         super.awakeFromNib()

@@ -56,6 +56,8 @@ class Network: NSObject {
             "token": accountData.getAccountToken()
         ]
         
+        print("header :\(header)")
+        
         print("******** api :\(self.API_BASE_URL+name)")
         activityIndicator.showActivityIndicator(uiView: viewController.view)
         print(param)
@@ -83,6 +85,8 @@ class Network: NSObject {
             "token": accountData.getAccountToken()
         ]
         
+        print("header :\(header)")
+        
         print("******** api :\(self.API_BASE_URL+name+param)")
         activityIndicator.showActivityIndicator(uiView: viewController.view)
         Alamofire.request(API_BASE_URL+name+param, method: .get, encoding: JSONEncoding.default,headers: header)
@@ -106,11 +110,7 @@ class Network: NSObject {
 
         let imageData = UIImagePNGRepresentation(image) as NSData?
         let url = self.API_BASE_URL+name
-        
-        
-        
-        
-        
+    
         Alamofire.upload(
             multipartFormData: { multipartFormData in
                 

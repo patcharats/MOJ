@@ -66,10 +66,10 @@ class PsychoServiceViewController: UIViewController {
         var accountID = accountData.getAccountID()
 
         
-        network.get(name: network.API_SOCIAL_WORK_REQUEST, param:accountID, viewController: self, completionHandler: {
-            (json:Any,Code:String,Message:String) in
-            let jsonSwifty = JSON(json)
-        })
+//        network.get(name: network.API_SOCIAL_WORK_REQUEST, param:accountID, viewController: self, completionHandler: {
+//            (json:Any,Code:String,Message:String) in
+//            let jsonSwifty = JSON(json)
+//        })
         
         
     }
