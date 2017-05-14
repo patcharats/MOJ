@@ -15,7 +15,9 @@ class PsychoServiceRenew: UIViewController {
     @IBOutlet weak var pageControl: UIPageControl!
     @IBOutlet weak var containerView: UIView!
     
-    let titles = ["ส่วนที่1","ส่วนที่2","ส่วนที่3"]
+    @IBOutlet var titleHeight: NSLayoutConstraint!
+    @IBOutlet var titleLabelHeight: NSLayoutConstraint!
+    let titles = ["ชื่อและข้อมูลทะเบียน","ข้อมูลส่วนตัว","ข้อมูลการทำงาน","ข้อมูลการปฎิบัติหน้าที่เป็นผู้ทำหน้าที่\nนักจิตวิทยาหรือนักสังคมสงเคราะห์"]
     
     var tutorialPageViewController: TutorialPageViewController? {
         didSet {
@@ -40,6 +42,8 @@ class PsychoServiceRenew: UIViewController {
         _ = navigationController?.popViewController(animated: true)
     }
 
+    @IBAction func renewButton(_ sender: Any) {
+    }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let tutorialPageViewController = segue.destination as? TutorialPageViewController {
@@ -66,6 +70,16 @@ extension PsychoServiceRenew: TutorialPageViewControllerDelegate {
                                     didUpdatePageIndex index: Int) {
         pageControl.currentPage = index
         titleLabel.text = titles[index]
+        
+        if index == 3 {
+            titleHeight.constant = 50
+            titleLabelHeight.constant = 57
+        }
+        else{
+            titleHeight.constant = 34
+            titleLabelHeight.constant = 40
+            
+        }
     }
     
 }

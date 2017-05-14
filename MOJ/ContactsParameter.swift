@@ -29,23 +29,12 @@ class ContactsParameter: NSObject {
     
     func getPostReplyParameter()-> Parameters{
         
+        
+        
         let parameters: Parameters = [
             "data": [
-                "account": [
-                    "accountid": accountData.getAccountID()
-                ],
-                "contact": [
-                    "contactid": contactid
-                ],
-                "comment": [
-                    "contactuserid": accountData.getAccountID(),
-                    "username": accountData.getAccountFirstName()+" "+accountData.getAccountLastName(),
-                    "ipaddr": ipaddr,
-                    "devicename": devicename,
-                    "subject": subject,
-                    "contentmsg": contentmsg,
-                    "posttime": stringHelper.getCurrentDateTimeString(),
-                ]
+                "contactid": contactid,
+                "contentmsg": contentmsg
             ]
         ]
         return parameters

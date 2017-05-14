@@ -84,8 +84,9 @@ class ComplainDetail: UIViewController,UITableViewDelegate, UITableViewDataSourc
         }
         
         let accountID = accountData.getAccountID()
-
-        network.get(name: network.API_COMPLAINT, param: accountID+"/"+selectComplaintID, viewController: self, completionHandler: {
+        var param = accountID+"/"+selectComplaintID
+        param = "1/1"
+        network.get(name: network.API_COMPLAINT, param:param, viewController: self, completionHandler: {
             (json:Any,Code:String,Message:String) in
             let jsonSwifty = JSON(json)
             

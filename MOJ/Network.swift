@@ -40,7 +40,7 @@ class Network: NSObject {
     let API_CONFIG = "config/all"
     let API_CONFIG_PROVINCE = "config/province"
     let API_SOCIAL_WORK_REQUEST = "socialwrk/request/"
-    
+    let API_SOCIAL_WORK_SEARCH = "socialwrk/search"
     let KEY_RESPONSE_STATUS = "status"
     let KEY_RESPONSE_CODE = "code"
     let KEY_RESPONSE_MESSAGE = "message"
@@ -55,7 +55,6 @@ class Network: NSObject {
         let header: HTTPHeaders = [
             "token": accountData.getAccountToken()
         ]
-        
         print("header :\(header)")
         
         print("******** api :\(self.API_BASE_URL+name)")
@@ -81,15 +80,10 @@ class Network: NSObject {
     
     func get(name:String,param:String,viewController:UIViewController,completionHandler:@escaping (Any,String,String) -> ()){
         
-        let header: HTTPHeaders = [
-            "token": accountData.getAccountToken()
-        ]
-        
-        print("header :\(header)")
         
         print("******** api :\(self.API_BASE_URL+name+param)")
         activityIndicator.showActivityIndicator(uiView: viewController.view)
-        Alamofire.request(API_BASE_URL+name+param, method: .get, encoding: JSONEncoding.default,headers: header)
+        Alamofire.request(API_BASE_URL+name+param, method: .get, encoding: JSONEncoding.default)
             .responseJSON { response in
                 if let result = response.result.value {
                     let JSON = result as! NSDictionary
@@ -105,17 +99,18 @@ class Network: NSObject {
         }
     }
     
+
+    
     func postImage(name:String,param:NSDictionary,image:UIImage,viewController:UIViewController,completionHandler:@escaping (Any,String,String) -> ()){
         
 
-        let imageData = UIImagePNGRepresentation(image) as NSData?
         let url = self.API_BASE_URL+name
     
         Alamofire.upload(
             multipartFormData: { multipartFormData in
                 
                 if let imageData = UIImageJPEGRepresentation(image, 1) {
-                    multipartFormData.append(imageData, withName: "image",fileName: "image.png", mimeType: "image/png")
+                    multipartFormData.append(imageData, withName: "image",fileName: "image.jpeg", mimeType: "image/jpeg")
                 }
                 
                 for (key, value) in param {
@@ -142,6 +137,31 @@ class Network: NSObject {
         }
         )
         
+    }
+    
+    func getWithToken(name:String,param:String,viewController:UIViewController,completionHandler:@escaping (Any,String,String) -> ()){
+        
+        let header: HTTPHeaders = [
+            "token": accountData.getAccountToken()
+        ]
+        print("header :\(header)")
+        
+        print("******** api :\(self.API_BASE_URL+name+param)")
+        activityIndicator.showActivityIndicator(uiView: viewController.view)
+        Alamofire.request(API_BASE_URL+name+param, method: .get, encoding: JSONEncoding.default,headers: header)
+            .responseJSON { response in
+                if let result = response.result.value {
+                    let JSON = result as! NSDictionary
+                    
+                    print("******** response :\(JSON)")
+                    let status = JSON[self.KEY_RESPONSE_STATUS] as! NSDictionary
+                    let code = status[self.KEY_RESPONSE_CODE] as! String
+                    let message = status[self.KEY_RESPONSE_MESSAGE] as! String
+                    self.activityIndicator.hideActivityIndicator(uiView: viewController.view)
+                    completionHandler(JSON,code,message)
+                    
+                }
+        }
     }
     
     

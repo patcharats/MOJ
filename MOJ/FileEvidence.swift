@@ -11,6 +11,7 @@ class FileEvidence:UITableViewController{
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        self.tableView.contentInset = UIEdgeInsetsMake(0, 0, 55, 0)
     }
     
 //    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

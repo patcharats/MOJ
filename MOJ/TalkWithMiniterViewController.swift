@@ -40,8 +40,12 @@ class TalkWithMiniterViewController: UIViewController,UITableViewDelegate, UITab
     var contactviews:[String] = []
     var subject:[String] = []
     var selectPostID:String = ""
-    
-    
+    var selectsubject:String = ""
+    var selectcontactname:String = ""
+    var selectcontactdattm:String = ""
+    var selectcontactviews:String = ""
+    var selectcontactreply:String = ""
+    var selectcontactshort:String = ""
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -53,7 +57,7 @@ class TalkWithMiniterViewController: UIViewController,UITableViewDelegate, UITab
         if accountData.isLogin() {
             talkBarButton.image = UIImage(named: "ic_chat")
             loginButton.isHidden = true
-            tableView.contentInset = UIEdgeInsetsMake(0, 0, 0, 0)
+            tableView.contentInset = UIEdgeInsetsMake(8, 0, 0, 0)
         }
         else{
             talkBarButton.image = UIImage(named: "")
@@ -92,6 +96,12 @@ class TalkWithMiniterViewController: UIViewController,UITableViewDelegate, UITab
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         selectPostID = contactid[indexPath.row]
+        selectsubject = subject[indexPath.row]
+        selectcontactname = "โดย "+contactname[indexPath.row]
+        selectcontactdattm = stringHelper.getDatefromString(dateString: contactdattm[indexPath.row])
+        selectcontactviews = " "+contactviews[indexPath.row]+" reviews"
+        selectcontactreply = contactreply[indexPath.row]+" reply"
+        selectcontactshort = contactshort[indexPath.row]
         performSegue(withIdentifier: CONTACT_DETAIL, sender: nil)
     }
     
@@ -99,7 +109,12 @@ class TalkWithMiniterViewController: UIViewController,UITableViewDelegate, UITab
         if segue.identifier == CONTACT_DETAIL{
             let controller = segue.destination as! TalkWithMiniterPostDetail
             controller.selectPostID = selectPostID
-            
+            controller.selectsubject = selectsubject
+            controller.selectcontactname = selectcontactname
+            controller.selectcontactdattm = selectcontactdattm
+            controller.selectcontactviews = selectcontactviews
+            controller.selectcontactreply = selectcontactreply
+            controller.selectcontactshort = selectcontactshort
         }
     }
     

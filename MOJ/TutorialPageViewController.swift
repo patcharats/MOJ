@@ -27,7 +27,8 @@ class TutorialPageViewController: UIPageViewController {
         // The view controllers will be shown in this order
         return [self.newViewController("PartOne"),
                 self.newViewController("PartTwo"),
-                self.newViewController("PartThree")]
+                self.newViewController("PartThree"),
+                self.newViewController("PartFour")]
     }()
 
     var orderedViewControllers: [UIViewController] = []

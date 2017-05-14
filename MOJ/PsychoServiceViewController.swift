@@ -10,11 +10,12 @@ import Foundation
 import UIKit
 import SwiftyJSON
 
-class PsychoServiceViewController: UIViewController {
+class PsychoServiceViewController: UIViewController,UITextFieldDelegate {
     let design = Design()
     let alertView = AlertView()
     let network = Network()
     let accountData = AccountData()
+    let param = PsychoParameter()
     let DOCUMENT_COMPLETE = "เอกสารครบแล้ว"
     let DOCUMENT_NOT_COMPLETE = "เอกสารไม่ครบ"
     
@@ -38,15 +39,17 @@ class PsychoServiceViewController: UIViewController {
     @IBOutlet var foundView: UIView!
     @IBOutlet var notfoundView: UIView!
     
+    @IBOutlet var searchTextField: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setupMenuButton()
         setupDesign()
-        
+        searchTextField.delegate = self
         let account = AccountData()
         if account.isLogin() {
-            setupView(type: TYPE_NOT_FOUND)
+            setupView(type: TYPE_EXPIRE)
             addButton.isEnabled = true
             addButton.image = UIImage(named: "ic_add")
         }
@@ -64,16 +67,31 @@ class PsychoServiceViewController: UIViewController {
         }
         
         var accountID = accountData.getAccountID()
-
-        
-//        network.get(name: network.API_SOCIAL_WORK_REQUEST, param:accountID, viewController: self, completionHandler: {
-//            (json:Any,Code:String,Message:String) in
-//            let jsonSwifty = JSON(json)
-//        })
+        network.getWithToken(name: network.API_SOCIAL_WORK_REQUEST, param:accountID, viewController: self, completionHandler: {
+            (json:Any,Code:String,Message:String) in
+            let jsonSwifty = JSON(json)
+        })
         
         
     }
     
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        
+        searchTextField(text: textField.text!)
+        
+        textField.resignFirstResponder()
+        
+        return true
+    }
+    
+    
+    func searchTextField(text:String){
+        param.search_key = text
+        network.post(name: network.API_SOCIAL_WORK_SEARCH, param:param.getSearchParameter(), viewController: self, completionHandler: {
+            (json:Any,Code:String,Message:String) in
+            let jsonSwifty = JSON(json)
+        })
+    }
     
     
     func setupView(type:Int){
@@ -81,6 +99,8 @@ class PsychoServiceViewController: UIViewController {
         case TYPE_NOT_LOGIN:
             foundView.isHidden = true
             notfoundView.isHidden = true
+            expireLabel.isHidden = true
+            centerButton.isHidden = true
             
             break
         case TYPE_NOT_FOUND:

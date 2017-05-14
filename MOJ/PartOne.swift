@@ -9,8 +9,15 @@
 import Foundation
 class PartOne:UITableViewController{
     
+    @IBOutlet var registrationExpireTextField: UITextField!
+    @IBOutlet var registrationDateTextField: UITextField!
+    @IBOutlet var registrationNumberTextField: UITextField!
+    @IBOutlet var lastNameTextField: UITextField!
+    @IBOutlet var firstNameTextField: UITextField!
     override func awakeFromNib() {
         super.awakeFromNib()
+        
+        self.tableView.contentInset = UIEdgeInsetsMake(0, 0, 55, 0)
     }
     
     //    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

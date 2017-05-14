@@ -9,8 +9,22 @@
 import Foundation
 class OtherDetail:UITableViewController{
     
+    @IBOutlet var trainingTextField: UITextField!
+    @IBOutlet var trainingByTextField: UITextField!
+    @IBOutlet var trainingDateTextField: UITextField!
+    
+    @IBOutlet var lastExperienceTextField: UITextField!
+    @IBOutlet var experienceStartTextField: UITextField!
+    @IBOutlet var experienceEndField: UITextField!
+    @IBOutlet var detailExperienceTextField: UITextField!
+    
+    @IBOutlet var province1TextField: UITextField!
+    @IBOutlet var province2TextField: UITextField!
+    @IBOutlet var province3TextField: UITextField!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
+        self.tableView.contentInset = UIEdgeInsetsMake(0, 0, 55, 0)
     }
     
 //    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

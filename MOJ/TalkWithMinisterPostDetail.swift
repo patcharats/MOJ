@@ -36,20 +36,30 @@ class TalkWithMiniterPostDetail: UIViewController,UITableViewDelegate, UITableVi
     
     var contactreply:String = ""
     var contactviews:String = ""
-    var selectPostID:String = ""
     var contentmsgText:String = ""
+    
+    var selectPostID:String = ""
+    var selectsubject:String = ""
+    var selectcontactname:String = ""
+    var selectcontactdattm:String = ""
+    var selectcontactviews:String = ""
+    var selectcontactreply:String = ""
+    var selectcontactshort:String = ""
+    
+    @IBOutlet var sendButton: UIButton!
+    @IBOutlet var commentTexfield: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
         
         tableView.delegate = self
         tableView.dataSource = self
         tableView.backgroundColor = UIColor.clear
-        
+        design.roundView(view: sendButton, radius: 5)
         if account.isLogin() {
             talkBarButton.isEnabled = true
             talkBarButton.image = UIImage(named: "ic_chat")
             loginButton.isHidden = true
-            tableView.contentInset = UIEdgeInsetsMake(0, 0, 50, 0)
+            tableView.contentInset = UIEdgeInsetsMake(8, 0, 50, 0)
             
         }
         else{
@@ -60,10 +70,10 @@ class TalkWithMiniterPostDetail: UIViewController,UITableViewDelegate, UITableVi
 
         }
         
-        //selectPostID+"/"+accountID
-        
+        // selectPostID+"/"+accountID
+        // "20/123"
         let accountID = accountData.getAccountID()
-        network.get(name: network.API_CONTACTS, param:"20/123", viewController: self, completionHandler: {
+        network.get(name: network.API_CONTACTS, param:selectPostID+"/"+accountID, viewController: self, completionHandler: {
             (json:Any,Code:String,Message:String) in
             let jsonSwifty = JSON(json)
             self.commentmsg = jsonSwifty[self.KEY_CONTACTS_DATA].arrayValue.map({$0[self.KEY_CONTACTS_MESSAGE].stringValue})
@@ -90,26 +100,41 @@ class TalkWithMiniterPostDetail: UIViewController,UITableViewDelegate, UITableVi
         return commntid.count+1
     }
     
+
+    
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat
     {
-     
+        
+        tableView.updateConstraintsIfNeeded()
+        tableView.updateConstraints()
+        tableView.layoutIfNeeded()
+        tableView.setNeedsLayout()
+        
         
         if indexPath.row == 0 {
 
-            return 200
+            let height = selectcontactshort.height(withConstrainedWidth: self.view.frame.size.width - 30, font: UIFont(name: "Quark-Bold", size: 15)!)
+            return height + 50
         }
         else{
             
             let height = commentmsg[indexPath.row-1].height(withConstrainedWidth: self.view.frame.size.width - 30, font: UIFont(name: "Quark-Bold", size: 15)!)
+            print("\(indexPath.row) - Height :\(height + 120)")
             return height + 120
         }
+        
+        
     }
+   
+
     
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath ) as! PostDetailWithMinisterCell
         cell.backgroundColor = UIColor.clear
+       
         design.roundView(view: cell.viewMessage, radius: 5)
         design.roundViewTop(view: cell.ryplyTitleLabel, radius: 5)
         design.roundViewBottom(view: cell.viewReplyDetail, radius: 5)
@@ -118,39 +143,58 @@ class TalkWithMiniterPostDetail: UIViewController,UITableViewDelegate, UITableVi
         if indexPath.row == 0 {
             cell.viewMessage.isHidden = false
             cell.viewRyply.isHidden = true
+            let height = selectcontactshort.height(withConstrainedWidth: self.view.frame.size.width - 30, font: UIFont(name: "Quark-Bold", size: 15)!)
+            cell.messageTextviewHeight.constant = height + 10
+            cell.viewMessageHeight.constant = height + 50
+            cell.messageTextView.font = UIFont(name: "Quark-Bold", size: 15)
+            cell.messageTextView.isScrollEnabled = false
+            cell.messageTextView.isSelectable = false
+            cell.messageTextView.isEditable = false
+            cell.messageTextView.text = selectcontactshort
+            cell.postbyLabel.text = selectcontactname
+            cell.dateLabel.text = selectcontactdattm
+            cell.reviewerLabel.text = selectcontactviews
+            cell.replyLabel.text = selectcontactreply
+
             
-//            let height = commentmsg[indexPath.row].height(withConstrainedWidth: cell.messageTextView.frame.size.width, font: UIFont(name: "Quark-Bold", size: 15)!)
-//            cell.messageTextView.font = UIFont(name: "Quark-Bold", size: 15)
-//            cell.messageTextView.isScrollEnabled = false
-//            cell.messageTextView.text = commentmsg[indexPath.row]
-//            cell.postbyLabel.text = "by "+commntuname[indexPath.row]
-//            cell.dateLabel.text = stringHelper.getDatefromString(dateString: commntdattm[indexPath.row])
         }
         else{
-            let height = commentmsg[indexPath.row-1].height(withConstrainedWidth: cell.ryplyDetailTextView.frame.size.width, font: UIFont(name: "Quark-Bold", size: 15)!)
-            
-            cell.messageReplyTextViewHeight.constant = height + 10
-            cell.viewReplyHeight.constant = height + 50
-            cell.ryplyDetailTextView.isScrollEnabled = false
-            cell.ryplyDetailTextView.font = UIFont(name: "Quark-Bold", size: 15)
-            
             cell.viewMessage.isHidden = true
             cell.viewRyply.isHidden = false
+            
+            let height = commentmsg[indexPath.row-1].height(withConstrainedWidth: cell.ryplyDetailTextView.frame.size.width, font: UIFont(name: "Quark-Bold", size: 15)!)
+            cell.messageReplyTextViewHeight.constant = height + 10
+            cell.viewReplyHeight.constant = height + 100
+            cell.viewReplyDetailHeight.constant = height + 44
+            
+            
+            cell.ryplyDetailTextView.isScrollEnabled = false
+            cell.ryplyDetailTextView.isSelectable = false
+            cell.ryplyDetailTextView.isEditable = false
+            cell.ryplyDetailTextView.font = UIFont(name: "Quark-Bold", size: 15)
+            
+            
             cell.ryplyTitleLabel.text = "ตอบโดย "+commntuname[indexPath.row-1]
             cell.ryplyDetailTextView.text = commentmsg[indexPath.row-1]
             cell.ryplyDateLabel.text =  stringHelper.getDatefromString(dateString: commntdattm[indexPath.row-1])
             cell.replyComplainCodeLabel.text = String(indexPath.row)
+            
+            
         }
+    
+        
         
         return cell
     }
     
     
-    func postButton(sender: UIButton!) {
+    
+    @IBAction func sendButton(_ sender: Any) {
         
+        contentmsgText = commentTexfield.text!
         param.contactid =  selectPostID
         param.contentmsg = contentmsgText
-
+        
         print(contentmsgText)
         
         network.post(name: network.API_CONTACTS_REPLY, param: param.getPostReplyParameter(), viewController: self, completionHandler: {
@@ -160,11 +204,14 @@ class TalkWithMiniterPostDetail: UIViewController,UITableViewDelegate, UITableVi
                 
             }
             else{
-                self.alertView.alert(title:"", message: Message, buttonTitle: self.alertView.ALERT_OK, controller: self)
+                
             }
+            
+            self.alertView.alert(title:"", message: Message, buttonTitle: self.alertView.ALERT_OK, controller: self)
             
         })
     }
+    
     
     
     override func didReceiveMemoryWarning() {
@@ -187,6 +234,7 @@ class PostDetailWithMinisterCell: UITableViewCell {
     @IBOutlet weak var messageReplyTextViewHeight: NSLayoutConstraint!
     @IBOutlet weak var viewReplyHeight: NSLayoutConstraint!
     
+    @IBOutlet var viewReplyDetailHeight: NSLayoutConstraint!
     
     @IBOutlet weak var viewMessage: UIView!
     @IBOutlet var messageTextView: UITextView!
@@ -205,6 +253,11 @@ class PostDetailWithMinisterCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        
+        self.updateConstraintsIfNeeded()
+        self.updateConstraints()
+        self.layoutIfNeeded()
+        self.setNeedsLayout()
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
