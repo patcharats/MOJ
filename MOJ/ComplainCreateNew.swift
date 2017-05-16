@@ -143,8 +143,12 @@ class ComplainCreateNew: UIViewController,UIPickerViewDelegate,UIPickerViewDataS
                     if !self.imageArray.isEmpty{
                         self.uploadImage()
                     }
-                    
-                    
+                    self.alertView.alertWithAction(title:"", message: Message, buttonTitle: self.alertView.ALERT_OK, controller: self, completionHandler: {
+                        (button : Bool) in
+                        if button {
+                            self.popView()
+                        }
+                    });
                 }
                 else{
                     self.alertView.alert(title:"", message: Message, buttonTitle: self.alertView.ALERT_OK, controller: self)
@@ -172,11 +176,8 @@ class ComplainCreateNew: UIViewController,UIPickerViewDelegate,UIPickerViewDataS
                 if(Code == "00000"){
                         print("Item \(index): \(element)")
                 }
-                else{
-                    
-                }
                 
-                self.alertView.alert(title:"", message: Message, buttonTitle: self.alertView.ALERT_OK, controller: self)
+                //self.alertView.alert(title:"", message: Message, buttonTitle: self.alertView.ALERT_OK, controller: self)
             })
             
         }
@@ -189,6 +190,10 @@ class ComplainCreateNew: UIViewController,UIPickerViewDelegate,UIPickerViewDataS
         // Dispose of any resources that can be recreated.
     }
     @IBAction func backButton(_ sender: Any) {
+        _ = navigationController?.popViewController(animated: true)
+    }
+    
+    func popView(){
         _ = navigationController?.popViewController(animated: true)
     }
     

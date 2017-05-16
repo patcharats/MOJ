@@ -462,5 +462,144 @@ class ConfigData: NSObject {
     }
     
     
+    /* Amphur */
+    
+    // GeoID
+    
+    func setAmphurGeoID(geoid:[Int]){
+        userdefault.set(geoid, forKey: KEY_CONFIG_AMPHUR_GEO_ID)
+    }
+    func getAmphurGeoID()->[Int]{
+        
+        if userdefault.value(forKey: KEY_CONFIG_AMPHUR_GEO_ID) != nil{
+            return userdefault.value(forKey: KEY_CONFIG_AMPHUR_GEO_ID) as! [Int]
+        }
+        
+        return []
+    }
+    
+    
+    // AmphurID
+    
+    func setAmphurID(aumid:[Int]){
+        userdefault.set(aumid, forKey: KEY_CONFIG_AMPHUR_ID)
+    }
+    
+    func getAmphurID()->[Int]{
+        
+        if userdefault.value(forKey: KEY_CONFIG_AMPHUR_ID) != nil{
+            return userdefault.value(forKey: KEY_CONFIG_AMPHUR_ID) as! [Int]
+        }
+        
+        return []
+    }
+    
+    // AmphurCode
+    
+    func setAmphurCode(aumcode:[Int]){
+        userdefault.set(aumcode, forKey: KEY_CONFIG_AMPHUR_CODE)
+    }
+    
+    func getAmphurCode()->[Int]{
+        
+        if userdefault.value(forKey: KEY_CONFIG_AMPHUR_CODE) != nil{
+            return userdefault.value(forKey: KEY_CONFIG_AMPHUR_CODE) as! [Int]
+        }
+        
+        return []
+    }
+    
+    // AmphurName
+    
+    func setAmphurName(aumname:[String]){
+        userdefault.set(aumname, forKey: KEY_CONFIG_AMPHUR_NAME)
+    }
+    
+    func getAmphurName()->[String]{
+        
+        if userdefault.value(forKey: KEY_CONFIG_AMPHUR_NAME) != nil{
+            return userdefault.value(forKey: KEY_CONFIG_AMPHUR_NAME) as! [String]
+        }
+        
+        return []
+    }
+    
+    
+    /* District */
+    
+    // GeoID
+    
+    func setDistrictGeoID(geoid:[Int]){
+        userdefault.set(geoid, forKey: KEY_CONFIG_DISTRICT_GEO_ID)
+    }
+    func getDistrictGeoID()->[Int]{
+        
+        if userdefault.value(forKey: KEY_CONFIG_DISTRICT_GEO_ID) != nil{
+            return userdefault.value(forKey: KEY_CONFIG_DISTRICT_GEO_ID) as! [Int]
+        }
+        
+        return []
+    }
+    
+    
+    // DistrictID
+    
+    func setDistrictID(disid:[Int]){
+        userdefault.set(disid, forKey: KEY_CONFIG_DISTRICT_ID)
+    }
+    
+    func getDistrictID()->[Int]{
+        
+        if userdefault.value(forKey: KEY_CONFIG_DISTRICT_ID) != nil{
+            return userdefault.value(forKey: KEY_CONFIG_DISTRICT_ID) as! [Int]
+        }
+        
+        return []
+    }
+    
+    // DistrictCode
+    
+    func setDistrictCode(discode:[Int]){
+        userdefault.set(discode, forKey: KEY_CONFIG_DISTRICT_CODE)
+    }
+    
+    func getDistrictCode()->[Int]{
+        
+        if userdefault.value(forKey: KEY_CONFIG_DISTRICT_CODE) != nil{
+            return userdefault.value(forKey: KEY_CONFIG_DISTRICT_CODE) as! [Int]
+        }
+        
+        return []
+    }
+    
+    // DistrictName
+    
+    func setDistrictName(disname:[String]){
+        userdefault.set(disname, forKey: KEY_CONFIG_DISTRICT_NAME)
+    }
+    
+    func getDistrictName()->[String]{
+        
+        if userdefault.value(forKey: KEY_CONFIG_DISTRICT_NAME) != nil{
+            return userdefault.value(forKey: KEY_CONFIG_DISTRICT_NAME) as! [String]
+        }
+        
+        return []
+    }
+    
+    // DistrictZip
+    
+    func setDistrictZipCode(diszipcode:[String]){
+        userdefault.set(diszipcode, forKey: KEY_CONFIG_DISTRICT_ZIPCODE)
+    }
+    
+    func getDistrictZipCode()->[String]{
+        
+        if userdefault.value(forKey: KEY_CONFIG_DISTRICT_ZIPCODE) != nil{
+            return userdefault.value(forKey: KEY_CONFIG_DISTRICT_ZIPCODE) as! [String]
+        }
+        
+        return []
+    }
     
 }

@@ -874,7 +874,7 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" image="ic_add" id="OZi-P4-D0f">
                             <connections>
-                                <segue destination="ZTa-Qd-frh" kind="show" id="4rA-hW-oyU"/>
+                                <action selector="addButton:" destination="pm5-Wg-hYm" id="Dxz-wD-u9i"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -884,6 +884,8 @@
                         <outlet property="noDataLabel" destination="PYg-8Y-3De" id="h9D-Ho-Kqh"/>
                         <outlet property="tableView" destination="emB-M7-vyV" id="dyl-nv-CHG"/>
                         <segue destination="IRa-mH-x2g" kind="show" identifier="ComplainDetail" id="dMT-84-VjK"/>
+                        <segue destination="xRi-D0-Uro" kind="show" identifier="ComplainCreate" id="v5M-Zw-bVi"/>
+                        <segue destination="ZTa-Qd-frh" kind="show" identifier="ComplainRegister" id="P41-1g-4o8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hlX-Nu-gOy" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1034,7 +1036,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3N7-X4-tbT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1216.8" y="-2332.0839580209895"/>
+            <point key="canvasLocation" x="1310" y="-2317"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="82v-1D-k9C">
@@ -2032,20 +2034,20 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ทะเบียนเลขที่ 59/00194" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jUG-yz-Ryo">
-                                                <rect key="frame" x="222" y="74" width="129" height="25"/>
+                                                <rect key="frame" x="208" y="74" width="143" height="25"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="129" id="KYd-SB-okO"/>
+                                                    <constraint firstAttribute="width" constant="143" id="KYd-SB-okO"/>
                                                     <constraint firstAttribute="height" constant="25" id="URC-gg-Fjq"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" name="Quark-Bold" family="Quark" pointSize="14"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="บัตรหมดอายุ 18 ม.ค. 60" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IlW-P0-Cyc">
-                                                <rect key="frame" x="222" y="91" width="129" height="25"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="บัตรหมดอายุ 18 ม.ค. 2017" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IlW-P0-Cyc">
+                                                <rect key="frame" x="208" y="91" width="143" height="25"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="25" id="7hD-JY-cSS"/>
-                                                    <constraint firstAttribute="width" constant="129" id="Kuj-mx-6Wh"/>
+                                                    <constraint firstAttribute="width" constant="143" id="Kuj-mx-6Wh"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" name="Quark-Bold" family="Quark" pointSize="14"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -2120,11 +2122,11 @@
                                         <rect key="frame" x="8" y="179" width="359" height="152"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="เอกสารครบแล้ว" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sph-uz-WwR">
-                                                <rect key="frame" x="246" y="12" width="105" height="21"/>
+                                                <rect key="frame" x="215" y="12" width="136" height="21"/>
                                                 <color key="backgroundColor" red="0.1382960379" green="0.68011730910000001" blue="0.65328472849999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="21" id="Ldv-EG-A1f"/>
-                                                    <constraint firstAttribute="width" constant="105" id="Wz7-ta-IjF"/>
+                                                    <constraint firstAttribute="width" constant="136" id="Wz7-ta-IjF"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" name="Quark-Bold" family="Quark" pointSize="17"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -2248,9 +2250,14 @@
                         <outlet property="expireLabel" destination="gLL-c6-SfL" id="f2B-lN-xzu"/>
                         <outlet property="foundView" destination="yTt-dy-eMM" id="622-vS-jQI"/>
                         <outlet property="idCardView" destination="3nF-cp-LV8" id="XXM-6u-q8E"/>
+                        <outlet property="licenseExpireLabel" destination="IlW-P0-Cyc" id="TqU-UR-eae"/>
+                        <outlet property="licenseNameLabel" destination="aFp-cx-Jz8" id="trJ-io-afE"/>
+                        <outlet property="licenseNumberLabel" destination="jUG-yz-Ryo" id="wkl-7j-IcX"/>
                         <outlet property="menuButton" destination="5Mv-Dd-Zma" id="dTh-tL-VOU"/>
                         <outlet property="notfoundView" destination="pHn-zP-7fX" id="CFV-zR-iVo"/>
                         <outlet property="renewButton" destination="4F0-0R-RfB" id="nqk-Ua-KTh"/>
+                        <outlet property="requireNoLabel" destination="whb-Fd-bEq" id="TpW-TX-jdN"/>
+                        <outlet property="resultHeight" destination="YG5-NF-FUu" id="0cE-I4-Tvg"/>
                         <outlet property="resultTextView" destination="E0v-qI-BVM" id="l9Q-qt-jj8"/>
                         <outlet property="resultView" destination="lCp-ZH-ean" id="HGC-Ev-R9V"/>
                         <outlet property="searchTextField" destination="dUA-ue-x1Y" id="dAr-LP-3DA"/>
@@ -4462,7 +4469,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6fd-5k-Oo3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1916" y="-2332.0839580209895"/>
+            <point key="canvasLocation" x="2079" y="-2416"/>
         </scene>
         <!--ร้องเรียน-->
         <scene sceneID="7jI-JE-E11">
@@ -4487,140 +4494,6 @@
                                             <rect key="frame" x="0.0" y="0.0" width="359" height="269"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5nW-Jz-tMM">
-                                                    <rect key="frame" x="0.0" y="0.0" width="359" height="264"/>
-                                                    <subviews>
-                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Uge-4R-uAX">
-                                                            <rect key="frame" x="0.0" y="67" width="359" height="292"/>
-                                                            <subviews>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="15 ม.ค. 2558 16:42 น." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Aaj-sR-8eu">
-                                                                    <rect key="frame" x="8" y="8" width="343" height="21"/>
-                                                                    <constraints>
-                                                                        <constraint firstAttribute="height" constant="21" id="ny7-rd-EAv"/>
-                                                                    </constraints>
-                                                                    <fontDescription key="fontDescription" name="Quark-Bold" family="Quark" pointSize="12"/>
-                                                                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                                                    <nil key="highlightedColor"/>
-                                                                </label>
-                                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="4vW-87-mcY">
-                                                                    <rect key="frame" x="8" y="29" width="343" height="70"/>
-                                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                                    <accessibility key="accessibilityConfiguration">
-                                                                        <accessibilityTraits key="traits" notEnabled="YES"/>
-                                                                    </accessibility>
-                                                                    <constraints>
-                                                                        <constraint firstAttribute="width" constant="343" id="2kK-0W-NRL"/>
-                                                                    </constraints>
-                                                                    <string key="text">การให้ความช่วยเหลือเยียวยาผู้ประสบอุทกภัยในพื้นที่ต่างจังหวัดภาคใต้ ประสบอุทกภัยในพื้นที่ต่างจังหวัดภาคใต้ ประสบอุทกภัยในพื้นที่ต่างจังหวัดภาคใต้ การให้ความช่วยเหลือเยียวยาผู้ประสบอุทกภัยในพื้นที่ต่างจังหวัดภาคใต้ ประสบอุทกภัยในพื้นที่ต่างจังหวัดภาคใต้ ประสบอุทกภัยในพื้นที่ต่างจังหวัดภาคใต้ การให้ความช่วยเหลือเยียวยาผู้ประสบอุทกภัยในพื้นที่ต่างจังหวัดภาคใต้ ประสบอุทกภัยในพื้นที่ต่างจังหวัดภาคใต้ ประสบอุทกภัยในพื้นที่ต่างจังหวัดภาคใต้</string>
-                                                                    <fontDescription key="fontDescription" name="Quark-Bold" family="Quark" pointSize="15"/>
-                                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                                                </textView>
-                                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Eqx-nd-tzt">
-                                                                    <rect key="frame" x="8" y="107" width="343" height="70"/>
-                                                                    <subviews>
-                                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image_def_bog" highlighted="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aZR-Vq-A0L">
-                                                                            <rect key="frame" x="8" y="0.0" width="100" height="70"/>
-                                                                            <constraints>
-                                                                                <constraint firstAttribute="height" constant="70" id="ajW-X2-fyp"/>
-                                                                                <constraint firstAttribute="width" constant="100" id="duY-JK-S6z"/>
-                                                                            </constraints>
-                                                                        </imageView>
-                                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image_def_bog" highlighted="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KqI-kw-Lz2">
-                                                                            <rect key="frame" x="116" y="0.0" width="100" height="70"/>
-                                                                            <constraints>
-                                                                                <constraint firstAttribute="height" constant="70" id="F0m-rX-bhh"/>
-                                                                                <constraint firstAttribute="width" constant="100" id="Rlw-k4-Pyz"/>
-                                                                            </constraints>
-                                                                        </imageView>
-                                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image_def_bog" highlighted="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mgy-XO-oNm">
-                                                                            <rect key="frame" x="224" y="0.0" width="100" height="70"/>
-                                                                            <constraints>
-                                                                                <constraint firstAttribute="height" constant="70" id="YT8-hI-9et"/>
-                                                                                <constraint firstAttribute="width" constant="100" id="jrn-a6-Oko"/>
-                                                                            </constraints>
-                                                                        </imageView>
-                                                                    </subviews>
-                                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                                    <constraints>
-                                                                        <constraint firstItem="KqI-kw-Lz2" firstAttribute="leading" secondItem="aZR-Vq-A0L" secondAttribute="trailing" constant="8" id="9uR-Kr-7En"/>
-                                                                        <constraint firstItem="mgy-XO-oNm" firstAttribute="top" secondItem="Eqx-nd-tzt" secondAttribute="top" id="AL7-cH-iya"/>
-                                                                        <constraint firstItem="aZR-Vq-A0L" firstAttribute="leading" secondItem="Eqx-nd-tzt" secondAttribute="leading" constant="8" id="QJJ-Uv-GC7"/>
-                                                                        <constraint firstItem="KqI-kw-Lz2" firstAttribute="top" secondItem="Eqx-nd-tzt" secondAttribute="top" id="bRq-r7-KHM"/>
-                                                                        <constraint firstItem="aZR-Vq-A0L" firstAttribute="top" secondItem="Eqx-nd-tzt" secondAttribute="top" id="ceN-jk-mZa"/>
-                                                                        <constraint firstItem="mgy-XO-oNm" firstAttribute="leading" secondItem="KqI-kw-Lz2" secondAttribute="trailing" constant="8" id="gUM-xJ-qDY"/>
-                                                                    </constraints>
-                                                                </view>
-                                                            </subviews>
-                                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                            <constraints>
-                                                                <constraint firstAttribute="trailing" secondItem="4vW-87-mcY" secondAttribute="trailing" constant="8" id="9Qg-x9-fZh"/>
-                                                                <constraint firstAttribute="height" constant="292" id="Bmn-R1-ghn"/>
-                                                                <constraint firstItem="Eqx-nd-tzt" firstAttribute="top" secondItem="4vW-87-mcY" secondAttribute="bottom" constant="8" symbolic="YES" id="EXg-zt-TIx"/>
-                                                                <constraint firstItem="4vW-87-mcY" firstAttribute="leading" secondItem="Uge-4R-uAX" secondAttribute="leading" constant="8" id="FGB-9m-gC4"/>
-                                                                <constraint firstItem="Aaj-sR-8eu" firstAttribute="leading" secondItem="Uge-4R-uAX" secondAttribute="leading" constant="8" id="JZq-jv-4g1"/>
-                                                                <constraint firstItem="Eqx-nd-tzt" firstAttribute="top" secondItem="Uge-4R-uAX" secondAttribute="top" constant="107" id="MdG-69-qA7"/>
-                                                                <constraint firstAttribute="trailing" secondItem="Aaj-sR-8eu" secondAttribute="trailing" constant="8" id="dEs-eo-vPW"/>
-                                                                <constraint firstItem="Aaj-sR-8eu" firstAttribute="top" secondItem="Uge-4R-uAX" secondAttribute="top" constant="8" id="dap-qt-bbG"/>
-                                                                <constraint firstItem="4vW-87-mcY" firstAttribute="top" secondItem="Aaj-sR-8eu" secondAttribute="bottom" id="fjl-vX-gJb"/>
-                                                                <constraint firstAttribute="bottom" secondItem="Eqx-nd-tzt" secondAttribute="bottom" constant="115" id="pm1-8b-nVd"/>
-                                                                <constraint firstItem="Eqx-nd-tzt" firstAttribute="trailing" secondItem="4vW-87-mcY" secondAttribute="trailing" id="rYo-cn-Iwk"/>
-                                                                <constraint firstItem="Eqx-nd-tzt" firstAttribute="leading" secondItem="4vW-87-mcY" secondAttribute="leading" id="xdc-Av-ESa"/>
-                                                            </constraints>
-                                                        </view>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ความไม่โปร่งใสในการจัดจ้าง" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q4Z-RQ-MQy">
-                                                            <rect key="frame" x="0.0" y="33" width="359" height="34"/>
-                                                            <color key="backgroundColor" red="0.1896377504" green="0.25754278899999999" blue="0.33240014309999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                            <constraints>
-                                                                <constraint firstAttribute="height" constant="34" id="iHJ-w4-fGe"/>
-                                                            </constraints>
-                                                            <fontDescription key="fontDescription" name="Quark-Bold" family="Quark" pointSize="16"/>
-                                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="#0001" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J1C-Wn-6Eg">
-                                                            <rect key="frame" x="216" y="8" width="135" height="21"/>
-                                                            <constraints>
-                                                                <constraint firstAttribute="height" constant="21" id="dvi-ME-PIS"/>
-                                                                <constraint firstAttribute="width" constant="135" id="kVV-8S-Dlv"/>
-                                                            </constraints>
-                                                            <fontDescription key="fontDescription" name="Quark-Bold" family="Quark" pointSize="13"/>
-                                                            <nil key="textColor"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="กำลังดำเนินการ" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WCa-EI-g9C">
-                                                            <rect key="frame" x="8" y="8" width="90" height="21"/>
-                                                            <color key="backgroundColor" red="0.2727815509" green="0.38076812030000001" blue="0.67960172890000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                            <constraints>
-                                                                <constraint firstAttribute="width" constant="90" id="4tt-ai-hcQ"/>
-                                                                <constraint firstAttribute="height" constant="21" id="qJt-X4-EMf"/>
-                                                            </constraints>
-                                                            <fontDescription key="fontDescription" name="Quark-Bold" family="Quark" pointSize="13"/>
-                                                            <color key="textColor" red="0.93725490570000003" green="0.93725490570000003" blue="0.95686274770000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_alert_noti" translatesAutoresizingMaskIntoConstraints="NO" id="zn7-uP-SeG">
-                                                            <rect key="frame" x="106" y="8" width="21" height="21"/>
-                                                            <constraints>
-                                                                <constraint firstAttribute="width" constant="21" id="7q6-UM-i55"/>
-                                                                <constraint firstAttribute="height" constant="21" id="YYx-wk-AMK"/>
-                                                            </constraints>
-                                                        </imageView>
-                                                    </subviews>
-                                                    <constraints>
-                                                        <constraint firstItem="Uge-4R-uAX" firstAttribute="leading" secondItem="5nW-Jz-tMM" secondAttribute="leading" id="2nQ-Wv-1qi"/>
-                                                        <constraint firstItem="Q4Z-RQ-MQy" firstAttribute="top" secondItem="zn7-uP-SeG" secondAttribute="bottom" constant="4" id="52T-N6-nVS"/>
-                                                        <constraint firstItem="zn7-uP-SeG" firstAttribute="top" secondItem="5nW-Jz-tMM" secondAttribute="top" constant="8" id="7A3-7f-sbV"/>
-                                                        <constraint firstAttribute="trailing" secondItem="J1C-Wn-6Eg" secondAttribute="trailing" constant="8" id="MYX-5W-v2X"/>
-                                                        <constraint firstItem="Q4Z-RQ-MQy" firstAttribute="leading" secondItem="5nW-Jz-tMM" secondAttribute="leading" id="PhS-Aa-ubl"/>
-                                                        <constraint firstItem="WCa-EI-g9C" firstAttribute="top" secondItem="5nW-Jz-tMM" secondAttribute="top" constant="8" id="Pt6-3X-bjc"/>
-                                                        <constraint firstItem="WCa-EI-g9C" firstAttribute="leading" secondItem="5nW-Jz-tMM" secondAttribute="leading" constant="8" id="V04-po-FEs"/>
-                                                        <constraint firstAttribute="trailing" secondItem="Uge-4R-uAX" secondAttribute="trailing" id="dGG-ko-5WW"/>
-                                                        <constraint firstItem="Uge-4R-uAX" firstAttribute="top" secondItem="Q4Z-RQ-MQy" secondAttribute="bottom" id="df3-fi-UzP"/>
-                                                        <constraint firstAttribute="trailing" secondItem="Q4Z-RQ-MQy" secondAttribute="trailing" id="jQY-ny-bUp"/>
-                                                        <constraint firstItem="zn7-uP-SeG" firstAttribute="leading" secondItem="WCa-EI-g9C" secondAttribute="trailing" constant="8" id="joe-dw-XIo"/>
-                                                        <constraint firstAttribute="height" constant="264" id="o11-hd-xyy"/>
-                                                    </constraints>
-                                                </view>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ufA-f7-JSz">
                                                     <rect key="frame" x="0.0" y="0.0" width="359" height="169"/>
                                                     <subviews>
@@ -4692,6 +4565,144 @@
                                                         <constraint firstItem="Sz2-dU-kio" firstAttribute="top" secondItem="CCQ-uF-Rv5" secondAttribute="bottom" constant="2" id="xU0-tT-FiT"/>
                                                     </constraints>
                                                 </view>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5nW-Jz-tMM">
+                                                    <rect key="frame" x="0.0" y="0.0" width="359" height="264"/>
+                                                    <subviews>
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Uge-4R-uAX">
+                                                            <rect key="frame" x="0.0" y="67" width="359" height="292"/>
+                                                            <subviews>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="15 ม.ค. 2558 16:42 น." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Aaj-sR-8eu">
+                                                                    <rect key="frame" x="8" y="8" width="343" height="21"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="height" constant="21" id="ny7-rd-EAv"/>
+                                                                    </constraints>
+                                                                    <fontDescription key="fontDescription" name="Quark-Bold" family="Quark" pointSize="12"/>
+                                                                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="4vW-87-mcY">
+                                                                    <rect key="frame" x="8" y="29" width="343" height="70"/>
+                                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                                    <accessibility key="accessibilityConfiguration">
+                                                                        <accessibilityTraits key="traits" notEnabled="YES"/>
+                                                                    </accessibility>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="width" constant="343" id="2kK-0W-NRL"/>
+                                                                    </constraints>
+                                                                    <string key="text">การให้ความช่วยเหลือเยียวยาผู้ประสบอุทกภัยในพื้นที่ต่างจังหวัดภาคใต้ ประสบอุทกภัยในพื้นที่ต่างจังหวัดภาคใต้ ประสบอุทกภัยในพื้นที่ต่างจังหวัดภาคใต้ การให้ความช่วยเหลือเยียวยาผู้ประสบอุทกภัยในพื้นที่ต่างจังหวัดภาคใต้ ประสบอุทกภัยในพื้นที่ต่างจังหวัดภาคใต้ ประสบอุทกภัยในพื้นที่ต่างจังหวัดภาคใต้ การให้ความช่วยเหลือเยียวยาผู้ประสบอุทกภัยในพื้นที่ต่างจังหวัดภาคใต้ ประสบอุทกภัยในพื้นที่ต่างจังหวัดภาคใต้ ประสบอุทกภัยในพื้นที่ต่างจังหวัดภาคใต้</string>
+                                                                    <fontDescription key="fontDescription" name="Quark-Bold" family="Quark" pointSize="15"/>
+                                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                                </textView>
+                                                                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="lv5-eh-J9h">
+                                                                    <rect key="frame" x="8" y="107" width="343" height="70"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="width" constant="343" id="Uxa-Wr-vRD"/>
+                                                                        <constraint firstAttribute="height" constant="70" id="poi-V0-qlc"/>
+                                                                    </constraints>
+                                                                    <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="QzA-UN-EUH">
+                                                                        <size key="itemSize" width="70" height="70"/>
+                                                                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                                                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                                                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                                    </collectionViewFlowLayout>
+                                                                    <cells>
+                                                                        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cell" id="H0d-l9-iJ2" customClass="imageCollectionCell" customModule="MOJ" customModuleProvider="target">
+                                                                            <rect key="frame" x="0.0" y="0.0" width="70" height="70"/>
+                                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                                            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                                                                <rect key="frame" x="0.0" y="0.0" width="70" height="70"/>
+                                                                                <autoresizingMask key="autoresizingMask"/>
+                                                                                <subviews>
+                                                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="iQN-FQ-xmf">
+                                                                                        <rect key="frame" x="0.0" y="0.0" width="70" height="70"/>
+                                                                                        <constraints>
+                                                                                            <constraint firstAttribute="height" constant="70" id="Dnh-ka-wVL"/>
+                                                                                            <constraint firstAttribute="width" constant="70" id="g9g-Ad-53f"/>
+                                                                                        </constraints>
+                                                                                    </imageView>
+                                                                                </subviews>
+                                                                            </view>
+                                                                            <constraints>
+                                                                                <constraint firstAttribute="bottom" secondItem="iQN-FQ-xmf" secondAttribute="bottom" id="52y-b8-afB"/>
+                                                                                <constraint firstItem="iQN-FQ-xmf" firstAttribute="top" secondItem="H0d-l9-iJ2" secondAttribute="top" id="GVS-oC-Ans"/>
+                                                                                <constraint firstAttribute="trailing" secondItem="iQN-FQ-xmf" secondAttribute="trailing" id="RGy-gM-Yhk"/>
+                                                                                <constraint firstItem="iQN-FQ-xmf" firstAttribute="leading" secondItem="H0d-l9-iJ2" secondAttribute="leading" id="pJh-gb-USA"/>
+                                                                            </constraints>
+                                                                            <connections>
+                                                                                <outlet property="imageView" destination="iQN-FQ-xmf" id="fa4-Wh-udi"/>
+                                                                            </connections>
+                                                                        </collectionViewCell>
+                                                                    </cells>
+                                                                </collectionView>
+                                                            </subviews>
+                                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="trailing" secondItem="lv5-eh-J9h" secondAttribute="trailing" constant="8" id="3J2-xK-NzV"/>
+                                                                <constraint firstAttribute="trailing" secondItem="4vW-87-mcY" secondAttribute="trailing" constant="8" id="9Qg-x9-fZh"/>
+                                                                <constraint firstAttribute="height" constant="292" id="Bmn-R1-ghn"/>
+                                                                <constraint firstItem="4vW-87-mcY" firstAttribute="leading" secondItem="Uge-4R-uAX" secondAttribute="leading" constant="8" id="FGB-9m-gC4"/>
+                                                                <constraint firstItem="Aaj-sR-8eu" firstAttribute="leading" secondItem="Uge-4R-uAX" secondAttribute="leading" constant="8" id="JZq-jv-4g1"/>
+                                                                <constraint firstItem="lv5-eh-J9h" firstAttribute="leading" secondItem="Uge-4R-uAX" secondAttribute="leading" constant="8" id="N80-aJ-Awk"/>
+                                                                <constraint firstItem="lv5-eh-J9h" firstAttribute="top" secondItem="4vW-87-mcY" secondAttribute="bottom" constant="8" id="clb-Hb-NFp"/>
+                                                                <constraint firstAttribute="trailing" secondItem="Aaj-sR-8eu" secondAttribute="trailing" constant="8" id="dEs-eo-vPW"/>
+                                                                <constraint firstItem="Aaj-sR-8eu" firstAttribute="top" secondItem="Uge-4R-uAX" secondAttribute="top" constant="8" id="dap-qt-bbG"/>
+                                                                <constraint firstItem="4vW-87-mcY" firstAttribute="top" secondItem="Aaj-sR-8eu" secondAttribute="bottom" id="fjl-vX-gJb"/>
+                                                            </constraints>
+                                                        </view>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ความไม่โปร่งใสในการจัดจ้าง" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q4Z-RQ-MQy">
+                                                            <rect key="frame" x="0.0" y="33" width="359" height="34"/>
+                                                            <color key="backgroundColor" red="0.1896377504" green="0.25754278899999999" blue="0.33240014309999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="34" id="iHJ-w4-fGe"/>
+                                                            </constraints>
+                                                            <fontDescription key="fontDescription" name="Quark-Bold" family="Quark" pointSize="16"/>
+                                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="#0001" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J1C-Wn-6Eg">
+                                                            <rect key="frame" x="216" y="8" width="135" height="21"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="21" id="dvi-ME-PIS"/>
+                                                                <constraint firstAttribute="width" constant="135" id="kVV-8S-Dlv"/>
+                                                            </constraints>
+                                                            <fontDescription key="fontDescription" name="Quark-Bold" family="Quark" pointSize="13"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="กำลังดำเนินการ" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WCa-EI-g9C">
+                                                            <rect key="frame" x="8" y="8" width="90" height="21"/>
+                                                            <color key="backgroundColor" red="0.2727815509" green="0.38076812030000001" blue="0.67960172890000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="90" id="4tt-ai-hcQ"/>
+                                                                <constraint firstAttribute="height" constant="21" id="qJt-X4-EMf"/>
+                                                            </constraints>
+                                                            <fontDescription key="fontDescription" name="Quark-Bold" family="Quark" pointSize="13"/>
+                                                            <color key="textColor" red="0.93725490570000003" green="0.93725490570000003" blue="0.95686274770000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_alert_noti" translatesAutoresizingMaskIntoConstraints="NO" id="zn7-uP-SeG">
+                                                            <rect key="frame" x="106" y="8" width="21" height="21"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="21" id="7q6-UM-i55"/>
+                                                                <constraint firstAttribute="height" constant="21" id="YYx-wk-AMK"/>
+                                                            </constraints>
+                                                        </imageView>
+                                                    </subviews>
+                                                    <constraints>
+                                                        <constraint firstItem="Uge-4R-uAX" firstAttribute="leading" secondItem="5nW-Jz-tMM" secondAttribute="leading" id="2nQ-Wv-1qi"/>
+                                                        <constraint firstItem="Q4Z-RQ-MQy" firstAttribute="top" secondItem="zn7-uP-SeG" secondAttribute="bottom" constant="4" id="52T-N6-nVS"/>
+                                                        <constraint firstItem="zn7-uP-SeG" firstAttribute="top" secondItem="5nW-Jz-tMM" secondAttribute="top" constant="8" id="7A3-7f-sbV"/>
+                                                        <constraint firstAttribute="trailing" secondItem="J1C-Wn-6Eg" secondAttribute="trailing" constant="8" id="MYX-5W-v2X"/>
+                                                        <constraint firstItem="Q4Z-RQ-MQy" firstAttribute="leading" secondItem="5nW-Jz-tMM" secondAttribute="leading" id="PhS-Aa-ubl"/>
+                                                        <constraint firstItem="WCa-EI-g9C" firstAttribute="top" secondItem="5nW-Jz-tMM" secondAttribute="top" constant="8" id="Pt6-3X-bjc"/>
+                                                        <constraint firstItem="WCa-EI-g9C" firstAttribute="leading" secondItem="5nW-Jz-tMM" secondAttribute="leading" constant="8" id="V04-po-FEs"/>
+                                                        <constraint firstAttribute="trailing" secondItem="Uge-4R-uAX" secondAttribute="trailing" id="dGG-ko-5WW"/>
+                                                        <constraint firstItem="Uge-4R-uAX" firstAttribute="top" secondItem="Q4Z-RQ-MQy" secondAttribute="bottom" id="df3-fi-UzP"/>
+                                                        <constraint firstAttribute="trailing" secondItem="Q4Z-RQ-MQy" secondAttribute="trailing" id="jQY-ny-bUp"/>
+                                                        <constraint firstItem="zn7-uP-SeG" firstAttribute="leading" secondItem="WCa-EI-g9C" secondAttribute="trailing" constant="8" id="joe-dw-XIo"/>
+                                                        <constraint firstAttribute="height" constant="264" id="o11-hd-xyy"/>
+                                                    </constraints>
+                                                </view>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstAttribute="trailing" secondItem="ufA-f7-JSz" secondAttribute="trailing" id="35e-RT-Cw4"/>
@@ -4704,12 +4715,10 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="alertImage" destination="zn7-uP-SeG" id="Uwd-Ei-Ika"/>
+                                            <outlet property="collectionView" destination="lv5-eh-J9h" id="7aj-kM-ebd"/>
                                             <outlet property="complainCodeLabel" destination="J1C-Wn-6Eg" id="EYs-jB-w2y"/>
                                             <outlet property="dateLabel" destination="Aaj-sR-8eu" id="cWt-0e-c3L"/>
                                             <outlet property="detailTextView" destination="4vW-87-mcY" id="AuG-Mc-eyG"/>
-                                            <outlet property="imageView1" destination="aZR-Vq-A0L" id="iTy-al-g6T"/>
-                                            <outlet property="imageView2" destination="KqI-kw-Lz2" id="Tdz-oe-g0f"/>
-                                            <outlet property="imageView3" destination="mgy-XO-oNm" id="MUZ-i8-Ent"/>
                                             <outlet property="proceedLabel" destination="WCa-EI-g9C" id="woO-5v-fPS"/>
                                             <outlet property="replyComplainCodeLabel" destination="CCQ-uF-Rv5" id="Qky-rR-bsJ"/>
                                             <outlet property="ryplyDateLabel" destination="JHt-k3-X5r" id="pT0-Bk-BvV"/>
@@ -8554,12 +8563,13 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="uGj-C4-SvP"/>
-        <segue reference="ajA-1D-dAG"/>
-        <segue reference="PhN-F7-pql"/>
         <segue reference="vjE-yf-aCp"/>
+        <segue reference="ich-8c-23n"/>
+        <segue reference="PhN-F7-pql"/>
+        <segue reference="v5M-Zw-bVi"/>
+        <segue reference="ajA-1D-dAG"/>
         <segue reference="sv0-QJ-Fkf"/>
         <segue reference="kRs-M2-pUb"/>
-        <segue reference="ptT-F0-Ylj"/>
-        <segue reference="PxF-VT-NSG"/>
+        <segue reference="0kd-Te-E1t"/>
     </inferredMetricsTieBreakers>
 </document>

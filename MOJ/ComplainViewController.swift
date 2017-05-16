@@ -14,6 +14,8 @@ class ComplainViewController: UIViewController,UITableViewDelegate, UITableViewD
     let network = Network()
     let accountData = AccountData()
     let stringHelper = StringHelper()
+    let alertView = AlertView()
+    
     @IBOutlet var noDataLabel: UILabel!
     @IBOutlet var addButton: UIBarButtonItem!
     let COMPLAIN_DETAIL = "ComplainDetail"
@@ -39,11 +41,17 @@ class ComplainViewController: UIViewController,UITableViewDelegate, UITableViewD
     var cmpltuserid:[String] = []
     
     var selectComplaintID:String = ""
+    let COMPLAIN_REGISTER = "ComplainRegister"
+    let COMPLAIN_CREATE = "ComplainCreate"
     
     @IBOutlet var menuButton: UIBarButtonItem!
     @IBOutlet var tableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
         self.noDataLabel.isHidden = true
         setupMenuButton()
         tableView.delegate = self
@@ -55,13 +63,20 @@ class ComplainViewController: UIViewController,UITableViewDelegate, UITableViewD
             addButton.isEnabled = true
         }
         else{
+            alertView.alertWithAction(title:"", message: self.alertView.ALERT_LOGIN, buttonTitle: self.alertView.ALERT_OK, controller: self, completionHandler: {
+                (button : Bool) in
+                if button {
+                    self.alertView.setMainViewController()
+                }
+            });
             addButton.image = UIImage(named:"")
             addButton.isEnabled = false
         }
         
+        
+        
         let accountID = accountData.getAccountID()
         var param = accountID
-        param = "1"
         network.get(name: network.API_COMPLAINTS, param: param, viewController: self, completionHandler: {
             (json:Any,Code:String,Message:String) in
             let jsonSwifty = JSON(json)
@@ -87,6 +102,14 @@ class ComplainViewController: UIViewController,UITableViewDelegate, UITableViewD
         })
     }
 
+    @IBAction func addButton(_ sender: Any) {
+        if accountData.getComplaintStatus() {
+            self.performSegue(withIdentifier: self.COMPLAIN_CREATE, sender: self)
+        }
+        else{
+            self.performSegue(withIdentifier: self.COMPLAIN_REGISTER, sender: self)
+        }
+    }
     
     
     // MARK: UITableView
@@ -136,6 +159,8 @@ class ComplainViewController: UIViewController,UITableViewDelegate, UITableViewD
         }
     }
     
+    //ComplainRegister
+    //ComplainCreate
     
     
     override func didReceiveMemoryWarning() {

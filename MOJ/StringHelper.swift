@@ -20,6 +20,51 @@ class StringHelper:NSObject{
         return false
     }
     
+    
+    func timeRemainingString(issuedate:String) -> Int {
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        let issuedatee = dateFormatter.date(from: issuedate)
+
+        let secondsFromNowToFinish = issuedatee?.timeIntervalSinceNow
+        let days = Int(secondsFromNowToFinish! / 86400)
+        
+        /*
+        let hours = Int(secondsFromNowToFinish! / 3600)
+        let minutes = Int((secondsFromNowToFinish - Double(hours) * 3600) / 60)
+        let seconds = Int(secondsFromNowToFinish - Double(hours) * 3600 - Double(minutes) * 60 + 0.5)
+        
+        print(String(format: "%02d:%02d:%02d", hours, minutes, seconds))
+        */
+        return days
+    }
+    
+    func compareDate(issuedate:String,expiredate:String)->Bool{
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        let issuedatee = dateFormatter.date(from: issuedate)
+        let expiredatee = dateFormatter.date(from: expiredate)
+        
+        if issuedatee == expiredatee
+        {
+            // หมดอายุ
+            return true
+        }
+        else if issuedatee! > expiredatee!
+        {
+            // หมดอายุ
+            return true
+        }
+        else
+        {
+            return false
+        }
+        
+        
+    }
+    
     func getCurrentDateTimeString()->String{
         let date = Date()
         let formatter = DateFormatter()

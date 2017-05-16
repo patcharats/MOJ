@@ -18,6 +18,9 @@ class AccountData: NSObject {
     let KEY_ACCOUNT_PHONE_NO = "phoneno"
     let KEY_ACCOUNT_LAST_LOGIN = "lastlogin"
     let KEY_ACCOUNT_TOKEN = "token"
+    let KEY_ACCOUNT_COMPLAINT_STATUS = "complt_status"
+    let KEY_ACCOUNT_SOCIAL_STATUS = "socwrk_status"
+    let KEY_ACCOUNT_USER_LEVEL = "userlevel"
     
     let KEY_ACCOUNT_DATA = "data"
     let KEY_ACCOUNT_ACCOUNT = "account"
@@ -42,8 +45,33 @@ class AccountData: NSObject {
         let accountToken = data?[KEY_ACCOUNT_TOKEN]?.stringValue
         let accountLastLogin = data?[KEY_ACCOUNT_LAST_LOGIN]?.stringValue
         
+        let accountComplaintStatus = data?[KEY_ACCOUNT_COMPLAINT_STATUS]?.stringValue
+        let accountSocialStatus = data?[KEY_ACCOUNT_SOCIAL_STATUS]?.stringValue
+        let accountUserLevel = data?[KEY_ACCOUNT_USER_LEVEL]?.stringValue
+        
+        if accountUserLevel == "0" {
+            setAdmin(isAdmin: false)
+        }
+        else{
+            setAdmin(isAdmin: true)
+        }
+        
+        if accountSocialStatus == "0" {
+            setSocialWork(hasSocialWork: false)
+        }
+        else{
+            setSocialWork(hasSocialWork: true)
+        }
+        
+        if accountComplaintStatus == "0" {
+            setComplaintStatus(hasComplaintStatus: false)
+        }
+        else{
+            setComplaintStatus(hasComplaintStatus: true)
+        }
+        
         setLogin(isLogin: true)
-        setAdmin(isAdmin: false)
+        
         setAccountID(accountID: accountID!)
         setAccountEmail(accountEmail: accountEmail!)
         setAccountFirstName(accountFirstName: accountFirstName!)
@@ -75,6 +103,28 @@ class AccountData: NSObject {
     func isLogin()->Bool{
         return userdefault.bool(forKey: KEY_IS_LOGIN)
         
+    }
+    
+    // hasComplaintStatus
+    
+    func setComplaintStatus(hasComplaintStatus:Bool){
+        userdefault.set(hasComplaintStatus, forKey: KEY_ACCOUNT_COMPLAINT_STATUS)
+    }
+    
+    func getComplaintStatus()->Bool{
+        return userdefault.bool(forKey: KEY_ACCOUNT_COMPLAINT_STATUS)
+    }
+    
+    
+    
+    // hasSocialWork
+    
+    func setSocialWork(hasSocialWork:Bool){
+        userdefault.set(hasSocialWork, forKey: KEY_ACCOUNT_SOCIAL_STATUS)
+    }
+    
+    func getSocialWork()->Bool{
+        return userdefault.bool(forKey: KEY_ACCOUNT_SOCIAL_STATUS)
     }
     
     // isAdmin

@@ -8,7 +8,8 @@
 
 import Foundation
 import SwiftyJSON
-class ComplainDetail: UIViewController,UITableViewDelegate, UITableViewDataSource{
+class ComplainDetail: UIViewController,UITableViewDelegate, UITableViewDataSource,UICollectionViewDataSource,
+UICollectionViewDelegateFlowLayout, UICollectionViewDelegate{
     
     let design = Design()
     let network = Network()
@@ -32,7 +33,7 @@ class ComplainDetail: UIViewController,UITableViewDelegate, UITableViewDataSourc
     let KEY_COMPLAIN_STATUS = "cmpltstatus"
     let KEY_COMPLAIN_SUBJECT = "cmpltsubject"
     let KEY_COMPLAIN_USER_ID = "cmpltuserid"
-     let KEY_COMPLAIN_IMAGE = "image"
+    let KEY_COMPLAIN_IMAGE = "image"
     let KEY_COMPLAIN_IMAGE_ID = "cpltImgId"
     let KEY_COMPLAIN_IMAGE_NAME = "cpltImgRename"
     
@@ -85,7 +86,6 @@ class ComplainDetail: UIViewController,UITableViewDelegate, UITableViewDataSourc
         
         let accountID = accountData.getAccountID()
         var param = accountID+"/"+selectComplaintID
-        param = "1/1"
         network.get(name: network.API_COMPLAINT, param:param, viewController: self, completionHandler: {
             (json:Any,Code:String,Message:String) in
             let jsonSwifty = JSON(json)
@@ -103,6 +103,7 @@ class ComplainDetail: UIViewController,UITableViewDelegate, UITableViewDataSourc
             self.cpltImgRename =  (jsonSwifty[self.KEY_COMPLAIN_DATA][self.KEY_COMPLAIN_IMAGE].arrayValue.map({$0[self.KEY_COMPLAIN_IMAGE_NAME].stringValue}))
             
             print(self.cpltImgRename)
+            
             
             self.network.get(name: self.network.API_COMPLAINT_REPLY, param: "1"+"/"+self.selectComplaintID, viewController: self, completionHandler: {
                 (json:Any,Code:String,Message:String) in
@@ -149,6 +150,7 @@ class ComplainDetail: UIViewController,UITableViewDelegate, UITableViewDataSourc
         design.roundView(view: cell.proceedLabel, radius: 5)
         cell.detailTextView.font = UIFont(name: "Quark-Bold", size: 15)
         
+        
         if indexPath.row == 0 {
             cell.viewDetail.isHidden = false
             cell.viewRyply.isHidden = true
@@ -162,9 +164,12 @@ class ComplainDetail: UIViewController,UITableViewDelegate, UITableViewDataSourc
             design.getProcessStatus(status: cmpltstatus, label: cell.proceedLabel)
             cell.alertImage.isHidden = true
             
-//            cell.imageView1.sd_setImage(with: URL(string: cpltImgRename[0]), placeholderImage: UIImage(named: "image_def_bog"))
-//            cell.imageView2.sd_setImage(with: URL(string: cpltImgRename[1]), placeholderImage: UIImage(named: "image_def_bog"))
-//            cell.imageView3.isHidden = true
+            
+            cell.collectionView.delegate = self
+            cell.collectionView.dataSource = self
+            cell.collectionView.backgroundColor = UIColor.clear
+            
+            cell.collectionView.reloadData()
             
         }
         else{
@@ -187,6 +192,23 @@ class ComplainDetail: UIViewController,UITableViewDelegate, UITableViewDataSourc
     @IBAction func backButton(_ sender: Any) {
         _ = navigationController?.popViewController(animated: true)
     }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath as IndexPath) as! imageCollectionCell
+        cell.backgroundColor = UIColor.clear
+        cell.imageView.sd_setImage(with: URL(string: cpltImgRename[indexPath.row]), placeholderImage: UIImage(named: "image_def_bog"))
+        
+        return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int
+    {
+        return cpltImgRename.count
+    }
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets
+    {
+        return UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+    }
 }
 
 
@@ -199,15 +221,15 @@ class complainDetailCell: UITableViewCell {
     @IBOutlet weak var complainCodeLabel: UILabel!
     @IBOutlet weak var proceedLabel: UILabel!
     @IBOutlet weak var alertImage: UIImageView!
-    @IBOutlet var imageView1: UIImageView!
-    @IBOutlet var imageView2: UIImageView!
-    @IBOutlet var imageView3: UIImageView!
-    
+
     @IBOutlet weak var viewRyply: UIView!
     @IBOutlet weak var ryplyTitleLabel: UILabel!
     @IBOutlet weak var ryplyDetailLabel: UILabel!
     @IBOutlet weak var ryplyDateLabel: UILabel!
     @IBOutlet weak var replyComplainCodeLabel: UILabel!
+    
+    @IBOutlet var collectionView: UICollectionView!
+    
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -215,5 +237,22 @@ class complainDetailCell: UITableViewCell {
     
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
+    }
+}
+
+class imageCollectionCell: UICollectionViewCell {
+    
+    @IBOutlet var imageView: UIImageView!
+    
+    @IBOutlet var removeImage: UIButton!
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        
+        self.backgroundColor = UIColor.clear
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
     }
 }

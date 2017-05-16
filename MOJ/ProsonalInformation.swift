@@ -7,8 +7,9 @@
 //
 
 import Foundation
-class ProsonalInformation:UITableViewController{
+class ProsonalInformation:UITableViewController,UIPickerViewDelegate,UIPickerViewDataSource{
     
+    let configData = ConfigData()
     
     @IBOutlet var IDTypeTextField: UITextField!
     @IBOutlet var IDNumberTextField: UITextField!
@@ -46,10 +47,77 @@ class ProsonalInformation:UITableViewController{
     @IBOutlet var mobilePhoneTextField: UITextField!
     @IBOutlet var faxTextField: UITextField!
     @IBOutlet var emailTextField: UITextField!
+    var pickerView:UIPickerView!
+    
+    var titleName:[String] = []
+    var titleID:[Int] = []
+    var amphurgeoID:[Int] = []
+    var amphurID:[Int] = []
+    var amphurCode:[Int] = []
+    var amphurName:[String] = []
+    var districtgeoID:[Int] = []
+    var districtID:[Int] = []
+    var districtCode:[Int] = []
+    var adistrictName:[String] = []
+    var zipcode:[String] = []
+    
+    
+    var selectPrefixNameID = 0
     
     override func awakeFromNib() {
         super.awakeFromNib()
         self.tableView.contentInset = UIEdgeInsetsMake(0, 0, 55, 0)
+        
+        /*
+        configData.getGeoID()
+        configData.getProvinceID()
+        configData.getProvinceCode()
+        configData.getProvinceName()
+        configData.getDegreeID()
+        configData.getDegree()
+        
+        configData.getMajorID()
+        configData.getMajor()
+        
+        configData.getFieldStudyID()
+        configData.getFieldStudy()
+        
+        configData.getDegreeID()
+        configData.getDegree()
+        
+        configData.getMaritalStatusID()
+        configData.getMaritalStatus()
+        
+        configData.getOccupationOptionID()
+        configData.getOccupationOption()
+        
+        configData.getReligionID()
+        configData.getReligion()
+        
+        configData.getTrainingID()
+        configData.getTraining()
+ */
+        
+        titleName = configData.getNamePrefix()
+        titleID = configData.getNamePrefixID()
+    }
+    
+    
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return titleName.count
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return titleName[row]
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        titleNameTextField.text = titleName[row]
+        selectPrefixNameID = titleID[row]
     }
     
     

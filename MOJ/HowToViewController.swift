@@ -25,7 +25,7 @@ class HowToViewController: UIViewController {
     var localSource:[ImageSource] = []
     let design = Design()
     let network = Network()
-    let configData = ConfigData()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -44,18 +44,7 @@ class HowToViewController: UIViewController {
         
         
         
-        network.get(name: network.API_CONFIG, param:"", viewController: self, completionHandler: {
-            (json:Any,Code:String,Message:String) in
-            
-            self.configData.getConfigData(json: json)
-            
-            self.network.get(name: self.network.API_CONFIG_PROVINCE, param:"", viewController: self, completionHandler: {
-                (json:Any,Code:String,Message:String) in
                 
-                self.configData.getConfigProvince(json: json)
-            })
-        })
-        
     }
     
     @IBAction func checkBoxButton(_ sender: Any) {

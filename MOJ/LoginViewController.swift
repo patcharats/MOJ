@@ -29,6 +29,10 @@ class LoginViewController: UIViewController {
     var channel:String? = ""
     var facebook_id:String? = ""
     
+    let configData = ConfigData()
+    
+
+    
     @IBOutlet var emailTextfield: UITextField!
     @IBOutlet var passwordTextfield: UITextField!
     override func viewDidLoad() {
@@ -37,6 +41,19 @@ class LoginViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
         accountData.setLogin(isLogin: false)
         setupNavigation()
+        
+        
+        network.get(name: network.API_CONFIG, param:"", viewController: self, completionHandler: {
+            (json:Any,Code:String,Message:String) in
+            
+            self.configData.getConfigData(json: json)
+            
+            self.network.get(name: self.network.API_CONFIG_PROVINCE, param:"", viewController: self, completionHandler: {
+                (json:Any,Code:String,Message:String) in
+                
+                self.configData.getConfigProvince(json: json)
+            })
+        })
     }
     
     func setupNavigation(){
