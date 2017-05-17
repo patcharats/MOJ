@@ -110,13 +110,14 @@ class Network: NSObject {
             multipartFormData: { multipartFormData in
                 
                 if let imageData = UIImageJPEGRepresentation(image, 1) {
-                    multipartFormData.append(imageData, withName: "image",fileName: "image.jpeg", mimeType: "image/jpeg")
+                    multipartFormData.append(imageData, withName: "images",fileName: "image.jpg", mimeType: "image/jpg")
                 }
                 
                 for (key, value) in param {
                     multipartFormData.append((value as AnyObject).data(using: String.Encoding.utf8.rawValue)!, withName: key as! String)
                 }
                 
+                print(param)
                 
                 
         },

@@ -22,7 +22,8 @@ UICollectionViewDelegateFlowLayout, UICollectionViewDelegate{
     
     // detail
     
-    
+    let COMPLAIN_REGISTER = "ComplainRegister"
+    let COMPLAIN_CREATE = "ComplainCreate"
     let KEY_COMPLAIN_DATA = "data"
     let KEY_COMPLAIN_CATAGORIE_ID = "cmpltcatid"
     let KEY_COMPLAIN_CODE = "cmpltcode"
@@ -33,7 +34,7 @@ UICollectionViewDelegateFlowLayout, UICollectionViewDelegate{
     let KEY_COMPLAIN_STATUS = "cmpltstatus"
     let KEY_COMPLAIN_SUBJECT = "cmpltsubject"
     let KEY_COMPLAIN_USER_ID = "cmpltuserid"
-    let KEY_COMPLAIN_IMAGE = "image"
+    let KEY_COMPLAIN_IMAGE = "images"
     let KEY_COMPLAIN_IMAGE_ID = "cpltImgId"
     let KEY_COMPLAIN_IMAGE_NAME = "cpltImgRename"
     
@@ -57,6 +58,7 @@ UICollectionViewDelegateFlowLayout, UICollectionViewDelegate{
     let KEY_COMPLAIN_REPLY_DETAIL = "reptDetail"
     let KEY_COMPLAIN_REPLY_ID = "reptId"
     let KEY_COMPLAIN_REPLY_STATUS = "respStatus"
+
     
     var instName:[String] = []
     var reptDateTime:[String] = []
@@ -122,6 +124,14 @@ UICollectionViewDelegateFlowLayout, UICollectionViewDelegate{
         
     }
     
+    @IBAction func addButton(_ sender: Any) {
+        if accountData.getComplaintStatus() {
+            self.performSegue(withIdentifier: self.COMPLAIN_CREATE, sender: self)
+        }
+        else{
+            self.performSegue(withIdentifier: self.COMPLAIN_REGISTER, sender: self)
+        }
+    }
 
     // MARK: UITableView
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
