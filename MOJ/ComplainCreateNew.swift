@@ -194,7 +194,7 @@ class ComplainCreateNew: UIViewController,UIPickerViewDelegate,UIPickerViewDataS
     }
     
     func popView(){
-        _ = navigationController?.popViewController(animated: true)
+        _ = navigationController?.popToRootViewController(animated: true)
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {

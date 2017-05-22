@@ -54,6 +54,8 @@ class TalkWithMiniterPostDetail: UIViewController,UITableViewDelegate, UITableVi
         tableView.delegate = self
         tableView.dataSource = self
         tableView.backgroundColor = UIColor.clear
+        
+        self.title = selectsubject
         design.roundView(view: sendButton, radius: 5)
         if account.isLogin() {
             talkBarButton.isEnabled = true
@@ -70,6 +72,12 @@ class TalkWithMiniterPostDetail: UIViewController,UITableViewDelegate, UITableVi
 
         }
         
+        getDetailPost()
+        
+        
+    }
+    
+    func getDetailPost(){
         // selectPostID+"/"+accountID
         // "20/123"
         let accountID = accountData.getAccountID()
@@ -85,8 +93,8 @@ class TalkWithMiniterPostDetail: UIViewController,UITableViewDelegate, UITableVi
             
             self.tableView.reloadData()
         })
-        
     }
+    
     
     @IBAction func loginButton(_ sender: Any) {
         alertView.setMainViewController()
@@ -201,7 +209,9 @@ class TalkWithMiniterPostDetail: UIViewController,UITableViewDelegate, UITableVi
             (JSON : Any,Code:String,Message:String) in
             
             if(Code == "00000"){
-                
+                self.getDetailPost()
+                self.commentTexfield.text = ""
+                self.commentTexfield.resignFirstResponder()
             }
             else{
                 

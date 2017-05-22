@@ -9,13 +9,14 @@
 import Foundation
 import UIKit
 import SwiftyJSON
-class ApplicationViewController: UIViewController,UITableViewDelegate, UITableViewDataSource {
+class ApplicationViewController: UIViewController,UITableViewDelegate,UITableViewDataSource,UISearchBarDelegate {
     @IBOutlet var menuButton: UIBarButtonItem!
     let network = Network()
     let design = Design()
     let stringHelper = StringHelper()
     @IBOutlet weak var tableView: UITableView!
     
+    @IBOutlet var searchbar: UISearchBar!
     let KEY_APP_DATA = "data"
     let KEY_APP_ID = "appid"
     let KEY_APP_NAME = "name"
@@ -24,6 +25,13 @@ class ApplicationViewController: UIViewController,UITableViewDelegate, UITableVi
     let KEY_APP_ANDR = "playstoreid"
     let KEY_APP_THUMBNAIL = "thumbnail"
     
+    var storeappid:[String] = []
+    var storedesc:[String] = []
+    var storename:[String] = []
+    var storeappstoreid:[String] = []
+    var storeplaystoreid:[String] = []
+    var storethumbnail:[String] = []
+    
     var appid:[String] = []
     var desc:[String] = []
     var name:[String] = []
@@ -31,11 +39,27 @@ class ApplicationViewController: UIViewController,UITableViewDelegate, UITableVi
     var playstoreid:[String] = []
     var thumbnail:[String] = []
     
+    
+    var searchappid:[String] = []
+    var searchdesc:[String] = []
+    var searchname:[String] = []
+    var searchappstoreid:[String] = []
+    var searchplaystoreid:[String] = []
+    var searchthumbnail:[String] = []
+    
+    
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setupMenuButton()
-
+        searchbar.delegate = self
+        searchbar.showsCancelButton = false
+        
+        UIBarButtonItem.appearance(whenContainedInInstancesOf:([UISearchBar.self])).tintColor = UIColor.blue
+        
         tableView.delegate = self
         tableView.dataSource = self
         tableView.backgroundColor = UIColor.clear
@@ -50,11 +74,106 @@ class ApplicationViewController: UIViewController,UITableViewDelegate, UITableVi
             self.playstoreid = jsonSwifty[self.KEY_APP_DATA].arrayValue.map({$0[self.KEY_APP_ANDR].stringValue})
             self.thumbnail = jsonSwifty[self.KEY_APP_DATA].arrayValue.map({$0[self.KEY_APP_THUMBNAIL].stringValue})
             
+            
+            self.storeappid = self.appid
+            self.storename = self.name
+            self.storedesc = self.desc
+            self.storeappstoreid = self.appstoreid
+            self.storeplaystoreid = self.playstoreid
+            self.storethumbnail = self.thumbnail
+            
             self.tableView.reloadData()
             
         })
     }
 
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        if (searchbar.text?.isEmpty)! {
+            searchbar.showsCancelButton = false
+            appid = storeappid
+            name = storename
+            desc = storedesc
+            appstoreid = storeappstoreid
+            playstoreid = storeplaystoreid
+            thumbnail = storethumbnail
+        }
+        else{
+            searchbar.showsCancelButton = true
+        }
+        
+        self.tableView.reloadData()
+        // Do some search stuff
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        // Stop doing the search stuff
+        // and clear the text in the search bar
+        searchBar.text = ""
+        // Hide the cancel button
+        searchBar.showsCancelButton = false
+        
+        appid = storeappid
+        name = storename
+        desc = storedesc
+        appstoreid = storeappstoreid
+        playstoreid = storeplaystoreid
+        thumbnail = storethumbnail
+        
+        self.tableView.reloadData()
+        // You could also change the position, frame etc of the searchBar
+    }
+    
+    
+    func searchBarSearchButtonClicked( _ searchBar: UISearchBar){
+
+        let text = searchBar.text
+        
+        searchappid = []
+        searchname  = []
+        searchdesc = []
+        searchappstoreid = []
+        searchplaystoreid = []
+        searchthumbnail = []
+        
+        if (text?.isEmpty)!{
+            appid = storeappid
+            name = storename
+            desc = storedesc
+            appstoreid = storeappstoreid
+            playstoreid = storeplaystoreid
+            thumbnail = storethumbnail
+        }
+        else{
+            
+            
+            for (index, element) in storename.enumerated() {
+                if element.contains(text!){
+                    searchappid.append(storeappid[index])
+                    searchname.append(storename[index])
+                    searchdesc.append(storedesc[index])
+                    searchappstoreid.append(storeappstoreid[index])
+                    searchplaystoreid.append(storeplaystoreid[index])
+                    searchthumbnail.append(storethumbnail[index])
+                    
+                    appid = searchappid
+                    name = searchname
+                    desc = searchdesc
+                    appstoreid = searchappstoreid
+                    playstoreid = searchplaystoreid
+                    thumbnail = searchthumbnail
+                }
+                else{
+                    
+                }
+                
+            }
+            
+            
+        }
+        self.tableView.reloadData()
+    }
+    
     // MARK: UITableView
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return appid.count
