@@ -172,6 +172,7 @@ class NewsViewController: UIViewController,UITableViewDelegate, UITableViewDataS
             let controller = segue.destination as! NewDetailViewController
             controller.selectNewsUrl = selectNewsUrl
             controller.selectTitle = selectTitle
+            controller.typeNew = 1
         }
     }
     @IBAction func filterButton(_ sender: Any) {
