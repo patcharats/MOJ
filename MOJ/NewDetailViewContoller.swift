@@ -33,6 +33,7 @@ class NewDetailViewController: UIViewController,UIWebViewDelegate {
             self.title = TYPE_JOB
             break
         default:
+            self.title = TYPE_NEWS
             break
         }
         
