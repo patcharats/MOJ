@@ -14,8 +14,28 @@ class NewDetailViewController: UIViewController,UIWebViewDelegate {
     var stringHelper = StringHelper()
     var selectNewsUrl:String = ""
     var selectTitle:String = ""
+    var typeNew:Int = 0
+    var TYPE_NEWS:String = "ข่าวสาร"
+    var TYPE_NOTICES:String = "ประกาศจัดซื้อจัดจ้าง"
+    var TYPE_JOB:String = "รับสมัครงาน"
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        switch typeNew {
+        case 1:
+            self.title = TYPE_NEWS
+            break
+        case 2:
+            self.title = TYPE_NOTICES
+            break
+        case 3:
+            self.title = TYPE_JOB
+            break
+        default:
+            self.title = TYPE_NEWS
+            break
+        }
         
         webView.backgroundColor = UIColor.clear
         if stringHelper.verifyUrl(urlString: selectNewsUrl) {
@@ -30,6 +50,8 @@ class NewDetailViewController: UIViewController,UIWebViewDelegate {
             newsTextview.text = selectTitle
             newsTextview.font = UIFont(name: "Quark-Bold", size: 15)
         }
+        
+        
         
     }
     @IBAction func backAction(_ sender: Any) {

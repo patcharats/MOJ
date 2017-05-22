@@ -96,6 +96,7 @@ class NoticeViewController: UIViewController,UITableViewDelegate, UITableViewDat
             let controller = segue.destination as! NewDetailViewController
             controller.selectNewsUrl = selectNewsUrl
             controller.selectTitle = selectTitle
+            controller.typeNew = 2
         }
     }
     

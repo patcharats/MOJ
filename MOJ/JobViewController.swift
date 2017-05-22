@@ -94,6 +94,7 @@ class JobViewController: UIViewController,UITableViewDelegate, UITableViewDataSo
             let controller = segue.destination as! NewDetailViewController
             controller.selectNewsUrl = selectNewsUrl
             controller.selectTitle = selectTitle
+            controller.typeNew = 3
         }
     }
     

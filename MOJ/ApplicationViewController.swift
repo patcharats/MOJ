@@ -22,13 +22,14 @@ class ApplicationViewController: UIViewController,UITableViewDelegate, UITableVi
     let KEY_APP_DESC = "desc"
     let KEY_APP_IOS = "appstoreid"
     let KEY_APP_ANDR = "playstoreid"
+    let KEY_APP_THUMBNAIL = "thumbnail"
     
     var appid:[String] = []
     var desc:[String] = []
     var name:[String] = []
     var appstoreid:[String] = []
     var playstoreid:[String] = []
-    
+    var thumbnail:[String] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,6 +48,7 @@ class ApplicationViewController: UIViewController,UITableViewDelegate, UITableVi
             self.desc = jsonSwifty[self.KEY_APP_DATA].arrayValue.map({$0[self.KEY_APP_DESC].stringValue})
             self.appstoreid = jsonSwifty[self.KEY_APP_DATA].arrayValue.map({$0[self.KEY_APP_IOS].stringValue})
             self.playstoreid = jsonSwifty[self.KEY_APP_DATA].arrayValue.map({$0[self.KEY_APP_ANDR].stringValue})
+            self.thumbnail = jsonSwifty[self.KEY_APP_DATA].arrayValue.map({$0[self.KEY_APP_THUMBNAIL].stringValue})
             
             self.tableView.reloadData()
             
@@ -66,7 +68,7 @@ class ApplicationViewController: UIViewController,UITableViewDelegate, UITableVi
         
         cell.titleLabel.text = name[indexPath.row]
         cell.descLabel.text = desc[indexPath.row]
-        
+        cell.logoImageView.sd_setImage(with: URL(string: thumbnail[indexPath.row]), placeholderImage: UIImage(named: "image_def_bog"))
         
         if stringHelper.verifyUrl(urlString: playstoreid[indexPath.row]) {
             cell.androidButton.tag = indexPath.row
