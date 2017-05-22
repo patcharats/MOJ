@@ -12,9 +12,9 @@ class PsychoServiceCreateNew: UIViewController {
     
     @IBOutlet var titleLabel: UILabel!
     @IBOutlet weak var pageControl: UIPageControl!
-    
     @IBOutlet weak var containerView: UIView!
     
+    var readOnly:Bool = false
     let titles = ["ข้อมูลส่วนตัว","อาชีพและการศึกษา","ข้อมูลอื่นๆ","หลักฐาน"]
     var tutorialPageViewController: TutorialPageViewController? {
         didSet {

@@ -26,6 +26,7 @@
 		274158ED1E87DAF90086A756 /* TiledView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 274158E61E87DAF90086A756 /* TiledView.swift */; };
 		274B18331EC87BFE0070DF18 /* PartFour.swift in Sources */ = {isa = PBXBuildFile; fileRef = 274B18321EC87BFE0070DF18 /* PartFour.swift */; };
 		274B18361EC89BC60070DF18 /* PsychoParameter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 274B18351EC89BC60070DF18 /* PsychoParameter.swift */; };
+		274F7B2C1ECCB4B900AD51EE /* SocialWorkData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 274F7B2B1ECCB4B900AD51EE /* SocialWorkData.swift */; };
 		27546B8D1EAB9E27005B5B18 /* PsychoAdminViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27546B8C1EAB9E27005B5B18 /* PsychoAdminViewController.swift */; };
 		27546B8F1EABA411005B5B18 /* NewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27546B8E1EABA411005B5B18 /* NewsViewController.swift */; };
 		27546B931EABABF4005B5B18 /* ContactDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27546B921EABABF4005B5B18 /* ContactDetailViewController.swift */; };
@@ -99,6 +100,7 @@
 		274158E61E87DAF90086A756 /* TiledView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TiledView.swift; sourceTree = "<group>"; };
 		274B18321EC87BFE0070DF18 /* PartFour.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PartFour.swift; sourceTree = "<group>"; };
 		274B18351EC89BC60070DF18 /* PsychoParameter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PsychoParameter.swift; sourceTree = "<group>"; };
+		274F7B2B1ECCB4B900AD51EE /* SocialWorkData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocialWorkData.swift; sourceTree = "<group>"; };
 		27546B8C1EAB9E27005B5B18 /* PsychoAdminViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PsychoAdminViewController.swift; sourceTree = "<group>"; };
 		27546B8E1EABA411005B5B18 /* NewsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsViewController.swift; sourceTree = "<group>"; };
 		27546B921EABABF4005B5B18 /* ContactDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactDetailViewController.swift; sourceTree = "<group>"; };
@@ -403,6 +405,7 @@
 				CD78DCD31EA84E9600BC4CDB /* AccountData.swift */,
 				CDFD67AF1EAF27DB009CDF61 /* NewsData.swift */,
 				CD1E8D831EB9AEF80098C26B /* ConfigData.swift */,
+				274F7B2B1ECCB4B900AD51EE /* SocialWorkData.swift */,
 			);
 			name = DataClass;
 			sourceTree = "<group>";
@@ -587,6 +590,7 @@
 				27E694D61E87BDC4008ACE01 /* ForgetPasswordViewController.swift in Sources */,
 				CDFD89671EB06EBD00BCB86F /* ActivityIndicatorView.swift in Sources */,
 				27E694CD1E87A156008ACE01 /* HowToViewController.swift in Sources */,
+				274F7B2C1ECCB4B900AD51EE /* SocialWorkData.swift in Sources */,
 				27546B951EABB3AF005B5B18 /* SearchView.swift in Sources */,
 				CD78DCD91EA84EE300BC4CDB /* Network.swift in Sources */,
 				276010841EAE5098008D97F4 /* OtherDetail.swift in Sources */,

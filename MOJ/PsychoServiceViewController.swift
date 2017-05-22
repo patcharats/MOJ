@@ -21,6 +21,7 @@ class PsychoServiceViewController: UIViewController,UITextFieldDelegate {
     let DOCUMENT_COMPLETE_WAIT_APPROVE = "เอกสารครบรอการอนุมัติ"
     let DOCUMENT_APPROVE = "อนุมัติใบคำขอ"
     
+    @IBOutlet var notfoundLabel: UILabel!
     let TYPE_NOT_LOGIN = 0
     let TYPE_COMPLETE = 1
     let TYPE_NOT_COMPLETE = 2
@@ -49,7 +50,8 @@ class PsychoServiceViewController: UIViewController,UITextFieldDelegate {
     @IBOutlet var notfoundView: UIView!
     
     @IBOutlet var searchTextField: UITextField!
-    
+    @IBOutlet var requestViewTop: NSLayoutConstraint!
+    @IBOutlet var requestViewHeight: NSLayoutConstraint!
     let KEY_SOCIAL_DATA = "data"
     let KEY_SOCIAL_ACCOUNT_ID = "acctid"
     
@@ -65,7 +67,8 @@ class PsychoServiceViewController: UIViewController,UITextFieldDelegate {
     let KEY_SOCIAL_REQUEST_CHECK_DOC = "checkdoc"
     let KEY_SOCIAL_REQUEST_CONFIRM_DATA = "confirmdata"
     let KEY_SOCIAL_REQUEST_PROVE_LAST_DOC = "provlatedoc"
-
+    let KEY_SOCIAL_REQUEST_TEXT_MARK = "txtremark"
+    
     let KEY_SOCIAL_LICENSE = "license"
     let KEY_SOCIAL_LICENSE_CARD_ID = "cardid"
     let KEY_SOCIAL_LICENSE_CARD_NO = "cardno"
@@ -76,6 +79,8 @@ class PsychoServiceViewController: UIViewController,UITextFieldDelegate {
     let KEY_SOCIAL_LICENSE_LASTNAME = "lastname"
     let KEY_SOCIAL_LICENSE_CARD_STATUS = "cardstatus"
     
+    let LICENSE_DETAIL = "LicenseDetail"
+    var acctid:String = ""
     var request_reqid:String = ""
     var request_reqno:String = ""
     var request_reqtype:String = ""
@@ -87,6 +92,7 @@ class PsychoServiceViewController: UIViewController,UITextFieldDelegate {
     var request_checkdoc:String = ""
     var request_confirmdata:String = ""
     var request_provlatedoc:String = ""
+    var request_txtremark:String = ""
 
     
     var license_cardid:String = ""
@@ -97,20 +103,30 @@ class PsychoServiceViewController: UIViewController,UITextFieldDelegate {
     var license_firstname:String = ""
     var license_lastname:String = ""
     var license_cardstatus:String = ""
+    var accountID:String = ""
     
     @IBOutlet var resultHeight: NSLayoutConstraint!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         setupMenuButton()
         setupDesign()
         searchTextField.delegate = self
         let account = AccountData()
         if account.isLogin() {
-            setupView(type: TYPE_EXPIRE)
             addButton.isEnabled = true
             addButton.image = UIImage(named: "ic_add")
+            
+            accountID = accountData.getAccountID()
+            acctid = accountData.getAccountID()
+            /*
+             accountID = "1"
+             acctid = "1"
+             */
+            getLicenseDetail(accountIDs: accountID, touchDetail: false)
+            
+            let gesture = UITapGestureRecognizer(target: self, action: #selector (self.licenseDatail(sender:)))
+            idCardView.addGestureRecognizer(gesture)
         }
         else{
             setupView(type: TYPE_NOT_LOGIN)
@@ -124,41 +140,64 @@ class PsychoServiceViewController: UIViewController,UITextFieldDelegate {
                 }
             });
         }
+
+
         
-        var accountID = accountData.getAccountID()
-        network.getWithToken(name: network.API_SOCIAL_WORK_REQUEST, param:accountID, viewController: self, completionHandler: {
+    }
+    
+    func getLicenseDetail(accountIDs:String,touchDetail:Bool){
+        network.getWithToken(name: network.API_SOCIAL_WORK_REQUEST, param:accountIDs, viewController: self, completionHandler: {
             (json:Any,Code:String,Message:String) in
-            //self.getAccountData(json: json)
+            if Code == "10000"{
+                
+                self.notfoundLabel.text = Message
+                self.setupView(type: self.TYPE_NOT_FOUND)
+            }
+            else{
+                
+                if touchDetail {
+                    self.performSegue(withIdentifier: self.LICENSE_DETAIL, sender: nil)
+                }
+                
+            }
         })
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == LICENSE_DETAIL{
+            let controller = segue.destination as! PsychoServiceCreateNew
+            controller.readOnly = true
+        }
+    }
+    
+    func licenseDatail(sender:UITapGestureRecognizer){
+        if !acctid.isEmpty || acctid != accountID {
+            getLicenseDetail(accountIDs: acctid, touchDetail: true)
+        }
         
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
         
     }
     
     func getAccountData(json:Any){
         let jsonSwifty = JSON(json)
         
-        
-        let request_reqid_arr = jsonSwifty[KEY_SOCIAL_DATA][KEY_SOCIAL_REQUEST].arrayValue.map({$0[KEY_SOCIAL_REQUEST_ID].stringValue})
-        let request_reqtype_arr = jsonSwifty[KEY_SOCIAL_DATA][KEY_SOCIAL_REQUEST].arrayValue.map({$0[KEY_SOCIAL_REQUEST_TYPE].stringValue})
-        let request_reqdate_arr = jsonSwifty[KEY_SOCIAL_DATA][KEY_SOCIAL_REQUEST].arrayValue.map({$0[KEY_SOCIAL_REQUEST_DATE].stringValue})
-        let request_reqstatus_arr = jsonSwifty[KEY_SOCIAL_DATA][KEY_SOCIAL_REQUEST].arrayValue.map({$0[KEY_SOCIAL_REQUEST_STATUS].stringValue})
-        let request_title_arr = jsonSwifty[KEY_SOCIAL_DATA][KEY_SOCIAL_REQUEST].arrayValue.map({$0[KEY_SOCIAL_REQUEST_TITLE].stringValue})
-        let request_firstname_arr = jsonSwifty[KEY_SOCIAL_DATA][KEY_SOCIAL_REQUEST].arrayValue.map({$0[KEY_SOCIAL_REQUEST_FIRSTNAME].stringValue})
-        let request_lastname_arr = jsonSwifty[KEY_SOCIAL_DATA][KEY_SOCIAL_REQUEST].arrayValue.map({$0[KEY_SOCIAL_REQUEST_LASTNAME].stringValue})
-        let request_checkdoc_arr = jsonSwifty[KEY_SOCIAL_DATA][KEY_SOCIAL_REQUEST].arrayValue.map({$0[KEY_SOCIAL_REQUEST_CHECK_DOC].stringValue})
-        let request_confirmdata_arr = jsonSwifty[KEY_SOCIAL_DATA][KEY_SOCIAL_REQUEST].arrayValue.map({$0[KEY_SOCIAL_REQUEST_CONFIRM_DATA].stringValue})
-        let request_provlatedoc_arr = jsonSwifty[KEY_SOCIAL_DATA][KEY_SOCIAL_REQUEST].arrayValue.map({$0[KEY_SOCIAL_REQUEST_PROVE_LAST_DOC].stringValue})
-        
-        request_reqid = request_reqid_arr[0]
-        request_reqtype = request_reqtype_arr[0]
-        request_reqdate = request_reqdate_arr[0]
-        request_reqstatus = request_reqstatus_arr[0]
-        request_title = request_title_arr[0]
-        request_firstname = request_firstname_arr[0]
-        request_lastname = request_lastname_arr[0]
-        request_checkdoc =  request_checkdoc_arr[0]
-        request_confirmdata = request_confirmdata_arr[0]
-        request_provlatedoc = request_provlatedoc_arr[0]
+        acctid = jsonSwifty[KEY_SOCIAL_DATA][KEY_SOCIAL_ACCOUNT_ID].stringValue
+        request_reqid = jsonSwifty[KEY_SOCIAL_DATA][KEY_SOCIAL_REQUEST][KEY_SOCIAL_REQUEST_ID].stringValue
+        request_reqno = jsonSwifty[KEY_SOCIAL_DATA][KEY_SOCIAL_REQUEST][KEY_SOCIAL_REQUEST_NO].stringValue
+        request_reqtype = jsonSwifty[KEY_SOCIAL_DATA][KEY_SOCIAL_REQUEST][KEY_SOCIAL_REQUEST_TYPE].stringValue
+        request_reqdate = jsonSwifty[KEY_SOCIAL_DATA][KEY_SOCIAL_REQUEST][KEY_SOCIAL_REQUEST_DATE].stringValue
+        request_reqstatus = jsonSwifty[KEY_SOCIAL_DATA][KEY_SOCIAL_REQUEST][KEY_SOCIAL_REQUEST_STATUS].stringValue
+        request_title = jsonSwifty[KEY_SOCIAL_DATA][KEY_SOCIAL_REQUEST][KEY_SOCIAL_REQUEST_TITLE].stringValue
+        request_firstname = jsonSwifty[KEY_SOCIAL_DATA][KEY_SOCIAL_REQUEST][KEY_SOCIAL_REQUEST_FIRSTNAME].stringValue
+        request_lastname = jsonSwifty[KEY_SOCIAL_DATA][KEY_SOCIAL_REQUEST][KEY_SOCIAL_REQUEST_LASTNAME].stringValue
+        request_checkdoc =  jsonSwifty[KEY_SOCIAL_DATA][KEY_SOCIAL_REQUEST][KEY_SOCIAL_REQUEST_CHECK_DOC].stringValue
+        request_confirmdata = jsonSwifty[KEY_SOCIAL_DATA][KEY_SOCIAL_REQUEST][KEY_SOCIAL_REQUEST_CONFIRM_DATA].stringValue
+        request_provlatedoc = jsonSwifty[KEY_SOCIAL_DATA][KEY_SOCIAL_REQUEST][KEY_SOCIAL_REQUEST_PROVE_LAST_DOC].stringValue
+        request_txtremark = jsonSwifty[KEY_SOCIAL_DATA][KEY_SOCIAL_REQUEST][KEY_SOCIAL_REQUEST_TEXT_MARK].stringValue
         
         license_cardid = jsonSwifty[KEY_SOCIAL_DATA][KEY_SOCIAL_LICENSE][KEY_SOCIAL_LICENSE_CARD_ID].stringValue
         license_cardno = jsonSwifty[KEY_SOCIAL_DATA][KEY_SOCIAL_LICENSE][KEY_SOCIAL_LICENSE_CARD_NO].stringValue
@@ -174,19 +213,34 @@ class PsychoServiceViewController: UIViewController,UITextFieldDelegate {
         licenseNumberLabel.text = "ทะเบียนเลขที่ "+license_cardno
         licenseExpireLabel.text = "บัตรหมดอายุ " + stringHelper.getDatefromString(dateString: license_expiredate)
         
-        requireNoLabel.text = "คำร้องเลขที่ "
-        statusLabel.text = request_reqstatus
+        requireNoLabel.text = "คำร้องเลขที่ "+request_reqno
+        statusLabel.text = " "+request_reqstatus+" "
+        statusLabel.sizeToFit()
         
-        /*
-         
-        if (stringHelper.timeRemainingString(issuedate: license_issuedate) > 45) {
-            setupView(type: TYPE_45_EXPIRE)
+        let height = request_txtremark.height(withConstrainedWidth: self.view.frame.size.width - 30, font: UIFont(name: "Quark-Bold", size: 15)!)
+        
+        resultTextView.text = request_txtremark
+        requestViewHeight.constant = height + 60
+
+        if license_issuedate.isEmpty {
+            idCardView.isHidden = true
+            requestViewTop.constant = 16
+            expireLabel.isHidden = true
+            centerButton.isHidden = true
+            renewButton.isHidden = true
         }
-        else if (stringHelper.timeRemainingString(issuedate: license_issuedate) < 45){
-            setupView(type: TYPE_EXPIRE)
+        else{
+            idCardView.isHidden = false
+            requestViewTop.constant = 163
+            if (stringHelper.timeRemainingString(date: license_issuedate) > 45) {
+                setupView(type: TYPE_EXPIRE)
+            }
+            else{
+                setupView(type: TYPE_45_EXPIRE)
+            }
         }
-        else
-            */
+    
+            
         if request_reqstatus == REQUEST_DOCUMENT || request_reqstatus == DOCUMENT_COMPLETE_WAIT_APPROVE || request_reqstatus == DOCUMENT_APPROVE
         {
             setupView(type: TYPE_COMPLETE)
@@ -195,14 +249,13 @@ class PsychoServiceViewController: UIViewController,UITextFieldDelegate {
             setupView(type: TYPE_NOT_COMPLETE)
         }
         
-        print(license_expiredate)
-        print(license_issuedate)
         
 
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         
+
         searchTextField(text: textField.text!)
         
         textField.resignFirstResponder()
@@ -234,52 +287,42 @@ class PsychoServiceViewController: UIViewController,UITextFieldDelegate {
             notfoundView.isHidden = true
             expireLabel.isHidden = true
             centerButton.isHidden = true
+            notfoundLabel.isHidden = true
+            createNewButton.isHidden = true
             
             break
         case TYPE_NOT_FOUND:
             foundView.isHidden = true
             notfoundView.isHidden = false
+            notfoundLabel.isHidden = false
+            createNewButton.isHidden = false
             
             break
         case TYPE_45_EXPIRE:
             expireLabel.isHidden = false
             centerButton.isHidden = false
             renewButton.isHidden = true
-            resultView.isHidden = true
-            foundView.isHidden = false
-            notfoundView.isHidden = true
             
             break
         case TYPE_EXPIRE:
             expireLabel.isHidden = true
             centerButton.isHidden = true
             renewButton.isHidden = false
-            resultView.isHidden = true
-            foundView.isHidden = false
-            notfoundView.isHidden = false
+
             
             break
         case TYPE_COMPLETE:
-            expireLabel.isHidden = true
-            centerButton.isHidden = true
-            renewButton.isHidden = true
             resultView.isHidden = false
             foundView.isHidden = false
             notfoundView.isHidden = false
-            // statusLabel color = green
-            resultHeight.constant = 50
+            design.setLabelColorGreen(label: statusLabel)
             
             break
         case TYPE_NOT_COMPLETE:
-            expireLabel.isHidden = true
-            centerButton.isHidden = true
-            renewButton.isHidden = true
             resultView.isHidden = false
             foundView.isHidden = false
             notfoundView.isHidden = false
-            // statusLabel color = red
-            
-            resultHeight.constant = 155
+            design.setLabelColorRed(label: statusLabel)
             
             break
         default:

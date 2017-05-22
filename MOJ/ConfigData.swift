@@ -11,12 +11,21 @@ import SwiftyJSON
 
 class ConfigData: NSObject {
     
+    var network = Network()
     var userdefault = UserDefaults.standard
     let KEY_CONFIG_ID = "id"
     let KEY_CONFIG_NAME = "name"
     let KEY_CONFIG_VALUE = "value"
     let KEY_CONFIG_DATA = "data"
     
+    let KEY_CONFIG_BEFORE_EXPIRE = "beforeexpire"
+    let KEY_CONFIG_DAY_BEFORE_EXPIRE = "daysbeforeexpire"
+    let KEY_CONFIG_MESSAGE = "message"
+    let KEY_CONFIG_TEL = "tel"
+    
+    let KEY_CONFIG_CARD_TYPE = "cardtype"
+    
+    let KEY_CONFIG_CARD_NAME = "cardname"
     let KEY_CONFIG_DEGREE = "degree"
     let KEY_CONFIG_MAJOR = "major"
     let KEY_CONFIG_FIELDSTUDY = "fieldstudy"
@@ -26,6 +35,7 @@ class ConfigData: NSObject {
     let KEY_CONFIG_RELIGION = "religion"
     let KEY_CONFIG_TRAINING = "training"
     
+    let KEY_CONFIG_CARD_ID = "degreeID"
     let KEY_CONFIG_DEGREE_ID = "degreeID"
     let KEY_CONFIG_MAJOR_ID = "majorID"
     let KEY_CONFIG_FIELDSTUDY_ID = "fieldstudyID"
@@ -62,8 +72,12 @@ class ConfigData: NSObject {
     var districtgeoID:[Int] = []
     var districtID:[Int] = []
     var districtCode:[Int] = []
-    var adistrictName:[String] = []
+    var districtName:[String] = []
     var zipcode:[String] = []
+    
+    
+
+    
     
     func getConfigProvince(json:Any){
         
@@ -90,6 +104,11 @@ class ConfigData: NSObject {
         amphurCode =  (swiftyJson[self.KEY_CONFIG_DATA].arrayValue.map({$0[self.KEY_CONFIG_AMPHUR_CODE].intValue}))
         amphurName =  (swiftyJson[self.KEY_CONFIG_DATA].arrayValue.map({$0[self.KEY_CONFIG_AMPHUR_NAME].stringValue}))
         
+        setAmphurGeoID(geoid: amphurgeoID)
+        setAmphurID(aumid: amphurID)
+        setAmphurCode(aumcode: amphurCode)
+        setAmphurName(aumname: amphurName)
+        
     }
     
     func getConfigDistrict(json:Any){
@@ -99,8 +118,14 @@ class ConfigData: NSObject {
         districtgeoID =  (swiftyJson[self.KEY_CONFIG_DATA].arrayValue.map({$0[self.KEY_CONFIG_DISTRICT_GEO_ID].intValue}))
         districtID =  (swiftyJson[self.KEY_CONFIG_DATA].arrayValue.map({$0[self.KEY_CONFIG_DISTRICT_ID].intValue}))
         districtCode =  (swiftyJson[self.KEY_CONFIG_DATA].arrayValue.map({$0[self.KEY_CONFIG_DISTRICT_CODE].intValue}))
-        adistrictName =  (swiftyJson[self.KEY_CONFIG_DATA].arrayValue.map({$0[self.KEY_CONFIG_DISTRICT_NAME].stringValue}))
+        districtName =  (swiftyJson[self.KEY_CONFIG_DATA].arrayValue.map({$0[self.KEY_CONFIG_DISTRICT_NAME].stringValue}))
         zipcode =  (swiftyJson[self.KEY_CONFIG_DATA].arrayValue.map({$0[self.KEY_CONFIG_DISTRICT_ZIPCODE].stringValue}))
+        
+        setDistrictGeoID(geoid: districtgeoID)
+        setDistrictID(disid: districtID)
+        setDistrictCode(discode: districtCode)
+        setDistrictName(disname: districtName)
+        setDistrictZipCode(diszipcode: zipcode)
         
     }
     
@@ -109,6 +134,15 @@ class ConfigData: NSObject {
         let swiftyJson = JSON(json)
         
         let data =  swiftyJson[self.KEY_CONFIG_DATA].dictionaryValue
+        
+        
+        let daysbeforeexpire =  swiftyJson[self.KEY_CONFIG_DATA][self.KEY_CONFIG_BEFORE_EXPIRE][self.KEY_CONFIG_DAY_BEFORE_EXPIRE].intValue
+        let message =  swiftyJson[self.KEY_CONFIG_DATA][self.KEY_CONFIG_BEFORE_EXPIRE][self.KEY_CONFIG_VALUE].stringValue
+        let tel =  swiftyJson[self.KEY_CONFIG_DATA][self.KEY_CONFIG_BEFORE_EXPIRE][self.KEY_CONFIG_VALUE].stringValue
+        
+        
+        let cardID =  (data[self.KEY_CONFIG_CARD_TYPE]?.arrayValue.map({$0[self.KEY_CONFIG_ID].intValue}))!
+        let cardName =  (data[self.KEY_CONFIG_CARD_TYPE]?.arrayValue.map({$0[self.KEY_CONFIG_NAME].stringValue}))!
         
         let degreeID =  (data[self.KEY_CONFIG_DEGREE]?.arrayValue.map({$0[self.KEY_CONFIG_ID].intValue}))!
         let degreeName =  (data[self.KEY_CONFIG_DEGREE]?.arrayValue.map({$0[self.KEY_CONFIG_VALUE].stringValue}))!
@@ -136,6 +170,13 @@ class ConfigData: NSObject {
         let fieldStudyID =  (data[self.KEY_CONFIG_MAJOR]?.arrayValue.map({$0[self.KEY_CONFIG_FIELDSTUDY].arrayValue.map({$0[self.KEY_CONFIG_ID].intValue})}))!
         let fieldStudyName =  (data[self.KEY_CONFIG_MAJOR]?.arrayValue.map({$0[self.KEY_CONFIG_FIELDSTUDY].arrayValue.map({$0[self.KEY_CONFIG_NAME].stringValue})}))!
         
+        
+        setDayBeforeExpire(daybeforeexpire: daysbeforeexpire)
+        setMessage(message: message)
+        setTel(tel: tel)
+        
+        setCard(card: cardName)
+        setCardID(cardid: cardID)
     
         setDegreeID(degreeid: degreeID)
         setDegree(degree: degreeName)
@@ -145,9 +186,6 @@ class ConfigData: NSObject {
         
         setFieldStudyID(fieldstudyid: fieldStudyID)
         setFieldStudy(fieldstudy: fieldStudyName)
-        
-        setDegreeID(degreeid: degreeID)
-        setDegree(degree: degreeName)
         
         setMaritalStatusID(maritalstatusid: maritalStatusID)
         setMaritalStatus(maritalstatus: maritalStatusName)
@@ -164,6 +202,83 @@ class ConfigData: NSObject {
         setTrainingID(trainingid: trainingID)
         setTraining(training: trainingName)
     }
+    
+    
+    
+    // beforeexpire
+    
+    func setDayBeforeExpire(daybeforeexpire:Int){
+        userdefault.set(daybeforeexpire, forKey: KEY_CONFIG_DAY_BEFORE_EXPIRE)
+    }
+    
+    func getDayBeforeExpire()->Int{
+        
+        if userdefault.value(forKey: KEY_CONFIG_DAY_BEFORE_EXPIRE) != nil{
+            return userdefault.value(forKey: KEY_CONFIG_DAY_BEFORE_EXPIRE) as! Int
+        }
+        
+        return 0
+    }
+    
+    
+    func setMessage(message:String){
+        userdefault.set(message, forKey: KEY_CONFIG_MESSAGE)
+    }
+    
+    func getMessage()->String{
+        
+        if userdefault.value(forKey: KEY_CONFIG_MESSAGE) != nil{
+            return userdefault.value(forKey: KEY_CONFIG_MESSAGE) as! String
+        }
+        
+        return ""
+    }
+    
+    
+    func setTel(tel:String){
+        userdefault.set(tel, forKey: KEY_CONFIG_TEL)
+    }
+    
+    func getTel()->String{
+        
+        if userdefault.value(forKey: KEY_CONFIG_TEL) != nil{
+            return userdefault.value(forKey: KEY_CONFIG_TEL) as! String
+        }
+        
+        return ""
+    }
+    
+    
+    
+    
+    // cardtype
+    
+    func setCardID(cardid:[Int]){
+        userdefault.set(cardid, forKey: KEY_CONFIG_CARD_ID)
+    }
+    
+    func getCardID()->[Int]{
+        
+        if userdefault.value(forKey: KEY_CONFIG_CARD_ID) != nil{
+            return userdefault.value(forKey: KEY_CONFIG_CARD_ID) as! [Int]
+        }
+        
+        return []
+    }
+
+    func setCard(card:[String]){
+        userdefault.set(card, forKey: KEY_CONFIG_CARD_NAME)
+    }
+    
+    func getCard()->[String]{
+        
+        if userdefault.value(forKey: KEY_CONFIG_CARD_NAME) != nil{
+            return userdefault.value(forKey: KEY_CONFIG_CARD_NAME) as! [String]
+        }
+        
+        return []
+    }
+    
 
     // degree
     

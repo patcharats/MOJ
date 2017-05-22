@@ -30,9 +30,7 @@ class LoginViewController: UIViewController {
     var facebook_id:String? = ""
     
     let configData = ConfigData()
-    
 
-    
     @IBOutlet var emailTextfield: UITextField!
     @IBOutlet var passwordTextfield: UITextField!
     override func viewDidLoad() {

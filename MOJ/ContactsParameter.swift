@@ -26,6 +26,15 @@ class ContactsParameter: NSObject {
     var contact_subject:String = ""
     var contact_body:String = ""
     
+    func registerTalk()->Parameters{
+        let parameters: Parameters = [
+            "data": [
+            ]
+        ]
+        
+        return parameters
+    }
+    
     
     func getPostReplyParameter()-> Parameters{
         
@@ -34,9 +43,10 @@ class ContactsParameter: NSObject {
         let parameters: Parameters = [
             "data": [
                 "contactid": contactid,
-                "contentmsg": contentmsg
+                "commentmsg": contentmsg
             ]
         ]
+        
         return parameters
         
     }

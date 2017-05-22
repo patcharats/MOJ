@@ -1044,7 +1044,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="GD6-zA-Cvv" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="Fx8-zX-GBH"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="ww8-rM-AHb">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="ww8-rM-AHb">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.055671315040000002" green="0.12797925139999999" blue="0.21174799280000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1225,7 +1225,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="zX9-Fg-ghM" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="Z3M-bD-4xR">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Z3M-bD-4xR">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.055671315040000002" green="0.12797925139999999" blue="0.21174799280000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1801,6 +1801,7 @@
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="359" id="2sT-Zy-ulg"/>
                                                         <constraint firstAttribute="trailing" secondItem="EJd-ZE-wnr" secondAttribute="trailing" id="2uT-WX-uVe"/>
+                                                        <constraint firstAttribute="bottom" secondItem="lbY-S3-cqG" secondAttribute="bottom" id="BXT-UH-uVS"/>
                                                         <constraint firstAttribute="height" constant="169" id="LKF-CO-NHa"/>
                                                         <constraint firstItem="EJd-ZE-wnr" firstAttribute="leading" secondItem="nAE-SF-6cX" secondAttribute="leading" id="T5d-2Q-Jkc"/>
                                                         <constraint firstItem="EJd-ZE-wnr" firstAttribute="top" secondItem="aEq-M6-67F" secondAttribute="bottom" constant="2" id="VPz-R9-fd2"/>
@@ -1944,7 +1945,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Gxk-l0-VnR" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="ecO-gA-JIB">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="ecO-gA-JIB">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.055671315040000002" green="0.12797925139999999" blue="0.21174799280000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1992,9 +1993,9 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ไม่พบประวัติการขึ้นทะเบียน" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vzc-pr-FtF">
-                                        <rect key="frame" x="103.5" y="288" width="168" height="27"/>
+                                        <rect key="frame" x="64" y="288" width="271" height="27"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="168" id="Rkv-Wh-h1V"/>
+                                            <constraint firstAttribute="width" constant="271" id="Rkv-Wh-h1V"/>
                                             <constraint firstAttribute="height" constant="27" id="fEf-pB-pyZ"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="Quark-Bold" family="Quark" pointSize="20"/>
@@ -2007,14 +2008,14 @@
                                     <constraint firstItem="pH5-li-ydt" firstAttribute="top" secondItem="Vzc-pr-FtF" secondAttribute="bottom" constant="8" id="VdJ-la-pyE"/>
                                     <constraint firstItem="Vzc-pr-FtF" firstAttribute="centerY" secondItem="pHn-zP-7fX" secondAttribute="centerY" id="fdW-KM-zan"/>
                                     <constraint firstItem="pH5-li-ydt" firstAttribute="centerX" secondItem="pHn-zP-7fX" secondAttribute="centerX" id="ntb-BL-HCE"/>
-                                    <constraint firstItem="Vzc-pr-FtF" firstAttribute="centerX" secondItem="pHn-zP-7fX" secondAttribute="centerX" id="qTv-1f-Wjc"/>
+                                    <constraint firstItem="Vzc-pr-FtF" firstAttribute="centerX" secondItem="pHn-zP-7fX" secondAttribute="centerX" constant="12" id="qTv-1f-Wjc"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yTt-dy-eMM">
                                 <rect key="frame" x="0.0" y="122" width="375" height="545"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3nF-cp-LV8">
-                                        <rect key="frame" x="8" y="8" width="359" height="131"/>
+                                        <rect key="frame" x="8" y="16" width="359" height="131"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image_profile" translatesAutoresizingMaskIntoConstraints="NO" id="Ipd-0A-J3I">
                                                 <rect key="frame" x="18" y="18" width="50" height="50"/>
@@ -2082,7 +2083,7 @@
                                         </constraints>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4F0-0R-RfB">
-                                        <rect key="frame" x="122" y="502" width="130" height="35"/>
+                                        <rect key="frame" x="122" y="494" width="130" height="35"/>
                                         <color key="backgroundColor" red="0.8283746179" green="0.29650567119999999" blue="0.35870332780000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="35" id="D5i-La-mHS"/>
@@ -2097,7 +2098,7 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="บัตรของคุณจะหมดอายุภายใน 45 วัน ติดต่อสำนักงาน เพื่อปลดล็อค" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gLL-c6-SfL">
-                                        <rect key="frame" x="56" y="216" width="263" height="69"/>
+                                        <rect key="frame" x="56" y="425" width="263" height="69"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="69" id="Gv9-8x-Ftq"/>
                                             <constraint firstAttribute="width" constant="263" id="VaS-fE-4Ch"/>
@@ -2107,7 +2108,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UNn-FJ-cUJ">
-                                        <rect key="frame" x="122" y="293" width="130" height="35"/>
+                                        <rect key="frame" x="122" y="494" width="130" height="35"/>
                                         <color key="backgroundColor" red="0.8283746179" green="0.29650567119999999" blue="0.35870332780000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="35" id="Oo4-Qz-o6h"/>
@@ -2119,14 +2120,13 @@
                                         </state>
                                     </button>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lCp-ZH-ean">
-                                        <rect key="frame" x="8" y="179" width="359" height="152"/>
+                                        <rect key="frame" x="8" y="163" width="359" height="152"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="เอกสารครบแล้ว" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sph-uz-WwR">
-                                                <rect key="frame" x="215" y="12" width="136" height="21"/>
+                                                <rect key="frame" x="266" y="12" width="85" height="21"/>
                                                 <color key="backgroundColor" red="0.1382960379" green="0.68011730910000001" blue="0.65328472849999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="21" id="Ldv-EG-A1f"/>
-                                                    <constraint firstAttribute="width" constant="136" id="Wz7-ta-IjF"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" name="Quark-Bold" family="Quark" pointSize="17"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -2175,15 +2175,14 @@
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="lCp-ZH-ean" secondAttribute="trailing" constant="8" id="1qa-vm-2dl"/>
                                     <constraint firstAttribute="trailing" secondItem="3nF-cp-LV8" secondAttribute="trailing" constant="8" id="4Zo-bk-gW7"/>
-                                    <constraint firstAttribute="bottom" secondItem="4F0-0R-RfB" secondAttribute="bottom" constant="8" id="AQV-JS-cfo"/>
-                                    <constraint firstItem="3nF-cp-LV8" firstAttribute="top" secondItem="yTt-dy-eMM" secondAttribute="top" constant="8" id="CbR-Dq-mpP"/>
+                                    <constraint firstItem="lCp-ZH-ean" firstAttribute="top" secondItem="yTt-dy-eMM" secondAttribute="top" constant="163" id="82D-C7-Sgi"/>
+                                    <constraint firstAttribute="bottom" secondItem="4F0-0R-RfB" secondAttribute="bottom" constant="16" id="AQV-JS-cfo"/>
+                                    <constraint firstItem="3nF-cp-LV8" firstAttribute="top" secondItem="yTt-dy-eMM" secondAttribute="top" constant="16" id="CbR-Dq-mpP"/>
+                                    <constraint firstAttribute="bottom" secondItem="UNn-FJ-cUJ" secondAttribute="bottom" constant="16" id="InY-2w-ZfT"/>
                                     <constraint firstItem="4F0-0R-RfB" firstAttribute="centerX" secondItem="yTt-dy-eMM" secondAttribute="centerX" id="Oby-f7-7N1"/>
-                                    <constraint firstItem="UNn-FJ-cUJ" firstAttribute="centerX" secondItem="gLL-c6-SfL" secondAttribute="centerX" id="SIe-Ns-4sb"/>
                                     <constraint firstItem="lCp-ZH-ean" firstAttribute="leading" secondItem="yTt-dy-eMM" secondAttribute="leading" constant="8" id="ZWw-aF-rNZ"/>
-                                    <constraint firstItem="gLL-c6-SfL" firstAttribute="centerX" secondItem="yTt-dy-eMM" secondAttribute="centerX" id="kDd-z8-dcY"/>
-                                    <constraint firstItem="gLL-c6-SfL" firstAttribute="top" secondItem="3nF-cp-LV8" secondAttribute="bottom" constant="77" id="lRh-cD-vKJ"/>
-                                    <constraint firstItem="lCp-ZH-ean" firstAttribute="top" secondItem="3nF-cp-LV8" secondAttribute="bottom" constant="40" id="st5-MU-jQS"/>
-                                    <constraint firstItem="UNn-FJ-cUJ" firstAttribute="top" secondItem="gLL-c6-SfL" secondAttribute="bottom" constant="8" id="uKP-1d-b4U"/>
+                                    <constraint firstItem="gLL-c6-SfL" firstAttribute="centerX" secondItem="yTt-dy-eMM" secondAttribute="centerX" id="eCy-Vv-doF"/>
+                                    <constraint firstItem="UNn-FJ-cUJ" firstAttribute="top" secondItem="gLL-c6-SfL" secondAttribute="bottom" id="uKP-1d-b4U"/>
                                     <constraint firstItem="3nF-cp-LV8" firstAttribute="leading" secondItem="yTt-dy-eMM" secondAttribute="leading" constant="8" id="wWk-mG-jVW"/>
                                 </constraints>
                             </view>
@@ -2233,6 +2232,7 @@
                             <constraint firstItem="PyY-0J-Fxb" firstAttribute="top" secondItem="TLI-7j-Ybw" secondAttribute="bottom" id="hpf-Nx-Zsy"/>
                             <constraint firstItem="TLI-7j-Ybw" firstAttribute="top" secondItem="PXu-Nx-Vks" secondAttribute="bottom" constant="8" id="l2d-zO-r3Q"/>
                             <constraint firstAttribute="trailing" secondItem="TLI-7j-Ybw" secondAttribute="trailing" constant="8" id="oBE-Fb-y6B"/>
+                            <constraint firstItem="UNn-FJ-cUJ" firstAttribute="centerX" secondItem="wM7-pv-lyJ" secondAttribute="centerX" id="ovR-Y5-2bI"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="ทะเบียนนักจิตวิทยา-สังคมสงเคราะห์" id="EF4-cG-Mic">
@@ -2254,15 +2254,17 @@
                         <outlet property="licenseNameLabel" destination="aFp-cx-Jz8" id="trJ-io-afE"/>
                         <outlet property="licenseNumberLabel" destination="jUG-yz-Ryo" id="wkl-7j-IcX"/>
                         <outlet property="menuButton" destination="5Mv-Dd-Zma" id="dTh-tL-VOU"/>
+                        <outlet property="notfoundLabel" destination="Vzc-pr-FtF" id="25h-rK-V0m"/>
                         <outlet property="notfoundView" destination="pHn-zP-7fX" id="CFV-zR-iVo"/>
                         <outlet property="renewButton" destination="4F0-0R-RfB" id="nqk-Ua-KTh"/>
+                        <outlet property="requestViewHeight" destination="YG5-NF-FUu" id="OI3-em-nH8"/>
+                        <outlet property="requestViewTop" destination="82D-C7-Sgi" id="Ge7-29-Xrd"/>
                         <outlet property="requireNoLabel" destination="whb-Fd-bEq" id="TpW-TX-jdN"/>
-                        <outlet property="resultHeight" destination="YG5-NF-FUu" id="0cE-I4-Tvg"/>
                         <outlet property="resultTextView" destination="E0v-qI-BVM" id="l9Q-qt-jj8"/>
                         <outlet property="resultView" destination="lCp-ZH-ean" id="HGC-Ev-R9V"/>
                         <outlet property="searchTextField" destination="dUA-ue-x1Y" id="dAr-LP-3DA"/>
                         <outlet property="statusLabel" destination="Sph-uz-WwR" id="Z8N-K0-Iyq"/>
-                        <segue destination="lDA-f4-djg" kind="show" id="nhz-al-TgR"/>
+                        <segue destination="lDA-f4-djg" kind="show" identifier="LicenseDetail" id="nhz-al-TgR"/>
                         <segue destination="MmR-OL-2Gq" kind="show" id="EfT-7n-m1n"/>
                     </connections>
                 </viewController>
@@ -2678,7 +2680,7 @@
             <objects>
                 <navigationController id="0pZ-pT-gOp" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="zf1-jx-QSY">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="zf1-jx-QSY">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.055671315040000002" green="0.12797925139999999" blue="0.21174799280000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -2795,7 +2797,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="axz-Dd-Ict" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="1gI-UO-9D5">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="1gI-UO-9D5">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.055671315040000002" green="0.12797925139999999" blue="0.21174799280000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -2912,7 +2914,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="qvR-Ed-eRY" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="rNJ-hX-d25">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="rNJ-hX-d25">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.055671315040000002" green="0.12797925139999999" blue="0.21174799280000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -3205,7 +3207,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="GT5-nS-dMy" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="jmf-WR-cOe">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="jmf-WR-cOe">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.055671315040000002" green="0.12797925139999999" blue="0.21174799280000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -3373,7 +3375,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="PNp-kB-4fb" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="p93-iv-chr">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="p93-iv-chr">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.055671315040000002" green="0.12797925139999999" blue="0.21174799280000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -3476,7 +3478,7 @@
             <objects>
                 <navigationController storyboardIdentifier="NavigationLogin" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="0Ms-ME-AoG" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="IgL-hk-mAC">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="IgL-hk-mAC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.055671315038655071" green="0.12797925141057334" blue="0.21174799276487477" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -3622,7 +3624,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Caq-jI-giF" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="nGs-lF-Vhf">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="nGs-lF-Vhf">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.055671315040000002" green="0.12797925139999999" blue="0.21174799280000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -3993,7 +3995,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ABP-tJ-2sP" customClass="PsychoNavigationController" customModule="MOJ" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="aUA-fh-zOV">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="aUA-fh-zOV">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.055671315040000002" green="0.12797925139999999" blue="0.21174799280000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -4569,7 +4571,7 @@
                                                     <rect key="frame" x="0.0" y="0.0" width="359" height="264"/>
                                                     <subviews>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Uge-4R-uAX">
-                                                            <rect key="frame" x="0.0" y="67" width="359" height="292"/>
+                                                            <rect key="frame" x="0.0" y="67" width="359" height="197"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="15 ม.ค. 2558 16:42 น." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Aaj-sR-8eu">
                                                                     <rect key="frame" x="8" y="8" width="343" height="21"/>
@@ -4580,7 +4582,7 @@
                                                                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
-                                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="4vW-87-mcY">
+                                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="4vW-87-mcY">
                                                                     <rect key="frame" x="8" y="29" width="343" height="70"/>
                                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                     <accessibility key="accessibilityConfiguration">
@@ -4588,12 +4590,13 @@
                                                                     </accessibility>
                                                                     <constraints>
                                                                         <constraint firstAttribute="width" constant="343" id="2kK-0W-NRL"/>
+                                                                        <constraint firstAttribute="height" constant="70" id="dBT-Pq-mFU"/>
                                                                     </constraints>
                                                                     <string key="text">การให้ความช่วยเหลือเยียวยาผู้ประสบอุทกภัยในพื้นที่ต่างจังหวัดภาคใต้ ประสบอุทกภัยในพื้นที่ต่างจังหวัดภาคใต้ ประสบอุทกภัยในพื้นที่ต่างจังหวัดภาคใต้ การให้ความช่วยเหลือเยียวยาผู้ประสบอุทกภัยในพื้นที่ต่างจังหวัดภาคใต้ ประสบอุทกภัยในพื้นที่ต่างจังหวัดภาคใต้ ประสบอุทกภัยในพื้นที่ต่างจังหวัดภาคใต้ การให้ความช่วยเหลือเยียวยาผู้ประสบอุทกภัยในพื้นที่ต่างจังหวัดภาคใต้ ประสบอุทกภัยในพื้นที่ต่างจังหวัดภาคใต้ ประสบอุทกภัยในพื้นที่ต่างจังหวัดภาคใต้</string>
                                                                     <fontDescription key="fontDescription" name="Quark-Bold" family="Quark" pointSize="15"/>
                                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                                 </textView>
-                                                                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="lv5-eh-J9h">
+                                                                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="lv5-eh-J9h">
                                                                     <rect key="frame" x="8" y="107" width="343" height="70"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="width" constant="343" id="Uxa-Wr-vRD"/>
@@ -4639,7 +4642,7 @@
                                                             <constraints>
                                                                 <constraint firstAttribute="trailing" secondItem="lv5-eh-J9h" secondAttribute="trailing" constant="8" id="3J2-xK-NzV"/>
                                                                 <constraint firstAttribute="trailing" secondItem="4vW-87-mcY" secondAttribute="trailing" constant="8" id="9Qg-x9-fZh"/>
-                                                                <constraint firstAttribute="height" constant="292" id="Bmn-R1-ghn"/>
+                                                                <constraint firstAttribute="height" constant="197" id="Bmn-R1-ghn"/>
                                                                 <constraint firstItem="4vW-87-mcY" firstAttribute="leading" secondItem="Uge-4R-uAX" secondAttribute="leading" constant="8" id="FGB-9m-gC4"/>
                                                                 <constraint firstItem="Aaj-sR-8eu" firstAttribute="leading" secondItem="Uge-4R-uAX" secondAttribute="leading" constant="8" id="JZq-jv-4g1"/>
                                                                 <constraint firstItem="lv5-eh-J9h" firstAttribute="leading" secondItem="Uge-4R-uAX" secondAttribute="leading" constant="8" id="N80-aJ-Awk"/>
@@ -4724,6 +4727,7 @@
                                             <outlet property="ryplyDateLabel" destination="JHt-k3-X5r" id="pT0-Bk-BvV"/>
                                             <outlet property="ryplyDetailLabel" destination="4a4-m2-gXm" id="vjq-1N-BT2"/>
                                             <outlet property="ryplyTitleLabel" destination="Sz2-dU-kio" id="uV1-3u-ubj"/>
+                                            <outlet property="textfieldHeight" destination="dBT-Pq-mFU" id="3Hs-7B-Zfd"/>
                                             <outlet property="titleLabel" destination="Q4Z-RQ-MQy" id="pry-x9-gpI"/>
                                             <outlet property="viewDetail" destination="5nW-Jz-tMM" id="YWg-3o-SXM"/>
                                             <outlet property="viewRyply" destination="ufA-f7-JSz" id="MQz-Rp-M3b"/>
@@ -4731,52 +4735,13 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jvX-3i-74V">
-                                <rect key="frame" x="0.0" y="617" width="375" height="50"/>
-                                <subviews>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="แสดงความคิดเห็น" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gXt-Is-dF3">
-                                        <rect key="frame" x="8" y="10" width="359" height="30"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="30" id="ewx-fi-CWz"/>
-                                        </constraints>
-                                        <nil key="textColor"/>
-                                        <fontDescription key="fontDescription" name="Quark-Bold" family="Quark" pointSize="17"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eQq-7G-hnd">
-                                        <rect key="frame" x="317" y="13" width="44" height="24"/>
-                                        <color key="backgroundColor" red="0.76470988989999999" green="0.26113182309999999" blue="0.30878669019999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="44" id="HST-zS-i46"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" name="Quark-Bold" family="Quark" pointSize="17"/>
-                                        <state key="normal" title="ส่ง">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                    </button>
-                                </subviews>
-                                <color key="backgroundColor" red="0.1939106285572052" green="0.25378715991973877" blue="0.32034331560134888" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="gXt-Is-dF3" secondAttribute="trailing" constant="8" id="6ph-Ez-lab"/>
-                                    <constraint firstItem="gXt-Is-dF3" firstAttribute="leading" secondItem="jvX-3i-74V" secondAttribute="leading" constant="8" id="8Da-0y-VDj"/>
-                                    <constraint firstAttribute="height" constant="50" id="DDF-Ly-RdU"/>
-                                    <constraint firstAttribute="bottom" secondItem="eQq-7G-hnd" secondAttribute="bottom" constant="13" id="FXS-sX-ZNa"/>
-                                    <constraint firstItem="gXt-Is-dF3" firstAttribute="centerX" secondItem="jvX-3i-74V" secondAttribute="centerX" id="Z2u-jf-rvV"/>
-                                    <constraint firstAttribute="trailing" secondItem="eQq-7G-hnd" secondAttribute="trailing" constant="14" id="fEx-f5-EXD"/>
-                                    <constraint firstItem="gXt-Is-dF3" firstAttribute="centerY" secondItem="jvX-3i-74V" secondAttribute="centerY" id="mYC-CN-nMp"/>
-                                    <constraint firstItem="eQq-7G-hnd" firstAttribute="top" secondItem="jvX-3i-74V" secondAttribute="top" constant="13" id="zQa-bC-ScN"/>
-                                </constraints>
-                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.93323183060000003" green="0.93339174989999996" blue="0.93322181699999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="Bau-g9-630" firstAttribute="top" secondItem="jvX-3i-74V" secondAttribute="bottom" id="3dk-zW-pn8"/>
                             <constraint firstItem="uUz-0O-TLc" firstAttribute="top" secondItem="geH-dj-VQ1" secondAttribute="bottom" constant="8" id="HSB-iH-dOV"/>
                             <constraint firstItem="Bau-g9-630" firstAttribute="top" secondItem="uUz-0O-TLc" secondAttribute="bottom" id="I8O-4L-BD3"/>
                             <constraint firstItem="uUz-0O-TLc" firstAttribute="leading" secondItem="CrB-N5-pZK" secondAttribute="leading" constant="8" id="Job-Kc-yH5"/>
-                            <constraint firstItem="jvX-3i-74V" firstAttribute="leading" secondItem="CrB-N5-pZK" secondAttribute="leading" id="bZs-0C-eUs"/>
                             <constraint firstAttribute="trailing" secondItem="uUz-0O-TLc" secondAttribute="trailing" constant="8" id="hgj-em-9fg"/>
-                            <constraint firstAttribute="trailing" secondItem="jvX-3i-74V" secondAttribute="trailing" id="uVv-12-iwj"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="ร้องเรียน" id="auU-cX-ozu">
@@ -4793,8 +4758,6 @@
                     </navigationItem>
                     <connections>
                         <outlet property="addButton" destination="j8y-b5-FfE" id="ADM-Zw-eLJ"/>
-                        <outlet property="replyTextfield" destination="gXt-Is-dF3" id="GXM-r5-8YA"/>
-                        <outlet property="sendButton" destination="eQq-7G-hnd" id="5Ka-OE-G32"/>
                         <outlet property="tableView" destination="uUz-0O-TLc" id="sXA-Bv-iMs"/>
                         <segue destination="ZTa-Qd-frh" kind="show" identifier="ComplainRegister" id="MZA-t7-yPo"/>
                         <segue destination="xRi-D0-Uro" kind="show" identifier="ComplainCreate" id="GZN-85-90m"/>
@@ -5285,7 +5248,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="34"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="ตำบล" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aUV-2b-bmK">
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="จังหวัด" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aUV-2b-bmK">
                                                     <rect key="frame" x="8" y="4" width="165" height="30"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <constraints>
@@ -5325,7 +5288,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="34"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="จังหวัด" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="msC-d3-DfA">
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="ตำบล" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="msC-d3-DfA">
                                                     <rect key="frame" x="8" y="4" width="165" height="30"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <constraints>
@@ -5493,7 +5456,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="34"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="* ตำบล" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="G6s-GM-d4A">
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="* จังหวัด" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="G6s-GM-d4A">
                                                     <rect key="frame" x="8" y="4" width="165" height="30"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <constraints>
@@ -5533,7 +5496,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="34"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="* จังหวัด" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wWL-QB-iSf">
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="* ตำบล" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wWL-QB-iSf">
                                                     <rect key="frame" x="8" y="4" width="165" height="30"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <constraints>
@@ -5724,15 +5687,15 @@
                         <outlet property="phoneTextField" destination="PFA-U0-moy" id="Y6O-iT-2AF"/>
                         <outlet property="postalCodeTextField" destination="KRg-q3-4WB" id="cEi-L9-Gaj"/>
                         <outlet property="postalCodeTextField2" destination="n7q-Eo-tQm" id="7Nb-cT-ieZ"/>
-                        <outlet property="provinceTextField" destination="msC-d3-DfA" id="I6J-jt-18F"/>
-                        <outlet property="provinceTextField2" destination="wWL-QB-iSf" id="1RQ-JM-EXM"/>
+                        <outlet property="provinceTextField" destination="aUV-2b-bmK" id="ppL-Xv-3QC"/>
+                        <outlet property="provinceTextField2" destination="G6s-GM-d4A" id="xnJ-EF-rZb"/>
                         <outlet property="religionTextField" destination="4g1-sg-ADJ" id="LJh-Ps-9rg"/>
                         <outlet property="roadTextField" destination="jmH-xK-7b7" id="uDe-J4-aAG"/>
                         <outlet property="roadTextField2" destination="giF-Hj-QIR" id="DJ8-1M-fpm"/>
                         <outlet property="streetTextField" destination="FfF-vL-JlQ" id="1uZ-xO-1NO"/>
                         <outlet property="streetTextField2" destination="J8R-eE-TZ2" id="Vfm-9o-Mzu"/>
-                        <outlet property="subDistrictTextField" destination="aUV-2b-bmK" id="g8B-QO-NrL"/>
-                        <outlet property="subDistrictTextField2" destination="G6s-GM-d4A" id="60w-XS-p5F"/>
+                        <outlet property="subDistrictTextField" destination="msC-d3-DfA" id="dPK-8L-eXw"/>
+                        <outlet property="subDistrictTextField2" destination="wWL-QB-iSf" id="y8p-BD-COx"/>
                         <outlet property="titleNameTextField" destination="dHh-7W-cGt" id="JOb-77-T3M"/>
                         <outlet property="villageNoTextField" destination="1R5-vV-RkJ" id="DFf-Xo-pi5"/>
                         <outlet property="villageNoTextField2" destination="Yyd-ud-Gwk" id="pD4-C5-Br3"/>
@@ -6022,7 +5985,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="34"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="ตำบล" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="IhD-KN-Anh">
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="จังหวัด" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="IhD-KN-Anh">
                                                     <rect key="frame" x="8" y="4" width="165" height="30"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <constraints>
@@ -6062,7 +6025,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="34"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="จังหวัด" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Jg7-GX-ZgX">
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="ตำบล" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Jg7-GX-ZgX">
                                                     <rect key="frame" x="8" y="4" width="165" height="30"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <constraints>
@@ -7465,7 +7428,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="34"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="ตำบล" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fN2-qM-YCU">
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="จังหวัด" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fN2-qM-YCU">
                                                     <rect key="frame" x="8" y="4" width="165" height="30"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <constraints>
@@ -7505,7 +7468,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="34"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="จังหวัด" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="W8K-Xn-v8c">
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="ตำบล" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="W8K-Xn-v8c">
                                                     <rect key="frame" x="8" y="4" width="165" height="30"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <constraints>
@@ -7673,7 +7636,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="34"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="* ตำบล" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gLr-xA-3sc">
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="* จังหวัด" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gLr-xA-3sc">
                                                     <rect key="frame" x="8" y="4" width="165" height="30"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <constraints>
@@ -7713,7 +7676,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="34"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="* จังหวัด" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lFS-1B-rZ6">
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="* ตำบล" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lFS-1B-rZ6">
                                                     <rect key="frame" x="8" y="4" width="165" height="30"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <constraints>
@@ -7904,14 +7867,12 @@
                         <outlet property="phoneTextField" destination="qhl-6N-Ltm" id="9of-Qx-huU"/>
                         <outlet property="postalCodeTextField" destination="kRB-4N-nhy" id="pGU-Jp-NmF"/>
                         <outlet property="postalCodeTextField2" destination="7Zy-rU-x0v" id="146-sq-8tW"/>
-                        <outlet property="provinceTextField" destination="W8K-Xn-v8c" id="m3e-tz-Lrk"/>
                         <outlet property="provinceTextField2" destination="lFS-1B-rZ6" id="0c8-tj-Hu4"/>
                         <outlet property="religionTextField" destination="qgI-SI-XcX" id="XVj-2g-wNS"/>
                         <outlet property="roadTextField" destination="Ogo-lD-pRX" id="Yj9-ue-Q01"/>
                         <outlet property="roadTextField2" destination="lO9-2l-iAU" id="TVa-UU-j6d"/>
                         <outlet property="streetTextField" destination="Rnv-xa-SG9" id="EyS-Qs-Qg0"/>
                         <outlet property="streetTextField2" destination="Gzh-FZ-vdb" id="gxu-pd-MV9"/>
-                        <outlet property="subDistrictTextField" destination="fN2-qM-YCU" id="mmA-QW-8zo"/>
                         <outlet property="subDistrictTextField2" destination="gLr-xA-3sc" id="0JP-FQ-q29"/>
                         <outlet property="titleNameTextField" destination="4Wc-to-Dup" id="c70-kA-1id"/>
                         <outlet property="villageNoTextField" destination="hh6-NA-pQJ" id="zjT-5p-Vuf"/>
@@ -8202,7 +8163,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="34"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="ตำบล" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="w4v-ci-tfN">
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="จังหวัด" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="w4v-ci-tfN">
                                                     <rect key="frame" x="8" y="4" width="165" height="30"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <constraints>
@@ -8242,7 +8203,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="34"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="จังหวัด" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3aF-3D-K97">
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="ตำบล" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3aF-3D-K97">
                                                     <rect key="frame" x="8" y="4" width="165" height="30"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <constraints>
@@ -8565,12 +8526,12 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="uGj-C4-SvP"/>
-        <segue reference="PxF-VT-NSG"/>
         <segue reference="vjE-yf-aCp"/>
-        <segue reference="sv0-QJ-Fkf"/>
+        <segue reference="PhN-F7-pql"/>
+        <segue reference="nhz-al-TgR"/>
         <segue reference="kRs-M2-pUb"/>
         <segue reference="0kd-Te-E1t"/>
-        <segue reference="PhN-F7-pql"/>
+        <segue reference="PxF-VT-NSG"/>
         <segue reference="GZN-85-90m"/>
         <segue reference="MZA-t7-yPo"/>
     </inferredMetricsTieBreakers>

@@ -17,8 +17,6 @@ UICollectionViewDelegateFlowLayout, UICollectionViewDelegate{
     var selectComplaintID:String = ""
     let stringHelper = StringHelper()
     
-    @IBOutlet weak var sendButton: UIButton!
-    @IBOutlet weak var replyTextfield: UITextField!
     
     // detail
     
@@ -76,7 +74,6 @@ UICollectionViewDelegateFlowLayout, UICollectionViewDelegate{
         tableView.backgroundColor = UIColor.clear
         tableView.contentInset = UIEdgeInsetsMake(0, 0, 50, 0)
         
-        design.roundView(view: sendButton, radius: 5)
         if accountData.isLogin() {
             addButton.image = UIImage(named: "ic_add")
             addButton.isEnabled = true
@@ -141,7 +138,17 @@ UICollectionViewDelegateFlowLayout, UICollectionViewDelegate{
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat
     {
         if indexPath.row == 0 {
-            return 280
+            
+            var height = cmpltcontent.height(withConstrainedWidth: self.view.frame.size.width - 30, font: UIFont(name: "Quark-Bold", size: 15)!)
+            
+            if cpltImgRename.count > 0 {
+                height = height + 140 + 70
+            }
+            else{
+                height = height + 140
+            }
+            
+            return height
         }
         else{
             return 174
@@ -162,6 +169,11 @@ UICollectionViewDelegateFlowLayout, UICollectionViewDelegate{
         
         
         if indexPath.row == 0 {
+            
+            let height = cmpltcontent.height(withConstrainedWidth: self.view.frame.size.width - 30, font: UIFont(name: "Quark-Bold", size: 15)!)
+            cell.textfieldHeight.constant = height + 10
+            //cell.viewMessageHeight.constant = height + 50
+            
             cell.viewDetail.isHidden = false
             cell.viewRyply.isHidden = true
             
@@ -183,11 +195,13 @@ UICollectionViewDelegateFlowLayout, UICollectionViewDelegate{
             
         }
         else{
+            
             cell.viewDetail.isHidden = true
             cell.viewRyply.isHidden = false
             cell.ryplyDetailLabel.text = reptDetail[indexPath.row-1]
             cell.ryplyDateLabel.text = stringHelper.getDatefromString(dateString: reptDateTime[indexPath.row-1])
             cell.replyComplainCodeLabel.text = ""
+            cell.ryplyTitleLabel.text = "ตอบโดย "+instName[indexPath.row-1]
         }
        
         
@@ -240,6 +254,7 @@ class complainDetailCell: UITableViewCell {
     
     @IBOutlet var collectionView: UICollectionView!
     
+    @IBOutlet var textfieldHeight: NSLayoutConstraint!
     
     override func awakeFromNib() {
         super.awakeFromNib()

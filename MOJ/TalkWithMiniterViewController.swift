@@ -15,7 +15,8 @@ class TalkWithMiniterViewController: UIViewController,UITableViewDelegate, UITab
     let design = Design()
     let network = Network()
     let stringHelper = StringHelper()
-
+    let param = ContactsParameter()
+    
     @IBOutlet var menuButton: UIBarButtonItem!
     @IBOutlet var tableView: UITableView!
     @IBOutlet var talkBarButton: UIBarButtonItem!
@@ -65,8 +66,21 @@ class TalkWithMiniterViewController: UIViewController,UITableViewDelegate, UITab
             tableView.contentInset = UIEdgeInsetsMake(48, 0, 0, 0)
         }
         
+        
         var accountID = accountData.getAccountID()
 
+        network.post(name: network.API_CONTACTS_NEW_USER, param: param.registerTalk(), viewController: self, completionHandler: {
+            (JSON : Any,Code:String,Message:String) in
+            
+            if(Code == "00000"){
+                
+            }
+            else{
+                self.alertView.alert(title:"", message: Message, buttonTitle: self.alertView.ALERT_OK, controller: self)
+            }
+        })
+            
+            
         network.get(name: network.API_CONTACTS, param:accountID, viewController: self, completionHandler: {
             (json:Any,Code:String,Message:String) in
             let jsonSwifty = JSON(json)

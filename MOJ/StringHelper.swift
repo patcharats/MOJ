@@ -21,15 +21,15 @@ class StringHelper:NSObject{
     }
     
     
-    func timeRemainingString(issuedate:String) -> Int {
+    func timeRemainingString(date:String) -> Int {
         
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd"
-        let issuedatee = dateFormatter.date(from: issuedate)
+        let issuedatee = dateFormatter.date(from: date)
 
         let secondsFromNowToFinish = issuedatee?.timeIntervalSinceNow
-        let days = Int(secondsFromNowToFinish! / 86400)
         
+        let day = Int(secondsFromNowToFinish! / 86400)
         /*
         let hours = Int(secondsFromNowToFinish! / 3600)
         let minutes = Int((secondsFromNowToFinish - Double(hours) * 3600) / 60)
@@ -37,7 +37,7 @@ class StringHelper:NSObject{
         
         print(String(format: "%02d:%02d:%02d", hours, minutes, seconds))
         */
-        return days
+        return day
     }
     
     func compareDate(issuedate:String,expiredate:String)->Bool{

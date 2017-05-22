@@ -9,6 +9,8 @@
 import Foundation
 class OccupationAndEducation:UITableViewController{
     
+    let configData = ConfigData()
+    
     @IBOutlet var occupationTexField: UITextField!
     @IBOutlet var otherTexField: UITextField!
     @IBOutlet var governmentTexField: UITextField!
@@ -38,6 +40,24 @@ class OccupationAndEducation:UITableViewController{
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        
+        /*
+        
+        configData.getFieldStudyID()
+        configData.getFieldStudy()
+        
+        configData.getMajorID()
+        configData.getMajor()
+        configData.getDegreeID()
+        configData.getDegree()
+        configData.getOccupationOptionID()
+        configData.getOccupationOption()
+        
+        configData.getTrainingID()
+        configData.getTraining()
+ */
+        
+        
         self.tableView.contentInset = UIEdgeInsetsMake(0, 0, 55, 0)
     }
     

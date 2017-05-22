@@ -45,9 +45,10 @@ class AccountData: NSObject {
         let accountToken = data?[KEY_ACCOUNT_TOKEN]?.stringValue
         let accountLastLogin = data?[KEY_ACCOUNT_LAST_LOGIN]?.stringValue
         
-        let accountComplaintStatus = data?[KEY_ACCOUNT_COMPLAINT_STATUS]?.stringValue
-        let accountSocialStatus = data?[KEY_ACCOUNT_SOCIAL_STATUS]?.stringValue
-        let accountUserLevel = data?[KEY_ACCOUNT_USER_LEVEL]?.stringValue
+        let accountComplaintStatus = account?[KEY_ACCOUNT_COMPLAINT_STATUS]?.int
+        let accountSocialStatus = account?[KEY_ACCOUNT_SOCIAL_STATUS]?.int
+        let accountUserLevel = account?[KEY_ACCOUNT_USER_LEVEL]?.stringValue
+    
         
         if accountUserLevel == "0" {
             setAdmin(isAdmin: false)
@@ -56,14 +57,16 @@ class AccountData: NSObject {
             setAdmin(isAdmin: true)
         }
         
-        if accountSocialStatus == "0" {
+        if accountSocialStatus == 0 {
             setSocialWork(hasSocialWork: false)
         }
         else{
             setSocialWork(hasSocialWork: true)
         }
         
-        if accountComplaintStatus == "0" {
+        print(accountComplaintStatus!)
+        
+        if accountComplaintStatus == 0 {
             setComplaintStatus(hasComplaintStatus: false)
         }
         else{
@@ -71,7 +74,7 @@ class AccountData: NSObject {
         }
         
         setLogin(isLogin: true)
-        
+        setShowHowto(isShowHowto: true)
         setAccountID(accountID: accountID!)
         setAccountEmail(accountEmail: accountEmail!)
         setAccountFirstName(accountFirstName: accountFirstName!)

@@ -15,6 +15,14 @@ class Design: NSObject {
     let HEX_COLOR_GREEN = "67AC47"
     let HEX_COLOR_RED = "B53447"
     
+    func setLabelColorGreen(label:UILabel){
+        label.backgroundColor = hexStringToColor(hex: HEX_COLOR_GREEN)
+    }
+    
+    func setLabelColorRed(label:UILabel){
+        label.backgroundColor = hexStringToColor(hex: HEX_COLOR_RED)
+    }
+    
     func getProcessStatus(status:String,label:UILabel){
         switch status {
         case "create":

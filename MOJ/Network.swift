@@ -37,8 +37,12 @@ class Network: NSObject {
     let API_CONTACTS = "contacts/"
     let API_CONTACTS_REPLY = "contacts/reply"
     let API_CONTACTS_NEW_POST = "contacts/newpost"
+    let API_CONTACTS_NEW_USER = "contacts/newuser"
     let API_CONFIG = "config/all"
     let API_CONFIG_PROVINCE = "config/province"
+    let API_CONFIG_AMPHUR = "config/amphur/"
+    let API_CONFIG_DISTRICT = "config/district/"
+    
     let API_SOCIAL_WORK_REQUEST = "socialwrk/request/"
     let API_SOCIAL_WORK_SEARCH = "socialwrk/search"
     let KEY_RESPONSE_STATUS = "status"
@@ -144,9 +148,12 @@ class Network: NSObject {
         
         let header: HTTPHeaders = [
             "token": accountData.getAccountToken()
+            //"token" : "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJhY2NvdW50aWQiOiIxMyIsInVzZXJuYW1lIjoiYmVlYmFib25nQGhvdG1haWwuY29tIiwiZW1haWwiOiJiZWViYWJvbmdAaG90bWFpbC5jb20iLCJ1c2Vyc3RhdHVzIjoiMSIsInVzZXJsZXZlbCI6IjAiLCJjaGFubmVsIjoiZW1haWwiLCJleHBpcmUiOiIyMDE3LTA1LTE3In0.QlWivNw0i7bYCQVF7oQlnUi13_kXtYVaCWvvkcJiwnk"
         ]
-        print("header :\(header)")
         
+        
+        
+        print("header :\(header)")
         print("******** api :\(self.API_BASE_URL+name+param)")
         activityIndicator.showActivityIndicator(uiView: viewController.view)
         Alamofire.request(API_BASE_URL+name+param, method: .get, encoding: JSONEncoding.default,headers: header)

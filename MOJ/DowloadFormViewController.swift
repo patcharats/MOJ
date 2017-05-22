@@ -13,6 +13,7 @@ import SwiftyJSON
 class DowloadFormViewController: UIViewController,UITableViewDelegate, UITableViewDataSource {
     let design = Design()
     let network = Network()
+    let stringHelper = StringHelper()
     let PDF_DETAIL_VIEW_CONTROLLER = "PdfDetailViewController"
     var pdfUrl:String!
     let KEY_DOC_DATA = "data"
@@ -73,7 +74,7 @@ class DowloadFormViewController: UIViewController,UITableViewDelegate, UITableVi
         
         
         cell.titleLabel.text = name[indexPath.row]
-        cell.dateLabel.text = lastupd[indexPath.row]
+        cell.dateLabel.text = stringHelper.getDatefromString(dateString: lastupd[indexPath.row])
         cell.downloadLabel.text = downld[indexPath.row]+" ดาวน์โหลด"
         cell.downloadButton.addTarget(self, action: #selector(downloadButton), for: .touchUpInside)
         cell.shareButton.addTarget(self, action: #selector(shareButton), for: .touchUpInside)
