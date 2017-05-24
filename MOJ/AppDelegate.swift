@@ -29,6 +29,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         FBSDKSettings.setAppID(FACEBOOK_APP_ID)
         setRootView(isShowHowto: account.isShowHowto())
         
+        
+        let attributes = [
+            NSForegroundColorAttributeName : UIColor.black,
+            NSFontAttributeName : UIFont(name: "Quark-Bold", size: 17)
+        ]
+
+        UITextField.appearance(whenContainedInInstancesOf: [UISearchBar.self]).leftView = nil
+        UITextField.appearance(whenContainedInInstancesOf: [UISearchBar.self]).font = UIFont(name: "Quark-Bold", size: 17 )
+        UISearchBar.appearance().searchTextPositionAdjustment = UIOffsetMake(10, 0)
+        UIBarButtonItem.appearance(whenContainedInInstancesOf: [UISearchBar.self]).setTitleTextAttributes(attributes, for: .normal)
+        
         return FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
         
         

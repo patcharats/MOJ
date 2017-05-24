@@ -8,7 +8,7 @@
 
 import Foundation
 class FileEvidence:UITableViewController{
-    
+    var socialWorkData = SocialWorkData()
     override func awakeFromNib() {
         super.awakeFromNib()
         self.tableView.contentInset = UIEdgeInsetsMake(0, 0, 55, 0)

@@ -20,6 +20,7 @@ class StringHelper:NSObject{
         return false
     }
     
+
     
     func timeRemainingString(date:String) -> Int {
         

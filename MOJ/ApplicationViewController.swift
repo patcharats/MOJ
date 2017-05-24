@@ -46,10 +46,7 @@ class ApplicationViewController: UIViewController,UITableViewDelegate,UITableVie
     var searchappstoreid:[String] = []
     var searchplaystoreid:[String] = []
     var searchthumbnail:[String] = []
-    
-    
-    
-    
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -90,7 +87,7 @@ class ApplicationViewController: UIViewController,UITableViewDelegate,UITableVie
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         if (searchbar.text?.isEmpty)! {
-            searchbar.showsCancelButton = false
+            
             appid = storeappid
             name = storename
             desc = storedesc
@@ -98,10 +95,8 @@ class ApplicationViewController: UIViewController,UITableViewDelegate,UITableVie
             playstoreid = storeplaystoreid
             thumbnail = storethumbnail
         }
-        else{
-            searchbar.showsCancelButton = true
-        }
         
+        searchbar.showsCancelButton = true
         self.tableView.reloadData()
         // Do some search stuff
     }
@@ -119,6 +114,8 @@ class ApplicationViewController: UIViewController,UITableViewDelegate,UITableVie
         appstoreid = storeappstoreid
         playstoreid = storeplaystoreid
         thumbnail = storethumbnail
+        
+        searchBar.resignFirstResponder()
         
         self.tableView.reloadData()
         // You could also change the position, frame etc of the searchBar
@@ -146,33 +143,42 @@ class ApplicationViewController: UIViewController,UITableViewDelegate,UITableVie
         }
         else{
             
-            
-            for (index, element) in storename.enumerated() {
-                if element.contains(text!){
-                    searchappid.append(storeappid[index])
-                    searchname.append(storename[index])
-                    searchdesc.append(storedesc[index])
-                    searchappstoreid.append(storeappstoreid[index])
-                    searchplaystoreid.append(storeplaystoreid[index])
-                    searchthumbnail.append(storethumbnail[index])
-                    
-                    appid = searchappid
-                    name = searchname
-                    desc = searchdesc
-                    appstoreid = searchappstoreid
-                    playstoreid = searchplaystoreid
-                    thumbnail = searchthumbnail
+            let filteredArray = storename.filter { $0.localizedCaseInsensitiveContains(text!) }
+            if filteredArray.count > 0 {
+                for (index, element) in storename.enumerated() {
+                    if element.contains(text!){
+                        searchappid.append(storeappid[index])
+                        searchname.append(storename[index])
+                        searchdesc.append(storedesc[index])
+                        searchappstoreid.append(storeappstoreid[index])
+                        searchplaystoreid.append(storeplaystoreid[index])
+                        searchthumbnail.append(storethumbnail[index])
+                        
+                        appid = searchappid
+                        name = searchname
+                        desc = searchdesc
+                        appstoreid = searchappstoreid
+                        playstoreid = searchplaystoreid
+                        thumbnail = searchthumbnail
+                    }
                 }
-                else{
-                    
-                }
-                
             }
+            else{
+                    appid = []
+                    name = []
+                    desc = []
+                    appstoreid = []
+                    playstoreid = []
+                    thumbnail = []
+            }
+            
+            
             
             
         }
         self.tableView.reloadData()
     }
+
     
     // MARK: UITableView
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -189,7 +195,9 @@ class ApplicationViewController: UIViewController,UITableViewDelegate,UITableVie
         cell.descLabel.text = desc[indexPath.row]
         cell.logoImageView.sd_setImage(with: URL(string: thumbnail[indexPath.row]), placeholderImage: UIImage(named: "image_def_bog"))
         
+        
         if stringHelper.verifyUrl(urlString: playstoreid[indexPath.row]) {
+            cell.androidButton.isHidden = false
             cell.androidButton.tag = indexPath.row
             cell.androidButton.addTarget(self, action: #selector(androidButton), for: .touchUpInside)
         }
@@ -198,6 +206,7 @@ class ApplicationViewController: UIViewController,UITableViewDelegate,UITableVie
         }
         
         if stringHelper.verifyUrl(urlString: appstoreid[indexPath.row]) {
+            cell.iosButton.isHidden = false
             cell.iosButton.tag = indexPath.row
             cell.iosButton.addTarget(self, action: #selector(iosButton), for: .touchUpInside)
         }

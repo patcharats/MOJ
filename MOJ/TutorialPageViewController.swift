@@ -14,6 +14,7 @@ class TutorialPageViewController: UIPageViewController {
     var typeViewController:Int? = 0
     var PsychoSeviceCreateNew = 1
     var PsychoServiceRenew = 2
+    var socialWorkData = SocialWorkData()
     
     fileprivate(set) lazy var createNewViewControllers: [UIViewController] = {
         // The view controllers will be shown in this order

@@ -8,9 +8,10 @@
 
 import Foundation
 class ProsonalInformation:UITableViewController,UIPickerViewDelegate,UIPickerViewDataSource{
-    
+    var socialWorkData = SocialWorkData()
     let network = Network()
     let configData = ConfigData()
+    
     let CARD_TYPE = 1
     let PREFIX_NAME = 2
     let MARITAL_STATUS = 3
@@ -106,19 +107,107 @@ class ProsonalInformation:UITableViewController,UIPickerViewDelegate,UIPickerVie
 
     
     var readOnly = false
+    var json:Any?
+    
     
     override func awakeFromNib() {
         super.awakeFromNib()
         self.tableView.contentInset = UIEdgeInsetsMake(0, 0, 55, 0)
+        readOnly = socialWorkData.readOnly
+        socialWorkData.getSocialWorkData(json: json)
         
         if readOnly {
             setEnabelTextfield(isEnable: false)
+            setValueTextfield()
         }
         else{
             setEnabelTextfield(isEnable: true)
         }
         
         
+        
+        
+        getConfigDate()
+        setPickerDate()
+        setPickerView()
+        
+    }
+    
+    func getSocialWorkData(){
+        
+    }
+    
+    
+    
+    func setValueTextfield(){
+        
+        print(socialWorkData.firstname)
+        
+        IDTypeTextField.text = socialWorkData.requesttype
+        IDNumberTextField.text = socialWorkData.requestid
+        IDExpireTextField.text = socialWorkData.requestdate
+        IDDateTextField.text = socialWorkData.requestdate
+        IDByTextField.text = socialWorkData.requestid
+        
+        titleNameTextField.text = socialWorkData.prename
+        firstNameTextField.text = socialWorkData.firstname
+        lastNameTextField.text = socialWorkData.lastname
+        birthdateTextField.text = socialWorkData.birthdate
+        maritalStatusTextField.text = socialWorkData.maritalstatus
+        religionTextField.text = socialWorkData.religion
+        nationalityTextField.text = socialWorkData.nationality
+        
+        houseNoTextField.text = socialWorkData.requesttype
+        villageNoTextField.text = socialWorkData.requesttype
+        streetTextField.text = socialWorkData.requesttype
+        roadTextField.text = socialWorkData.requesttype
+        subDistrictTextField.text = socialWorkData.requesttype
+        districtTextField.text = socialWorkData.requesttype
+        provinceTextField.text = socialWorkData.requesttype
+        postalCodeTextField.text = socialWorkData.requesttype
+        
+        houseNoTextField2.text = socialWorkData.requesttype
+        villageNoTextField2.text = socialWorkData.requesttype
+        streetTextField2.text = socialWorkData.requesttype
+        roadTextField2.text = socialWorkData.requesttype
+        subDistrictTextField2.text = socialWorkData.requesttype
+        districtTextField2.text = socialWorkData.requesttype
+        provinceTextField2.text = socialWorkData.requesttype
+        postalCodeTextField2.text = socialWorkData.requesttype
+        
+        phoneTextField.text = socialWorkData.requesttype
+        mobilePhoneTextField.text = socialWorkData.requesttype
+        faxTextField.text = socialWorkData.requesttype
+        emailTextField.text = socialWorkData.requesttype
+    }
+    
+    func getConfigDate(){
+        provinceID = configData.getProvinceID()
+        provinceName = configData.getProvinceName()
+        
+        amphurID = configData.getAmphurID()
+        amphurName = configData.getAmphurName()
+        
+        districtID = configData.getDistrictID()
+        districtName = configData.getDistrictName()
+        
+        
+        cardID = configData.getCardID()
+        cardType = configData.getCard()
+        
+        
+        maritalStatusID = configData.getMaritalStatusID()
+        maritalStatusName = configData.getMaritalStatus()
+        
+        religionID = configData.getReligionID()
+        religionName = configData.getReligion()
+        
+        
+        titleName = configData.getNamePrefix()
+        titleID = configData.getNamePrefixID()
+    }
+    
+    func setPickerDate(){
         let datePickerView1:UIDatePicker = UIDatePicker()
         datePickerView1.datePickerMode = UIDatePickerMode.date
         datePickerView1.calendar = Calendar(identifier: .buddhist)
@@ -143,13 +232,12 @@ class ProsonalInformation:UITableViewController,UIPickerViewDelegate,UIPickerVie
         datePickerView3.calendar = Calendar(identifier: .buddhist)
         datePickerView3.locale = Locale(identifier: "th")
         datePickerView3.addTarget(self, action: #selector(self.datePickerValueChanged), for: UIControlEvents.valueChanged)
-
+        
         birthdateTextField.inputView = datePickerView3
         datePickerView3.tag = BIRTH_DATE
-        
-        
-        
-        
+    }
+    
+    func setPickerView(){
         pickerView1 = UIPickerView()
         pickerView2 = UIPickerView()
         pickerView3 = UIPickerView()
@@ -209,33 +297,6 @@ class ProsonalInformation:UITableViewController,UIPickerViewDelegate,UIPickerVie
         provinceTextField2.inputView = pickerView9
         districtTextField2.inputView = pickerView10
         subDistrictTextField2.inputView = pickerView11
-        
-        provinceID = configData.getProvinceID()
-        provinceName = configData.getProvinceName()
-        
-        amphurID = configData.getAmphurID()
-        amphurName = configData.getAmphurName()
-        
-        districtID = configData.getDistrictID()
-        districtName = configData.getDistrictName()
-        
-        
-        cardID = configData.getCardID()
-        cardType = configData.getCard()
-        
-        
-        maritalStatusID = configData.getMaritalStatusID()
-        maritalStatusName = configData.getMaritalStatus()
-        
-        religionID = configData.getReligionID()
-        religionName = configData.getReligion()
- 
-        
-        titleName = configData.getNamePrefix()
-        titleID = configData.getNamePrefixID()
-        
-        
-        
     }
     
     func datePickerValueChanged(sender:UIDatePicker) {

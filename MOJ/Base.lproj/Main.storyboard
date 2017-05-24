@@ -3224,7 +3224,7 @@
             </objects>
             <point key="canvasLocation" x="-319" y="3949"/>
         </scene>
-        <!--แอพลิเคชั่นอื่นๆ-->
+        <!--แอปพลิเคชั่นอื่นๆ-->
         <scene sceneID="abZ-Nb-FmH">
             <objects>
                 <viewController automaticallyAdjustsScrollViewInsets="NO" id="ia3-c4-tU6" customClass="ApplicationViewController" customModule="MOJ" customModuleProvider="target" sceneMemberID="viewController">
@@ -3332,8 +3332,9 @@
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_search" translatesAutoresizingMaskIntoConstraints="NO" id="NXg-ii-ryz">
                                         <rect key="frame" x="8" y="6" width="46" height="30"/>
                                     </imageView>
-                                    <searchBar contentMode="redraw" searchBarStyle="minimal" placeholder="ค้นหา" translatesAutoresizingMaskIntoConstraints="NO" id="lWJ-af-3qA">
-                                        <rect key="frame" x="62" y="-1" width="297" height="44"/>
+                                    <searchBar contentMode="redraw" placeholder="ค้นหา                                                                        " translatesAutoresizingMaskIntoConstraints="NO" id="lWJ-af-3qA">
+                                        <rect key="frame" x="54" y="-1" width="305" height="44"/>
+                                        <color key="barTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </searchBar>
                                 </subviews>
@@ -3342,7 +3343,7 @@
                                     <constraint firstItem="NXg-ii-ryz" firstAttribute="leading" secondItem="GXD-XB-3Ih" secondAttribute="leading" constant="8" id="5BP-Bm-LVZ"/>
                                     <constraint firstAttribute="bottom" secondItem="lWJ-af-3qA" secondAttribute="bottom" constant="-1" id="EZW-rh-FBr"/>
                                     <constraint firstItem="NXg-ii-ryz" firstAttribute="top" secondItem="GXD-XB-3Ih" secondAttribute="top" constant="6" id="NBZ-Cm-e5R"/>
-                                    <constraint firstItem="lWJ-af-3qA" firstAttribute="leading" secondItem="NXg-ii-ryz" secondAttribute="trailing" constant="8" id="TZy-df-F7s"/>
+                                    <constraint firstItem="lWJ-af-3qA" firstAttribute="leading" secondItem="NXg-ii-ryz" secondAttribute="trailing" id="TZy-df-F7s"/>
                                     <constraint firstAttribute="bottom" secondItem="NXg-ii-ryz" secondAttribute="bottom" constant="6" id="VFI-7p-h4I"/>
                                     <constraint firstAttribute="height" constant="42" id="kQd-Mq-Ayq"/>
                                     <constraint firstItem="lWJ-af-3qA" firstAttribute="top" secondItem="GXD-XB-3Ih" secondAttribute="top" constant="-1" id="xbW-Ch-iSU"/>
@@ -3361,7 +3362,7 @@
                             <constraint firstItem="GXD-XB-3Ih" firstAttribute="leading" secondItem="wWQ-S4-z2s" secondAttribute="leading" constant="8" id="RcR-7x-Hve"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="แอพลิเคชั่นอื่นๆ" id="e0b-P2-hYZ">
+                    <navigationItem key="navigationItem" title="แอปพลิเคชั่นอื่นๆ" id="e0b-P2-hYZ">
                         <barButtonItem key="leftBarButtonItem" image="ic_menu" id="cVM-Qg-fu4"/>
                     </navigationItem>
                     <connections>
@@ -8530,13 +8531,13 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="uGj-C4-SvP"/>
+        <segue reference="MZA-t7-yPo"/>
+        <segue reference="GZN-85-90m"/>
         <segue reference="vjE-yf-aCp"/>
-        <segue reference="PhN-F7-pql"/>
+        <segue reference="PxF-VT-NSG"/>
+        <segue reference="sQY-XM-9dn"/>
         <segue reference="nhz-al-TgR"/>
         <segue reference="kRs-M2-pUb"/>
         <segue reference="0kd-Te-E1t"/>
-        <segue reference="PxF-VT-NSG"/>
-        <segue reference="GZN-85-90m"/>
-        <segue reference="MZA-t7-yPo"/>
     </inferredMetricsTieBreakers>
 </document>

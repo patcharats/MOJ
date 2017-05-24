@@ -17,6 +17,9 @@ class PsychoServiceViewController: UIViewController,UITextFieldDelegate {
     let accountData = AccountData()
     let param = PsychoParameter()
     let stringHelper = StringHelper()
+    
+    var socialWorkData = SocialWorkData()
+    
     let REQUEST_DOCUMENT = "ยื่นคำขอ"
     let DOCUMENT_COMPLETE_WAIT_APPROVE = "เอกสารครบรอการอนุมัติ"
     let DOCUMENT_APPROVE = "อนุมัติใบคำขอ"
@@ -119,10 +122,10 @@ class PsychoServiceViewController: UIViewController,UITextFieldDelegate {
             
             accountID = accountData.getAccountID()
             acctid = accountData.getAccountID()
-            /*
+            
              accountID = "1"
              acctid = "1"
-             */
+            
             getLicenseDetail(accountIDs: accountID, touchDetail: false)
             
             let gesture = UITapGestureRecognizer(target: self, action: #selector (self.licenseDatail(sender:)))
@@ -154,7 +157,8 @@ class PsychoServiceViewController: UIViewController,UITextFieldDelegate {
                 self.setupView(type: self.TYPE_NOT_FOUND)
             }
             else{
-                
+                //self.socialWorkData.getSocialWorkData(json: json)
+
                 if touchDetail {
                     self.performSegue(withIdentifier: self.LICENSE_DETAIL, sender: nil)
                 }
@@ -166,7 +170,7 @@ class PsychoServiceViewController: UIViewController,UITextFieldDelegate {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == LICENSE_DETAIL{
             let controller = segue.destination as! PsychoServiceCreateNew
-            controller.readOnly = true
+            controller.socialWorkData = socialWorkData
         }
     }
     

@@ -8,7 +8,7 @@
 
 import Foundation
 class OtherDetail:UITableViewController{
-    
+    var socialWorkData = SocialWorkData()
     @IBOutlet var trainingTextField: UITextField!
     @IBOutlet var trainingByTextField: UITextField!
     @IBOutlet var trainingDateTextField: UITextField!

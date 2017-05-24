@@ -8,7 +8,7 @@
 
 import Foundation
 class OccupationAndEducation:UITableViewController{
-    
+    var socialWorkData = SocialWorkData()
     let configData = ConfigData()
     
     @IBOutlet var occupationTexField: UITextField!

@@ -15,6 +15,7 @@ class PsychoServiceCreateNew: UIViewController {
     @IBOutlet weak var containerView: UIView!
     
     var readOnly:Bool = false
+    var socialWorkData = SocialWorkData()
     let titles = ["ข้อมูลส่วนตัว","อาชีพและการศึกษา","ข้อมูลอื่นๆ","หลักฐาน"]
     var tutorialPageViewController: TutorialPageViewController? {
         didSet {
