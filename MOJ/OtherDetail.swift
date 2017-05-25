@@ -24,7 +24,42 @@ class OtherDetail:UITableViewController{
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        self.tableView.contentInset = UIEdgeInsetsMake(0, 0, 55, 0)
+        socialWorkData.getSocialWorkData(json: socialWorkData.getData())
+        let readOnly = socialWorkData.isReadOnly()
+        
+        if readOnly {
+            self.tableView.contentInset = UIEdgeInsetsMake(0, 0, 8, 0)
+            setEnabelTextfield(isEnable: false)
+            setValueTextfield()
+        }
+        else{
+            self.tableView.contentInset = UIEdgeInsetsMake(0, 0, 55, 0)
+            setEnabelTextfield(isEnable: true)
+        }
+    }
+    func setValueTextfield(){
+        trainingTextField.text = socialWorkData.training
+        trainingByTextField.text = socialWorkData.trainby
+        trainingDateTextField.text = socialWorkData.traindate
+        lastExperienceTextField.text = socialWorkData.lastworkorg
+        experienceStartTextField.text = socialWorkData.lastorgstart
+        experienceEndField.text = socialWorkData.lastorgend
+        detailExperienceTextField.text = "??"
+        province1TextField.text = socialWorkData.province1
+        province2TextField.text = socialWorkData.province2
+        province3TextField.text = socialWorkData.province3
+    }
+    func setEnabelTextfield(isEnable:Bool){
+        trainingTextField.isEnabled = isEnable
+        trainingByTextField.isEnabled = isEnable
+        trainingDateTextField.isEnabled = isEnable
+        lastExperienceTextField.isEnabled = isEnable
+        experienceStartTextField.isEnabled = isEnable
+        experienceEndField.isEnabled = isEnable
+        detailExperienceTextField.isEnabled = isEnable
+        province1TextField.isEnabled = isEnable
+        province2TextField.isEnabled = isEnable
+        province3TextField.isEnabled = isEnable
     }
     
 //    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

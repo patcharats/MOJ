@@ -48,7 +48,8 @@ class ContactDetailViewController: UIViewController,UITableViewDelegate, UITable
     override func viewDidLoad() {
         super.viewDidLoad()
         titleLabel.text = selectName
-        
+        //center!=1
+        //center=1
         
         tableView.delegate = self
         tableView.dataSource = self

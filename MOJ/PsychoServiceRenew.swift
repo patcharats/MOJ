@@ -36,6 +36,7 @@ class PsychoServiceRenew: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     @IBAction func clearTextfield(_ sender: Any) {
+        print("clear")
     }
     
     @IBAction func backButton(_ sender: Any) {
@@ -43,6 +44,7 @@ class PsychoServiceRenew: UIViewController {
     }
 
     @IBAction func renewButton(_ sender: Any) {
+        print("renew")
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

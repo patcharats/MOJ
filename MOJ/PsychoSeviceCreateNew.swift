@@ -13,9 +13,9 @@ class PsychoServiceCreateNew: UIViewController {
     @IBOutlet var titleLabel: UILabel!
     @IBOutlet weak var pageControl: UIPageControl!
     @IBOutlet weak var containerView: UIView!
-    
-    var readOnly:Bool = false
+    @IBOutlet weak var confirmView: UIView!
     var socialWorkData = SocialWorkData()
+    var param = PsychoParameter()
     let titles = ["ข้อมูลส่วนตัว","อาชีพและการศึกษา","ข้อมูลอื่นๆ","หลักฐาน"]
     var tutorialPageViewController: TutorialPageViewController? {
         didSet {
@@ -26,6 +26,14 @@ class PsychoServiceCreateNew: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        let readOnly = socialWorkData.isReadOnly()
+        
+        if readOnly {
+            confirmView.isHidden = true
+        }
+        else{
+            confirmView.isHidden = false
+        }
         
         pageControl.addTarget(self, action: #selector(PsychoServiceCreateNew.didChangePageControlValue), for: .valueChanged)
         
@@ -35,10 +43,14 @@ class PsychoServiceCreateNew: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func clearTextfield(_ sender: Any) {
+        print("clear")
+    }
     @IBAction func backButton(_ sender: Any) {
         _ = navigationController?.popViewController(animated: true)
     }
     @IBAction func registerButton(_ sender: Any) {
+        print("create new")
         
     }
     

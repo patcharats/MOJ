@@ -32,7 +32,8 @@ class JobViewController: UIViewController,UITableViewDelegate, UITableViewDataSo
     var selectNewsUrl:String = ""
     var selectTitle:String = ""
     let NEWS_DETAIL = "NewsDetailViewController"
-    
+    let jobOnly = "/7"
+    let News = "?isNews=1"
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -42,7 +43,7 @@ class JobViewController: UIViewController,UITableViewDelegate, UITableViewDataSo
         tableView.backgroundColor = UIColor.clear
         
         let accountID = accountData.getAccountID()
-        network.get(name: network.API_FEED, param:accountID+"/7", viewController: self, completionHandler: {
+        network.get(name: network.API_FEED, param:accountID+jobOnly+News, viewController: self, completionHandler: {
             (json:Any,Code:String,Message:String) in
             let jsonSwifty = JSON(json)
             self.lastupd = jsonSwifty[self.KEY_NEWS_DATA].arrayValue.map({$0[self.KEY_NEWS_LAST_UPDATE].stringValue})

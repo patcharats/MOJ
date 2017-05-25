@@ -11,8 +11,17 @@ class FileEvidence:UITableViewController{
     var socialWorkData = SocialWorkData()
     override func awakeFromNib() {
         super.awakeFromNib()
-        self.tableView.contentInset = UIEdgeInsetsMake(0, 0, 55, 0)
+        socialWorkData.getSocialWorkData(json: socialWorkData.getData())
+        let readOnly = socialWorkData.isReadOnly()
+        
+        if readOnly {
+            self.tableView.contentInset = UIEdgeInsetsMake(0, 0, 8, 0)
+        }
+        else{
+            self.tableView.contentInset = UIEdgeInsetsMake(0, 0, 55, 0)
+        }
     }
+
     
 //    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 //        return 0 // your number of cell here

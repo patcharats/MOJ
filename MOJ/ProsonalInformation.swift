@@ -106,26 +106,22 @@ class ProsonalInformation:UITableViewController,UIPickerViewDelegate,UIPickerVie
     var zipcode:[String] = []
 
     
-    var readOnly = false
-    var json:Any?
-    
-    
     override func awakeFromNib() {
         super.awakeFromNib()
-        self.tableView.contentInset = UIEdgeInsetsMake(0, 0, 55, 0)
-        readOnly = socialWorkData.readOnly
-        socialWorkData.getSocialWorkData(json: json)
+        
+
+        socialWorkData.getSocialWorkData(json: socialWorkData.getData())
+        let readOnly = socialWorkData.isReadOnly()
         
         if readOnly {
+            self.tableView.contentInset = UIEdgeInsetsMake(0, 0, 8, 0)
             setEnabelTextfield(isEnable: false)
             setValueTextfield()
         }
         else{
+            self.tableView.contentInset = UIEdgeInsetsMake(0, 0, 55, 0)
             setEnabelTextfield(isEnable: true)
         }
-        
-        
-        
         
         getConfigDate()
         setPickerDate()
@@ -133,15 +129,7 @@ class ProsonalInformation:UITableViewController,UIPickerViewDelegate,UIPickerVie
         
     }
     
-    func getSocialWorkData(){
-        
-    }
-    
-    
-    
     func setValueTextfield(){
-        
-        print(socialWorkData.firstname)
         
         IDTypeTextField.text = socialWorkData.requesttype
         IDNumberTextField.text = socialWorkData.requestid
@@ -157,28 +145,28 @@ class ProsonalInformation:UITableViewController,UIPickerViewDelegate,UIPickerVie
         religionTextField.text = socialWorkData.religion
         nationalityTextField.text = socialWorkData.nationality
         
-        houseNoTextField.text = socialWorkData.requesttype
-        villageNoTextField.text = socialWorkData.requesttype
-        streetTextField.text = socialWorkData.requesttype
-        roadTextField.text = socialWorkData.requesttype
-        subDistrictTextField.text = socialWorkData.requesttype
-        districtTextField.text = socialWorkData.requesttype
-        provinceTextField.text = socialWorkData.requesttype
-        postalCodeTextField.text = socialWorkData.requesttype
+        houseNoTextField.text = socialWorkData.addr1no
+        villageNoTextField.text = socialWorkData.addr1moo
+        streetTextField.text = socialWorkData.addr1soi
+        roadTextField.text = socialWorkData.addr1road
+        subDistrictTextField.text = socialWorkData.addr1tumbon
+        districtTextField.text = socialWorkData.addr1amphur
+        provinceTextField.text = socialWorkData.addr1province
+        postalCodeTextField.text = socialWorkData.addr1zip
         
-        houseNoTextField2.text = socialWorkData.requesttype
-        villageNoTextField2.text = socialWorkData.requesttype
-        streetTextField2.text = socialWorkData.requesttype
-        roadTextField2.text = socialWorkData.requesttype
-        subDistrictTextField2.text = socialWorkData.requesttype
-        districtTextField2.text = socialWorkData.requesttype
-        provinceTextField2.text = socialWorkData.requesttype
-        postalCodeTextField2.text = socialWorkData.requesttype
+        houseNoTextField2.text = socialWorkData.addr2no
+        villageNoTextField2.text = socialWorkData.addr2moo
+        streetTextField2.text = socialWorkData.addr2soi
+        roadTextField2.text = socialWorkData.addr2road
+        subDistrictTextField2.text = socialWorkData.addr2tumbon
+        districtTextField2.text = socialWorkData.addr2amphur
+        provinceTextField2.text = socialWorkData.addr2province
+        postalCodeTextField2.text = socialWorkData.addr2zip
         
-        phoneTextField.text = socialWorkData.requesttype
-        mobilePhoneTextField.text = socialWorkData.requesttype
-        faxTextField.text = socialWorkData.requesttype
-        emailTextField.text = socialWorkData.requesttype
+        phoneTextField.text = socialWorkData.addr2telephn
+        mobilePhoneTextField.text = socialWorkData.addr2mobile
+        faxTextField.text = socialWorkData.addr2fax
+        emailTextField.text = socialWorkData.addr2email
     }
     
     func getConfigDate(){

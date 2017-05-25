@@ -107,7 +107,6 @@ class PsychoServiceViewController: UIViewController,UITextFieldDelegate {
     var license_lastname:String = ""
     var license_cardstatus:String = ""
     var accountID:String = ""
-    
     @IBOutlet var resultHeight: NSLayoutConstraint!
     
     override func viewDidLoad() {
@@ -126,7 +125,7 @@ class PsychoServiceViewController: UIViewController,UITextFieldDelegate {
              accountID = "1"
              acctid = "1"
             
-            getLicenseDetail(accountIDs: accountID, touchDetail: false)
+            //getLicenseDetail(accountIDs: accountID, touchDetail: false)
             
             let gesture = UITapGestureRecognizer(target: self, action: #selector (self.licenseDatail(sender:)))
             idCardView.addGestureRecognizer(gesture)
@@ -157,20 +156,26 @@ class PsychoServiceViewController: UIViewController,UITextFieldDelegate {
                 self.setupView(type: self.TYPE_NOT_FOUND)
             }
             else{
-                //self.socialWorkData.getSocialWorkData(json: json)
-
+                let swiftyJson = JSON(json)
+                self.socialWorkData.setData(json: swiftyJson)
+                self.socialWorkData.setReadOnly(isReadOnly: false)
+                
                 if touchDetail {
                     self.performSegue(withIdentifier: self.LICENSE_DETAIL, sender: nil)
+                    self.socialWorkData.setReadOnly(isReadOnly: true)
                 }
                 
             }
         })
     }
+    @IBAction func addButton(_ sender: Any) {
+        self.socialWorkData.setReadOnly(isReadOnly: false)
+        self.performSegue(withIdentifier: self.LICENSE_DETAIL, sender: nil)
+    }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == LICENSE_DETAIL{
             let controller = segue.destination as! PsychoServiceCreateNew
-            controller.socialWorkData = socialWorkData
         }
     }
     

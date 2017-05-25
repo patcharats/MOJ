@@ -31,6 +31,7 @@ class ContactViewController: UIViewController,UITableViewDelegate, UITableViewDa
         tableView.dataSource = self
         tableView.backgroundColor = UIColor.clear
         
+
         
         network.get(name: network.API_DEPARTMENT, param: "", viewController: self, completionHandler: {
             (json:Any,Code:String,Message:String) in

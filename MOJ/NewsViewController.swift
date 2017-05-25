@@ -52,6 +52,8 @@ class NewsViewController: UIViewController,UITableViewDelegate, UITableViewDataS
     let KEY_NEWS_GROUP_OWNER = "newsowner"
     let KEY_NEWS_RECEIVE_STATUS = "recvstatus"
     
+   
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         

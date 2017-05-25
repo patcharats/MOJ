@@ -12,6 +12,8 @@ import SwiftyJSON
 class SocialWorkData: NSObject {
     
     var userdefault = UserDefaults.standard
+    let KEY_REQUEST = "requestData"
+    let KEY_READ_ONLY = "readonly"
     let KEY_REQUEST_DATA = "data"
     let KEY_REQUEST_ID = "requestid"
     let KEY_REQUEST_NO = "requestno"
@@ -174,10 +176,26 @@ class SocialWorkData: NSObject {
     
     var readOnly:Bool = false
     
-    func getSocialWorkData(json:Any){
-        let swiftyJson = JSON(json)
+    func setReadOnly(isReadOnly:Bool){
+        userdefault.set(isReadOnly, forKey: KEY_READ_ONLY)
+    }
+    
+    func isReadOnly()->Bool{
+        return userdefault.bool(forKey: KEY_READ_ONLY)
         
-        
+    }
+    
+    func setData(json:JSON){
+        userdefault.set(json.rawString(), forKey: KEY_REQUEST)
+        //userdefault.set(json, forKey:KEY_REQUEST)
+    }
+ 
+    public func getData() -> JSON {
+        return JSON.parse(userdefault.value(forKey:KEY_REQUEST) as! String)
+    }
+    
+    func getSocialWorkData(json:JSON){
+        let swiftyJson = json
         requestid =  swiftyJson[KEY_REQUEST_DATA][KEY_REQUEST_ID].stringValue
         requestno =  swiftyJson[KEY_REQUEST_DATA][KEY_REQUEST_NO].stringValue
         requestdate =  swiftyJson[KEY_REQUEST_DATA][KEY_REQUEST_DATE].stringValue

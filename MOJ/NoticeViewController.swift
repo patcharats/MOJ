@@ -33,7 +33,8 @@ class NoticeViewController: UIViewController,UITableViewDelegate, UITableViewDat
     let KEY_NEWS_TITLE = "newstitle"
     let KEY_NEWS_URL = "newsurl"
     let KEY_NEWS_LAST_UPDATE = "lastupd"
-    
+    let NoticeOnly = "/6"
+    let News = "?isNews=1"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,16 +46,14 @@ class NoticeViewController: UIViewController,UITableViewDelegate, UITableViewDat
         
         let accountID = accountData.getAccountID()
         
-        network.get(name: network.API_FEED, param:accountID+"/6", viewController: self, completionHandler: {
+        network.get(name: network.API_FEED, param:accountID+NoticeOnly+News, viewController: self, completionHandler: {
             (json:Any,Code:String,Message:String) in
             let jsonSwifty = JSON(json)
             self.lastupd = jsonSwifty[self.KEY_NEWS_DATA].arrayValue.map({$0[self.KEY_NEWS_LAST_UPDATE].stringValue})
             self.newsthumb = jsonSwifty[self.KEY_NEWS_DATA].arrayValue.map({$0[self.KEY_NEWS_THUMPNAIL].stringValue})
             self.newstitle = jsonSwifty[self.KEY_NEWS_DATA].arrayValue.map({$0[self.KEY_NEWS_TITLE].stringValue})
             self.newsurl = jsonSwifty[self.KEY_NEWS_DATA].arrayValue.map({$0[self.KEY_NEWS_URL].stringValue})
-            
-            
-            
+
             self.tableView.reloadData()
             
         })

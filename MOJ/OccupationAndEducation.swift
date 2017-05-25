@@ -41,6 +41,20 @@ class OccupationAndEducation:UITableViewController{
     override func awakeFromNib() {
         super.awakeFromNib()
         
+        
+        socialWorkData.getSocialWorkData(json: socialWorkData.getData())
+        let readOnly = socialWorkData.isReadOnly()
+        
+        if readOnly {
+            self.tableView.contentInset = UIEdgeInsetsMake(0, 0, 8, 0)
+            setEnabelTextfield(isEnable: false)
+            setValueTextfield()
+        }
+        else{
+            self.tableView.contentInset = UIEdgeInsetsMake(0, 0, 55, 0)
+            setEnabelTextfield(isEnable: true)
+        }
+        
         /*
         
         configData.getFieldStudyID()
@@ -58,7 +72,57 @@ class OccupationAndEducation:UITableViewController{
  */
         
         
-        self.tableView.contentInset = UIEdgeInsetsMake(0, 0, 55, 0)
+    }
+    
+    func setValueTextfield(){
+        occupationTexField.text = socialWorkData.occupation
+        otherTexField.text = socialWorkData.occother
+        governmentTexField.text = socialWorkData.occorgname
+        positionTexField.text = socialWorkData.occposition
+        levelTexField.text = socialWorkData.occlevel
+        houseNoTextField.text = socialWorkData.addrorgno
+        villageNoTextField.text = socialWorkData.addrorgmoo
+        streetTextField.text = socialWorkData.addrorgsoi
+        roadTextField.text = socialWorkData.addrorroad
+        subDistrictTextField.text = socialWorkData.addrortumbon
+        districtTextField.text = socialWorkData.addroramphur
+        provinceTextField.text = socialWorkData.addrorprovince
+        postalCodeTextField.text = socialWorkData.addrorzip
+        phoneTextField.text = socialWorkData.orgadphone
+        mobilePhoneTextField.text = socialWorkData.orgadmobile
+        faxTextField.text = socialWorkData.orgadfax
+        emailTextField.text = socialWorkData.orgadmobile
+        educationTextField.text = socialWorkData.degree
+        courseTextField.text = socialWorkData.major
+        fieldTextField.text = socialWorkData.requesttype
+        facultyTextField.text = socialWorkData.study
+        universityTextField.text = socialWorkData.institution
+        yearTextField.text = socialWorkData.graduateyear
+    }
+    func setEnabelTextfield(isEnable:Bool){
+        occupationTexField.isEnabled = isEnable
+        otherTexField.isEnabled = isEnable
+        governmentTexField.isEnabled = isEnable
+        positionTexField.isEnabled = isEnable
+        levelTexField.isEnabled = isEnable
+        houseNoTextField.isEnabled = isEnable
+        villageNoTextField.isEnabled = isEnable
+        streetTextField.isEnabled = isEnable
+        roadTextField.isEnabled = isEnable
+        subDistrictTextField.isEnabled = isEnable
+        districtTextField.isEnabled = isEnable
+        provinceTextField.isEnabled = isEnable
+        postalCodeTextField.isEnabled = isEnable
+        phoneTextField.isEnabled = isEnable
+        mobilePhoneTextField.isEnabled = isEnable
+        faxTextField.isEnabled = isEnable
+        emailTextField.isEnabled = isEnable
+        educationTextField.isEnabled = isEnable
+        courseTextField.isEnabled = isEnable
+        fieldTextField.isEnabled = isEnable
+        facultyTextField.isEnabled = isEnable
+        universityTextField.isEnabled = isEnable
+        yearTextField.isEnabled = isEnable
     }
     
 //    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
