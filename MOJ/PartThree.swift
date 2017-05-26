@@ -33,11 +33,37 @@ class PartThree:UITableViewController{
     @IBOutlet var province2TextField: UITextField!
     @IBOutlet var province3TextField: UITextField!
     
-    
+    let notificationName = Notification.Name("clearTextfieldRenew")
     override func awakeFromNib() {
         super.awakeFromNib()
         
         self.tableView.contentInset = UIEdgeInsetsMake(0, 0, 55, 0)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(PartThree.clearTextfield), name: notificationName, object: nil)
+
+    }
+    
+    func clearTextfield(){
+        occupationTexField.text = ""
+        otherTexField.text = ""
+        governmentTexField.text = ""
+        positionTexField.text = ""
+        levelTexField.text = ""
+        houseNoTextField.text = ""
+        villageNoTextField.text = ""
+        streetTextField.text = ""
+        roadTextField.text = ""
+        subDistrictTextField.text = ""
+        districtTextField.text = ""
+        provinceTextField.text = ""
+        postalCodeTextField.text = ""
+        phoneTextField.text = ""
+        mobilePhoneTextField.text = ""
+        faxTextField.text = ""
+        emailTextField.text = ""
+        province1TextField.text = ""
+        province2TextField.text = ""
+        province3TextField.text = ""
     }
     
     //    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

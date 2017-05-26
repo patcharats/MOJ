@@ -11,10 +11,11 @@ class FileEvidence:UITableViewController{
     var socialWorkData = SocialWorkData()
     override func awakeFromNib() {
         super.awakeFromNib()
-        socialWorkData.getSocialWorkData(json: socialWorkData.getData())
+        
         let readOnly = socialWorkData.isReadOnly()
         
         if readOnly {
+            socialWorkData.getSocialWorkData(json: socialWorkData.getData())
             self.tableView.contentInset = UIEdgeInsetsMake(0, 0, 8, 0)
         }
         else{

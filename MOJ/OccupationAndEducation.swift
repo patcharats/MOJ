@@ -37,15 +37,17 @@ class OccupationAndEducation:UITableViewController{
     @IBOutlet var facultyTextField: UITextField!
     @IBOutlet var universityTextField: UITextField!
     @IBOutlet var yearTextField: UITextField!
-    
+    let notificationName = Notification.Name("clearTextfieldCreate")
     override func awakeFromNib() {
         super.awakeFromNib()
         
         
-        socialWorkData.getSocialWorkData(json: socialWorkData.getData())
+        NotificationCenter.default.addObserver(self, selector: #selector(OccupationAndEducation.clearTextfield), name: notificationName, object: nil)
+        
         let readOnly = socialWorkData.isReadOnly()
         
         if readOnly {
+            socialWorkData.getSocialWorkData(json: socialWorkData.getData())
             self.tableView.contentInset = UIEdgeInsetsMake(0, 0, 8, 0)
             setEnabelTextfield(isEnable: false)
             setValueTextfield()
@@ -99,6 +101,32 @@ class OccupationAndEducation:UITableViewController{
         universityTextField.text = socialWorkData.institution
         yearTextField.text = socialWorkData.graduateyear
     }
+    func clearTextfield(){
+        occupationTexField.text = ""
+        otherTexField.text = ""
+        governmentTexField.text = ""
+        positionTexField.text = ""
+        levelTexField.text = ""
+        houseNoTextField.text = ""
+        villageNoTextField.text = ""
+        streetTextField.text = ""
+        roadTextField.text = ""
+        subDistrictTextField.text = ""
+        districtTextField.text = ""
+        provinceTextField.text = ""
+        postalCodeTextField.text = ""
+        phoneTextField.text = ""
+        mobilePhoneTextField.text = ""
+        faxTextField.text = ""
+        emailTextField.text = ""
+        educationTextField.text = ""
+        courseTextField.text = ""
+        fieldTextField.text = ""
+        facultyTextField.text = ""
+        universityTextField.text = ""
+        yearTextField.text = ""
+    }
+    
     func setEnabelTextfield(isEnable:Bool){
         occupationTexField.isEnabled = isEnable
         otherTexField.isEnabled = isEnable

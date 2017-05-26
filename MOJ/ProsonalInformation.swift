@@ -105,15 +105,17 @@ class ProsonalInformation:UITableViewController,UIPickerViewDelegate,UIPickerVie
     
     var zipcode:[String] = []
 
-    
+    let notificationName = Notification.Name("clearTextfieldCreate")
     override func awakeFromNib() {
         super.awakeFromNib()
         
-
-        socialWorkData.getSocialWorkData(json: socialWorkData.getData())
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(ProsonalInformation.clearTextfield), name: notificationName, object: nil)
+        
         let readOnly = socialWorkData.isReadOnly()
         
         if readOnly {
+            socialWorkData.getSocialWorkData(json: socialWorkData.getData())
             self.tableView.contentInset = UIEdgeInsetsMake(0, 0, 8, 0)
             setEnabelTextfield(isEnable: false)
             setValueTextfield()
@@ -168,6 +170,47 @@ class ProsonalInformation:UITableViewController,UIPickerViewDelegate,UIPickerVie
         faxTextField.text = socialWorkData.addr2fax
         emailTextField.text = socialWorkData.addr2email
     }
+    
+    func clearTextfield(){
+        
+        IDTypeTextField.text = ""
+        IDNumberTextField.text = ""
+        IDExpireTextField.text = ""
+        IDDateTextField.text = ""
+        IDByTextField.text = ""
+        
+        titleNameTextField.text = ""
+        firstNameTextField.text = ""
+        lastNameTextField.text = ""
+        birthdateTextField.text = ""
+        maritalStatusTextField.text = ""
+        religionTextField.text = ""
+        nationalityTextField.text = ""
+        
+        houseNoTextField.text = ""
+        villageNoTextField.text = ""
+        streetTextField.text = ""
+        roadTextField.text = ""
+        subDistrictTextField.text = ""
+        districtTextField.text = ""
+        provinceTextField.text = ""
+        postalCodeTextField.text = ""
+        
+        houseNoTextField2.text = ""
+        villageNoTextField2.text = ""
+        streetTextField2.text = ""
+        roadTextField2.text = ""
+        subDistrictTextField2.text = ""
+        districtTextField2.text = ""
+        provinceTextField2.text = ""
+        postalCodeTextField2.text = ""
+        
+        phoneTextField.text = ""
+        mobilePhoneTextField.text = ""
+        faxTextField.text = ""
+        emailTextField.text = ""
+    }
+    
     
     func getConfigDate(){
         provinceID = configData.getProvinceID()

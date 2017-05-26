@@ -44,6 +44,8 @@ class ComplainViewController: UIViewController,UITableViewDelegate, UITableViewD
     let COMPLAIN_REGISTER = "ComplainRegister"
     let COMPLAIN_CREATE = "ComplainCreate"
     
+    let LOGIN_VIEW_CONTROLLER = "LoginViewController"
+    
     @IBOutlet var menuButton: UIBarButtonItem!
     @IBOutlet var tableView: UITableView!
     override func viewDidLoad() {
@@ -66,7 +68,7 @@ class ComplainViewController: UIViewController,UITableViewDelegate, UITableViewD
             alertView.alertWithAction(title:"", message: self.alertView.ALERT_LOGIN, buttonTitle: self.alertView.ALERT_OK, controller: self, completionHandler: {
                 (button : Bool) in
                 if button {
-                    self.alertView.setMainViewController()
+                    self.performSegue(withIdentifier: self.LOGIN_VIEW_CONTROLLER, sender: self)
                 }
             });
             addButton.image = UIImage(named:"")
@@ -76,7 +78,7 @@ class ComplainViewController: UIViewController,UITableViewDelegate, UITableViewD
         
         
         let accountID = accountData.getAccountID()
-        var param = accountID
+        let param = accountID
         network.get(name: network.API_COMPLAINTS, param: param, viewController: self, completionHandler: {
             (json:Any,Code:String,Message:String) in
             let jsonSwifty = JSON(json)
@@ -104,7 +106,16 @@ class ComplainViewController: UIViewController,UITableViewDelegate, UITableViewD
 
     @IBAction func addButton(_ sender: Any) {
         if accountData.getComplaintStatus() {
-            self.performSegue(withIdentifier: self.COMPLAIN_CREATE, sender: self)
+            network.getWithToken(name: network.API_VERIFY_ID_STATUS, param: "", viewController: self, completionHandler: {
+                (json:Any,Code:String,Message:String) in
+                print(Message)
+                if(Code == "00000"){
+                    self.performSegue(withIdentifier: self.COMPLAIN_CREATE, sender: self)
+                }
+                else{
+                    self.performSegue(withIdentifier: self.COMPLAIN_REGISTER, sender: self)
+                }
+            })
         }
         else{
             self.performSegue(withIdentifier: self.COMPLAIN_REGISTER, sender: self)
@@ -145,6 +156,11 @@ class ComplainViewController: UIViewController,UITableViewDelegate, UITableViewD
             let controller = segue.destination as! ComplainDetail
             controller.selectComplaintID = selectComplaintID
             
+        }
+        else if segue.identifier == LOGIN_VIEW_CONTROLLER{
+            let navController = segue.destination as! UINavigationController
+            let controller = navController.topViewController as! LoginViewController
+            controller.isClose = true
         }
     }
     

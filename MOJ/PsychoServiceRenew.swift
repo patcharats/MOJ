@@ -18,7 +18,7 @@ class PsychoServiceRenew: UIViewController {
     @IBOutlet var titleHeight: NSLayoutConstraint!
     @IBOutlet var titleLabelHeight: NSLayoutConstraint!
     let titles = ["ชื่อและข้อมูลทะเบียน","ข้อมูลส่วนตัว","ข้อมูลการทำงาน","ข้อมูลการปฎิบัติหน้าที่เป็นผู้ทำหน้าที่\nนักจิตวิทยาหรือนักสังคมสงเคราะห์"]
-    
+    let notificationName = Notification.Name("clearTextfieldRenew")
     var tutorialPageViewController: TutorialPageViewController? {
         didSet {
             tutorialPageViewController?.tutorialDelegate = self
@@ -37,6 +37,8 @@ class PsychoServiceRenew: UIViewController {
     }
     @IBAction func clearTextfield(_ sender: Any) {
         print("clear")
+        NotificationCenter.default.post(name: notificationName, object: nil)
+        
     }
     
     @IBAction func backButton(_ sender: Any) {
@@ -45,6 +47,7 @@ class PsychoServiceRenew: UIViewController {
 
     @IBAction func renewButton(_ sender: Any) {
         print("renew")
+        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

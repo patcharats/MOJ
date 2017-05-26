@@ -475,7 +475,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="GD6-zA-Cvv" kind="custom" customClass="SWRevealViewControllerSeguePushController" id="HCa-9N-ZZT"/>
+                                            <segue destination="GD6-zA-Cvv" kind="custom" identifier="" customClass="SWRevealViewControllerSeguePushController" id="HCa-9N-ZZT"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="40" id="3UO-bB-SI3">
@@ -721,7 +721,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="orm-5e-rbC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1282.4000000000001" y="-1580.0599700149926"/>
+            <point key="canvasLocation" x="-1281" y="-1580"/>
         </scene>
         <!--ร้องเรียน-->
         <scene sceneID="bc1-qD-mSH">
@@ -886,6 +886,7 @@
                         <segue destination="IRa-mH-x2g" kind="show" identifier="ComplainDetail" id="dMT-84-VjK"/>
                         <segue destination="xRi-D0-Uro" kind="show" identifier="ComplainCreate" id="v5M-Zw-bVi"/>
                         <segue destination="ZTa-Qd-frh" kind="show" identifier="ComplainRegister" id="P41-1g-4o8"/>
+                        <segue destination="0Ms-ME-AoG" kind="show" identifier="LoginViewController" id="M01-xy-C6T"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hlX-Nu-gOy" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1179,21 +1180,25 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ejq-DT-bl2" customClass="SearchView" customModule="MOJ" customModuleProvider="target">
                                 <rect key="frame" x="8" y="72" width="359" height="42"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ic_search" translatesAutoresizingMaskIntoConstraints="NO" id="Mfz-ta-ejB">
-                                        <rect key="frame" x="8" y="6" width="30" height="30"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_search" translatesAutoresizingMaskIntoConstraints="NO" id="Mfz-ta-ejB">
+                                        <rect key="frame" x="8" y="6" width="46" height="30"/>
                                     </imageView>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="ค้นหา" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KHS-m2-euZ">
-                                        <rect key="frame" x="46" y="6" width="305" height="30"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <nil key="textColor"/>
-                                        <fontDescription key="fontDescription" name="Quark-Bold" family="Quark" pointSize="18"/>
+                                    <searchBar contentMode="redraw" placeholder="ค้นหา                                                                        " translatesAutoresizingMaskIntoConstraints="NO" id="N7p-oB-7Ve">
+                                        <rect key="frame" x="54" y="-1" width="305" height="44"/>
+                                        <color key="barTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <textInputTraits key="textInputTraits"/>
-                                    </textField>
+                                    </searchBar>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
+                                    <constraint firstItem="Mfz-ta-ejB" firstAttribute="leading" secondItem="ejq-DT-bl2" secondAttribute="leading" constant="8" id="4um-Li-8yp"/>
+                                    <constraint firstAttribute="trailing" secondItem="N7p-oB-7Ve" secondAttribute="trailing" id="6VX-IB-Lrr"/>
                                     <constraint firstAttribute="height" constant="42" id="JyW-cL-R46"/>
+                                    <constraint firstItem="N7p-oB-7Ve" firstAttribute="top" secondItem="ejq-DT-bl2" secondAttribute="top" constant="-1" id="UwO-56-eZf"/>
+                                    <constraint firstAttribute="bottom" secondItem="N7p-oB-7Ve" secondAttribute="bottom" constant="-1" id="X8B-An-f0S"/>
+                                    <constraint firstItem="N7p-oB-7Ve" firstAttribute="leading" secondItem="Mfz-ta-ejB" secondAttribute="trailing" id="gwD-s3-yxB"/>
+                                    <constraint firstItem="Mfz-ta-ejB" firstAttribute="top" secondItem="ejq-DT-bl2" secondAttribute="top" constant="6" id="j0h-we-Xdf"/>
+                                    <constraint firstAttribute="bottom" secondItem="Mfz-ta-ejB" secondAttribute="bottom" constant="6" id="pRN-5r-o5w"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -1213,6 +1218,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="menuButton" destination="NTU-Rj-0ug" id="Btq-d2-O6N"/>
+                        <outlet property="searchbar" destination="N7p-oB-7Ve" id="9tk-Ao-Oac"/>
                         <outlet property="tableView" destination="vY4-14-JOb" id="7Mh-eW-sER"/>
                     </connections>
                 </viewController>
@@ -2266,6 +2272,7 @@
                         <outlet property="statusLabel" destination="Sph-uz-WwR" id="Z8N-K0-Iyq"/>
                         <segue destination="lDA-f4-djg" kind="show" identifier="LicenseDetail" id="nhz-al-TgR"/>
                         <segue destination="MmR-OL-2Gq" kind="show" id="EfT-7n-m1n"/>
+                        <segue destination="0Ms-ME-AoG" kind="show" identifier="LoginViewController" id="2LW-wc-09o"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rjc-7g-T8v" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -2376,6 +2383,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="clearBarButton" destination="kh1-wO-jAl" id="Clm-Ox-HmL"/>
                         <outlet property="confirmView" destination="miS-RF-5Ym" id="6AH-Dn-acQ"/>
                         <outlet property="containerView" destination="SKN-XU-aSI" id="vmd-AG-HD5"/>
                         <outlet property="pageControl" destination="8Fx-lG-Vdy" id="fmm-Jf-Fve"/>
@@ -2997,21 +3005,25 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dFp-pO-fxI" customClass="SearchView" customModule="MOJ" customModuleProvider="target">
                                 <rect key="frame" x="8" y="72" width="359" height="42"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ic_search" translatesAutoresizingMaskIntoConstraints="NO" id="yN2-LS-usU">
-                                        <rect key="frame" x="8" y="6" width="30" height="30"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_search" translatesAutoresizingMaskIntoConstraints="NO" id="yN2-LS-usU">
+                                        <rect key="frame" x="8" y="6" width="46" height="30"/>
                                     </imageView>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="ค้นหาชื่อหน่วยงาน" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="RpX-rt-zwR">
-                                        <rect key="frame" x="46" y="6" width="305" height="30"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <nil key="textColor"/>
-                                        <fontDescription key="fontDescription" name="Quark-Bold" family="Quark" pointSize="18"/>
+                                    <searchBar contentMode="redraw" placeholder="ค้นหา                                                                        " translatesAutoresizingMaskIntoConstraints="NO" id="Bib-a1-yDa">
+                                        <rect key="frame" x="54" y="-1" width="305" height="44"/>
+                                        <color key="barTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <textInputTraits key="textInputTraits"/>
-                                    </textField>
+                                    </searchBar>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
+                                    <constraint firstItem="yN2-LS-usU" firstAttribute="top" secondItem="dFp-pO-fxI" secondAttribute="top" constant="6" id="5Cc-Qw-IPL"/>
+                                    <constraint firstAttribute="bottom" secondItem="Bib-a1-yDa" secondAttribute="bottom" constant="-1" id="9uJ-Tj-oTU"/>
                                     <constraint firstAttribute="height" constant="42" id="BXg-y6-G0n"/>
+                                    <constraint firstItem="yN2-LS-usU" firstAttribute="leading" secondItem="dFp-pO-fxI" secondAttribute="leading" constant="8" id="CSz-Oj-LM3"/>
+                                    <constraint firstAttribute="bottom" secondItem="yN2-LS-usU" secondAttribute="bottom" constant="6" id="R8S-GW-C4I"/>
+                                    <constraint firstAttribute="trailing" secondItem="Bib-a1-yDa" secondAttribute="trailing" id="Ydo-eT-oHQ"/>
+                                    <constraint firstItem="Bib-a1-yDa" firstAttribute="leading" secondItem="yN2-LS-usU" secondAttribute="trailing" id="iA0-fY-hJV"/>
+                                    <constraint firstItem="Bib-a1-yDa" firstAttribute="top" secondItem="dFp-pO-fxI" secondAttribute="top" constant="-1" id="tvy-0D-45m"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -3031,6 +3043,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="menuButton" destination="c5S-hX-3os" id="zsI-g6-Jea"/>
+                        <outlet property="searchbar" destination="Bib-a1-yDa" id="vZz-gt-Vvm"/>
                         <outlet property="tableView" destination="OTY-4c-e0L" id="pCM-M0-wDD"/>
                         <segue destination="6wz-gw-gqp" kind="show" identifier="ContactDetailViewController" id="9b6-3r-AuU"/>
                     </connections>
@@ -3054,9 +3067,11 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lOX-IF-fmu">
                                 <rect key="frame" x="0.0" y="64" width="375" height="40"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="กรมพินิจคุ้มครองเด็กและเยาวชน" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="spZ-Jy-KfG">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="กรมพินิจคุ้มครองเด็กและเยาวชน" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="spZ-Jy-KfG">
                                         <rect key="frame" x="8" y="10" width="359" height="21"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="21" id="ycQ-LQ-9O2"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" name="Quark-Bold" family="Quark" pointSize="18"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
@@ -3064,27 +3079,35 @@
                                 </subviews>
                                 <color key="backgroundColor" red="0.34177107563988351" green="0.41607327046312792" blue="0.4936699905068741" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
+                                    <constraint firstItem="spZ-Jy-KfG" firstAttribute="centerX" secondItem="lOX-IF-fmu" secondAttribute="centerX" id="5EN-bt-sE9"/>
                                     <constraint firstAttribute="height" constant="40" id="RHk-cd-Rzv"/>
+                                    <constraint firstItem="spZ-Jy-KfG" firstAttribute="leading" secondItem="lOX-IF-fmu" secondAttribute="leading" constant="8" id="UdA-Jk-Y2o"/>
+                                    <constraint firstItem="spZ-Jy-KfG" firstAttribute="centerY" secondItem="lOX-IF-fmu" secondAttribute="centerY" id="hr8-Ul-DIg"/>
+                                    <constraint firstAttribute="trailing" secondItem="spZ-Jy-KfG" secondAttribute="trailing" constant="8" id="zlr-yh-xoZ"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QY7-Ne-0GZ" customClass="SearchView" customModule="MOJ" customModuleProvider="target">
                                 <rect key="frame" x="8" y="112" width="359" height="42"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ic_search" translatesAutoresizingMaskIntoConstraints="NO" id="8Ee-M8-EOM">
-                                        <rect key="frame" x="8" y="6" width="30" height="30"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_search" translatesAutoresizingMaskIntoConstraints="NO" id="8Ee-M8-EOM">
+                                        <rect key="frame" x="8" y="6" width="46" height="30"/>
                                     </imageView>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="ค้นหาชื่อหน่วยงาน" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WcP-p7-gCb">
-                                        <rect key="frame" x="46" y="6" width="305" height="30"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <nil key="textColor"/>
-                                        <fontDescription key="fontDescription" name="Quark-Bold" family="Quark" pointSize="20"/>
+                                    <searchBar contentMode="redraw" placeholder="ค้นหา                                                                        " translatesAutoresizingMaskIntoConstraints="NO" id="RHc-RI-uaE">
+                                        <rect key="frame" x="54" y="-1" width="305" height="44"/>
+                                        <color key="barTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <textInputTraits key="textInputTraits"/>
-                                    </textField>
+                                    </searchBar>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
+                                    <constraint firstItem="8Ee-M8-EOM" firstAttribute="leading" secondItem="QY7-Ne-0GZ" secondAttribute="leading" constant="8" id="4WR-tE-4SA"/>
+                                    <constraint firstItem="RHc-RI-uaE" firstAttribute="leading" secondItem="8Ee-M8-EOM" secondAttribute="trailing" id="LNv-Av-Efq"/>
+                                    <constraint firstAttribute="trailing" secondItem="RHc-RI-uaE" secondAttribute="trailing" id="LOo-j2-J15"/>
                                     <constraint firstAttribute="height" constant="42" id="UWh-t9-8LJ"/>
+                                    <constraint firstItem="8Ee-M8-EOM" firstAttribute="top" secondItem="QY7-Ne-0GZ" secondAttribute="top" constant="6" id="cKJ-lc-5tg"/>
+                                    <constraint firstAttribute="bottom" secondItem="RHc-RI-uaE" secondAttribute="bottom" constant="-1" id="gsH-GE-IEi"/>
+                                    <constraint firstAttribute="bottom" secondItem="8Ee-M8-EOM" secondAttribute="bottom" constant="6" id="kJK-2I-3d5"/>
+                                    <constraint firstItem="RHc-RI-uaE" firstAttribute="top" secondItem="QY7-Ne-0GZ" secondAttribute="top" constant="-1" id="mKv-IL-Hre"/>
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="191" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="o3U-VG-wPg">
@@ -3113,11 +3136,11 @@
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="WiG-IW-WES">
-                                                            <rect key="frame" x="8" y="32" width="327" height="65"/>
+                                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WiG-IW-WES">
+                                                            <rect key="frame" x="8" y="32" width="327" height="99"/>
                                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                             <constraints>
-                                                                <constraint firstAttribute="height" constant="65" id="UEc-P2-UXk"/>
+                                                                <constraint firstAttribute="height" constant="99" id="UEc-P2-UXk"/>
                                                             </constraints>
                                                             <string key="text">ที่อยู่ : เลขที่ 100 หมู่ 4 ถนนสุขุมวิท ซอยเทศบาลบางปู 119       ตำบล บางปลา อำเภอบางพลี จังหวัดสมุทรปราการ 10540
 โทรศัพท์ : 02-174-4033</string>
@@ -3146,11 +3169,11 @@
                                                         <constraint firstItem="WiG-IW-WES" firstAttribute="leading" secondItem="Xjr-Bc-IAA" secondAttribute="leading" constant="8" id="xjp-xN-k4c"/>
                                                     </constraints>
                                                 </view>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" สำนักงานส่วนกลาง 1 แห่ง" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cxP-GM-EX0">
-                                                    <rect key="frame" x="8" y="8" width="171" height="35"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" สำนักงานส่วนกลาง 1 แห่ง" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cxP-GM-EX0">
+                                                    <rect key="frame" x="8" y="8" width="199" height="35"/>
                                                     <color key="backgroundColor" red="0.1070509478" green="0.17519700530000001" blue="0.24585911630000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="171" id="aav-az-eBq"/>
+                                                        <constraint firstAttribute="width" constant="199" id="aav-az-eBq"/>
                                                         <constraint firstAttribute="height" constant="35" id="ehy-NM-q2Z"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" name="Quark-Bold" family="Quark" pointSize="18"/>
@@ -3161,7 +3184,7 @@
                                             <constraints>
                                                 <constraint firstItem="Xjr-Bc-IAA" firstAttribute="leading" secondItem="Vwv-q7-pam" secondAttribute="leadingMargin" id="KH6-Zh-eFk"/>
                                                 <constraint firstItem="Xjr-Bc-IAA" firstAttribute="trailing" secondItem="Vwv-q7-pam" secondAttribute="trailingMargin" id="cUG-yr-NNd"/>
-                                                <constraint firstItem="Xjr-Bc-IAA" firstAttribute="top" secondItem="cxP-GM-EX0" secondAttribute="bottom" constant="4" id="egO-qM-x7p"/>
+                                                <constraint firstItem="Xjr-Bc-IAA" firstAttribute="top" secondItem="Vwv-q7-pam" secondAttribute="topMargin" constant="39" id="kVa-o0-kBf"/>
                                                 <constraint firstItem="cxP-GM-EX0" firstAttribute="top" secondItem="Vwv-q7-pam" secondAttribute="topMargin" id="lUO-9W-2b9"/>
                                                 <constraint firstItem="cxP-GM-EX0" firstAttribute="leading" secondItem="Vwv-q7-pam" secondAttribute="leadingMargin" id="xRo-or-al9"/>
                                             </constraints>
@@ -3172,6 +3195,7 @@
                                             <outlet property="mapButton" destination="hEj-pj-6QH" id="RGU-8k-0N2"/>
                                             <outlet property="titleLabel" destination="naf-vL-KkW" id="kn8-oN-lb2"/>
                                             <outlet property="view" destination="Xjr-Bc-IAA" id="ynH-mP-rIZ"/>
+                                            <outlet property="viewTopConstraint" destination="kVa-o0-kBf" id="Tl3-hg-1gK"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -3199,6 +3223,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="searchbar" destination="RHc-RI-uaE" id="SUf-cd-wiW"/>
                         <outlet property="tableView" destination="o3U-VG-wPg" id="pHw-CI-jRL"/>
                         <outlet property="titleLabel" destination="spZ-Jy-KfG" id="Nco-4w-aF5"/>
                     </connections>
@@ -3345,11 +3370,11 @@
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstItem="NXg-ii-ryz" firstAttribute="leading" secondItem="GXD-XB-3Ih" secondAttribute="leading" constant="8" id="5BP-Bm-LVZ"/>
+                                    <constraint firstItem="NXg-ii-ryz" firstAttribute="leading" secondItem="GXD-XB-3Ih" secondAttribute="leading" constant="8" id="1WU-DK-ASV"/>
                                     <constraint firstAttribute="bottom" secondItem="lWJ-af-3qA" secondAttribute="bottom" constant="-1" id="EZW-rh-FBr"/>
-                                    <constraint firstItem="NXg-ii-ryz" firstAttribute="top" secondItem="GXD-XB-3Ih" secondAttribute="top" constant="6" id="NBZ-Cm-e5R"/>
                                     <constraint firstItem="lWJ-af-3qA" firstAttribute="leading" secondItem="NXg-ii-ryz" secondAttribute="trailing" id="TZy-df-F7s"/>
                                     <constraint firstAttribute="bottom" secondItem="NXg-ii-ryz" secondAttribute="bottom" constant="6" id="VFI-7p-h4I"/>
+                                    <constraint firstItem="NXg-ii-ryz" firstAttribute="top" secondItem="GXD-XB-3Ih" secondAttribute="top" constant="6" id="gfE-Rw-aHE"/>
                                     <constraint firstAttribute="height" constant="42" id="kQd-Mq-Ayq"/>
                                     <constraint firstItem="lWJ-af-3qA" firstAttribute="top" secondItem="GXD-XB-3Ih" secondAttribute="top" constant="-1" id="xbW-Ch-iSU"/>
                                     <constraint firstAttribute="trailing" secondItem="lWJ-af-3qA" secondAttribute="trailing" id="zzF-CE-A0u"/>
@@ -3503,7 +3528,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NPs-bw-1oS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3129" y="-2337"/>
+            <point key="canvasLocation" x="-3130" y="-2337"/>
         </scene>
         <!--แก้ไขข้อมูลส่วนตัว-->
         <scene sceneID="cyN-pk-WuE">
@@ -8545,12 +8570,13 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="uGj-C4-SvP"/>
-        <segue reference="PxF-VT-NSG"/>
-        <segue reference="sQY-XM-9dn"/>
+        <segue reference="PhN-F7-pql"/>
+        <segue reference="P41-1g-4o8"/>
+        <segue reference="v5M-Zw-bVi"/>
         <segue reference="kRs-M2-pUb"/>
+        <segue reference="2LW-wc-09o"/>
         <segue reference="ptT-F0-Ylj"/>
-        <segue reference="MZA-t7-yPo"/>
-        <segue reference="GZN-85-90m"/>
         <segue reference="vjE-yf-aCp"/>
+        <segue reference="ich-8c-23n"/>
     </inferredMetricsTieBreakers>
 </document>

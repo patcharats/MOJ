@@ -21,13 +21,17 @@ class OtherDetail:UITableViewController{
     @IBOutlet var province1TextField: UITextField!
     @IBOutlet var province2TextField: UITextField!
     @IBOutlet var province3TextField: UITextField!
+    let notificationName = Notification.Name("clearTextfieldCreate")
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        socialWorkData.getSocialWorkData(json: socialWorkData.getData())
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(OtherDetail.clearTextfield), name: notificationName, object: nil)
+        
         let readOnly = socialWorkData.isReadOnly()
         
         if readOnly {
+            socialWorkData.getSocialWorkData(json: socialWorkData.getData())
             self.tableView.contentInset = UIEdgeInsetsMake(0, 0, 8, 0)
             setEnabelTextfield(isEnable: false)
             setValueTextfield()
@@ -36,6 +40,19 @@ class OtherDetail:UITableViewController{
             self.tableView.contentInset = UIEdgeInsetsMake(0, 0, 55, 0)
             setEnabelTextfield(isEnable: true)
         }
+    }
+    
+    func clearTextfield(){
+        trainingTextField.text = ""
+        trainingByTextField.text = ""
+        trainingDateTextField.text = ""
+        lastExperienceTextField.text = ""
+        experienceStartTextField.text = ""
+        experienceEndField.text = ""
+        detailExperienceTextField.text = ""
+        province1TextField.text = ""
+        province2TextField.text = ""
+        province3TextField.text = ""
     }
     func setValueTextfield(){
         trainingTextField.text = socialWorkData.training

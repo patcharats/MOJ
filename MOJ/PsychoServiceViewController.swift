@@ -107,6 +107,8 @@ class PsychoServiceViewController: UIViewController,UITextFieldDelegate {
     var license_lastname:String = ""
     var license_cardstatus:String = ""
     var accountID:String = ""
+    
+     let LOGIN_VIEW_CONTROLLER = "LoginViewController"
     @IBOutlet var resultHeight: NSLayoutConstraint!
     
     override func viewDidLoad() {
@@ -138,7 +140,9 @@ class PsychoServiceViewController: UIViewController,UITextFieldDelegate {
             alertView.alertWithAction(title:"", message: self.alertView.ALERT_LOGIN, buttonTitle: self.alertView.ALERT_OK, controller: self, completionHandler: {
                 (button : Bool) in
                 if button {
-                    self.alertView.setMainViewController()
+                    //self.alertView.setMainViewController()
+                   
+                    self.performSegue(withIdentifier: self.LOGIN_VIEW_CONTROLLER, sender: self)
                 }
             });
         }
@@ -177,8 +181,13 @@ class PsychoServiceViewController: UIViewController,UITextFieldDelegate {
         if segue.identifier == LICENSE_DETAIL{
             let controller = segue.destination as! PsychoServiceCreateNew
         }
+        else if segue.identifier == LOGIN_VIEW_CONTROLLER{
+            let navController = segue.destination as! UINavigationController
+            let controller = navController.topViewController as! LoginViewController
+            controller.isClose = true
+        }
     }
-    
+
     func licenseDatail(sender:UITapGestureRecognizer){
         if !acctid.isEmpty || acctid != accountID {
             getLicenseDetail(accountIDs: acctid, touchDetail: true)

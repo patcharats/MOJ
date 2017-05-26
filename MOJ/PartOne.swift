@@ -14,10 +14,21 @@ class PartOne:UITableViewController{
     @IBOutlet var registrationNumberTextField: UITextField!
     @IBOutlet var lastNameTextField: UITextField!
     @IBOutlet var firstNameTextField: UITextField!
+    let notificationName = Notification.Name("clearTextfieldRenew")
     override func awakeFromNib() {
         super.awakeFromNib()
         
         self.tableView.contentInset = UIEdgeInsetsMake(0, 0, 55, 0)
+        NotificationCenter.default.addObserver(self, selector: #selector(PartOne.clearTextfield), name: notificationName, object: nil)
+
+    }
+    
+    func clearTextfield(){
+        registrationExpireTextField.text = ""
+        registrationDateTextField.text = ""
+        registrationNumberTextField.text = ""
+        lastNameTextField.text = ""
+        firstNameTextField.text = ""
     }
     
     //    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

@@ -16,7 +16,12 @@ class PsychoServiceCreateNew: UIViewController {
     @IBOutlet weak var confirmView: UIView!
     var socialWorkData = SocialWorkData()
     var param = PsychoParameter()
+    let notificationName = Notification.Name("clearTextfieldCreate")
     let titles = ["ข้อมูลส่วนตัว","อาชีพและการศึกษา","ข้อมูลอื่นๆ","หลักฐาน"]
+    
+    
+    @IBOutlet weak var clearBarButton: UIBarButtonItem!
+    
     var tutorialPageViewController: TutorialPageViewController? {
         didSet {
             tutorialPageViewController?.tutorialDelegate = self
@@ -29,9 +34,13 @@ class PsychoServiceCreateNew: UIViewController {
         let readOnly = socialWorkData.isReadOnly()
         
         if readOnly {
+            clearBarButton.title = ""
+            clearBarButton.isEnabled = false
             confirmView.isHidden = true
         }
         else{
+            clearBarButton.title = "ล้าง"
+            clearBarButton.isEnabled = true
             confirmView.isHidden = false
         }
         
@@ -45,6 +54,7 @@ class PsychoServiceCreateNew: UIViewController {
     
     @IBAction func clearTextfield(_ sender: Any) {
         print("clear")
+        NotificationCenter.default.post(name: notificationName, object: nil)
     }
     @IBAction func backButton(_ sender: Any) {
         _ = navigationController?.popViewController(animated: true)

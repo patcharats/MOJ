@@ -20,10 +20,16 @@ class MenuTableViewController: UITableViewController {
     @IBOutlet var editProfile: UIButton!
     @IBOutlet var nameLabel: UILabel!
     @IBOutlet var psychoLabel: UILabel!
+    let notificationName = Notification.Name("UpdateProfile")
     override func viewDidLoad() {
         super.viewDidLoad()
         design.roundView(view: loginButton, radius: 5)
         
+        NotificationCenter.default.addObserver(self, selector: #selector(MenuTableViewController.UpdateProfile), name: notificationName, object: nil)
+        UpdateProfile()
+    }
+
+    func UpdateProfile(){
         if account.isLogin() {
             logoImageView.image = UIImage(named: "image_profile")
             nameLabel.text = account.getAccountFirstName()+" "+account.getAccountLastName()
@@ -38,8 +44,6 @@ class MenuTableViewController: UITableViewController {
             loginButton.setTitle("เข้าสู่ระบบ", for: UIControlState.normal)
         }
     }
-
-
 
 
 
@@ -63,14 +67,6 @@ class MenuTableViewController: UITableViewController {
         else{
             self.alertView.setMainViewController()
         }
-
-        
-        
-        
-
-        
-        
-
     }
     
     

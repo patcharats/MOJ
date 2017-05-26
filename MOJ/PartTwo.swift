@@ -47,10 +47,48 @@ class PartTwo:UITableViewController{
     @IBOutlet var mobilePhoneTextField: UITextField!
     @IBOutlet var faxTextField: UITextField!
     @IBOutlet var emailTextField: UITextField!
-    
+    let notificationName = Notification.Name("clearTextfieldRenew")
     override func awakeFromNib() {
         super.awakeFromNib()
         self.tableView.contentInset = UIEdgeInsetsMake(0, 0, 55, 0)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(PartTwo.clearTextfield), name: notificationName, object: nil)
+
+    }
+    
+    func clearTextfield(){
+        IDTypeTextField.text = ""
+        IDNumberTextField.text = ""
+        IDExpireTextField.text = ""
+        IDDateTextField.text = ""
+        IDByTextField.text = ""
+        titleNameTextField.text = ""
+        firstNameTextField.text = ""
+        lastNameTextField.text = ""
+        birthdateTextField.text = ""
+        maritalStatusTextField.text = ""
+        religionTextField.text = ""
+        nationalityTextField.text = ""
+        houseNoTextField.text = ""
+        villageNoTextField.text = ""
+        streetTextField.text = ""
+        roadTextField.text = ""
+        subDistrictTextField.text = ""
+        districtTextField.text = ""
+        provinceTextField.text = ""
+        postalCodeTextField.text = ""
+        houseNoTextField2.text = ""
+        villageNoTextField2.text = ""
+        streetTextField2.text = ""
+        roadTextField2.text = ""
+        subDistrictTextField2.text = ""
+        districtTextField2.text = ""
+        provinceTextField2.text = ""
+        postalCodeTextField2.text = ""
+        phoneTextField.text = ""
+        mobilePhoneTextField.text = ""
+        faxTextField.text = ""
+        emailTextField.text = ""
     }
     
     //    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

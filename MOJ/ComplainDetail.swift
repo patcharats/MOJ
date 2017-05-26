@@ -123,7 +123,17 @@ UICollectionViewDelegateFlowLayout, UICollectionViewDelegate{
     
     @IBAction func addButton(_ sender: Any) {
         if accountData.getComplaintStatus() {
-            self.performSegue(withIdentifier: self.COMPLAIN_CREATE, sender: self)
+            network.getWithToken(name: network.API_VERIFY_ID_STATUS, param: "", viewController: self, completionHandler: {
+                (json:Any,Code:String,Message:String) in
+                
+                
+                if(Code == "00000"){
+                    self.performSegue(withIdentifier: self.COMPLAIN_CREATE, sender: self)
+                }
+                else{
+                    self.performSegue(withIdentifier: self.COMPLAIN_REGISTER, sender: self)
+                }
+            })
         }
         else{
             self.performSegue(withIdentifier: self.COMPLAIN_REGISTER, sender: self)

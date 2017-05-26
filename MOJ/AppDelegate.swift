@@ -34,7 +34,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             NSForegroundColorAttributeName : UIColor.black,
             NSFontAttributeName : UIFont(name: "Quark-Bold", size: 17)
         ]
-
+        UIBarButtonItem.appearance(whenContainedInInstancesOf:[UISearchBar.self]).tintColor = UIColor.blue
         UITextField.appearance(whenContainedInInstancesOf: [UISearchBar.self]).leftView = nil
         UITextField.appearance(whenContainedInInstancesOf: [UISearchBar.self]).font = UIFont(name: "Quark-Bold", size: 17 )
         UISearchBar.appearance().searchTextPositionAdjustment = UIOffsetMake(10, 0)

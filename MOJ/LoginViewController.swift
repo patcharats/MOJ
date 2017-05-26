@@ -11,7 +11,7 @@ import UIKit
 import FBSDKLoginKit
 
 class LoginViewController: UIViewController {
-    
+    let notificationName = Notification.Name("UpdateProfile")
     let SW_REVEAL_VIEW_CONTROLLER = "SWRevealViewController"
     let FORGET_PASSWORD_VIEW_CONTROLLER = "ForgetPasswordViewController"
     let REGISTER_VIEW_CONTROLLER = "RegisterViewController"
@@ -28,7 +28,7 @@ class LoginViewController: UIViewController {
     var password:String? = ""
     var channel:String? = ""
     var facebook_id:String? = ""
-    
+    var isClose = false
     let configData = ConfigData()
 
     @IBOutlet var emailTextfield: UITextField!
@@ -116,7 +116,14 @@ class LoginViewController: UIViewController {
             
             if(Code == "00000"){
                 self.accountData.getAccountData(json: JSON)
-                self.setMainViewController()
+                if self.isClose {
+                    self.dismiss(animated: true, completion: nil)
+                    NotificationCenter.default.post(name: self.notificationName, object: nil)
+                }
+                else{
+                  self.setMainViewController()
+                }
+                
             }
             else{
                 self.alertView.alert(title:"", message: Message, buttonTitle: self.alertView.ALERT_OK, controller: self)

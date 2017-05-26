@@ -43,6 +43,8 @@ class Network: NSObject {
     let API_CONFIG_AMPHUR = "config/amphur/"
     let API_CONFIG_DISTRICT = "config/district/"
     
+    let API_VERIFY_ID_STATUS = "idcard-status"
+    
     let API_SOCIAL_WORK_REQUEST = "socialwrk/request/"
     let API_SOCIAL_WORK_SEARCH = "socialwrk/search"
     let KEY_RESPONSE_STATUS = "status"

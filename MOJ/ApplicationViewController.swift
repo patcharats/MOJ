@@ -54,8 +54,7 @@ class ApplicationViewController: UIViewController,UITableViewDelegate,UITableVie
         setupMenuButton()
         searchbar.delegate = self
         searchbar.showsCancelButton = false
-        
-        UIBarButtonItem.appearance(whenContainedInInstancesOf:([UISearchBar.self])).tintColor = UIColor.blue
+
         
         tableView.delegate = self
         tableView.dataSource = self

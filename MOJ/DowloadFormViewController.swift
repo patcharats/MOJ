@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 import SwiftyJSON
 
-class DowloadFormViewController: UIViewController,UITableViewDelegate, UITableViewDataSource {
+class DowloadFormViewController: UIViewController,UITableViewDelegate, UITableViewDataSource,UISearchBarDelegate{
     let design = Design()
     let network = Network()
     let stringHelper = StringHelper()
@@ -32,6 +32,23 @@ class DowloadFormViewController: UIViewController,UITableViewDelegate, UITableVi
     var shareurl:[String] = []
     
     
+    var storedocid:[String] = []
+    var storedocurl:[String] = []
+    var storedownld:[String] = []
+    var storelastupd:[String] = []
+    var storename:[String] = []
+    var storeshareurl:[String] = []
+    
+    var searchdocid:[String] = []
+    var searchdocurl:[String] = []
+    var searchdownld:[String] = []
+    var searchlastupd:[String] = []
+    var searchname:[String] = []
+    var searchshareurl:[String] = []
+    
+    
+    @IBOutlet var searchbar: UISearchBar!
+    
     @IBOutlet var menuButton: UIBarButtonItem!
     @IBOutlet var openButton: UIBarButtonItem!
     @IBOutlet weak var tableView: UITableView!
@@ -40,6 +57,10 @@ class DowloadFormViewController: UIViewController,UITableViewDelegate, UITableVi
         super.viewDidLoad()
         
         setupMenuButton()
+        
+        searchbar.delegate = self
+        searchbar.showsCancelButton = false
+        
         tableView.delegate = self
         tableView.dataSource = self
         tableView.backgroundColor = UIColor.clear
@@ -54,9 +75,116 @@ class DowloadFormViewController: UIViewController,UITableViewDelegate, UITableVi
             self.name = jsonSwifty[self.KEY_DOC_DATA].arrayValue.map({$0[self.KEY_DOC_NAME].stringValue})
             self.shareurl = jsonSwifty[self.KEY_DOC_DATA].arrayValue.map({$0[self.KEY_DOC_SHARE_URL].stringValue})
             
+            self.storedocid = self.docid
+            self.storedocurl = self.docurl
+            self.storedownld = self.downld
+            self.storelastupd = self.lastupd
+            self.storename = self.name
+            self.storeshareurl = self.shareurl
+            
             self.tableView.reloadData()
         })
     }
+    
+    
+    // MARK: UISearchBar
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        if (searchbar.text?.isEmpty)! {
+            docid = storedocid
+            docurl = storedocurl
+            downld = storedownld
+            lastupd = storelastupd
+            name = storename
+            shareurl = storeshareurl
+        }
+        
+        searchbar.showsCancelButton = true
+        self.tableView.reloadData()
+        // Do some search stuff
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        // Stop doing the search stuff
+        // and clear the text in the search bar
+        searchBar.text = ""
+        // Hide the cancel button
+        searchBar.showsCancelButton = false
+        
+        docid = storedocid
+        docurl = storedocurl
+        downld = storedownld
+        lastupd = storelastupd
+        name = storename
+        shareurl = storeshareurl
+        
+        searchBar.resignFirstResponder()
+        
+        self.tableView.reloadData()
+        // You could also change the position, frame etc of the searchBar
+    }
+    
+    
+    func searchBarSearchButtonClicked( _ searchBar: UISearchBar){
+        
+        let text = searchBar.text
+        
+         searchdocid = []
+         searchdocurl = []
+         searchdownld = []
+         searchlastupd = []
+         searchname = []
+         searchshareurl = []
+        
+        if (text?.isEmpty)!{
+            docid = storedocid
+            docurl = storedocurl
+            downld = storedownld
+            lastupd = storelastupd
+            name = storename
+            shareurl = storeshareurl
+        }
+        else{
+            
+            let filteredArray = storename.filter { $0.localizedCaseInsensitiveContains(text!) }
+            if filteredArray.count > 0 {
+                for (index, element) in storename.enumerated() {
+                    if element.contains(text!){
+                        searchdocid.append(storedocid[index])
+                        searchdocurl.append(storedocurl[index])
+                        searchdownld.append(storedownld[index])
+                        searchlastupd.append(storelastupd[index])
+                        searchname.append(storename[index])
+                        searchshareurl.append(storeshareurl[index])
+                        
+                        docid = searchdocid
+                        docurl = searchdocurl
+                        downld = searchdownld
+                        lastupd = searchlastupd
+                        name = searchname
+                        shareurl = searchshareurl
+                    }
+                }
+            }
+            else{
+                docid = []
+                docurl = []
+                downld = []
+                lastupd = []
+                name = []
+                shareurl = []
+            }
+        }
+        self.tableView.reloadData()
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
 
     // MARK: UITableView
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
