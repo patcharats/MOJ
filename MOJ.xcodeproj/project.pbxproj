@@ -214,8 +214,8 @@
 		27546B8B1EAB9DE6005B5B18 /* PsychoService */ = {
 			isa = PBXGroup;
 			children = (
-				276010891EAE563B008D97F4 /* reNew */,
 				2760107C1EAE4D89008D97F4 /* CreateNew */,
+				276010891EAE563B008D97F4 /* reNew */,
 				2760107A1EAE4B9E008D97F4 /* TutorialPageViewController.swift */,
 				271073981EAC9B0F00DA14F4 /* PsychoNavigationController.swift */,
 				27E694BC1E87A156008ACE01 /* PsychoServiceViewController.swift */,

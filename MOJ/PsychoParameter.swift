@@ -44,6 +44,8 @@ class PsychoParameter: NSObject {
     var idcardno = ""
     var institution = ""
     var issueby = ""
+    var issuedate = ""
+    var expiredate = ""
     var lastname = ""
     var lastorgdetail = ""
     var lastworkorg = ""
@@ -143,6 +145,8 @@ class PsychoParameter: NSObject {
                 "idcardno": idcardno,
                 "institution": institution,
                 "issueby": issueby,
+                "issuedate": issuedate,
+                "expiredate": expiredate,
                 "lastname": lastname,
                 "lastorgdetail": lastorgdetail,
                 "lastworkorg": lastworkorg,

@@ -45,6 +45,8 @@ class Network: NSObject {
     
     let API_VERIFY_ID_STATUS = "idcard-status"
     
+    let API_SOCIAL_WORK_NEW_REQUEST = "socialwrk/newrequest/"
+    
     let API_SOCIAL_WORK_REQUEST = "socialwrk/request/"
     let API_SOCIAL_WORK_SEARCH = "socialwrk/search"
     let KEY_RESPONSE_STATUS = "status"

@@ -52,7 +52,7 @@ class NewsViewController: UIViewController,UITableViewDelegate, UITableViewDataS
     let KEY_NEWS_GROUP_OWNER = "newsowner"
     let KEY_NEWS_RECEIVE_STATUS = "recvstatus"
     
-   
+    let KEY_MOBILE = "?ismobile=1"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -184,9 +184,15 @@ class NewsViewController: UIViewController,UITableViewDelegate, UITableViewDataS
             
             let accountID = accountData.getAccountID()
             let newGroupID = ""
-            network.get(name: network.API_FEED, param:accountID+"/"+newGroupID, viewController: self, completionHandler: {
+            network.get(name: network.API_FEED_STATUS, param:accountID+"/"+newGroupID, viewController: self, completionHandler: {
                 (json:Any,Code:String,Message:String) in
                 let jsonSwifty = JSON(json)
+                self.groupNewsgrpid = jsonSwifty[self.KEY_NEWS_DATA].arrayValue.map({$0[self.KEY_NEWS_GROUP_ID].stringValue})
+                self.groupNewsgrpurl = jsonSwifty[self.KEY_NEWS_DATA].arrayValue.map({$0[self.KEY_NEWS_GROUP_URL].stringValue})
+                self.groupNewsowner = jsonSwifty[self.KEY_NEWS_DATA].arrayValue.map({$0[self.KEY_NEWS_GROUP_OWNER].stringValue})
+                self.groupRecvstatus = jsonSwifty[self.KEY_NEWS_DATA].arrayValue.map({$0[self.KEY_NEWS_RECEIVE_STATUS].boolValue})
+                
+                self.tableViewGroup.reloadData()
             })
             
         }
@@ -196,6 +202,24 @@ class NewsViewController: UIViewController,UITableViewDelegate, UITableViewDataS
         
     }
     @IBAction func confirmFilterButton(_ sender: Any) {
+        
+        //API_FEED_UPDATE
+        let accountID = accountData.getAccountID()
+        var newGroupID = ""
+        
+        for (index,element) in groupRecvstatus.enumerated() {
+            if element {
+                newGroupID = newGroupID+","+groupNewsgrpid[index]
+            }
+        }
+        
+        
+        print(groupNewsgrpid,groupRecvstatus)
+        network.get(name: network.API_FEED_UPDATE, param:accountID+"/"+newGroupID, viewController: self, completionHandler: {
+            (json:Any,Code:String,Message:String) in
+            self.tableView.reloadData()
+            
+        })
         viewGroupBackground.isHidden = true
     }
     

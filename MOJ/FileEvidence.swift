@@ -7,7 +7,7 @@
 //
 
 import Foundation
-class FileEvidence:UITableViewController{
+class FileEvidence:UITableViewController,UITextFieldDelegate{
     var socialWorkData = SocialWorkData()
     override func awakeFromNib() {
         super.awakeFromNib()

@@ -22,6 +22,7 @@ class SocialWorkData: NSObject {
     let KEY_ID_CARD_NO = "idcardno"
     let KEY_ISSUE_BY = "issueby"
     let KEY_ISSUE_DATE = "issuedate"
+    let KEY_EXPIRE_DATE = "expiredate"
     let KEY_PRE_NAME = "prename"
     let KEY_FIRST_NAME = "firstname"
     let KEY_LAST_NAME = "lastname"
@@ -102,6 +103,7 @@ class SocialWorkData: NSObject {
     var idcardno:String = ""
     var issueby:String = ""
     var issuedate:String = ""
+    var expiredate:String = ""
     var prename:String = ""
     var firstname:String = ""
     var lastname:String = ""
@@ -203,6 +205,7 @@ class SocialWorkData: NSObject {
         idcardno =  swiftyJson[KEY_REQUEST_DATA][KEY_ID_CARD_NO].stringValue
         issueby =  swiftyJson[KEY_REQUEST_DATA][KEY_ISSUE_BY].stringValue
         issuedate =  swiftyJson[KEY_REQUEST_DATA][KEY_ISSUE_DATE].stringValue
+        expiredate =  swiftyJson[KEY_REQUEST_DATA][KEY_EXPIRE_DATE].stringValue
         prename =  swiftyJson[KEY_REQUEST_DATA][KEY_PRE_NAME].stringValue
         firstname =  swiftyJson[KEY_REQUEST_DATA][KEY_FIRST_NAME].stringValue
         lastname =  swiftyJson[KEY_REQUEST_DATA][KEY_LAST_NAME].stringValue

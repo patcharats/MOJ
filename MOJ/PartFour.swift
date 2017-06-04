@@ -7,11 +7,11 @@
 //
 
 import Foundation
-class PartFour:UITableViewController{
+class PartFour:UITableViewController,UITextFieldDelegate{
     
     
     @IBOutlet var dataCell: UITableViewCell!
-    
+    //let notificationDataFormRenew4 = Notification.Name("DataFormRenew4")
     override func awakeFromNib() {
         super.awakeFromNib()
         self.tableView.contentInset = UIEdgeInsetsMake(0, 0, 55, 0)

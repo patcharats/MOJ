@@ -65,6 +65,11 @@ class DowloadFormViewController: UIViewController,UITableViewDelegate, UITableVi
         tableView.dataSource = self
         tableView.backgroundColor = UIColor.clear
         
+        getDocList()
+    }
+    
+    
+    func getDocList(){
         network.get(name: network.API_DOCUMENT, param:"", viewController: self, completionHandler: {
             (json:Any,Code:String,Message:String) in
             let jsonSwifty = JSON(json)
@@ -85,7 +90,6 @@ class DowloadFormViewController: UIViewController,UITableViewDelegate, UITableVi
             self.tableView.reloadData()
         })
     }
-    
     
     // MARK: UISearchBar
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
@@ -219,11 +223,15 @@ class DowloadFormViewController: UIViewController,UITableViewDelegate, UITableVi
     func downloadButton(sender: UIButton!) {
         
         let url = URL(string: docurl[sender.tag])
+            
         UIApplication.shared.open(url!, options: [:], completionHandler: nil)
         
         network.get(name: network.API_DOCUMENT, param:docid[sender.tag], viewController: self, completionHandler: {
             (json:Any,Code:String,Message:String) in
+            self.getDocList()
             let jsonSwifty = JSON(json)
+            
+            
         })
     }
     

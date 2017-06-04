@@ -8,6 +8,8 @@
 
 import Foundation
 import SwiftyJSON
+import ImageSlideshow
+
 class ComplainDetail: UIViewController,UITableViewDelegate, UITableViewDataSource,UICollectionViewDataSource,
 UICollectionViewDelegateFlowLayout, UICollectionViewDelegate{
     
@@ -17,7 +19,9 @@ UICollectionViewDelegateFlowLayout, UICollectionViewDelegate{
     var selectComplaintID:String = ""
     let stringHelper = StringHelper()
     
+    @IBOutlet var viewSlideShow: UIView!
     
+    @IBOutlet var slideShow: ImageSlideshow!
     // detail
     
     let COMPLAIN_REGISTER = "ComplainRegister"
@@ -64,6 +68,8 @@ UICollectionViewDelegateFlowLayout, UICollectionViewDelegate{
     var reptId:[String] = []
     var respStatus:[String] = []
     
+     var localSource:[ImageSource] = []
+    
     @IBOutlet var addButton: UIBarButtonItem!
     @IBOutlet var tableView: UITableView!
     override func viewDidLoad() {
@@ -73,6 +79,12 @@ UICollectionViewDelegateFlowLayout, UICollectionViewDelegate{
         tableView.dataSource = self
         tableView.backgroundColor = UIColor.clear
         tableView.contentInset = UIEdgeInsetsMake(0, 0, 50, 0)
+        
+        viewSlideShow.isHidden = true
+        viewSlideShow.backgroundColor = UIColor.black.withAlphaComponent(0.5)
+        let gestureSlideView = UITapGestureRecognizer(target: self, action:  #selector (self.hideSlideView (_:)))
+        viewSlideShow.addGestureRecognizer(gestureSlideView)
+        
         
         if accountData.isLogin() {
             addButton.image = UIImage(named: "ic_add")
@@ -101,8 +113,21 @@ UICollectionViewDelegateFlowLayout, UICollectionViewDelegate{
             self.cpltImgId =  (jsonSwifty[self.KEY_COMPLAIN_DATA][self.KEY_COMPLAIN_IMAGE].arrayValue.map({$0[self.KEY_COMPLAIN_IMAGE_ID].stringValue}))
             self.cpltImgRename =  (jsonSwifty[self.KEY_COMPLAIN_DATA][self.KEY_COMPLAIN_IMAGE].arrayValue.map({$0[self.KEY_COMPLAIN_IMAGE_NAME].stringValue}))
             
-            print(self.cpltImgRename)
             
+            if self.cpltImgRename.count > 0 {
+                for i in 0 ..< self.cpltImgRename.count {
+                    
+                    let url = URL(string:self.cpltImgRename[i])
+                    let data = try? Data(contentsOf: url!)
+                    let image: UIImage = UIImage(data: data!)!
+                    
+                    let ImageSources = ImageSource.init(image: image)
+                    self.localSource.append(ImageSources)
+                }
+                
+                self.setupSlideShow()
+                print(self.cpltImgRename)
+            }
             
             self.network.get(name: self.network.API_COMPLAINT_REPLY, param: "1"+"/"+self.selectComplaintID, viewController: self, completionHandler: {
                 (json:Any,Code:String,Message:String) in
@@ -113,12 +138,44 @@ UICollectionViewDelegateFlowLayout, UICollectionViewDelegate{
                 self.reptId = jsonSwifty[self.KEY_COMPLAIN_DATA].arrayValue.map({$0[self.KEY_COMPLAIN_REPLY_ID].stringValue})
                 self.respStatus = jsonSwifty[self.KEY_COMPLAIN_DATA].arrayValue.map({$0[self.KEY_COMPLAIN_REPLY_STATUS].stringValue})
                 
+                
+                
                 self.tableView.reloadData()
             })
         })
         
         
         
+    }
+    
+    
+    
+    func setupSlideShow(){
+        slideShow.circular = false
+        slideShow.slideshowInterval = 5.0
+        slideShow.backgroundColor = UIColor.clear
+        slideShow.pageControlPosition = PageControlPosition.custom(padding: 20)
+        slideShow.pageControl.currentPageIndicatorTintColor = UIColor.white
+        slideShow.pageControl.pageIndicatorTintColor = UIColor.lightGray
+        slideShow.contentScaleMode = UIViewContentMode.scaleAspectFill
+        slideShow.currentPageChanged = { page in
+            //print("current page:", page)
+            
+           
+            
+        }
+        slideShow.setImageInputs(localSource)
+    }
+    
+    func showSlideView(_ sender:UITapGestureRecognizer){
+        if viewSlideShow.isHidden {
+            viewSlideShow.isHidden = false
+        }
+        
+    }
+    
+    func hideSlideView(_ sender:UITapGestureRecognizer){
+        viewSlideShow.isHidden = true
     }
     
     @IBAction func addButton(_ sender: Any) {
@@ -231,6 +288,10 @@ UICollectionViewDelegateFlowLayout, UICollectionViewDelegate{
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath as IndexPath) as! imageCollectionCell
         cell.backgroundColor = UIColor.clear
         cell.imageView.sd_setImage(with: URL(string: cpltImgRename[indexPath.row]), placeholderImage: UIImage(named: "image_def_bog"))
+        
+        let gestureSlideView = UITapGestureRecognizer(target: self, action:  #selector (self.showSlideView (_:)))
+        cell.imageView.isUserInteractionEnabled = true
+        cell.imageView.addGestureRecognizer(gestureSlideView)
         
         return cell
     }

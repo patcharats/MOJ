@@ -124,10 +124,11 @@ class PsychoServiceViewController: UIViewController,UITextFieldDelegate {
             accountID = accountData.getAccountID()
             acctid = accountData.getAccountID()
             
-             accountID = "1"
-             acctid = "1"
+             //accountID = "1"
+             //acctid = "1"
             
-            //getLicenseDetail(accountIDs: accountID, touchDetail: false)
+            setupView(type: self.TYPE_NOT_FOUND)
+            getLicenseDetail(accountIDs: accountID, touchDetail: false)
             
             let gesture = UITapGestureRecognizer(target: self, action: #selector (self.licenseDatail(sender:)))
             idCardView.addGestureRecognizer(gesture)
@@ -152,6 +153,9 @@ class PsychoServiceViewController: UIViewController,UITextFieldDelegate {
     }
     
     func getLicenseDetail(accountIDs:String,touchDetail:Bool){
+        
+        print(accountIDs)
+        
         network.getWithToken(name: network.API_SOCIAL_WORK_REQUEST, param:accountIDs, viewController: self, completionHandler: {
             (json:Any,Code:String,Message:String) in
             if Code == "10000"{
@@ -164,10 +168,19 @@ class PsychoServiceViewController: UIViewController,UITextFieldDelegate {
                 self.socialWorkData.setData(json: swiftyJson)
                 self.socialWorkData.setReadOnly(isReadOnly: false)
                 
+                let KEY_REQUEST_DATA = "data"
+                let KEY_ID_CARD_NO = "idcardno"
+                let idcardno =  swiftyJson[KEY_REQUEST_DATA][KEY_ID_CARD_NO].stringValue
+                
+                self.searchTextField(text: idcardno)
+                
+                
                 if touchDetail {
                     self.performSegue(withIdentifier: self.LICENSE_DETAIL, sender: nil)
                     self.socialWorkData.setReadOnly(isReadOnly: true)
                 }
+                
+                
                 
             }
         })
@@ -199,11 +212,21 @@ class PsychoServiceViewController: UIViewController,UITextFieldDelegate {
     override func viewWillAppear(_ animated: Bool) {
         
     }
+    @IBAction func callNumber(_ sender: Any) {
+        
+        let numbers = "02-222-2222"
+        guard let number = URL(string: "telprompt://" + numbers) else { return }
+        UIApplication.shared.open(number)
+        
+    }
     
     func getAccountData(json:Any){
         let jsonSwifty = JSON(json)
         
         acctid = jsonSwifty[KEY_SOCIAL_DATA][KEY_SOCIAL_ACCOUNT_ID].stringValue
+        
+        print(acctid)
+        
         request_reqid = jsonSwifty[KEY_SOCIAL_DATA][KEY_SOCIAL_REQUEST][KEY_SOCIAL_REQUEST_ID].stringValue
         request_reqno = jsonSwifty[KEY_SOCIAL_DATA][KEY_SOCIAL_REQUEST][KEY_SOCIAL_REQUEST_NO].stringValue
         request_reqtype = jsonSwifty[KEY_SOCIAL_DATA][KEY_SOCIAL_REQUEST][KEY_SOCIAL_REQUEST_TYPE].stringValue
@@ -300,6 +323,8 @@ class PsychoServiceViewController: UIViewController,UITextFieldDelegate {
     
     func setupView(type:Int){
         switch type {
+            
+            
         case TYPE_NOT_LOGIN:
             foundView.isHidden = true
             notfoundView.isHidden = true

@@ -24,6 +24,8 @@ class MenuTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         design.roundView(view: loginButton, radius: 5)
+        loginButton.layer.borderColor = UIColor.white.cgColor
+        loginButton.layer.borderWidth = 1
         
         NotificationCenter.default.addObserver(self, selector: #selector(MenuTableViewController.UpdateProfile), name: notificationName, object: nil)
         UpdateProfile()
