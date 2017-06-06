@@ -67,8 +67,13 @@ class TalkWithMiniterViewController: UIViewController,UITableViewDelegate, UITab
         }
         
         
+        
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
         var accountID = accountData.getAccountID()
-
+        
         network.post(name: network.API_CONTACTS_NEW_USER, param: param.registerTalk(), viewController: self, completionHandler: {
             (JSON : Any,Code:String,Message:String) in
             
@@ -79,8 +84,8 @@ class TalkWithMiniterViewController: UIViewController,UITableViewDelegate, UITab
                 self.alertView.alert(title:"", message: Message, buttonTitle: self.alertView.ALERT_OK, controller: self)
             }
         })
-            
-            
+        
+        
         network.get(name: network.API_CONTACTS, param:accountID, viewController: self, completionHandler: {
             (json:Any,Code:String,Message:String) in
             let jsonSwifty = JSON(json)
@@ -92,11 +97,11 @@ class TalkWithMiniterViewController: UIViewController,UITableViewDelegate, UITab
             self.contactusrid = jsonSwifty[self.KEY_CONTACTS_DATA].arrayValue.map({$0[self.KEY_CONTACTS_USER_ID].stringValue})
             self.contactviews = jsonSwifty[self.KEY_CONTACTS_DATA].arrayValue.map({$0[self.KEY_CONTACTS_VIEWS].stringValue})
             self.subject = jsonSwifty[self.KEY_CONTACTS_DATA].arrayValue.map({$0[self.KEY_CONTACTS_SUBJECT].stringValue})
- 
+            
             self.tableView.reloadData()
         })
-        
     }
+    
     @IBAction func loginButton(_ sender: Any) {
         alertView.setMainViewController()
     }

@@ -1035,7 +1035,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="GD6-zA-Cvv" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="Fx8-zX-GBH"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="ww8-rM-AHb">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="ww8-rM-AHb">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.055671315040000002" green="0.12797925139999999" blue="0.21174799280000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1089,7 +1089,7 @@
                                                             <size key="shadowOffset" width="0.0" height="0.0"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="15 ดาวน์โหลด" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jPK-1a-JgB">
-                                                            <rect key="frame" x="8" y="43" width="72.5" height="21"/>
+                                                            <rect key="frame" x="8" y="43" width="58.5" height="21"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="21" id="YcC-mA-v45"/>
                                                             </constraints>
@@ -1098,7 +1098,7 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10 ม.ค. 60" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qaS-Xp-3sw">
-                                                            <rect key="frame" x="88.5" y="43" width="118" height="21"/>
+                                                            <rect key="frame" x="74.5" y="43" width="118" height="21"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="118" id="DC1-rl-Svz"/>
                                                                 <constraint firstAttribute="height" constant="21" id="J9m-oT-ESJ"/>
@@ -1221,7 +1221,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="zX9-Fg-ghM" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="Z3M-bD-4xR">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Z3M-bD-4xR">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.055671315040000002" green="0.12797925139999999" blue="0.21174799280000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -2122,7 +2122,7 @@
                                         <rect key="frame" x="8" y="163" width="359" height="152"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="เอกสารครบแล้ว" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sph-uz-WwR">
-                                                <rect key="frame" x="266" y="12" width="85" height="21"/>
+                                                <rect key="frame" x="240" y="12" width="111" height="21"/>
                                                 <color key="backgroundColor" red="0.1382960379" green="0.68011730910000001" blue="0.65328472849999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="21" id="Ldv-EG-A1f"/>
@@ -2399,26 +2399,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xY7-xN-hDd" customClass="SearchView" customModule="MOJ" customModuleProvider="target">
-                                <rect key="frame" x="8" y="72" width="359" height="42"/>
-                                <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ic_search" translatesAutoresizingMaskIntoConstraints="NO" id="qq0-OG-XHc">
-                                        <rect key="frame" x="8" y="6" width="30" height="30"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    </imageView>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="ค้นหา" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zfc-oF-Ghg" customClass="SearchTextfield" customModule="MOJ" customModuleProvider="target">
-                                        <rect key="frame" x="46" y="6" width="305" height="30"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <nil key="textColor"/>
-                                        <fontDescription key="fontDescription" name="Quark-Bold" family="Quark" pointSize="18"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
-                                </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="42" id="RJ5-hV-kAv"/>
-                                </constraints>
-                            </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zJa-UQ-Lfx">
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <subviews>
@@ -2521,6 +2501,34 @@
                                     <constraint firstItem="EN2-ss-oRJ" firstAttribute="centerY" secondItem="zJa-UQ-Lfx" secondAttribute="centerY" id="cdA-Qx-l04"/>
                                 </constraints>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xY7-xN-hDd" customClass="SearchView" customModule="MOJ" customModuleProvider="target">
+                                <rect key="frame" x="8" y="72" width="359" height="42"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_search" translatesAutoresizingMaskIntoConstraints="NO" id="qq0-OG-XHc">
+                                        <rect key="frame" x="8" y="6" width="30" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="30" id="K5x-dG-3dt"/>
+                                            <constraint firstAttribute="height" constant="30" id="UzJ-iX-6G0"/>
+                                        </constraints>
+                                    </imageView>
+                                    <searchBar contentMode="redraw" placeholder="ค้นหา                                                                        " translatesAutoresizingMaskIntoConstraints="NO" id="82i-Xs-1sp">
+                                        <rect key="frame" x="38" y="-1" width="321" height="44"/>
+                                        <color key="barTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </searchBar>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="qq0-OG-XHc" firstAttribute="top" secondItem="xY7-xN-hDd" secondAttribute="top" constant="6" id="3kh-ve-bz6"/>
+                                    <constraint firstAttribute="trailing" secondItem="82i-Xs-1sp" secondAttribute="trailing" id="FQr-7X-aXR"/>
+                                    <constraint firstAttribute="height" constant="42" id="RJ5-hV-kAv"/>
+                                    <constraint firstItem="qq0-OG-XHc" firstAttribute="leading" secondItem="xY7-xN-hDd" secondAttribute="leading" constant="8" id="SLb-bV-mLJ"/>
+                                    <constraint firstAttribute="bottom" secondItem="qq0-OG-XHc" secondAttribute="bottom" constant="6" id="UjC-1i-uGR"/>
+                                    <constraint firstItem="82i-Xs-1sp" firstAttribute="top" secondItem="xY7-xN-hDd" secondAttribute="top" constant="-1" id="W1A-7a-Ebt"/>
+                                    <constraint firstAttribute="bottom" secondItem="82i-Xs-1sp" secondAttribute="bottom" constant="-1" id="jvW-EE-YX5"/>
+                                    <constraint firstItem="82i-Xs-1sp" firstAttribute="leading" secondItem="qq0-OG-XHc" secondAttribute="trailing" id="uhr-Zz-UmT"/>
+                                </constraints>
+                            </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="132" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Qzw-Xt-yJt">
                                 <rect key="frame" x="8" y="122" width="359" height="545"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -2619,6 +2627,7 @@
                         <outlet property="confirmFilterButton" destination="iCa-TI-YNz" id="cnh-iv-c3r"/>
                         <outlet property="filterButton" destination="HIZ-p9-psc" id="bR7-0Z-qbX"/>
                         <outlet property="menuButton" destination="GpY-TT-ufJ" id="YtN-BM-iaD"/>
+                        <outlet property="searchbar" destination="82i-Xs-1sp" id="OLp-Qb-ExR"/>
                         <outlet property="tableView" destination="Qzw-Xt-yJt" id="gu7-pZ-YMU"/>
                         <outlet property="tableViewGroup" destination="0Yq-tA-5Iw" id="Y3f-M4-Lt4"/>
                         <outlet property="viewGroup" destination="EN2-ss-oRJ" id="WrA-Ky-qKd"/>
@@ -2686,7 +2695,7 @@
             <objects>
                 <navigationController id="0pZ-pT-gOp" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="zf1-jx-QSY">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="zf1-jx-QSY">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.055671315040000002" green="0.12797925139999999" blue="0.21174799280000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

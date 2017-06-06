@@ -245,6 +245,8 @@ class ProsonalInformation:UITableViewController,UIPickerViewDelegate,UIPickerVie
     
     func setValueTextfield(){
         
+        
+        
         IDTypeTextField.text = "" //socialWorkData.requesttype
         IDNumberTextField.text = socialWorkData.idcardno
         IDExpireTextField.text = socialWorkData.expiredate

@@ -22,7 +22,7 @@ class TalkWithMiniterMessage: UIViewController{
     var isCheckBox = false
     var subject = ""
     var message = ""
-    
+    var isPublicStatus:Bool = false
     override func viewDidLoad() {
         super.viewDidLoad()
         design.roundView(view: subjectTextField, radius: 10)
@@ -43,10 +43,12 @@ class TalkWithMiniterMessage: UIViewController{
         
         if isCheckBox {
             isCheckBox = false
+            isPublicStatus = false
             imageName = IMAGE_CHECK_BOX_FALSE
         }
         else{
             isCheckBox = true
+            isPublicStatus = true
             imageName = IMAGE_CHECK_BOX_TRUE
         }
         
@@ -70,11 +72,17 @@ class TalkWithMiniterMessage: UIViewController{
             
             param.contact_subject = subject
             param.contact_body = message
-            
+            param.isPublicStatus = isPublicStatus
             network.post(name: network.API_CONTACTS_NEW_POST, param: param.getNewPostParameter(), viewController: self, completionHandler: {
                 (JSON : Any,Code:String,Message:String) in
                 
                 if(Code == "00000"){
+                    self.alertView.alertWithAction(title:"", message: Message, buttonTitle: self.alertView.ALERT_OK, controller: self, completionHandler: {
+                        (button : Bool) in
+                        if button {
+                            _ = self.navigationController?.popViewController(animated: true)
+                        }
+                    });
                     
                 }
                 else{

@@ -25,6 +25,7 @@ class ContactsParameter: NSObject {
     
     var contact_subject:String = ""
     var contact_body:String = ""
+    var isPublicStatus:Bool = true
     
     func registerTalk()->Parameters{
         let parameters: Parameters = [
@@ -56,7 +57,8 @@ class ContactsParameter: NSObject {
         let parameters: Parameters = [
             "data": [
                 "contact_subject": contact_subject,
-                "contact_body": contact_body
+                "contact_body": contact_body,
+                "isPublicStatus" : isPublicStatus
             ]
         ]
         return parameters

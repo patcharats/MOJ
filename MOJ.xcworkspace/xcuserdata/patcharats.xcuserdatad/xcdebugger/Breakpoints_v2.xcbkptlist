@@ -38,38 +38,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "MOJ/TalkWithMinisterMessage.swift"
-            timestampString = "515528807.047356"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "45"
-            endingLineNumber = "45"
-            landmarkName = "SetCheckBox()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "MOJ/TalkWithMinisterMessage.swift"
-            timestampString = "515528807.047356"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "50"
-            endingLineNumber = "50"
-            landmarkName = "SetCheckBox()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
@@ -214,7 +182,7 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MOJ/PsychoServiceViewController.swift"
@@ -262,7 +230,7 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MOJ/PsychoServiceViewController.swift"
@@ -275,34 +243,34 @@
             landmarkType = "7">
             <Locations>
                <Location
-                  shouldBeEnabled = "Yes"
+                  shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "MOJ.PsychoServiceViewController.getLicenseDetail (accountIDs : Swift.String, touchDetail : Swift.Bool) -&gt; ()"
                   moduleName = "MOJ"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/patcharats/Desktop/untitled%20folder/MOJ/MOJ/PsychoServiceViewController.swift"
-                  timestampString = "518282856.770677"
+                  urlString = "file:///Users/patcharats/Desktop/MOJ/MOJ/PsychoServiceViewController.swift"
+                  timestampString = "518456341.936099"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "159"
                   endingLineNumber = "159"
-                  offsetFromSymbolStart = "228">
+                  offsetFromSymbolStart = "238">
                </Location>
                <Location
-                  shouldBeEnabled = "Yes"
+                  shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "MOJ.PsychoServiceViewController.(getLicenseDetail (accountIDs : Swift.String, touchDetail : Swift.Bool) -&gt; ()).(closure #1)"
                   moduleName = "MOJ"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/patcharats/Desktop/untitled%20folder/MOJ/MOJ/PsychoServiceViewController.swift"
-                  timestampString = "518282856.772236"
+                  urlString = "file:///Users/patcharats/Desktop/MOJ/MOJ/PsychoServiceViewController.swift"
+                  timestampString = "518456341.938957"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "161"
                   endingLineNumber = "161"
-                  offsetFromSymbolStart = "60">
+                  offsetFromSymbolStart = "71">
                </Location>
             </Locations>
          </BreakpointContent>

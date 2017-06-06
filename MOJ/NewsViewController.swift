@@ -11,7 +11,7 @@ import UIKit
 import SwiftyJSON
 import SDWebImage
 
-class NewsViewController: UIViewController,UITableViewDelegate, UITableViewDataSource{
+class NewsViewController: UIViewController,UITableViewDelegate, UITableViewDataSource,UISearchBarDelegate{
     let design = Design()
     let accountData = AccountData()
     let network = Network()
@@ -32,6 +32,19 @@ class NewsViewController: UIViewController,UITableViewDelegate, UITableViewDataS
     var newsthumb:[String] = []
     var newstitle:[String] = []
     var newsurl:[String] = []
+    
+    var searchnewsgrpid:[Int] = []
+    var searchlastupd:[String] = []
+    var searchnewsthumb:[String] = []
+    var searchnewstitle:[String] = []
+    var searchnewsurl:[String] = []
+    
+    var storenewsgrpid:[Int] = []
+    var storelastupd:[String] = []
+    var storenewsthumb:[String] = []
+    var storenewstitle:[String] = []
+    var storenewsurl:[String] = []
+    
     var selectNewsUrl:String = ""
     var selectTitle:String = ""
     let NEWS_DETAIL = "NewsDetailViewController"
@@ -48,11 +61,15 @@ class NewsViewController: UIViewController,UITableViewDelegate, UITableViewDataS
     var groupNewsowner:[String] = []
     var groupRecvstatus:[Bool] = []
     
+    
+    
     let KEY_NEWS_GROUP_URL = "newsgrpurl"
     let KEY_NEWS_GROUP_OWNER = "newsowner"
     let KEY_NEWS_RECEIVE_STATUS = "recvstatus"
     
     let KEY_MOBILE = "?ismobile=1"
+    
+    @IBOutlet var searchbar: UISearchBar!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -65,6 +82,9 @@ class NewsViewController: UIViewController,UITableViewDelegate, UITableViewDataS
         tableView.backgroundColor = UIColor.clear
         tableViewGroup.backgroundColor = UIColor.clear
         viewGroupBackground.isHidden = true
+        
+        searchbar.delegate = self
+        searchbar.showsCancelButton = false
         
         viewGroupBackground.backgroundColor = UIColor.gray.withAlphaComponent(0.5)
         view.bringSubview(toFront: viewGroupBackground)
@@ -82,6 +102,7 @@ class NewsViewController: UIViewController,UITableViewDelegate, UITableViewDataS
         }
 
         
+        
         let accountID = accountData.getAccountID()
         
         network.get(name: network.API_FEED_STATUS, param:accountID, viewController: self, completionHandler: {
@@ -98,10 +119,17 @@ class NewsViewController: UIViewController,UITableViewDelegate, UITableViewDataS
         network.get(name: network.API_FEED, param:accountID, viewController: self, completionHandler: {
             (json:Any,Code:String,Message:String) in
             let jsonSwifty = JSON(json)
+            self.newsgrpid = jsonSwifty[self.KEY_NEWS_DATA].arrayValue.map({$0[self.KEY_NEWS_LAST_UPDATE].intValue})
             self.lastupd = jsonSwifty[self.KEY_NEWS_DATA].arrayValue.map({$0[self.KEY_NEWS_LAST_UPDATE].stringValue})
             self.newsthumb = jsonSwifty[self.KEY_NEWS_DATA].arrayValue.map({$0[self.KEY_NEWS_THUMPNAIL].stringValue})
             self.newstitle = jsonSwifty[self.KEY_NEWS_DATA].arrayValue.map({$0[self.KEY_NEWS_TITLE].stringValue})
             self.newsurl = jsonSwifty[self.KEY_NEWS_DATA].arrayValue.map({$0[self.KEY_NEWS_URL].stringValue})
+            
+            self.storenewsgrpid = self.newsgrpid
+            self.storelastupd = self.lastupd
+            self.storenewsthumb = self.newsthumb
+            self.storenewstitle = self.newstitle
+            self.storenewsurl = self.newsurl
             
             self.tableView.reloadData()
             
@@ -110,6 +138,94 @@ class NewsViewController: UIViewController,UITableViewDelegate, UITableViewDataS
         
     }
     
+    
+    
+    // MARK: UISearchBar
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        if (searchbar.text?.isEmpty)! {
+            
+            newsgrpid = storenewsgrpid
+            lastupd = storelastupd
+            newsthumb = storenewsthumb
+            newstitle = storenewstitle
+            newsurl = storenewsurl
+        }
+        
+        searchbar.showsCancelButton = true
+        self.tableView.reloadData()
+        // Do some search stuff
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        // Stop doing the search stuff
+        // and clear the text in the search bar
+        searchBar.text = ""
+        // Hide the cancel button
+        searchBar.showsCancelButton = false
+        
+        newsgrpid = storenewsgrpid
+        lastupd = storelastupd
+        newsthumb = storenewsthumb
+        newstitle = storenewstitle
+        newsurl = storenewsurl
+        
+        searchBar.resignFirstResponder()
+        
+        self.tableView.reloadData()
+        // You could also change the position, frame etc of the searchBar
+    }
+    
+    
+    func searchBarSearchButtonClicked( _ searchBar: UISearchBar){
+        
+        let text = searchBar.text
+
+        searchnewsgrpid = []
+        searchlastupd = []
+        searchnewsthumb = []
+        searchnewstitle = []
+        searchnewsurl = []
+        
+        if (text?.isEmpty)!{
+            newsgrpid = storenewsgrpid
+            lastupd = storelastupd
+            newsthumb = storenewsthumb
+            newstitle = storenewstitle
+            newsurl = storenewsurl
+        }
+        else{
+            
+            let filteredArray = storenewstitle.filter { $0.localizedCaseInsensitiveContains(text!) }
+            if filteredArray.count > 0 {
+                for (index, element) in storenewstitle.enumerated() {
+                    if element.contains(text!){
+
+                        searchnewsgrpid.append(storenewsgrpid[index])
+                        searchlastupd.append(storelastupd[index])
+                        searchnewsthumb.append(storenewsthumb[index])
+                        searchnewstitle.append(storenewstitle[index])
+                        searchnewsurl.append(storenewsurl[index])
+                        
+                        newsgrpid = searchnewsgrpid
+                        lastupd = searchlastupd
+                        newsthumb = searchnewsthumb
+                        newstitle = searchnewstitle
+                        newsurl = searchnewsurl
+                        
+                    }
+                }
+            }
+            else{
+                    newsgrpid = []
+                    lastupd = []
+                    newsthumb = []
+                    newstitle = []
+                    newsurl = []
+
+            }
+        }
+        self.tableView.reloadData()
+    }
 
     // MARK: UITableView
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
