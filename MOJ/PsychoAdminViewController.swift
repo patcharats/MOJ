@@ -12,7 +12,6 @@ class PsychoAdminViewController: UIViewController,UITableViewDelegate, UITableVi
     
     let design = Design()
     @IBOutlet var menuButton: UIBarButtonItem!
-    
     @IBOutlet var tableView: UITableView!
     
     @IBOutlet var countRequestLabel: UILabel!
@@ -23,6 +22,9 @@ class PsychoAdminViewController: UIViewController,UITableViewDelegate, UITableVi
         tableView.delegate = self
         tableView.dataSource = self
         tableView.backgroundColor = UIColor.clear
+        
+        
+        
     }
     
     // MARK: UITableView
