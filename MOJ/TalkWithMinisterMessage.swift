@@ -7,7 +7,7 @@
 //
 
 import Foundation
-class TalkWithMiniterMessage: UIViewController{
+class TalkWithMiniterMessage: UIViewController,UITextViewDelegate{
     let design = Design()
     let network = Network()
     let param = ContactsParameter()
@@ -17,6 +17,7 @@ class TalkWithMiniterMessage: UIViewController{
     @IBOutlet var subjectTextField: UITextField!
     @IBOutlet var messageTextField: UITextField!
     
+    @IBOutlet var messageTextView: UITextView!
     let IMAGE_CHECK_BOX_TRUE = "checkbox_on"
     let IMAGE_CHECK_BOX_FALSE = "checkbox_off"
     var isCheckBox = false
@@ -26,12 +27,26 @@ class TalkWithMiniterMessage: UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         design.roundView(view: subjectTextField, radius: 10)
-        design.roundView(view: messageTextField, radius: 10)
-        
+        design.roundView(view: messageTextView, radius: 10)
+        messageTextView.delegate = self
+        messageTextView.text = "* ข้อความ"
+        messageTextView.textColor = UIColor.lightGray
         checkPublicButton.setImage(UIImage (named: IMAGE_CHECK_BOX_FALSE), for: UIControlState.normal)
     }
     
-
+    func textViewDidEndEditing(_ textView: UITextView) {
+        if textView.text.isEmpty {
+            textView.text = "* ข้อความ"
+            textView.textColor = UIColor.lightGray
+        }
+    }
+    
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        if textView.textColor == UIColor.lightGray {
+            textView.text = nil
+            textView.textColor = UIColor.black
+        }
+    }
     
     @IBAction func publicButton(_ sender: Any) {
         SetCheckBox()
@@ -63,7 +78,7 @@ class TalkWithMiniterMessage: UIViewController{
     @IBAction func SendMessage(_ sender: Any) {
         
         subject = subjectTextField.text!
-        message = messageTextField.text!
+        message = messageTextView.text!
         
         if subject.isEmpty || message.isEmpty {
             alertView.alert(title: alertView.ALERT_NULL_INPUT, message: "", buttonTitle: alertView.ALERT_OK, controller: self)

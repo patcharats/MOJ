@@ -21,6 +21,7 @@ class AccountData: NSObject {
     let KEY_ACCOUNT_COMPLAINT_STATUS = "complt_status"
     let KEY_ACCOUNT_SOCIAL_STATUS = "socwrk_status"
     let KEY_ACCOUNT_USER_LEVEL = "userlevel"
+    let KEY_ACCOUNT_CHANNEL = "channel"
     
     let KEY_ACCOUNT_DATA = "data"
     let KEY_ACCOUNT_ACCOUNT = "account"
@@ -48,7 +49,8 @@ class AccountData: NSObject {
         let accountComplaintStatus = account?[KEY_ACCOUNT_COMPLAINT_STATUS]?.int
         let accountSocialStatus = account?[KEY_ACCOUNT_SOCIAL_STATUS]?.int
         let accountUserLevel = account?[KEY_ACCOUNT_USER_LEVEL]?.stringValue
-    
+        
+        let accountChannel = account?[KEY_ACCOUNT_CHANNEL]?.stringValue
         
         if accountUserLevel == "0" {
             setAdmin(isAdmin: false)
@@ -81,6 +83,8 @@ class AccountData: NSObject {
         setAccountLastName(accountFirstName: accountLastName!)
         setAccountToken(accountToken: accountToken!)
         setAccountLastLogin(accountLastlogin: accountLastLogin!)
+        setAccountChannel(accountChannel: accountChannel!)
+        
 //        setAccountPhoneNo(accountPhoneNo: accountPhoneNo!)
         print("accountid :\(accountID!)")
         print("accountToken :\(accountToken!)")
@@ -243,6 +247,22 @@ class AccountData: NSObject {
         }
         
         return ""
+    }
+    
+    
+    // Channel
+    
+    func setAccountChannel(accountChannel:String){
+        userdefault.set(accountChannel, forKey: KEY_ACCOUNT_CHANNEL)
+    }
+    
+    func getAccountChannel()->String{
+        
+        if userdefault.value(forKey: KEY_ACCOUNT_CHANNEL) != nil{
+            return userdefault.value(forKey: KEY_ACCOUNT_CHANNEL) as! String
+        }
+        
+        return "0"
     }
     
 }

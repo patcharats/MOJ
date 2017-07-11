@@ -218,12 +218,20 @@ class ApplicationViewController: UIViewController,UITableViewDelegate,UITableVie
     
     func androidButton(sender: UIButton!) {
         let url = NSURL(string: playstoreid[sender.tag])
-        UIApplication.shared.open(url! as URL, options: [:], completionHandler: nil)
+        if #available(iOS 10.0, *) {
+            UIApplication.shared.open(url! as URL, options: [:], completionHandler: nil)
+        } else {
+            // Fallback on earlier versions
+        }
     }
     
     func iosButton(sender: UIButton!) {
         let url = NSURL(string: appstoreid[sender.tag])
-        UIApplication.shared.open(url! as URL, options: [:], completionHandler: nil)
+        if #available(iOS 10.0, *) {
+            UIApplication.shared.open(url! as URL, options: [:], completionHandler: nil)
+        } else {
+            // Fallback on earlier versions
+        }
     }
     
     func setupMenuButton() {

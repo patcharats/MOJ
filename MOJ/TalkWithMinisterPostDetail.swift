@@ -8,6 +8,8 @@
 
 import Foundation
 import SwiftyJSON
+import GrowingTextView
+
 class TalkWithMiniterPostDetail: UIViewController,UITableViewDelegate, UITableViewDataSource,UITextFieldDelegate{
     let design = Design()
     let account = AccountData()
@@ -48,6 +50,13 @@ class TalkWithMiniterPostDetail: UIViewController,UITableViewDelegate, UITableVi
     
     @IBOutlet var sendButton: UIButton!
     @IBOutlet var commentTexfield: UITextField!
+    
+    
+    @IBOutlet weak var inputToolbar: UIView!
+    @IBOutlet weak var bottomConstraint: NSLayoutConstraint! //*** Bottom Constraint of toolbar ***
+    @IBOutlet weak var textView: GrowingTextView!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -75,6 +84,27 @@ class TalkWithMiniterPostDetail: UIViewController,UITableViewDelegate, UITableVi
         getDetailPost()
         
         
+        // *** Listen for keyboard show / hide ***
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChangeFrame), name: NSNotification.Name.UIKeyboardWillChangeFrame, object: nil)
+        
+        // *** Hide keyboard when tapping outside ***
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(tapGestureHandler))
+        view.addGestureRecognizer(tapGesture)
+        
+    }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
+    
+    func keyboardWillChangeFrame(_ notification: Notification) {
+        let endFrame = ((notification as NSNotification).userInfo![UIKeyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
+        bottomConstraint.constant = UIScreen.main.bounds.height - endFrame.origin.y
+        self.view.layoutIfNeeded()
+    }
+    
+    func tapGestureHandler() {
+        view.endEditing(true)
     }
     
     func getDetailPost(){
@@ -152,7 +182,7 @@ class TalkWithMiniterPostDetail: UIViewController,UITableViewDelegate, UITableVi
             cell.viewMessage.isHidden = false
             cell.viewRyply.isHidden = true
             let height = selectcontactshort.height(withConstrainedWidth: self.view.frame.size.width - 30, font: UIFont(name: "Quark-Bold", size: 15)!)
-            cell.messageTextviewHeight.constant = height + 10
+            cell.messageTextviewHeight.constant = height + 50
             cell.viewMessageHeight.constant = height + 50
             cell.messageTextView.font = UIFont(name: "Quark-Bold", size: 15)
             cell.messageTextView.isScrollEnabled = false
@@ -171,7 +201,7 @@ class TalkWithMiniterPostDetail: UIViewController,UITableViewDelegate, UITableVi
             cell.viewRyply.isHidden = false
             
             let height = commentmsg[indexPath.row-1].height(withConstrainedWidth: cell.ryplyDetailTextView.frame.size.width, font: UIFont(name: "Quark-Bold", size: 15)!)
-            cell.messageReplyTextViewHeight.constant = height + 10
+            cell.messageReplyTextViewHeight.constant = height + 50
             cell.viewReplyHeight.constant = height + 100
             cell.viewReplyDetailHeight.constant = height + 44
             
@@ -199,7 +229,7 @@ class TalkWithMiniterPostDetail: UIViewController,UITableViewDelegate, UITableVi
     
     @IBAction func sendButton(_ sender: Any) {
         
-        contentmsgText = commentTexfield.text!
+        contentmsgText = textView.text!
         param.contactid =  selectPostID
         param.contentmsg = contentmsgText
         
@@ -210,8 +240,8 @@ class TalkWithMiniterPostDetail: UIViewController,UITableViewDelegate, UITableVi
             
             if(Code == "00000"){
                 self.getDetailPost()
-                self.commentTexfield.text = ""
-                self.commentTexfield.resignFirstResponder()
+                self.textView.text = ""
+                self.textView.resignFirstResponder()
             }
             else{
                 
@@ -234,6 +264,17 @@ class TalkWithMiniterPostDetail: UIViewController,UITableViewDelegate, UITableVi
     }
     
     
+}
+
+extension TalkWithMiniterPostDetail: GrowingTextViewDelegate {
+    
+    // *** Call layoutIfNeeded on superview for animation when changing height ***
+    
+    func textViewDidChangeHeight(_ textView: GrowingTextView, height: CGFloat) {
+        UIView.animate(withDuration: 0.3, delay: 0.0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.7, options: [.curveLinear], animations: { () -> Void in
+            self.view.layoutIfNeeded()
+        }, completion: nil)
+    }
 }
 
 class PostDetailWithMinisterCell: UITableViewCell {

@@ -102,6 +102,21 @@ class PsychoParameter: NSObject {
     var REQUEST_TYPE_NEW = "new"
     var REQUEST_TYPE_RENEW = "renew"
     
+    var approve = ""
+    var noapprvreason = ""
+    
+    func getApproveParameter()->Parameters{
+        
+        let parameters: Parameters = [
+            "data": [
+                "requestid": requestid,
+                "approve": approve,
+                "noapprvreason": noapprvreason
+            ]
+        ]
+        return parameters
+    }
+    
     func getSearchParameter()-> Parameters{
         
         let parameters: Parameters = [

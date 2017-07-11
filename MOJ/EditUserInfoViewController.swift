@@ -27,8 +27,13 @@ class EditUserInfoViewController: UIViewController {
     var email:String? = ""
     var phone:String? = ""
     
+    @IBOutlet var changePasswordButton: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if accountData.getAccountChannel() != "email" {
+            changePasswordButton.isHidden = true
+        }
         
         
         firstnameTextfield.text = accountData.getAccountFirstName()
@@ -71,7 +76,7 @@ class EditUserInfoViewController: UIViewController {
                     (button : Bool) in
                     if button {
                         self.accountData.setAccountFirstName(accountFirstName: self.firstname!)
-                        self.accountData.setAccountFirstName(accountFirstName: self.lastname!)
+                        self.accountData.setAccountLastName(accountFirstName: self.lastname!)
                         self.dismiss(animated: true, completion: nil)
                     }
                 });

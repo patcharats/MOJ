@@ -26,7 +26,7 @@ class Design: NSObject {
     func getProcessStatus(status:String,label:UILabel){
         switch status {
         case "create":
-            label.text = "รับเรื่อง"
+            label.text = "รอรับเรื่อง"
             label.backgroundColor = hexStringToColor(hex: HEX_COLOR_BLUE)
         case "process":
             label.text = "กำลังดำเนินการ"

@@ -44,7 +44,7 @@ class ChangePasswordViewController: UIViewController {
             param.new_password = stringHelper.getAesString(plainText: newPassword!)
             param.confirm_new_password = stringHelper.getAesString(plainText: rePassword!)
             
-            network.post(name: network.API_CHANGE_PASSWORD, param: param.getForgetPasswordParameter(), viewController: self, completionHandler: {
+            network.post(name: network.API_CHANGE_PASSWORD, param: param.getChangePasswordParameter(), viewController: self, completionHandler: {
                 (JSON : Any,Code:String,Message:String) in
                 
                 if(Code == "00000"){
@@ -56,6 +56,7 @@ class ChangePasswordViewController: UIViewController {
                     });
                 }
                 else{
+                    print("Message :",Message)
                     self.alertView.alert(title:"", message: Message, buttonTitle: self.alertView.ALERT_OK, controller: self)
                 }
             })

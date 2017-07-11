@@ -216,7 +216,11 @@ class PsychoServiceViewController: UIViewController,UITextFieldDelegate {
         
         let numbers = "02-222-2222"
         guard let number = URL(string: "telprompt://" + numbers) else { return }
-        UIApplication.shared.open(number)
+        if #available(iOS 10.0, *) {
+            UIApplication.shared.open(number)
+        } else {
+            // Fallback on earlier versions
+        }
         
     }
     

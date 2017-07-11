@@ -118,7 +118,7 @@ class TalkWithMiniterViewController: UIViewController,UITableViewDelegate, UITab
         selectsubject = subject[indexPath.row]
         selectcontactname = "โดย "+contactname[indexPath.row]
         selectcontactdattm = stringHelper.getDatefromString(dateString: contactdattm[indexPath.row])
-        selectcontactviews = " "+contactviews[indexPath.row]+" reviews"
+        selectcontactviews = " "+contactviews[indexPath.row]+" views"
         selectcontactreply = contactreply[indexPath.row]+" reply"
         selectcontactshort = contactshort[indexPath.row]
         performSegue(withIdentifier: CONTACT_DETAIL, sender: nil)
@@ -146,7 +146,7 @@ class TalkWithMiniterViewController: UIViewController,UITableViewDelegate, UITab
         cell.titleLabel.text = subject[indexPath.row]
         cell.postbyLabel.text  = "โดย "+contactname[indexPath.row]
         cell.dateLabel.text  = stringHelper.getDatefromString(dateString: contactdattm[indexPath.row])
-        cell.reviewerLabel.text  = " "+contactviews[indexPath.row]+" reviews"
+        cell.reviewerLabel.text  = " "+contactviews[indexPath.row]+" views"
         cell.replyLabel.text  = contactreply[indexPath.row]+" reply"
         
         return cell

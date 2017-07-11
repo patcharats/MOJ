@@ -46,65 +46,77 @@ class Network: NSObject {
     let API_VERIFY_ID_STATUS = "idcard-status"
     
     let API_SOCIAL_WORK_NEW_REQUEST = "socialwrk/newrequest/"
-    
     let API_SOCIAL_WORK_REQUEST = "socialwrk/request/"
     let API_SOCIAL_WORK_SEARCH = "socialwrk/search"
+    let API_SOCIAL_WORK_APPROVE_LIST = "socialwrk/approvallist/"
+    let API_SOCIAL_WORK_APPROVE = "socialwrk/approve/"
+    
     let KEY_RESPONSE_STATUS = "status"
     let KEY_RESPONSE_CODE = "code"
     let KEY_RESPONSE_MESSAGE = "message"
     
-    
+    let alertView = AlertView()
     let accountData = AccountData()
     let activityIndicator = ActivityIndicatorView()
     
     func post(name:String,param:Parameters,viewController:UIViewController,completionHandler:@escaping (Any,String,String) -> ()){
         
-        
-        let header: HTTPHeaders = [
-            "token": accountData.getAccountToken()
-        ]
-        print("header :\(header)")
-        
-        print("******** api :\(self.API_BASE_URL+name)")
-        activityIndicator.showActivityIndicator(uiView: viewController.view)
-        print(param)
-        Alamofire.request(API_BASE_URL+name, method: .post, parameters: param, encoding: JSONEncoding.default,headers: header)
-            .responseJSON { response in
-                if let result = response.result.value {
-                    let JSON = result as! NSDictionary
-                    
-                    print("******** request :\(NSString(data: (response.request?.httpBody)!, encoding: String.Encoding.utf8.rawValue)!)")
-                    print("******** response :\(JSON)")
-                    
-                    let status = JSON[self.KEY_RESPONSE_STATUS] as! NSDictionary
-                    let code = status[self.KEY_RESPONSE_CODE] as! String
-                    let message = status[self.KEY_RESPONSE_MESSAGE] as! String
-                    self.activityIndicator.hideActivityIndicator(uiView: viewController.view)
-                    completionHandler(JSON,code,message)
-                    
-                }
+        if isInternetAvailable(){
+            let header: HTTPHeaders = [
+                "token": accountData.getAccountToken()
+            ]
+            print("header :\(header)")
+            
+            print("******** api :\(self.API_BASE_URL+name)")
+            activityIndicator.showActivityIndicator(uiView: viewController.view)
+            print(param)
+            Alamofire.request(API_BASE_URL+name, method: .post, parameters: param, encoding: JSONEncoding.default,headers: header)
+                .responseJSON { response in
+                    if let result = response.result.value {
+                        let JSON = result as! NSDictionary
+                        
+                        print("******** request :\(NSString(data: (response.request?.httpBody)!, encoding: String.Encoding.utf8.rawValue)!)")
+                        print("******** response :\(JSON)")
+                        
+                        let status = JSON[self.KEY_RESPONSE_STATUS] as! NSDictionary
+                        let code = status[self.KEY_RESPONSE_CODE] as! String
+                        let message = status[self.KEY_RESPONSE_MESSAGE] as! String
+                        self.activityIndicator.hideActivityIndicator(uiView: viewController.view)
+                        completionHandler(JSON,code,message)
+                        
+                    }
+            }
         }
+        else{
+            alertView.alert(title: alertView.ALERT_NO_INTERNET, message: "", buttonTitle: alertView.ALERT_OK, controller: viewController)
+        }
+        
     }
     
     func get(name:String,param:String,viewController:UIViewController,completionHandler:@escaping (Any,String,String) -> ()){
         
-        
-        print("******** api :\(self.API_BASE_URL+name+param)")
-        activityIndicator.showActivityIndicator(uiView: viewController.view)
-        Alamofire.request(API_BASE_URL+name+param, method: .get, encoding: JSONEncoding.default)
-            .responseJSON { response in
-                if let result = response.result.value {
-                    let JSON = result as! NSDictionary
-                    
-                    print("******** response :\(JSON)")
-                    let status = JSON[self.KEY_RESPONSE_STATUS] as! NSDictionary
-                    let code = status[self.KEY_RESPONSE_CODE] as! String
-                    let message = status[self.KEY_RESPONSE_MESSAGE] as! String
-                    self.activityIndicator.hideActivityIndicator(uiView: viewController.view)
-                    completionHandler(JSON,code,message)
-                    
-                }
+        if isInternetAvailable(){
+            print("******** api :\(self.API_BASE_URL+name+param)")
+            activityIndicator.showActivityIndicator(uiView: viewController.view)
+            Alamofire.request(API_BASE_URL+name+param, method: .get, encoding: JSONEncoding.default)
+                .responseJSON { response in
+                    if let result = response.result.value {
+                        let JSON = result as! NSDictionary
+                        
+                        print("******** response :\(JSON)")
+                        let status = JSON[self.KEY_RESPONSE_STATUS] as! NSDictionary
+                        let code = status[self.KEY_RESPONSE_CODE] as! String
+                        let message = status[self.KEY_RESPONSE_MESSAGE] as! String
+                        self.activityIndicator.hideActivityIndicator(uiView: viewController.view)
+                        completionHandler(JSON,code,message)
+                        
+                    }
+            }
         }
+        else{
+            alertView.alert(title: alertView.ALERT_NO_INTERNET, message: "", buttonTitle: alertView.ALERT_OK, controller: viewController)
+        }
+        
     }
     
 
@@ -149,31 +161,34 @@ class Network: NSObject {
     }
     
     func getWithToken(name:String,param:String,viewController:UIViewController,completionHandler:@escaping (Any,String,String) -> ()){
-        
-        let header: HTTPHeaders = [
-            "token": accountData.getAccountToken()
-            //"token" : "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJhY2NvdW50aWQiOiIxMyIsInVzZXJuYW1lIjoiYmVlYmFib25nQGhvdG1haWwuY29tIiwiZW1haWwiOiJiZWViYWJvbmdAaG90bWFpbC5jb20iLCJ1c2Vyc3RhdHVzIjoiMSIsInVzZXJsZXZlbCI6IjAiLCJjaGFubmVsIjoiZW1haWwiLCJleHBpcmUiOiIyMDE3LTA1LTE3In0.QlWivNw0i7bYCQVF7oQlnUi13_kXtYVaCWvvkcJiwnk"
-        ]
-        
-        
-        
-        print("header :\(header)")
-        print("******** api :\(self.API_BASE_URL+name+param)")
-        activityIndicator.showActivityIndicator(uiView: viewController.view)
-        Alamofire.request(API_BASE_URL+name+param, method: .get, encoding: JSONEncoding.default,headers: header)
-            .responseJSON { response in
-                if let result = response.result.value {
-                    let JSON = result as! NSDictionary
-                    
-                    print("******** response :\(JSON)")
-                    let status = JSON[self.KEY_RESPONSE_STATUS] as! NSDictionary
-                    let code = status[self.KEY_RESPONSE_CODE] as! String
-                    let message = status[self.KEY_RESPONSE_MESSAGE] as! String
-                    self.activityIndicator.hideActivityIndicator(uiView: viewController.view)
-                    completionHandler(JSON,code,message)
-                    
-                }
+        if isInternetAvailable(){
+            let header: HTTPHeaders = [
+                "token": accountData.getAccountToken()
+            ]
+            
+            print("header :\(header)")
+            print("******** api :\(self.API_BASE_URL+name+param)")
+            activityIndicator.showActivityIndicator(uiView: viewController.view)
+            Alamofire.request(API_BASE_URL+name+param, method: .get, encoding: JSONEncoding.default,headers: header)
+                .responseJSON { response in
+                    if let result = response.result.value {
+                        let JSON = result as! NSDictionary
+                        
+                        print("******** response :\(JSON)")
+                        let status = JSON[self.KEY_RESPONSE_STATUS] as! NSDictionary
+                        let code = status[self.KEY_RESPONSE_CODE] as! String
+                        let message = status[self.KEY_RESPONSE_MESSAGE] as! String
+                        self.activityIndicator.hideActivityIndicator(uiView: viewController.view)
+                        completionHandler(JSON,code,message)
+                        
+                    }
+            }
         }
+        else{
+            alertView.alert(title: alertView.ALERT_NO_INTERNET, message: "", buttonTitle: alertView.ALERT_OK, controller: viewController)
+        }
+        
+        
     }
     
     

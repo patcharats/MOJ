@@ -156,7 +156,11 @@ public final class PDFViewController: UIViewController,UIDocumentInteractionCont
     }
     @IBAction func downloadPDF(_ sender: Any) {
         
-        UIApplication.shared.open(document.fileURL!, options: [:], completionHandler: nil)
+        if #available(iOS 10.0, *) {
+            UIApplication.shared.open(document.fileURL!, options: [:], completionHandler: nil)
+        } else {
+            // Fallback on earlier versions
+        }
 
     }
     

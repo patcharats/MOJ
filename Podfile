@@ -15,4 +15,5 @@ target 'MOJ' do
 	pod 'SwiftyJSON'
 	pod 'IQKeyboardManagerSwift'
 	pod 'SDWebImage', '~>3.8'
+	pod 'GrowingTextView'
 end

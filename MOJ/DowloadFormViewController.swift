@@ -224,7 +224,11 @@ class DowloadFormViewController: UIViewController,UITableViewDelegate, UITableVi
         
         let url = URL(string: docurl[sender.tag])
             
-        UIApplication.shared.open(url!, options: [:], completionHandler: nil)
+        if #available(iOS 10.0, *) {
+            UIApplication.shared.open(url!, options: [:], completionHandler: nil)
+        } else {
+            // Fallback on earlier versions
+        }
         
         network.get(name: network.API_DOCUMENT, param:docid[sender.tag], viewController: self, completionHandler: {
             (json:Any,Code:String,Message:String) in

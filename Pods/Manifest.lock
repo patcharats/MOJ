@@ -26,6 +26,7 @@ PODS:
     - FBSDKCoreKit
   - FBSDKShareKit (4.22.0):
     - FBSDKCoreKit
+  - GrowingTextView (0.2.8)
   - ImageSlideshow (1.2.0):
     - ImageSlideshow/Core (= 1.2.0)
   - ImageSlideshow/Core (1.2.0)
@@ -41,6 +42,7 @@ DEPENDENCIES:
   - FacebookCore
   - FacebookLogin
   - FacebookShare
+  - GrowingTextView
   - ImageSlideshow (~> 1.2)
   - IQKeyboardManagerSwift
   - SDWebImage (~> 3.8)
@@ -56,11 +58,12 @@ SPEC CHECKSUMS:
   FBSDKCoreKit: c693bad19feb225469eeff14452ba364522ee48b
   FBSDKLoginKit: 1fa529fc622d7b32ebeaffbecd377180833c6d30
   FBSDKShareKit: 21ab3c8d173f4fa20c47c1061f3a9fac5950b5fa
+  GrowingTextView: 84d1c133d67fb88d5c027a6d6510036252a9b226
   ImageSlideshow: c1395dcf33f7dba407fd21df0e8c315e8941e209
   IQKeyboardManagerSwift: 2eefe6c429b86aa08bfbc1b5c891164d754adf91
   SDWebImage: 098e97e6176540799c27e804c96653ee0833d13c
   SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
 
-PODFILE CHECKSUM: 8e0ccffc3ff173eca888528063444db42449eebc
+PODFILE CHECKSUM: dc691556add7968c1ce6a4eccc5edc6923716a71
 
-COCOAPODS: 1.0.1
+COCOAPODS: 1.1.1
