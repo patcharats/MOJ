@@ -35,7 +35,7 @@ class ConfigData: NSObject {
     let KEY_CONFIG_RELIGION = "religion"
     let KEY_CONFIG_TRAINING = "training"
     
-    let KEY_CONFIG_CARD_ID = "degreeID"
+    let KEY_CONFIG_CARD_ID = "cardID"
     let KEY_CONFIG_DEGREE_ID = "degreeID"
     let KEY_CONFIG_MAJOR_ID = "majorID"
     let KEY_CONFIG_FIELDSTUDY_ID = "fieldstudyID"
@@ -141,8 +141,8 @@ class ConfigData: NSObject {
         let tel =  swiftyJson[self.KEY_CONFIG_DATA][self.KEY_CONFIG_BEFORE_EXPIRE][self.KEY_CONFIG_VALUE].stringValue
         
         
-        //let cardID =  (data[self.KEY_CONFIG_CARD_TYPE]?.arrayValue.map({$0[self.KEY_CONFIG_ID].intValue}))!
-        //let cardName =  (data[self.KEY_CONFIG_CARD_TYPE]?.arrayValue.map({$0[self.KEY_CONFIG_NAME].stringValue}))!
+        let cardID =  (data[self.KEY_CONFIG_CARD_TYPE]?.arrayValue.map({$0[self.KEY_CONFIG_ID].intValue}))!
+        let cardName =  (data[self.KEY_CONFIG_CARD_TYPE]?.arrayValue.map({$0[self.KEY_CONFIG_NAME].stringValue}))!
         
         let degreeID =  (data[self.KEY_CONFIG_DEGREE]?.arrayValue.map({$0[self.KEY_CONFIG_ID].intValue}))!
         let degreeName =  (data[self.KEY_CONFIG_DEGREE]?.arrayValue.map({$0[self.KEY_CONFIG_VALUE].stringValue}))!
@@ -176,8 +176,8 @@ class ConfigData: NSObject {
         setMessage(message: message)
         setTel(tel: tel)
         
-        //setCard(card: cardName)
-        //setCardID(cardid: cardID)
+        setCard(card: cardName)
+        setCardID(cardid: cardID)
     
         setDegreeID(degreeid: degreeID)
         setDegree(degree: degreeName)

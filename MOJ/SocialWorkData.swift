@@ -55,6 +55,7 @@ class SocialWorkData: NSObject {
     let KEY_OCCORGNAME = "occorgname"
     let KEY_OCCUTHER = "occother"
     let KEY_OCCLEVEL = "occlevel"
+    let KEY_OCCOR_NO_CARD = "OccorNocard"
     let KEY_OCCPOSITION = "occposition"
     let KEY_ADDR_ORG_NO = "addrorgno"
     let KEY_ADDR_ORG_MOO = "addrorgmoo"
@@ -134,6 +135,7 @@ class SocialWorkData: NSObject {
     var addr2email:String = ""
     var occupation:String = ""
     var occorgname:String = ""
+    var occornocard:String = ""
     var occother:String = ""
     var occlevel:String = ""
     var occposition:String = ""
@@ -239,6 +241,7 @@ class SocialWorkData: NSObject {
         occother =  swiftyJson[KEY_REQUEST_DATA][KEY_OCCUTHER].stringValue
         occlevel =  swiftyJson[KEY_REQUEST_DATA][KEY_OCCLEVEL].stringValue
         occposition =  swiftyJson[KEY_REQUEST_DATA][KEY_OCCPOSITION].stringValue
+        occornocard = swiftyJson[KEY_REQUEST_DATA][KEY_OCCOR_NO_CARD].stringValue
         addrorgno =  swiftyJson[KEY_REQUEST_DATA][KEY_ADDR_ORG_NO].stringValue
         addrorgmoo =  swiftyJson[KEY_REQUEST_DATA][KEY_ADDR_ORG_MOO].stringValue
         addrorgsoi =  swiftyJson[KEY_REQUEST_DATA][KEY_ADDR_ORG_SOI].stringValue

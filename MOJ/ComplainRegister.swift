@@ -110,7 +110,7 @@ class ComplainRegister: UIViewController,UIPickerViewDelegate,UIPickerViewDataSo
         else if (!stringHelper.validatePersionId(stringPersionId:idnumber)) {
             alertView.alert(title: alertView.ALERT_WRONG_FRONT_ID_NUMBER, message: "", buttonTitle: alertView.ALERT_OK, controller: self)
         }
-        else if (idbacknumber.characters.count != 12){
+        else if (idbacknumber.characters.count == 0){
             alertView.alert(title: alertView.ALERT_WRONG_BACK_ID_NUMBER, message: "", buttonTitle: alertView.ALERT_OK, controller: self)
         }
         else{

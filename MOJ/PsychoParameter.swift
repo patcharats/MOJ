@@ -53,6 +53,7 @@ class PsychoParameter: NSObject {
     var notapprove = ""
     var occlevel = ""
     var occorgname = ""
+    var OccorNocard = ""
     var occother = ""
     var occposition = ""
     var orgadfax = ""
@@ -169,6 +170,7 @@ class PsychoParameter: NSObject {
                 "notapprove": notapprove,
                 "occlevel": occlevel,
                 "occorgname": occorgname,
+                "OccorNocard" : OccorNocard,
                 "occother": occother,
                 "occposition": occposition,
                 "orgadfax": orgadfax,

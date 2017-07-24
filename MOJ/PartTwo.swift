@@ -64,7 +64,7 @@ class PartTwo:UITableViewController,UIPickerViewDelegate,UIPickerViewDataSource,
     
     var zipcode:[String] = []
     
-    @IBOutlet var IDTypeTextField: UITextField!
+    //@IBOutlet var IDTypeTextField: UITextField!
     @IBOutlet var IDNumberTextField: UITextField!
     @IBOutlet var IDExpireTextField: UITextField!
     @IBOutlet var IDDateTextField: UITextField!
@@ -104,8 +104,9 @@ class PartTwo:UITableViewController,UIPickerViewDelegate,UIPickerViewDataSource,
     let notificationName = Notification.Name("clearTextfieldRenew")
     
     let notificationDataFormRenew2 = Notification.Name("DataFormRenew2")
+    @IBOutlet var checkboxButton: UIButton!
     
-    
+    @IBOutlet var sameAddressButton: UIButton!
     var SelectCardID:Int = 0
     var SelectMaritalStatusID:Int = 0
     var SelectTitleID:Int = 0
@@ -117,7 +118,7 @@ class PartTwo:UITableViewController,UIPickerViewDelegate,UIPickerViewDataSource,
     var SelectAmphurID2:Int = 0
     var SelectDistictID2:Int = 0
     
-    
+    var isCheckbox = false
     override func awakeFromNib() {
         super.awakeFromNib()
         self.tableView.contentInset = UIEdgeInsetsMake(0, 0, 55, 0)
@@ -130,7 +131,7 @@ class PartTwo:UITableViewController,UIPickerViewDelegate,UIPickerViewDataSource,
     }
     
     func clearTextfield(){
-        IDTypeTextField.text = ""
+        //IDTypeTextField.text = ""
         IDNumberTextField.text = ""
         IDExpireTextField.text = ""
         IDDateTextField.text = ""
@@ -165,7 +166,7 @@ class PartTwo:UITableViewController,UIPickerViewDelegate,UIPickerViewDataSource,
     }
     
     func setTextFieldDelegate(){
-        IDTypeTextField.delegate = self
+        //IDTypeTextField.delegate = self
         IDNumberTextField.delegate = self
         IDExpireTextField.delegate = self
         IDDateTextField.delegate = self
@@ -206,7 +207,7 @@ class PartTwo:UITableViewController,UIPickerViewDelegate,UIPickerViewDataSource,
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         
         
-        let dataDict:[String: Any] = ["IDTypeTextField": IDTypeTextField.text!,
+        let dataDict:[String: Any] = [
                                       "IDNumberTextField": IDNumberTextField.text!,
                                       "IDExpireTextField": IDExpireTextField.text!,
                                       "IDDateTextField": IDDateTextField.text!,
@@ -259,7 +260,114 @@ class PartTwo:UITableViewController,UIPickerViewDelegate,UIPickerViewDataSource,
     }
     
     
+    @IBAction func checkBoxButton(_ sender: Any) {
+        SetCheckBox()
+    }
     
+    func SetCheckBox(){
+        let IMAGE_CHECK_BOX_TRUE = "checkbox_on"
+        let IMAGE_CHECK_BOX_FALSE = "checkbox_off"
+        var imageName = ""
+        
+        if isCheckbox {
+            isCheckbox = false
+            imageName = IMAGE_CHECK_BOX_FALSE
+            houseNoTextField2.text = ""
+            villageNoTextField2.text = ""
+            streetTextField2.text = ""
+            roadTextField2.text = ""
+            subDistrictTextField2.text = ""
+            districtTextField2.text = ""
+            provinceTextField2.text = ""
+            postalCodeTextField2.text = ""
+            
+        }
+        else{
+            isCheckbox = true
+            imageName = IMAGE_CHECK_BOX_TRUE
+            houseNoTextField2.text = houseNoTextField.text
+            villageNoTextField2.text = villageNoTextField.text
+            streetTextField2.text = streetTextField.text
+            roadTextField2.text = roadTextField.text
+            subDistrictTextField2.text = subDistrictTextField.text
+            districtTextField2.text = districtTextField.text
+            provinceTextField2.text = provinceTextField.text
+            postalCodeTextField2.text = postalCodeTextField.text
+        }
+        
+        sameAddressButton.setImage(UIImage (named: imageName), for: UIControlState.normal)
+        
+    }
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        if textField == titleNameTextField {
+            titleNameTextField.text = titleName[0]
+            SelectTitleID = titleID[0]
+            
+        }
+        else if textField == maritalStatusTextField {
+            
+            maritalStatusTextField.text = maritalStatusName[0]
+            SelectMaritalStatusID = maritalStatusID[0]
+            
+        }
+        else if textField == religionTextField {
+            
+            religionTextField.text = religionName[0]
+            SelectReligionID = religionID[0]
+            
+        }
+        else if textField == provinceTextField2 {
+            
+            provinceTextField2.text = provinceName[0]
+            SelectProvinceID2 = provinceID[0]
+            
+        }
+            
+            
+        else if textField == provinceTextField {
+            
+            provinceTextField.text = provinceName[0]
+            getAmphur(provinceID: provinceID[0])
+            
+            SelectProvinceID = provinceID[0]
+        }
+            
+        else if textField == districtTextField {
+            if amphurName.count != 0{
+                districtTextField.text = amphurName[0]
+                getTambon(amphurID: amphurID[0])
+                SelectAmphurID = amphurID[0]
+            }
+            
+        }
+            
+        else if textField == subDistrictTextField {
+            if districtName.count != 0{
+                subDistrictTextField.text = districtName[0]
+                postalCodeTextField.text = zipcode[0]
+                SelectDistictID = districtID[0]
+            }
+        }
+            
+        else if textField == districtTextField2 {
+            if amphurName.count != 0{
+                districtTextField2.text = amphurName[0]
+                getTambon(amphurID: amphurID[0])
+                SelectAmphurID2 = amphurID[0]
+            }
+        }
+            
+        else if textField == subDistrictTextField2 {
+            if districtName.count != 0{
+                subDistrictTextField2.text = districtName[0]
+                postalCodeTextField2.text = zipcode[0]
+                SelectDistictID2 = districtID[0]
+            }
+        }
+        
+        
+    }
     
     func getConfigData(){
         provinceID = configData.getProvinceID()
@@ -363,7 +471,7 @@ class PartTwo:UITableViewController,UIPickerViewDelegate,UIPickerViewDataSource,
         pickerView10.tag = AMPHUR_NAME2
         pickerView11.tag = DISTRICT_NAME2
         
-        IDTypeTextField.inputView = pickerView1
+        //IDTypeTextField.inputView = pickerView1
         titleNameTextField.inputView = pickerView2
         maritalStatusTextField.inputView = pickerView3
         //nationalityTextField.inputView = pickerView4
@@ -472,7 +580,7 @@ class PartTwo:UITableViewController,UIPickerViewDelegate,UIPickerViewDataSource,
         
         switch pickerView.tag {
         case CARD_TYPE:
-            IDTypeTextField.text = cardType[row]
+            //IDTypeTextField.text = cardType[row]
             SelectCardID = cardID[row]
             
         case PREFIX_NAME:

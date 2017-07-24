@@ -247,6 +247,31 @@ class OtherDetail:UITableViewController,UIPickerViewDelegate,UIPickerViewDataSou
     }
     
     
+func textFieldDidBeginEditing(_ textField: UITextField) { 
+     
+        if textField == trainingTextField{
+            trainingTextField.text = training[0]
+            SelectTrainingID = trainingID[0]
+            
+        }
+        else if textField == province1TextField {
+            province1TextField.text = provinceName[0]
+            SelectProvince1 = provinceID[0]
+          
+        }
+        else if textField == province2TextField {
+            province2TextField.text = provinceName[0]
+            SelectProvince2 = provinceID[0]
+            
+        }
+        else if textField == province3TextField {
+            
+            province3TextField.text = provinceName[0]
+            SelectProvince3 = provinceID[0]
+        }
+        
+    }
+    
     func setTextFieldDelegate(){
         trainingTextField.delegate = self
         trainingByTextField.delegate = self

@@ -17,7 +17,7 @@ class OccupationAndEducation:UITableViewController,UIPickerViewDelegate,UIPicker
     @IBOutlet var governmentTexField: UITextField!
     @IBOutlet var positionTexField: UITextField!
     @IBOutlet var levelTexField: UITextField!
-    
+    @IBOutlet var govNumberTextfield: UITextField!
     @IBOutlet var houseNoTextField: UITextField!
     @IBOutlet var villageNoTextField: UITextField!
     @IBOutlet var streetTextField: UITextField!
@@ -198,6 +198,7 @@ class OccupationAndEducation:UITableViewController,UIPickerViewDelegate,UIPicker
                                          "governmentTexField": governmentTexField.text!,
                                          "positionTexField": positionTexField.text!,
                                          "levelTexField": levelTexField.text!,
+                                         "govNumberTextfield":govNumberTextfield.text!,
                                          "houseNoTextField": houseNoTextField.text!,
                                          "villageNoTextField": villageNoTextField.text!,
                                          "streetTextField": streetTextField.text!,
@@ -237,6 +238,7 @@ class OccupationAndEducation:UITableViewController,UIPickerViewDelegate,UIPicker
         governmentTexField.delegate = self
         positionTexField.delegate = self
         levelTexField.delegate = self
+        govNumberTextfield.delegate = self
         houseNoTextField.delegate = self
         villageNoTextField.delegate = self
         streetTextField.delegate = self
@@ -261,6 +263,7 @@ class OccupationAndEducation:UITableViewController,UIPickerViewDelegate,UIPicker
         occupationTexField.text = socialWorkData.occupation
         otherTexField.text = socialWorkData.occother
         governmentTexField.text = socialWorkData.occorgname
+        govNumberTextfield.text = socialWorkData.occornocard
         positionTexField.text = socialWorkData.occposition
         levelTexField.text = socialWorkData.occlevel
         houseNoTextField.text = socialWorkData.addrorgno
@@ -286,6 +289,7 @@ class OccupationAndEducation:UITableViewController,UIPickerViewDelegate,UIPicker
         occupationTexField.text = ""
         otherTexField.text = ""
         governmentTexField.text = ""
+        govNumberTextfield.text = ""
         positionTexField.text = ""
         levelTexField.text = ""
         houseNoTextField.text = ""
@@ -312,6 +316,7 @@ class OccupationAndEducation:UITableViewController,UIPickerViewDelegate,UIPicker
         occupationTexField.isEnabled = isEnable
         otherTexField.isEnabled = isEnable
         governmentTexField.isEnabled = isEnable
+        govNumberTextfield.isEnabled = isEnable
         positionTexField.isEnabled = isEnable
         levelTexField.isEnabled = isEnable
         houseNoTextField.isEnabled = isEnable
@@ -426,6 +431,57 @@ class OccupationAndEducation:UITableViewController,UIPickerViewDelegate,UIPicker
         
     }
     
+func textFieldDidBeginEditing(_ textField: UITextField) {
+        
+        if textField == occupationTexField {
+            occupationTexField.text = occupationOption[0]
+            SelectOccupationOptionID = occupationOptionID[0]
+            
+        }
+        else if textField == educationTextField {
+            educationTextField.text = degree[0]
+            SelectDegreeID = degreeID[0]
+            
+            
+        }
+        else if textField == courseTextField {
+            courseTextField.text = major[0]
+            selectFieldStudyID = fieldStudyID[0]
+            selectFieldStudy = fieldStudy[0]
+            fieldTextField.text = ""
+            SelectMajorID = majorID[0]
+        }
+        
+        
+        else if textField == fieldTextField {
+            fieldTextField.text = selectFieldStudy[0]
+            SelectFieldStudyIDS = selectFieldStudyID[0]
+        }
+        
+        else if textField == provinceTextField {
+            provinceTextField.text = provinceName[0]
+            getAmphur(provinceID: provinceID[0])
+            SelectOrgProvinceID = provinceID[0]
+        }
+        
+        else if textField == districtTextField {
+            if amphurName.count != 0 {
+                districtTextField.text = amphurName[0]
+                getTambon(amphurID: amphurID[0])
+                SelectOrgAmphurID = amphurID[0]
+            }
+            
+        }
+        
+        else if textField == subDistrictTextField {
+            if districtName.count != 0 {
+            subDistrictTextField.text = districtName[0]
+            postalCodeTextField.text = zipcode[0]
+            SelectOrgDistrictID = districtID[0]
+            }
+        }
+        
+    }
     
     func getAmphur(provinceID:Int){
         let param = String(provinceID)

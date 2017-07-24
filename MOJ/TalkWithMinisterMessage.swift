@@ -13,7 +13,6 @@ class TalkWithMiniterMessage: UIViewController,UITextViewDelegate{
     let param = ContactsParameter()
     let alertView = AlertView()
     
-    @IBOutlet var checkPublicButton: UIButton!
     @IBOutlet var subjectTextField: UITextField!
     @IBOutlet var messageTextField: UITextField!
     
@@ -31,7 +30,6 @@ class TalkWithMiniterMessage: UIViewController,UITextViewDelegate{
         messageTextView.delegate = self
         messageTextView.text = "* ข้อความ"
         messageTextView.textColor = UIColor.lightGray
-        checkPublicButton.setImage(UIImage (named: IMAGE_CHECK_BOX_FALSE), for: UIControlState.normal)
     }
     
     func textViewDidEndEditing(_ textView: UITextView) {
@@ -48,28 +46,7 @@ class TalkWithMiniterMessage: UIViewController,UITextViewDelegate{
         }
     }
     
-    @IBAction func publicButton(_ sender: Any) {
-        SetCheckBox()
-    }
 
-    func SetCheckBox(){
-        
-        var imageName = ""
-        
-        if isCheckBox {
-            isCheckBox = false
-            isPublicStatus = false
-            imageName = IMAGE_CHECK_BOX_FALSE
-        }
-        else{
-            isCheckBox = true
-            isPublicStatus = true
-            imageName = IMAGE_CHECK_BOX_TRUE
-        }
-        
-        checkPublicButton.setImage(UIImage (named: imageName), for: UIControlState.normal)
-        
-    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

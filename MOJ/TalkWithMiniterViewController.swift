@@ -73,17 +73,18 @@ class TalkWithMiniterViewController: UIViewController,UITableViewDelegate, UITab
     
     override func viewWillAppear(_ animated: Bool) {
         var accountID = accountData.getAccountID()
-        
-        network.post(name: network.API_CONTACTS_NEW_USER, param: param.registerTalk(), viewController: self, completionHandler: {
-            (JSON : Any,Code:String,Message:String) in
-            
-            if(Code == "00000"){
+        if accountData.isLogin() {
+            network.post(name: network.API_CONTACTS_NEW_USER, param: param.registerTalk(), viewController: self, completionHandler: {
+                (JSON : Any,Code:String,Message:String) in
                 
-            }
-            else{
-                self.alertView.alert(title:"", message: Message, buttonTitle: self.alertView.ALERT_OK, controller: self)
-            }
-        })
+                if(Code == "00000"){
+                    
+                }
+                else{
+                    self.alertView.alert(title:"", message: Message, buttonTitle: self.alertView.ALERT_OK, controller: self)
+                }
+            })
+        }
         
         
         network.get(name: network.API_CONTACTS, param:accountID, viewController: self, completionHandler: {

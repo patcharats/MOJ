@@ -39,6 +39,7 @@ class EditUserInfoViewController: UIViewController {
         firstnameTextfield.text = accountData.getAccountFirstName()
         lastnameTextfield.text = accountData.getAccountLastName()
         emailnameTextfield.text = accountData.getAccountEmail()
+        phoneTextfield.text = accountData.getAccountPhoneNo()
     }
     
     @IBAction func changeProfile(_ sender: Any) {
@@ -77,6 +78,7 @@ class EditUserInfoViewController: UIViewController {
                     if button {
                         self.accountData.setAccountFirstName(accountFirstName: self.firstname!)
                         self.accountData.setAccountLastName(accountFirstName: self.lastname!)
+                        self.accountData.setAccountPhoneNo(accountPhoneNo: self.phone!)
                         self.dismiss(animated: true, completion: nil)
                     }
                 });

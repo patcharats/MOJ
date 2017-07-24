@@ -91,6 +91,8 @@ class ContactDetailViewController: UIViewController,UITableViewDelegate, UITable
     var numberOfpage = 0
     var continueDetail = true
     
+    var isSearch = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         titleLabel.text = selectName
@@ -256,6 +258,7 @@ class ContactDetailViewController: UIViewController,UITableViewDelegate, UITable
         isFirst = storeisFirst
         
         searchBar.resignFirstResponder()
+        isSearch = false
         
         self.tableView.reloadData()
         // You could also change the position, frame etc of the searchBar
@@ -264,6 +267,7 @@ class ContactDetailViewController: UIViewController,UITableViewDelegate, UITable
     
     func searchBarSearchButtonClicked( _ searchBar: UISearchBar){
         
+        isSearch = true
         let text = searchBar.text
         
         searchdpid = []
@@ -348,19 +352,23 @@ class ContactDetailViewController: UIViewController,UITableViewDelegate, UITable
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        let  height = scrollView.frame.size.height
-        let contentYoffset = scrollView.contentOffset.y
-        let distanceFromBottom = scrollView.contentSize.height - contentYoffset
-        if distanceFromBottom < height {
-            
-            if continueDetail{
-                if current_page < numberOfpage {
-                    continueDetail = false
-                    current_page = current_page+1
-                    getDistrictDetail()
+        
+        if !isSearch {
+            let  height = scrollView.frame.size.height
+            let contentYoffset = scrollView.contentOffset.y
+            let distanceFromBottom = scrollView.contentSize.height - contentYoffset
+            if distanceFromBottom < height {
+                
+                if continueDetail{
+                    if current_page < numberOfpage {
+                        continueDetail = false
+                        current_page = current_page+1
+                        getDistrictDetail()
+                    }
                 }
             }
         }
+        
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat
@@ -387,6 +395,9 @@ class ContactDetailViewController: UIViewController,UITableViewDelegate, UITable
         
         if lat[indexPath.row] .contains("0.00") && lng [indexPath.row] .contains("0.00"){
             cell.mapButton.isHidden = true
+        }
+        else{
+            cell.mapButton.isHidden = false
         }
         
         if isFirst[indexPath.row] {

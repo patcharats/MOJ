@@ -64,6 +64,7 @@ class PsychoServiceCreateNew: UIViewController {
     var occupationTexField:String = ""
     var otherTexField:String = ""
     var governmentTexField:String = ""
+    var govNumberTextfield:String = ""
     var positionTexField:String = ""
     var levelTexField:String = ""
     var houseNoTextField3:String = ""
@@ -213,6 +214,7 @@ class PsychoServiceCreateNew: UIViewController {
         occupationTexField = notification.userInfo?["occupationTexField"] as! String
         otherTexField = notification.userInfo?["otherTexField"] as! String
         governmentTexField = notification.userInfo?["governmentTexField"] as! String
+        govNumberTextfield = notification.userInfo?["govNumberTextfield"] as! String
         positionTexField = notification.userInfo?["positionTexField"] as! String
         levelTexField = notification.userInfo?["levelTexField"] as! String
         houseNoTextField3 = notification.userInfo?["houseNoTextField"] as! String
@@ -316,6 +318,7 @@ class PsychoServiceCreateNew: UIViewController {
         param.lastworkorg = lastExperienceTextField
         param.nationality = nationalityTextField
         
+        param.OccorNocard = govNumberTextfield
         param.occlevel = levelTexField
         param.occorgname = occupationTexField
         param.occother = otherTexField

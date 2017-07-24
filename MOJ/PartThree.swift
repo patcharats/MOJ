@@ -18,6 +18,7 @@ class PartThree:UITableViewController,UIPickerViewDelegate,UIPickerViewDataSourc
     @IBOutlet var positionTexField: UITextField!
     @IBOutlet var levelTexField: UITextField!
     
+    @IBOutlet var govNumberTextfield: UITextField!
     @IBOutlet var houseNoTextField: UITextField!
     @IBOutlet var villageNoTextField: UITextField!
     @IBOutlet var streetTextField: UITextField!
@@ -149,6 +150,7 @@ class PartThree:UITableViewController,UIPickerViewDelegate,UIPickerViewDataSourc
         let dataDict:[String: Any] = ["occupationTexField": occupationTexField.text!,
                                       "otherTexField": otherTexField.text!,
                                       "governmentTexField": governmentTexField.text!,
+                                      "govNumberTextfield":govNumberTextfield.text!,
                                       "positionTexField": positionTexField.text!,
                                       "levelTexField": levelTexField.text!,
                                       "houseNoTextField": houseNoTextField.text!,
@@ -183,6 +185,7 @@ class PartThree:UITableViewController,UIPickerViewDelegate,UIPickerViewDataSourc
         occupationTexField.text = ""
         otherTexField.text = ""
         governmentTexField.text = ""
+        govNumberTextfield.text = ""
         positionTexField.text = ""
         levelTexField.text = ""
         houseNoTextField.text = ""
@@ -285,6 +288,36 @@ class PartThree:UITableViewController,UIPickerViewDelegate,UIPickerViewDataSourc
         
     }
     
+ func textFieldDidBeginEditing(_ textField: UITextField) {
+        if textField == occupationTexField {
+            occupationTexField.text = occupationOption[0]
+            SelectOccupationOptionID = occupationOptionID[0]
+            
+        }
+        else if textField == provinceTextField {
+            provinceTextField.text = provinceName[0]
+            getAmphur(provinceID: provinceID[0])
+            SelectOrgProvinceID = provinceID[0]
+        }
+            
+        else if textField == districtTextField {
+            if amphurName.count != 0{
+                districtTextField.text = amphurName[0]
+                getTambon(amphurID: amphurID[0])
+                SelectOrgAmphurID = amphurID[0]
+            }
+            
+        }
+            
+        else if textField == subDistrictTextField {
+            if districtName.count != 0{
+                subDistrictTextField.text = districtName[0]
+                postalCodeTextField.text = zipcode[0]
+                SelectOrgDistrictID = districtID[0]
+            }
+        }
+        
+    }
     
     func getAmphur(provinceID:Int){
         let param = String(provinceID)

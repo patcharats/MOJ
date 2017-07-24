@@ -68,7 +68,7 @@ class NewsViewController: UIViewController,UITableViewDelegate, UITableViewDataS
     let KEY_NEWS_RECEIVE_STATUS = "recvstatus"
     
     let KEY_MOBILE = "?ismobile=1"
-    
+    var accountID:String = ""
     @IBOutlet var searchbar: UISearchBar!
     
     override func viewDidLoad() {
@@ -103,7 +103,7 @@ class NewsViewController: UIViewController,UITableViewDelegate, UITableViewDataS
 
         
         
-        let accountID = accountData.getAccountID()
+        accountID = accountData.getAccountID()
         
         network.get(name: network.API_FEED_STATUS, param:accountID, viewController: self, completionHandler: {
             (json:Any,Code:String,Message:String) in
@@ -114,8 +114,16 @@ class NewsViewController: UIViewController,UITableViewDelegate, UITableViewDataS
             self.groupRecvstatus = jsonSwifty[self.KEY_NEWS_DATA].arrayValue.map({$0[self.KEY_NEWS_RECEIVE_STATUS].boolValue})
             
             self.tableViewGroup.reloadData()
+            self.getFeed()
         })
         
+        
+        
+        
+    }
+    
+    
+    func getFeed(){
         network.get(name: network.API_FEED, param:accountID, viewController: self, completionHandler: {
             (json:Any,Code:String,Message:String) in
             let jsonSwifty = JSON(json)
@@ -134,10 +142,7 @@ class NewsViewController: UIViewController,UITableViewDelegate, UITableViewDataS
             self.tableView.reloadData()
             
         })
-        
-        
     }
-    
     
     
     // MARK: UISearchBar
@@ -334,7 +339,7 @@ class NewsViewController: UIViewController,UITableViewDelegate, UITableViewDataS
         network.get(name: network.API_FEED_UPDATE, param:accountID+"/"+newGroupID, viewController: self, completionHandler: {
             (json:Any,Code:String,Message:String) in
             self.tableView.reloadData()
-            
+            self.getFeed()
         })
         viewGroupBackground.isHidden = true
     }

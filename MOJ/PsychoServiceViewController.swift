@@ -41,6 +41,7 @@ class PsychoServiceViewController: UIViewController,UITextFieldDelegate {
     @IBOutlet var menuButton: UIBarButtonItem!
     @IBOutlet var idCardView: UIView!
     @IBOutlet var resultTextView: UITextView!
+    @IBOutlet var nameLabel: UILabel!
     @IBOutlet var statusLabel: UILabel!
     @IBOutlet var resultView: UIView!
     @IBOutlet var renewButton: UIButton!
@@ -116,6 +117,9 @@ class PsychoServiceViewController: UIViewController,UITextFieldDelegate {
         setupMenuButton()
         setupDesign()
         searchTextField.delegate = self
+    
+    }
+    override func viewWillAppear(_ animated: Bool) {
         let account = AccountData()
         if account.isLogin() {
             addButton.isEnabled = true
@@ -124,8 +128,8 @@ class PsychoServiceViewController: UIViewController,UITextFieldDelegate {
             accountID = accountData.getAccountID()
             acctid = accountData.getAccountID()
             
-             //accountID = "1"
-             //acctid = "1"
+            //accountID = "1"
+            //acctid = "1"
             
             setupView(type: self.TYPE_NOT_FOUND)
             getLicenseDetail(accountIDs: accountID, touchDetail: false)
@@ -142,15 +146,13 @@ class PsychoServiceViewController: UIViewController,UITextFieldDelegate {
                 (button : Bool) in
                 if button {
                     //self.alertView.setMainViewController()
-                   
+                    
                     self.performSegue(withIdentifier: self.LOGIN_VIEW_CONTROLLER, sender: self)
                 }
             });
         }
-
-
-        
     }
+    
     
     func getLicenseDetail(accountIDs:String,touchDetail:Bool){
         
@@ -209,9 +211,7 @@ class PsychoServiceViewController: UIViewController,UITextFieldDelegate {
         
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        
-    }
+    
     @IBAction func callNumber(_ sender: Any) {
         
         let numbers = "02-222-2222"
@@ -259,6 +259,7 @@ class PsychoServiceViewController: UIViewController,UITextFieldDelegate {
         licenseExpireLabel.text = "บัตรหมดอายุ " + stringHelper.getDatefromString(dateString: license_expiredate)
         
         requireNoLabel.text = "คำร้องเลขที่ "+request_reqno
+        nameLabel.text = request_firstname+" "+request_lastname
         statusLabel.text = " "+request_reqstatus+" "
         statusLabel.sizeToFit()
         
