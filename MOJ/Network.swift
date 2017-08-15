@@ -22,6 +22,7 @@ class Network: NSObject {
     let API_UPDATE_PROFILE = "update-profile"
     
     let API_DEPARTMENT = "departments/"
+    let API_DEPARTMENT_SEARCH = "deptsearch/"
     let API_APPLICATION = "app"
     let API_DOCUMENT = "doc/"
     let API_FEED = "feeds/"

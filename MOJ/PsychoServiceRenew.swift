@@ -140,7 +140,7 @@ class PsychoServiceRenew: UIViewController {
     }
     
     func getDataFormRenew2(_ notification: NSNotification) {
-        IDTypeTextField = notification.userInfo?["IDTypeTextField"] as! String
+        //IDTypeTextField = notification.userInfo?["IDTypeTextField"] as! String
         IDNumberTextField = notification.userInfo?["IDNumberTextField"] as! String
         IDExpireTextField = notification.userInfo?["IDExpireTextField"] as! String
         IDDateTextField = notification.userInfo?["IDDateTextField"] as! String

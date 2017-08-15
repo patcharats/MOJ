@@ -164,6 +164,16 @@ class ProsonalInformation:UITableViewController,UIPickerViewDelegate,UIPickerVie
         if isCheckbox {
             isCheckbox = false
             imageName = IMAGE_CHECK_BOX_FALSE
+            
+            houseNoTextField2.isEnabled = true
+            villageNoTextField2.isEnabled = true
+            streetTextField2.isEnabled = true
+            roadTextField2.isEnabled = true
+            subDistrictTextField2.isEnabled = true
+            districtTextField2.isEnabled = true
+            provinceTextField2.isEnabled = true
+            postalCodeTextField2.isEnabled = true
+            
             houseNoTextField2.text = ""
             villageNoTextField2.text = ""
             streetTextField2.text = ""
@@ -177,14 +187,24 @@ class ProsonalInformation:UITableViewController,UIPickerViewDelegate,UIPickerVie
         else{
             isCheckbox = true
             imageName = IMAGE_CHECK_BOX_TRUE
-            houseNoTextField2.text = houseNoTextField.text
-            villageNoTextField2.text = villageNoTextField.text
-            streetTextField2.text = streetTextField.text
-            roadTextField2.text = roadTextField.text
-            subDistrictTextField2.text = subDistrictTextField.text
-            districtTextField2.text = districtTextField.text
-            provinceTextField2.text = provinceTextField.text
-            postalCodeTextField2.text = postalCodeTextField.text
+            houseNoTextField2.isEnabled = false
+            villageNoTextField2.isEnabled = false
+            streetTextField2.isEnabled = false
+            roadTextField2.isEnabled = false
+            subDistrictTextField2.isEnabled = false
+            districtTextField2.isEnabled = false
+            provinceTextField2.isEnabled = false
+            postalCodeTextField2.isEnabled = false
+            
+            
+//            houseNoTextField2.text = houseNoTextField.text
+//            villageNoTextField2.text = villageNoTextField.text
+//            streetTextField2.text = streetTextField.text
+//            roadTextField2.text = roadTextField.text
+//            subDistrictTextField2.text = subDistrictTextField.text
+//            districtTextField2.text = districtTextField.text
+//            provinceTextField2.text = provinceTextField.text
+//            postalCodeTextField2.text = postalCodeTextField.text
         }
         
         sameAddressButton.setImage(UIImage (named: imageName), for: UIControlState.normal)
@@ -215,6 +235,9 @@ class ProsonalInformation:UITableViewController,UIPickerViewDelegate,UIPickerVie
             provinceTextField2.text = provinceName[0]
             SelectProvinceID2 = provinceID[0]
             
+            districtTextField.text = ""
+            subDistrictTextField.text = ""
+            postalCodeTextField.text = ""
         }
             
             
@@ -224,6 +247,9 @@ class ProsonalInformation:UITableViewController,UIPickerViewDelegate,UIPickerVie
             getAmphur(provinceID: provinceID[0])
             
             SelectProvinceID = provinceID[0]
+            districtTextField.text = ""
+            subDistrictTextField.text = ""
+            postalCodeTextField.text = ""
         }
             
         else if textField == districtTextField {
@@ -231,6 +257,9 @@ class ProsonalInformation:UITableViewController,UIPickerViewDelegate,UIPickerVie
                 districtTextField.text = amphurName[0]
                 getTambon(amphurID: amphurID[0])
                 SelectAmphurID = amphurID[0]
+                
+                subDistrictTextField.text = ""
+                postalCodeTextField.text = ""
             }
             
         }
@@ -248,6 +277,9 @@ class ProsonalInformation:UITableViewController,UIPickerViewDelegate,UIPickerVie
                 districtTextField2.text = amphurName[0]
                 getTambon(amphurID: amphurID[0])
                 SelectAmphurID2 = amphurID[0]
+                
+                subDistrictTextField.text = ""
+                postalCodeTextField.text = ""
             }
         }
             
@@ -266,51 +298,111 @@ class ProsonalInformation:UITableViewController,UIPickerViewDelegate,UIPickerVie
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         
         
+        var dataDict:[String: Any] = [:]
         
-        let dataDict:[String: Any] = [
-                                         "IDNumberTextField": IDNumberTextField.text!,
-                                         "IDExpireTextField": IDExpireTextField.text!,
-                                         "IDDateTextField": IDDateTextField.text!,
-                                         "IDByTextField": IDByTextField.text!,
-                                         "titleNameTextField": titleNameTextField.text!,
-                                         "firstNameTextField": firstNameTextField.text!,
-                                         "lastNameTextField": lastNameTextField.text!,
-                                         "birthdateTextField": birthdateTextField.text!,
-                                         "maritalStatusTextField": maritalStatusTextField.text!,
-                                         "religionTextField": religionTextField.text!,
-                                         "nationalityTextField": nationalityTextField.text!,
-                                         "houseNoTextField": houseNoTextField.text!,
-                                         "villageNoTextField": villageNoTextField.text!,
-                                         "streetTextField": streetTextField.text!,
-                                         "roadTextField": roadTextField.text!,
-                                         "subDistrictTextField": subDistrictTextField.text!,
-                                         "districtTextField": districtTextField.text!,
-                                         "provinceTextField": provinceTextField.text!,
-                                         "postalCodeTextField": postalCodeTextField.text!,
-                                         "houseNoTextField2": houseNoTextField2.text!,
-                                         "villageNoTextField2": villageNoTextField2.text!,
-                                         "streetTextField2": streetTextField2.text!,
-                                         "roadTextField2": roadTextField2.text!,
-                                         "subDistrictTextField2": subDistrictTextField2.text!,
-                                         "districtTextField2": districtTextField2.text!,
-                                         "provinceTextField2": provinceTextField2.text!,
-                                         "postalCodeTextField2": postalCodeTextField2.text!,
-                                         "phoneTextField": phoneTextField.text!,
-                                         "mobilePhoneTextField": mobilePhoneTextField.text!,
-                                         "faxTextField": faxTextField.text!,
-                                         "emailTextField": emailTextField.text!,
-                                         "SelectCardID" : SelectCardID,
-                                         "SelectTitleID" : SelectTitleID,
-                                         "SelectMaritalStatusID" : SelectMaritalStatusID,
-                                         "SelectReligionID" : SelectReligionID,
-                                         "SelectProvinceID" : SelectProvinceID,
-                                         "SelectAmphurID" : SelectAmphurID,
-                                         "SelectDistictID" : SelectDistictID,
-                                         "SelectProvinceID2" : SelectProvinceID2,
-                                         "SelectAmphurID2" : SelectAmphurID2,
-                                         "SelectDistictID2" : SelectDistictID2
-        ]
+        if isCheckbox {
+            
+            houseNoTextField.text = ""
+            villageNoTextField.text = ""
+            streetTextField.text = ""
+            roadTextField.text = ""
+            subDistrictTextField.text = ""
+            districtTextField.text = ""
+            provinceTextField.text = ""
+            
+            dataDict = [
+                "IDNumberTextField": IDNumberTextField.text!,
+                "IDExpireTextField": IDExpireTextField.text!,
+                "IDDateTextField": IDDateTextField.text!,
+                "IDByTextField": IDByTextField.text!,
+                "titleNameTextField": titleNameTextField.text!,
+                "firstNameTextField": firstNameTextField.text!,
+                "lastNameTextField": lastNameTextField.text!,
+                "birthdateTextField": birthdateTextField.text!,
+                "maritalStatusTextField": maritalStatusTextField.text!,
+                "religionTextField": religionTextField.text!,
+                "nationalityTextField": nationalityTextField.text!,
+                "houseNoTextField": houseNoTextField.text!,
+                "villageNoTextField": villageNoTextField.text!,
+                "streetTextField": streetTextField.text!,
+                "roadTextField": roadTextField.text!,
+                "subDistrictTextField": subDistrictTextField.text!,
+                "districtTextField": districtTextField.text!,
+                "provinceTextField": provinceTextField.text!,
+                "postalCodeTextField": postalCodeTextField.text!,
+                "houseNoTextField2": houseNoTextField.text!,
+                "villageNoTextField2": villageNoTextField.text!,
+                "streetTextField2": streetTextField.text!,
+                "roadTextField2": roadTextField.text!,
+                "subDistrictTextField2": subDistrictTextField.text!,
+                "districtTextField2": districtTextField.text!,
+                "provinceTextField2": provinceTextField.text!,
+                "postalCodeTextField2": postalCodeTextField.text!,
+                "phoneTextField": phoneTextField.text!,
+                "mobilePhoneTextField": mobilePhoneTextField.text!,
+                "faxTextField": faxTextField.text!,
+                "emailTextField": emailTextField.text!,
+                "SelectCardID" : SelectCardID,
+                "SelectTitleID" : SelectTitleID,
+                "SelectMaritalStatusID" : SelectMaritalStatusID,
+                "SelectReligionID" : SelectReligionID,
+                "SelectProvinceID" : SelectProvinceID,
+                "SelectAmphurID" : SelectAmphurID,
+                "SelectDistictID" : SelectDistictID,
+                "SelectProvinceID2" : SelectProvinceID2,
+                "SelectAmphurID2" : SelectAmphurID2,
+                "SelectDistictID2" : SelectDistictID2
+            ]
 
+        }
+        else{
+            dataDict = [
+                "IDNumberTextField": IDNumberTextField.text!,
+                "IDExpireTextField": IDExpireTextField.text!,
+                "IDDateTextField": IDDateTextField.text!,
+                "IDByTextField": IDByTextField.text!,
+                "titleNameTextField": titleNameTextField.text!,
+                "firstNameTextField": firstNameTextField.text!,
+                "lastNameTextField": lastNameTextField.text!,
+                "birthdateTextField": birthdateTextField.text!,
+                "maritalStatusTextField": maritalStatusTextField.text!,
+                "religionTextField": religionTextField.text!,
+                "nationalityTextField": nationalityTextField.text!,
+                "houseNoTextField": houseNoTextField.text!,
+                "villageNoTextField": villageNoTextField.text!,
+                "streetTextField": streetTextField.text!,
+                "roadTextField": roadTextField.text!,
+                "subDistrictTextField": subDistrictTextField.text!,
+                "districtTextField": districtTextField.text!,
+                "provinceTextField": provinceTextField.text!,
+                "postalCodeTextField": postalCodeTextField.text!,
+                "houseNoTextField2": houseNoTextField2.text!,
+                "villageNoTextField2": villageNoTextField2.text!,
+                "streetTextField2": streetTextField2.text!,
+                "roadTextField2": roadTextField2.text!,
+                "subDistrictTextField2": subDistrictTextField2.text!,
+                "districtTextField2": districtTextField2.text!,
+                "provinceTextField2": provinceTextField2.text!,
+                "postalCodeTextField2": postalCodeTextField2.text!,
+                "phoneTextField": phoneTextField.text!,
+                "mobilePhoneTextField": mobilePhoneTextField.text!,
+                "faxTextField": faxTextField.text!,
+                "emailTextField": emailTextField.text!,
+                "SelectCardID" : SelectCardID,
+                "SelectTitleID" : SelectTitleID,
+                "SelectMaritalStatusID" : SelectMaritalStatusID,
+                "SelectReligionID" : SelectReligionID,
+                "SelectProvinceID" : SelectProvinceID,
+                "SelectAmphurID" : SelectAmphurID,
+                "SelectDistictID" : SelectDistictID,
+                "SelectProvinceID2" : SelectProvinceID2,
+                "SelectAmphurID2" : SelectAmphurID2,
+                "SelectDistictID2" : SelectDistictID2
+            ]
+
+        }
+        
+        
         NotificationCenter.default.post(name: notificationDataForm1, object: nil, userInfo: dataDict)
 
         

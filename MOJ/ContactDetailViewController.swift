@@ -10,9 +10,9 @@ import Foundation
 import UIKit
 import SwiftyJSON
 
-class ContactDetailViewController: UIViewController,UITableViewDelegate, UITableViewDataSource,UIScrollViewDelegate,UISearchBarDelegate{
+class ContactDetailViewController: UIViewController,UITableViewDelegate, UITableViewDataSource,UIScrollViewDelegate,UISearchBarDelegate,UITextViewDelegate{
     
-    
+    let param = DepartmentParameter()
     @IBOutlet var searchbar: UISearchBar!
     
     let network = Network()
@@ -55,31 +55,19 @@ class ContactDetailViewController: UIViewController,UITableViewDelegate, UITable
     var isFirst:[Bool] = []
     var center_item:String = ""
     
-    var storedpid:[String] = []
-    var storename:[String] = []
-    var storelat:[String] = []
-    var storelng:[String] = []
-    var storetelephone:[String] = []
-    var storeaddrno:[String] = []
-    var storebuilding:[String] = []
-    var storedistrict:[String] = []
-    var storeprovince:[String] = []
-    var storesub_district:[String] = []
-    var storeisCenter:[Bool] = []
-    var storeisFirst:[Bool] = []
-    
-    var searchdpid:[String] = []
-    var searchname:[String] = []
-    var searchlat:[String] = []
-    var searchlng:[String] = []
-    var searchtelephone:[String] = []
-    var searchaddrno:[String] = []
-    var searchbuilding:[String] = []
-    var searchdistrict:[String] = []
-    var searchprovince:[String] = []
-    var searchsub_district:[String] = []
-    var searchisCenter:[Bool] = []
-    var searchisFirst:[Bool] = []
+    var center_dpid:[String] = []
+    var center_name:[String] = []
+    var center_lat:[String] = []
+    var center_lng:[String] = []
+    var center_telephone:[String] = []
+    var center_addrno:[String] = []
+    var center_building:[String] = []
+    var center_district:[String] = []
+    var center_province:[String] = []
+    var center_sub_district:[String] = []
+    var center_isCenter:[Bool] = []
+    var center_isFirst:[Bool] = []
+    var center_center_item:String = ""
     
     var KEY_CENTER = "?center=1"
     var KEY_DISTRICT = "?center!=1"
@@ -104,6 +92,11 @@ class ContactDetailViewController: UIViewController,UITableViewDelegate, UITable
         print(selectDpid)
         searchbar.delegate = self
         searchbar.showsCancelButton = false
+        
+        getDepartmentData()
+    }
+    
+    func getDepartmentData(){
         network.get(name: network.API_DEPARTMENT, param: selectDpid+KEY_CENTER+KEY_ID, viewController: self, completionHandler: {
             (json:Any,Code:String,Message:String) in
             let jsonSwifty = JSON(json)
@@ -120,7 +113,7 @@ class ContactDetailViewController: UIViewController,UITableViewDelegate, UITable
             self.district = jsonSwifty[self.KEY_DEPARTMENT_DETAIL_DATA].arrayValue.map({$0[self.KEY_DEPARTMENT_DETAIL_ADDRESS][self.KEY_DEPARTMENT_DETAIL_DISTRICT].stringValue})
             self.province = jsonSwifty[self.KEY_DEPARTMENT_DETAIL_DATA].arrayValue.map({$0[self.KEY_DEPARTMENT_DETAIL_ADDRESS][self.KEY_DEPARTMENT_DETAIL_PROVINCE].stringValue})
             self.sub_district = jsonSwifty[self.KEY_DEPARTMENT_DETAIL_DATA].arrayValue.map({$0[self.KEY_DEPARTMENT_DETAIL_ADDRESS][self.KEY_DEPARTMENT_DETAIL_ADDRESS_NO].stringValue})
-        
+            
             self.center_item = String(self.dpid.count)
             
             for (index,_) in self.dpid.enumerated() {
@@ -128,11 +121,26 @@ class ContactDetailViewController: UIViewController,UITableViewDelegate, UITable
                     self.isFirst.append(true)
                 }
                 else{
-                   self.isFirst.append(false)
+                    self.isFirst.append(false)
                 }
                 
                 self.isCenter.append(true)
             }
+            
+            
+            self.center_dpid = self.dpid
+            self.center_name = self.name
+            self.center_lat = self.lat
+            self.center_lng = self.lng
+            self.center_telephone = self.telephone
+            self.center_addrno = self.addrno
+            self.center_building = self.building
+            self.center_district = self.district
+            self.center_province = self.province
+            self.center_sub_district = self.sub_district
+            self.center_isCenter = self.isCenter
+            self.center_isFirst = self.isFirst
+            self.center_center_item = self.center_item
             
             self.getDistrictDetail()
             
@@ -143,97 +151,94 @@ class ContactDetailViewController: UIViewController,UITableViewDelegate, UITable
     func getDistrictDetail(){
         self.network.get(name: self.network.API_DEPARTMENT, param: self.selectDpid+self.KEY_DISTRICT+KEY_ID+String(current_page), viewController: self, completionHandler: {
             (json:Any,Code:String,Message:String) in
-            let jsonSwifty = JSON(json)
             
-            self.current_page = jsonSwifty[self.KEY_DEPARTMENT_DETAIL_DATA][self.KEY_DEPARTMENT_DETAIL_CURRENT_PAGE].intValue
-            self.perpage = jsonSwifty[self.KEY_DEPARTMENT_DETAIL_DATA][self.KEY_DEPARTMENT_DETAIL_PER_PAGE].doubleValue
-            self.all_item = jsonSwifty[self.KEY_DEPARTMENT_DETAIL_DATA][self.KEY_DEPARTMENT_DETAIL_ALL_ITEM].doubleValue
+            self.getDistrictData(json: json)
             
-            self.numberOfpage = Int(ceil(self.all_item/self.perpage))
-            
-            print(self.numberOfpage)
-            
-            let dpid2 = jsonSwifty[self.KEY_DEPARTMENT_DETAIL_DATA][self.KEY_DEPARTMENT_DETAIL_RESULTS].arrayValue.map({$0[self.KEY_DEPARTMENT_DETAIL_DPIP].stringValue})
-            let name2 = jsonSwifty[self.KEY_DEPARTMENT_DETAIL_DATA][self.KEY_DEPARTMENT_DETAIL_RESULTS].arrayValue.map({$0[self.KEY_DEPARTMENT_DETAIL_NAME].stringValue})
-            let lat2 = jsonSwifty[self.KEY_DEPARTMENT_DETAIL_DATA][self.KEY_DEPARTMENT_DETAIL_RESULTS].arrayValue.map({$0[self.KEY_DEPARTMENT_DETAIL_LAT].stringValue})
-            let lng2 = jsonSwifty[self.KEY_DEPARTMENT_DETAIL_DATA][self.KEY_DEPARTMENT_DETAIL_RESULTS].arrayValue.map({$0[self.KEY_DEPARTMENT_DETAIL_LNG].stringValue})
-            
-            let telephone2 = jsonSwifty[self.KEY_DEPARTMENT_DETAIL_DATA][self.KEY_DEPARTMENT_DETAIL_RESULTS].arrayValue.map({$0[self.KEY_DEPARTMENT_DETAIL_TELEPHONE].stringValue})
-            
-            let addrno2 = jsonSwifty[self.KEY_DEPARTMENT_DETAIL_DATA][self.KEY_DEPARTMENT_DETAIL_RESULTS].arrayValue.map({$0[self.KEY_DEPARTMENT_DETAIL_ADDRESS][self.KEY_DEPARTMENT_DETAIL_ADDRESS_NO].stringValue})
-            let building2 = jsonSwifty[self.KEY_DEPARTMENT_DETAIL_DATA][self.KEY_DEPARTMENT_DETAIL_RESULTS].arrayValue.map({$0[self.KEY_DEPARTMENT_DETAIL_ADDRESS][self.KEY_DEPARTMENT_DETAIL_BUILDING].stringValue})
-            let district2 = jsonSwifty[self.KEY_DEPARTMENT_DETAIL_DATA][self.KEY_DEPARTMENT_DETAIL_RESULTS].arrayValue.map({$0[self.KEY_DEPARTMENT_DETAIL_ADDRESS][self.KEY_DEPARTMENT_DETAIL_DISTRICT].stringValue})
-            let province2 = jsonSwifty[self.KEY_DEPARTMENT_DETAIL_DATA][self.KEY_DEPARTMENT_DETAIL_RESULTS].arrayValue.map({$0[self.KEY_DEPARTMENT_DETAIL_ADDRESS][self.KEY_DEPARTMENT_DETAIL_PROVINCE].stringValue})
-            let sub_district2 = jsonSwifty[self.KEY_DEPARTMENT_DETAIL_DATA][self.KEY_DEPARTMENT_DETAIL_RESULTS].arrayValue.map({$0[self.KEY_DEPARTMENT_DETAIL_ADDRESS][self.KEY_DEPARTMENT_DETAIL_SUB_DISTRICT].stringValue})
-            
-            
-            for (index,_) in dpid2.enumerated() {
-                if self.current_page == 1{
-                    if index == 0 {
-                        self.isFirst.append(true)
-                    }
-                    else{
-                        self.isFirst.append(false)
-                    }
+        })
+    }
+    
+    func getDistrictData(json:Any){
+        let jsonSwifty = JSON(json)
+        self.current_page = jsonSwifty[self.KEY_DEPARTMENT_DETAIL_DATA][self.KEY_DEPARTMENT_DETAIL_CURRENT_PAGE].intValue
+        self.perpage = jsonSwifty[self.KEY_DEPARTMENT_DETAIL_DATA][self.KEY_DEPARTMENT_DETAIL_PER_PAGE].doubleValue
+        self.all_item = jsonSwifty[self.KEY_DEPARTMENT_DETAIL_DATA][self.KEY_DEPARTMENT_DETAIL_ALL_ITEM].doubleValue
+        
+        self.numberOfpage = Int(ceil(self.all_item/self.perpage))
+        
+        print(self.numberOfpage)
+        
+        let dpid2 = jsonSwifty[self.KEY_DEPARTMENT_DETAIL_DATA][self.KEY_DEPARTMENT_DETAIL_RESULTS].arrayValue.map({$0[self.KEY_DEPARTMENT_DETAIL_DPIP].stringValue})
+        let name2 = jsonSwifty[self.KEY_DEPARTMENT_DETAIL_DATA][self.KEY_DEPARTMENT_DETAIL_RESULTS].arrayValue.map({$0[self.KEY_DEPARTMENT_DETAIL_NAME].stringValue})
+        let lat2 = jsonSwifty[self.KEY_DEPARTMENT_DETAIL_DATA][self.KEY_DEPARTMENT_DETAIL_RESULTS].arrayValue.map({$0[self.KEY_DEPARTMENT_DETAIL_LAT].stringValue})
+        let lng2 = jsonSwifty[self.KEY_DEPARTMENT_DETAIL_DATA][self.KEY_DEPARTMENT_DETAIL_RESULTS].arrayValue.map({$0[self.KEY_DEPARTMENT_DETAIL_LNG].stringValue})
+        
+        let telephone2 = jsonSwifty[self.KEY_DEPARTMENT_DETAIL_DATA][self.KEY_DEPARTMENT_DETAIL_RESULTS].arrayValue.map({$0[self.KEY_DEPARTMENT_DETAIL_TELEPHONE].stringValue})
+        
+        let addrno2 = jsonSwifty[self.KEY_DEPARTMENT_DETAIL_DATA][self.KEY_DEPARTMENT_DETAIL_RESULTS].arrayValue.map({$0[self.KEY_DEPARTMENT_DETAIL_ADDRESS][self.KEY_DEPARTMENT_DETAIL_ADDRESS_NO].stringValue})
+        let building2 = jsonSwifty[self.KEY_DEPARTMENT_DETAIL_DATA][self.KEY_DEPARTMENT_DETAIL_RESULTS].arrayValue.map({$0[self.KEY_DEPARTMENT_DETAIL_ADDRESS][self.KEY_DEPARTMENT_DETAIL_BUILDING].stringValue})
+        let district2 = jsonSwifty[self.KEY_DEPARTMENT_DETAIL_DATA][self.KEY_DEPARTMENT_DETAIL_RESULTS].arrayValue.map({$0[self.KEY_DEPARTMENT_DETAIL_ADDRESS][self.KEY_DEPARTMENT_DETAIL_DISTRICT].stringValue})
+        let province2 = jsonSwifty[self.KEY_DEPARTMENT_DETAIL_DATA][self.KEY_DEPARTMENT_DETAIL_RESULTS].arrayValue.map({$0[self.KEY_DEPARTMENT_DETAIL_ADDRESS][self.KEY_DEPARTMENT_DETAIL_PROVINCE].stringValue})
+        let sub_district2 = jsonSwifty[self.KEY_DEPARTMENT_DETAIL_DATA][self.KEY_DEPARTMENT_DETAIL_RESULTS].arrayValue.map({$0[self.KEY_DEPARTMENT_DETAIL_ADDRESS][self.KEY_DEPARTMENT_DETAIL_SUB_DISTRICT].stringValue})
+        
+        
+        for (index,_) in dpid2.enumerated() {
+            if self.current_page == 1{
+                if index == 0 {
+                    self.isFirst.append(true)
                 }
                 else{
                     self.isFirst.append(false)
                 }
-                
-                
-                self.isCenter.append(false)
+            }
+            else{
+                self.isFirst.append(false)
             }
             
             
-            self.dpid = self.dpid + dpid2
-            self.name = self.name + name2
-            self.lat = self.lat + lat2
-            self.lng = self.lng + lng2
-            self.telephone = self.telephone + telephone2
-            self.addrno = self.addrno + addrno2
-            self.building = self.building + building2
-            self.district = self.district + district2
-            self.sub_district = self.sub_district + sub_district2
-            self.province = self.province + province2
-            
-            
-            self.storedpid = self.dpid
-            self.storename = self.name
-            self.storelat = self.lat
-            self.storelng = self.lng
-            self.storetelephone = self.telephone
-            self.storeaddrno = self.addrno
-            self.storebuilding = self.building
-            self.storedistrict = self.district
-            self.storeprovince = self.province
-            self.storesub_district = self.sub_district
-            self.storeisCenter = self.isCenter
-            self.storeisFirst = self.isFirst
-            
-            self.continueDetail = true
-            self.tableView.reloadData()
-        })
-    }
-    
-    
-    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        if (searchbar.text?.isEmpty)! {
-            dpid = storedpid
-            name = storename
-            lat = storelat
-            lng = storelng
-            telephone = storetelephone
-            addrno = storeaddrno
-            building = storebuilding
-            district = storedistrict
-            province = storeprovince
-            sub_district = storesub_district
-            isCenter = storeisCenter
-            isFirst = storeisFirst
+            self.isCenter.append(false)
         }
         
-        searchbar.showsCancelButton = true
+        
+        self.dpid = self.dpid + dpid2
+        self.name = self.name + name2
+        self.lat = self.lat + lat2
+        self.lng = self.lng + lng2
+        self.telephone = self.telephone + telephone2
+        self.addrno = self.addrno + addrno2
+        self.building = self.building + building2
+        self.district = self.district + district2
+        self.sub_district = self.sub_district + sub_district2
+        self.province = self.province + province2
+        
+        self.continueDetail = true
         self.tableView.reloadData()
+    }
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        
+        searchbar.showsCancelButton = true
+        
+        if (searchbar.text?.isEmpty)! {
+            self.dpid = []
+            self.name = []
+            self.lat = []
+            self.lng = []
+            self.telephone = []
+            self.addrno = []
+            self.building = []
+            self.district = []
+            self.province = []
+            self.sub_district = []
+            self.isCenter = []
+            self.isFirst = []
+            
+            current_page = 1
+            getDepartmentData()
+        }
+        else{
+            print("not empty");
+        }
+    
         // Do some search stuff
     }
     
@@ -243,19 +248,22 @@ class ContactDetailViewController: UIViewController,UITableViewDelegate, UITable
         searchBar.text = ""
         // Hide the cancel button
         searchBar.showsCancelButton = false
+
+        self.dpid = []
+        self.name = []
+        self.lat = []
+        self.lng = []
+        self.telephone = []
+        self.addrno = []
+        self.building = []
+        self.district = []
+        self.province = []
+        self.sub_district = []
+        self.isCenter = []
+        self.isFirst = []
         
-        dpid = storedpid
-        name = storename
-        lat = storelat
-        lng = storelng
-        telephone = storetelephone
-        addrno = storeaddrno
-        building = storebuilding
-        district = storedistrict
-        province = storeprovince
-        sub_district = storesub_district
-        isCenter = storeisCenter
-        isFirst = storeisFirst
+        current_page = 1
+        getDepartmentData()
         
         searchBar.resignFirstResponder()
         isSearch = false
@@ -268,106 +276,94 @@ class ContactDetailViewController: UIViewController,UITableViewDelegate, UITable
     func searchBarSearchButtonClicked( _ searchBar: UISearchBar){
         
         isSearch = true
+        searchBar.resignFirstResponder()
+        
+        self.dpid = []
+        self.name = []
+        self.lat = []
+        self.lng = []
+        self.telephone = []
+        self.addrno = []
+        self.building = []
+        self.district = []
+        self.province = []
+        self.sub_district = []
+        self.isCenter = []
+        self.isFirst = []
+        
         let text = searchBar.text
         
-        searchdpid = []
-        searchname = []
-        searchlat = []
-        searchlng = []
-        searchtelephone = []
-        searchaddrno = []
-        searchbuilding = []
-        searchdistrict = []
-        searchprovince = []
-        searchsub_district = []
-        searchisCenter = []
-        searchisFirst = []
-        
-        if (text?.isEmpty)!{
-            dpid = storedpid
-            name = storename
-            lat = storelat
-            lng = storelng
-            telephone = storetelephone
-            addrno = storeaddrno
-            building = storebuilding
-            district = storedistrict
-            province = storeprovince
-            sub_district = storesub_district
-            isCenter = storeisCenter
-            isFirst = storeisFirst
+        if (text?.isEmpty)! {
+            getDepartmentData()
         }
         else{
-            
-            let filteredArray = storename.filter { $0.localizedCaseInsensitiveContains(text!) }
+            let filteredArray = center_name.filter { $0.localizedCaseInsensitiveContains(text!) }
             if filteredArray.count > 0 {
-                for (index, element) in storename.enumerated() {
+                for (index, element) in center_name.enumerated() {
                     if element.contains(text!){
-                        searchdpid.append(storedpid[index])
-                        searchname.append(storename[index])
-                        searchlat.append(storelat[index])
-                        searchlng.append(storelng[index])
-                        searchtelephone.append(storetelephone[index])
-                        searchaddrno.append(storeaddrno[index])
-                        searchbuilding.append(storebuilding[index])
-                        searchdistrict.append(storedistrict[index])
-                        searchprovince.append(storeprovince[index])
-                        searchsub_district.append(storesub_district[index])
-                        searchisCenter.append(storeisCenter[index])
-                        searchisFirst.append(storeisFirst[index])
                         
-                        dpid = searchdpid
-                        name = searchname
-                        lat = searchlat
-                        lng = searchlng
-                        telephone = searchtelephone
-                        addrno = searchaddrno
-                        building = searchbuilding
-                        district = searchdistrict
-                        province = searchprovince
-                        sub_district = searchsub_district
-                        isCenter = searchisCenter
-                        isFirst = searchisFirst
+                        if current_page == 1 {
+                        dpid.append(center_dpid[index])
+                        name.append(center_name[index])
+                        lat.append(center_lat[index])
+                        lng.append(center_lng[index])
+                        telephone.append(center_telephone[index])
+                        addrno.append(center_addrno[index])
+                        building.append(center_building[index])
+                        district.append(center_district[index])
+                        province.append(center_province[index])
+                        sub_district.append(center_sub_district[index])
+                        isCenter.append(center_isCenter[index])
+                        isFirst.append(center_isFirst[index])
+                        }
                     }
+                    
                 }
             }
-            else{
-                
-                dpid = []
-                name = []
-                lat = []
-                lng = []
-                telephone = []
-                addrno = []
-                building = []
-                district = []
-                province = []
-                sub_district = []
-                isCenter = []
-                isFirst = []
-         
-            }
+            
+            searchDepertment()
+            
         }
-        self.tableView.reloadData()
+        
+        
+    }
+    
+    func searchDepertment(){
+        
+        param.q = searchbar.text!
+        param.page = current_page
+        param.type = self.selectDpid
+        
+        network.post(name: network.API_DEPARTMENT_SEARCH, param: param.getSearchParameter(), viewController: self, completionHandler: {
+            (json:Any,Code:String,Message:String) in
+            
+            self.getDistrictData(json: json)
+            
+        })
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        
-        if !isSearch {
-            let  height = scrollView.frame.size.height
-            let contentYoffset = scrollView.contentOffset.y
-            let distanceFromBottom = scrollView.contentSize.height - contentYoffset
-            if distanceFromBottom < height {
-                
-                if continueDetail{
-                    if current_page < numberOfpage {
-                        continueDetail = false
-                        current_page = current_page+1
+ 
+        let  height = scrollView.frame.size.height
+        let contentYoffset = scrollView.contentOffset.y
+        let distanceFromBottom = scrollView.contentSize.height - contentYoffset
+        if distanceFromBottom < height {
+            
+            if continueDetail{
+                if current_page < numberOfpage {
+                    continueDetail = false
+                    current_page = current_page+1
+                    
+                    if isSearch {
+                        searchDepertment()
+                    }
+                    else{
                         getDistrictDetail()
                     }
                 }
             }
         }
+        
         
     }
     
@@ -429,8 +425,32 @@ class ContactDetailViewController: UIViewController,UITableViewDelegate, UITable
         cell.mapButton.addTarget(self, action: #selector(mapButton), for: .touchUpInside)
         cell.mapButton.tag = indexPath.row
         
+        
+        
+        let tap = UITapGestureRecognizer(target: self, action: #selector(self.telTextView(_:)))
+        cell.addressTextView.delegate = self
+        cell.addressTextView.tag = indexPath.row
+        cell.addressTextView.isUserInteractionEnabled = true
+        cell.addressTextView.addGestureRecognizer(tap)
+        
+        
         return cell
     }
+
+    func telTextView(_ recognizer: UITapGestureRecognizer) {
+        if (telephone[recognizer.view!.tag] != ""){
+            print(telephone[recognizer.view!.tag])
+            let numbers = telephone[recognizer.view!.tag]
+            guard let number = URL(string: "telprompt://" + numbers) else { return }
+            if #available(iOS 10.0, *) {
+                UIApplication.shared.open(number)
+            } else {
+                // Fallback on earlier versions
+            }
+        }
+        
+    }
+    
     func mapButton(sender: UIButton!) {
         openGoogleMap(lat: lat[sender.tag], long: lng[sender.tag])
     }

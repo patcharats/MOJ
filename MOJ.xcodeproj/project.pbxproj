@@ -45,6 +45,7 @@
 		2760108D1EAE592D008D97F4 /* PartTwo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2760108C1EAE592D008D97F4 /* PartTwo.swift */; };
 		2760108F1EAE5939008D97F4 /* PartThree.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2760108E1EAE5939008D97F4 /* PartThree.swift */; };
 		27B1011C1EBA377900EFC57A /* ContactsParameter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B1011B1EBA377900EFC57A /* ContactsParameter.swift */; };
+		27CBFC251F434DD300755941 /* DepartmentParameter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27CBFC241F434DD300755941 /* DepartmentParameter.swift */; };
 		27E6949A1E879F0F008ACE01 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27E694991E879F0F008ACE01 /* AppDelegate.swift */; };
 		27E6949C1E879F0F008ACE01 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27E6949B1E879F0F008ACE01 /* ViewController.swift */; };
 		27E6949F1E879F0F008ACE01 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 27E6949D1E879F0F008ACE01 /* Main.storyboard */; };
@@ -119,6 +120,7 @@
 		2760108C1EAE592D008D97F4 /* PartTwo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PartTwo.swift; sourceTree = "<group>"; };
 		2760108E1EAE5939008D97F4 /* PartThree.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PartThree.swift; sourceTree = "<group>"; };
 		27B1011B1EBA377900EFC57A /* ContactsParameter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactsParameter.swift; sourceTree = "<group>"; };
+		27CBFC241F434DD300755941 /* DepartmentParameter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DepartmentParameter.swift; sourceTree = "<group>"; };
 		27E694961E879F0F008ACE01 /* MOJ.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MOJ.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		27E694991E879F0F008ACE01 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		27E6949B1E879F0F008ACE01 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -418,6 +420,7 @@
 				27126CC71EB122D900E39402 /* ComplaintParameter.swift */,
 				27B1011B1EBA377900EFC57A /* ContactsParameter.swift */,
 				274B18351EC89BC60070DF18 /* PsychoParameter.swift */,
+				27CBFC241F434DD300755941 /* DepartmentParameter.swift */,
 			);
 			name = Network;
 			sourceTree = "<group>";
@@ -622,6 +625,7 @@
 				27546B9C1EABCBDF005B5B18 /* TalkWithMinisterMessage.swift in Sources */,
 				276010801EAE5050008D97F4 /* ProsonalInformation.swift in Sources */,
 				271073971EABF0AD00DA14F4 /* ComplainDetail.swift in Sources */,
+				27CBFC251F434DD300755941 /* DepartmentParameter.swift in Sources */,
 				CD1E8D841EB9AEF80098C26B /* ConfigData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

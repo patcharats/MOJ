@@ -9,7 +9,7 @@
 import Foundation
 import SwiftyJSON
 import Alamofire
-class ComplainCreateNew: UIViewController,UIPickerViewDelegate,UIPickerViewDataSource,UINavigationControllerDelegate, UIImagePickerControllerDelegate,UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UICollectionViewDelegate{
+class ComplainCreateNew: UIViewController,UIPickerViewDelegate,UIPickerViewDataSource,UINavigationControllerDelegate, UIImagePickerControllerDelegate,UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UICollectionViewDelegate,UITextFieldDelegate{
     
     var titles = 0
     var firstname = ""
@@ -62,7 +62,7 @@ class ComplainCreateNew: UIViewController,UIPickerViewDelegate,UIPickerViewDataS
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.backgroundColor = UIColor.clear
-        
+        catagoryTextfield.delegate = self
         
         pickerView = UIPickerView()
         pickerView.dataSource = self
@@ -87,17 +87,13 @@ class ComplainCreateNew: UIViewController,UIPickerViewDelegate,UIPickerViewDataS
         selectCatagoryID = compltcatid[row]
     }
     
-    
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-        let chosenImage = info[UIImagePickerControllerOriginalImage] as! UIImage
-        self.imageArray.insert(chosenImage, at: 0)
-        self.collectionView.reloadData()
-        picker.dismiss(animated: true, completion: nil);
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        if textField == catagoryTextfield{
+            catagoryTextfield.text = compltcatname[0]
+            selectCatagoryID = compltcatid[0]
+        }
     }
     
-    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
-        picker.dismiss(animated: true, completion: nil);
-    }
     
     @IBAction func imageButton(_ sender: Any) {
         
@@ -105,13 +101,59 @@ class ComplainCreateNew: UIViewController,UIPickerViewDelegate,UIPickerViewDataS
             alertView.alert(title: alertView.INPUT_LIMIT_5_IMAGES, message: "", buttonTitle: alertView.ALERT_OK, controller: self)
         }
         else{
-            imagePicker.delegate = self
-            imagePicker.allowsEditing = false
-            imagePicker.sourceType = .photoLibrary
-            self.present(imagePicker, animated: true, completion: nil)
+            alertController()
         }
         
         
+    }
+    
+    
+    func alertController(){
+        let alertController = UIAlertController(title: "เลือกรูปจาก", message: "", preferredStyle: .alert)
+        
+        let oneAction = UIAlertAction(title: "กล้อง", style: .default) { _ in
+            
+            self.imagePickerCamera()
+        }
+        let twoAction = UIAlertAction(title: "อัลบั้ม", style: .default) { _ in
+            self.imagePickerAlbum()
+        }
+        let cancelAction = UIAlertAction(title: "ยกเลิก", style: .cancel) { _ in }
+        
+        alertController.addAction(oneAction)
+        alertController.addAction(twoAction)
+        alertController.addAction(cancelAction)
+        
+        self.present(alertController, animated: true) {
+            
+        }
+    }
+    
+    func imagePickerAlbum(){
+        imagePicker.delegate = self
+        imagePicker.allowsEditing = false
+        imagePicker.sourceType = .photoLibrary
+        present(imagePicker, animated: true, completion: nil)
+    }
+    
+    func imagePickerCamera(){
+        imagePicker.allowsEditing = false
+        imagePicker.sourceType = UIImagePickerControllerSourceType.camera
+        imagePicker.cameraCaptureMode = .photo
+        imagePicker.modalPresentationStyle = .fullScreen
+        present(imagePicker,animated: true,completion: nil)
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        let chosenImage = info[UIImagePickerControllerOriginalImage] as! UIImage
+        self.imageArray.insert(chosenImage, at: 0)
+        self.collectionView.reloadData()
+        picker.dismiss(animated: true, completion: nil);
+        
+    }
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        picker.dismiss(animated: true, completion: nil);
     }
     
     @IBAction func sendButton(_ sender: Any) {
