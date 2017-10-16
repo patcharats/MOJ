@@ -12,7 +12,8 @@ import SwiftyJSON
 import SystemConfiguration
 class Network: NSObject {
 
-    let API_BASE_URL = "http://mojapp.soft2serv.com/moj/api/1.0/"
+    //let API_BASE_URL = "http://mojapp.soft2serv.com/moj/api/1.0/"
+    let API_BASE_URL = "http://mojservice.moj.go.th/api/1.0/"
     
     let API_LOGIN = "login"
     let API_REGISTER = "register"
