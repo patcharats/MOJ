@@ -118,11 +118,17 @@ UICollectionViewDelegateFlowLayout, UICollectionViewDelegate{
                 for i in 0 ..< self.cpltImgRename.count {
                     
                     let url = URL(string:self.cpltImgRename[i])
-                    let data = try? Data(contentsOf: url!)
-                    let image: UIImage = UIImage(data: data!)!
                     
-                    let ImageSources = ImageSource.init(image: image)
-                    self.localSource.append(ImageSources)
+                    
+                    let data = try? Data(contentsOf: url!)
+                    if (data != nil) {
+                        let image: UIImage = UIImage(data: data!)!
+                        let ImageSources = ImageSource.init(image: image)
+                        self.localSource.append(ImageSources)
+                    }
+                    
+                    
+                    
                 }
                 
                 self.setupSlideShow()

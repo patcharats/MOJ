@@ -124,6 +124,7 @@ class ComplainRegister: UIViewController,UIPickerViewDelegate,UIPickerViewDataSo
                 
                 if(Code == "00000"){
                     self.performSegue(withIdentifier: self.COMPLAIN_CREATE, sender: self)
+                    self.accountData.setComplaintStatus(hasComplaintStatus: true)
                 }
                 else{
                     self.alertView.alert(title:"", message: Message, buttonTitle: self.alertView.ALERT_OK, controller: self)

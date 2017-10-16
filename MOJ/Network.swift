@@ -83,6 +83,8 @@ class Network: NSObject {
                         let status = JSON[self.KEY_RESPONSE_STATUS] as! NSDictionary
                         let code = status[self.KEY_RESPONSE_CODE] as! String
                         let message = status[self.KEY_RESPONSE_MESSAGE] as! String
+                        
+                        
                         self.activityIndicator.hideActivityIndicator(uiView: viewController.view)
                         completionHandler(JSON,code,message)
                         

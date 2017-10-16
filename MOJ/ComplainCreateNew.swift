@@ -137,6 +137,7 @@ class ComplainCreateNew: UIViewController,UIPickerViewDelegate,UIPickerViewDataS
     }
     
     func imagePickerCamera(){
+        imagePicker.delegate = self
         imagePicker.allowsEditing = false
         imagePicker.sourceType = UIImagePickerControllerSourceType.camera
         imagePicker.cameraCaptureMode = .photo
