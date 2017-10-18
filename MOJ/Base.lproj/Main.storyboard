@@ -1035,7 +1035,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="GD6-zA-Cvv" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="Fx8-zX-GBH"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="ww8-rM-AHb">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="ww8-rM-AHb">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.055671315040000002" green="0.12797925139999999" blue="0.21174799280000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1089,7 +1089,7 @@
                                                             <size key="shadowOffset" width="0.0" height="0.0"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="15 ดาวน์โหลด" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jPK-1a-JgB">
-                                                            <rect key="frame" x="8" y="43" width="72.5" height="21"/>
+                                                            <rect key="frame" x="8" y="43" width="58.5" height="21"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="21" id="YcC-mA-v45"/>
                                                             </constraints>
@@ -1098,7 +1098,7 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10 ม.ค. 60" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qaS-Xp-3sw">
-                                                            <rect key="frame" x="88.5" y="43" width="118" height="21"/>
+                                                            <rect key="frame" x="74.5" y="43" width="118" height="21"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="118" id="DC1-rl-Svz"/>
                                                                 <constraint firstAttribute="height" constant="21" id="J9m-oT-ESJ"/>
@@ -1221,7 +1221,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="zX9-Fg-ghM" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Z3M-bD-4xR">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="Z3M-bD-4xR">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.055671315040000002" green="0.12797925139999999" blue="0.21174799280000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1895,10 +1895,10 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UkR-A7-9m0">
-                                <rect key="frame" x="0.0" y="613" width="375" height="54"/>
+                                <rect key="frame" x="0.0" y="616" width="375" height="51"/>
                                 <subviews>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="JaS-9c-DPd" customClass="GrowingTextView" customModule="GrowingTextView">
-                                        <rect key="frame" x="8" y="8" width="302" height="39.5"/>
+                                        <rect key="frame" x="8" y="8" width="302" height="36.5"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" name="Quark-Bold" family="Quark" pointSize="17"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -1913,7 +1913,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </textView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fBq-Wb-gRv">
-                                        <rect key="frame" x="318" y="15.5" width="44" height="24"/>
+                                        <rect key="frame" x="318" y="14" width="44" height="24"/>
                                         <color key="backgroundColor" red="0.76470988989999999" green="0.26113182309999999" blue="0.30878669019999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="24" id="Brq-Ny-6cw"/>
@@ -1991,7 +1991,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Gxk-l0-VnR" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="ecO-gA-JIB">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="ecO-gA-JIB">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.055671315040000002" green="0.12797925139999999" blue="0.21174799280000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -2758,7 +2758,7 @@
             <objects>
                 <navigationController id="0pZ-pT-gOp" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="zf1-jx-QSY">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="zf1-jx-QSY">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.055671315040000002" green="0.12797925139999999" blue="0.21174799280000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -2875,7 +2875,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="axz-Dd-Ict" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="1gI-UO-9D5">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="1gI-UO-9D5">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.055671315040000002" green="0.12797925139999999" blue="0.21174799280000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -2992,7 +2992,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="qvR-Ed-eRY" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="rNJ-hX-d25">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="rNJ-hX-d25">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.055671315040000002" green="0.12797925139999999" blue="0.21174799280000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -3302,7 +3302,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="GT5-nS-dMy" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="jmf-WR-cOe">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="jmf-WR-cOe">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.055671315040000002" green="0.12797925139999999" blue="0.21174799280000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -3475,7 +3475,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="PNp-kB-4fb" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="p93-iv-chr">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="p93-iv-chr">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.055671315040000002" green="0.12797925139999999" blue="0.21174799280000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -3578,7 +3578,7 @@
             <objects>
                 <navigationController storyboardIdentifier="NavigationLogin" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="0Ms-ME-AoG" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="IgL-hk-mAC">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="IgL-hk-mAC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.055671315038655071" green="0.12797925141057334" blue="0.21174799276487477" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -3725,7 +3725,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Caq-jI-giF" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="nGs-lF-Vhf">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="nGs-lF-Vhf">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.055671315040000002" green="0.12797925139999999" blue="0.21174799280000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -4118,7 +4118,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ABP-tJ-2sP" customClass="PsychoNavigationController" customModule="MOJ" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="aUA-fh-zOV">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="aUA-fh-zOV">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.055671315040000002" green="0.12797925139999999" blue="0.21174799280000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -10001,7 +10001,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ที่อยู่ภูมิลำเนา" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="php-9j-lah">
-                                                    <rect key="frame" x="16" y="13" width="96.5" height="21"/>
+                                                    <rect key="frame" x="16" y="13" width="71.5" height="21"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="21" id="ApM-JP-0EC"/>
                                                     </constraints>
@@ -10427,7 +10427,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ที่อยู่ปัจจุบัน" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Gb-aV-eSY">
-                                                    <rect key="frame" x="16" y="13" width="82" height="21"/>
+                                                    <rect key="frame" x="16" y="13" width="63.5" height="21"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="21" id="9BS-Dn-Kwt"/>
                                                     </constraints>
@@ -10436,7 +10436,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B5v-YB-2jj">
-                                                    <rect key="frame" x="124" y="12" width="20" height="20"/>
+                                                    <rect key="frame" x="105.5" y="12" width="20" height="20"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="20" id="KgW-DA-q1r"/>
@@ -10447,7 +10447,7 @@
                                                     </connections>
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="เหมือนที่อยู่ภูมิลำเนา" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Iri-5g-PV9">
-                                                    <rect key="frame" x="152" y="13" width="109" height="21"/>
+                                                    <rect key="frame" x="133.5" y="13" width="109" height="21"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="109" id="bzy-cG-GZJ"/>
                                                         <constraint firstAttribute="height" constant="21" id="voP-bs-cC7"/>
