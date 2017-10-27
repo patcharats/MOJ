@@ -24,7 +24,11 @@ class AccountParameter: NSObject {
     var new_password:String? = ""
     var confirm_new_password:String? = ""
     
-    
+    var address:String? = ""
+    var address_tumbon:String? = ""
+    var address_amphur:String? = ""
+    var address_province:String? = ""
+    var address_zip:String? = ""
     
     func getLoginParameter() -> Parameters{
         
@@ -62,10 +66,16 @@ class AccountParameter: NSObject {
         
         let parameters: Parameters = [
             "data": ["account": [
-                        "firstname": firstname,
-                        "lastname": lastname,
-                        "email": email,
-                        "phoneno": phoneno],
+                "firstname": firstname!,
+                "lastname": lastname!,
+                "email": email!,
+                "phoneno": phoneno!,
+                "address": address!,
+                "address_tumbon": address_tumbon!,
+                "address_amphur": address_amphur!,
+                "address_province": address_province!,
+                "address_zip": address_zip!
+                ],
                      "device": getDevice()
             ]
         ]

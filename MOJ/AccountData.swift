@@ -29,7 +29,17 @@ class AccountData: NSObject {
     let KEY_IS_SHOW_HOWTO = "isShow"
     let KEY_IS_LOGIN = "isLogin"
     let KEY_IS_ADMIN = "isAdmin"
-
+    
+    let KEY_CUSTOMER_ADDRESS = "customer_address"
+    let KEY_ADDRESS = "address"
+    let KEY_TUMBON = "address_tumbon"
+    let KEY_AMPHUR = "address_amphur"
+    let KEY_PROVINCE = "address_province"
+    let KEY_ZIP = "address_zip"
+    
+    let KEY_TUMBON_ID = "address_tumbon_id"
+    let KEY_AMPHUR_ID = "address_amphur_id"
+    let KEY_PROVINCE_ID = "address_province_id"
     
     func getAccountData(json:Any){
         
@@ -89,10 +99,122 @@ class AccountData: NSObject {
         setAccountLastLogin(accountLastlogin: accountLastLogin!)
         setAccountChannel(accountChannel: accountChannel!)
         
+//        let address = account?[KEY_CUSTOMER_ADDRESS]?[KEY_ADDRESS].stringValue
+//        let addressProvince = account?[KEY_CUSTOMER_ADDRESS]?[KEY_PROVINCE].stringValue
+//        let addressAmphur = account?[KEY_CUSTOMER_ADDRESS]?[KEY_AMPHUR].stringValue
+//        let addressTambon = account?[KEY_CUSTOMER_ADDRESS]?[KEY_TUMBON].stringValue
+//        let addressZip = account?[KEY_CUSTOMER_ADDRESS]?[KEY_ZIP].stringValue
+//        
+//        setAddress(address: address!)
+//        setAddressProvince(address: addressProvince!)
+//        setAddressAmphur(address: addressAmphur!)
+//        setAddressTambon(address: addressTambon!)
+//        setAddressZip(address: addressZip!)
         
         print("accountid :\(accountID!)")
         print("accountToken :\(accountToken!)")
     }
+    
+    
+    // Address
+    func setAddress(address:String){
+        userdefault.set(address, forKey: KEY_ADDRESS)
+    }
+    func getAddress()->String{
+        
+        if userdefault.value(forKey: KEY_ADDRESS) != nil{
+            return userdefault.value(forKey: KEY_ADDRESS) as! String
+        }
+        return ""
+    }
+    
+    // Address
+    func setAddressProvince(address:String){
+        userdefault.set(address, forKey: KEY_PROVINCE)
+    }
+    func getAddressProvince()->String{
+        
+        if userdefault.value(forKey: KEY_PROVINCE) != nil{
+            return userdefault.value(forKey: KEY_PROVINCE) as! String
+        }
+        return ""
+    }
+    
+    // Address
+    func setAddressProvinceID(address:String){
+        userdefault.set(address, forKey: KEY_PROVINCE_ID)
+    }
+    func getAddressProvinceID()->String{
+        
+        if userdefault.value(forKey: KEY_PROVINCE_ID) != nil{
+            return userdefault.value(forKey: KEY_PROVINCE_ID) as! String
+        }
+        return "0"
+    }
+    
+    
+    // Address
+    func setAddressAmphur(address:String){
+        userdefault.set(address, forKey: KEY_AMPHUR)
+    }
+    func getAddressAmphur()->String{
+        
+        if userdefault.value(forKey: KEY_AMPHUR) != nil{
+            return userdefault.value(forKey: KEY_AMPHUR) as! String
+        }
+        return ""
+    }
+    
+    // Address
+    func setAddressAmphurID(address:String){
+        userdefault.set(address, forKey: KEY_AMPHUR_ID)
+    }
+    func getAddressAmphurID()->String{
+        
+        if userdefault.value(forKey: KEY_AMPHUR_ID) != nil{
+            return userdefault.value(forKey: KEY_AMPHUR_ID) as! String
+        }
+        return "0"
+    }
+    
+    
+    // Address
+    func setAddressTambon(address:String){
+        userdefault.set(address, forKey: KEY_TUMBON)
+    }
+    func getAddressTambon()->String{
+        
+        if userdefault.value(forKey: KEY_TUMBON) != nil{
+            return userdefault.value(forKey: KEY_TUMBON) as! String
+        }
+        return ""
+    }
+    
+    
+    func setAddressTambonID(address:String){
+        userdefault.set(address, forKey: KEY_TUMBON_ID)
+    }
+    func getAddressTambonID()->String{
+        
+        if userdefault.value(forKey: KEY_TUMBON_ID) != nil{
+            return userdefault.value(forKey: KEY_TUMBON_ID) as! String
+        }
+        return "0"
+    }
+    
+    
+    // Address
+    func setAddressZip(address:String){
+        userdefault.set(address, forKey: KEY_ZIP)
+    }
+    func getAddressZip()->String{
+        
+        if userdefault.value(forKey: KEY_ZIP) != nil{
+            return userdefault.value(forKey: KEY_ZIP) as! String
+        }
+        return ""
+    }
+    
     
     // isShow
     

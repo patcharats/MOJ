@@ -76,6 +76,8 @@ class PsychoParameter: NSObject {
     var province2 = ""
     var province3 = ""
     
+    var wf_type = ""
+    
     var addr1amphurid = 0
     var addr1provinceid = 0
     var addr1tumbonid = 0
@@ -94,6 +96,7 @@ class PsychoParameter: NSObject {
     var religionid = 0
     var studyid = 0
     var trainingid = 0
+    
     
     var workyear:[String] = []
     var workcountcase:[String] = []
@@ -210,7 +213,8 @@ class PsychoParameter: NSObject {
                 "prenameid": prenameid,
                 "religionid": religionid,
                 "studyid": studyid,
-                "trainingid": trainingid
+                "trainingid": trainingid,
+                "wf_type":wf_type
             ]
         ]
         return parameters

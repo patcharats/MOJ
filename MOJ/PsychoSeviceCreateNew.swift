@@ -107,6 +107,7 @@ class PsychoServiceCreateNew: UIViewController {
     var SelectProvinceID2:Int = 0
     var SelectAmphurID2:Int = 0
     var SelectDistictID2:Int = 0
+    var PsychoType:String = ""
     
     var SelectFieldStudyIDS:Int = 0
     var SelectMajorID:Int = 0
@@ -206,6 +207,7 @@ class PsychoServiceCreateNew: UIViewController {
         SelectProvinceID2 = notification.userInfo?["SelectProvinceID2"] as! Int
         SelectAmphurID2 = notification.userInfo?["SelectAmphurID2"] as! Int
         SelectDistictID2 = notification.userInfo?["SelectDistictID2"] as! Int
+        PsychoType = notification.userInfo?["PsychoType"] as! String
         
     }
     
@@ -368,6 +370,7 @@ class PsychoServiceCreateNew: UIViewController {
         param.religionid = SelectReligionID
         param.studyid = SelectFieldStudyIDS
         param.trainingid = SelectTrainingID
+        param.wf_type = PsychoType
         
         
         network.post(name: network.API_SOCIAL_WORK_NEW_REQUEST, param: param.getCreatePsychoParameter(), viewController: self, completionHandler: {

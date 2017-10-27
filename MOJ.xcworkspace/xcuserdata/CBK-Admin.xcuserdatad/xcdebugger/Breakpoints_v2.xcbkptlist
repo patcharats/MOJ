@@ -17,86 +17,6 @@
             endingLineNumber = "126"
             landmarkName = "addButton(_:)"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "MOJ.ComplainDetail.addButton (Any) -&gt; ()"
-                  moduleName = "MOJ"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/CBK-Admin/Desktop/MOJ/MOJ/ComplainDetail.swift"
-                  timestampString = "517483148.526855"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "126"
-                  endingLineNumber = "126"
-                  offsetFromSymbolStart = "77">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "MOJ.ComplainDetail.(addButton (Any) -&gt; ()).(closure #1)"
-                  moduleName = "MOJ"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/CBK-Admin/Desktop/MOJ/MOJ/ComplainDetail.swift"
-                  timestampString = "517483148.530577"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "130"
-                  endingLineNumber = "130"
-                  offsetFromSymbolStart = "51">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "MOJ/ComplainViewController.swift"
-            timestampString = "517483147.389521"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "109"
-            endingLineNumber = "109"
-            landmarkName = "addButton(_:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "MOJ.ComplainViewController.addButton (Any) -&gt; ()"
-                  moduleName = "MOJ"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/CBK-Admin/Desktop/MOJ/MOJ/ComplainViewController.swift"
-                  timestampString = "517483148.536345"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "109"
-                  endingLineNumber = "109"
-                  offsetFromSymbolStart = "77">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "MOJ.ComplainViewController.(addButton (Any) -&gt; ()).(closure #1)"
-                  moduleName = "MOJ"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/CBK-Admin/Desktop/MOJ/MOJ/ComplainViewController.swift"
-                  timestampString = "517483148.539994"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "111"
-                  endingLineNumber = "111"
-                  offsetFromSymbolStart = "61">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -161,6 +81,22 @@
                   offsetFromSymbolStart = "61">
                </Location>
             </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MOJ/ProsonalInformation.swift"
+            timestampString = "530074358.665611"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "165"
+            endingLineNumber = "165"
+            landmarkName = "checkBoxButton(_:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

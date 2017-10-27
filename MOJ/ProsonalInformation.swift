@@ -69,6 +69,8 @@ class ProsonalInformation:UITableViewController,UIPickerViewDelegate,UIPickerVie
     
     @IBOutlet var sameAddressButton: UIButton!
     
+    @IBOutlet var checkboxButton2: UIButton!
+    @IBOutlet var checkboxButton1: UIButton!
     @IBOutlet var checkboxButton: UIButton!
     
     var pickerView1:UIPickerView!
@@ -123,6 +125,9 @@ class ProsonalInformation:UITableViewController,UIPickerViewDelegate,UIPickerVie
 
     let notificationDataForm1 = Notification.Name("DataForm1")
     let notificationName = Notification.Name("clearTextfieldCreate")
+    let IMAGE_CHECK_BOX_TRUE = "checkbox_on"
+    let IMAGE_CHECK_BOX_FALSE = "checkbox_off"
+    var psychoType = "P"
     
     var isCheckbox = false
     override func awakeFromNib() {
@@ -144,6 +149,11 @@ class ProsonalInformation:UITableViewController,UIPickerViewDelegate,UIPickerVie
             setEnabelTextfield(isEnable: true)
         }
         
+        checkboxButton1.tag = 1
+        checkboxButton2.tag = 2
+        checkboxButton1.setImage(UIImage (named: IMAGE_CHECK_BOX_TRUE), for: UIControlState.normal)
+        checkboxButton2.setImage(UIImage (named: IMAGE_CHECK_BOX_FALSE), for: UIControlState.normal)
+        
         getConfigData()
         setPickerDate()
         setPickerView()
@@ -155,10 +165,27 @@ class ProsonalInformation:UITableViewController,UIPickerViewDelegate,UIPickerVie
         SetCheckBox()
     }
     
+    @IBAction func checkBoxType(_ sender: Any) {
+        SetCheckBoxType(type: (sender as AnyObject).tag)
+    }
+    
+    func SetCheckBoxType(type:Int){
+        
+        checkboxButton1.setImage(UIImage (named: IMAGE_CHECK_BOX_FALSE), for: UIControlState.normal)
+        checkboxButton2.setImage(UIImage (named: IMAGE_CHECK_BOX_FALSE), for: UIControlState.normal)
+        
+        if type == 1 {
+            psychoType = "P"
+            checkboxButton1.setImage(UIImage (named: IMAGE_CHECK_BOX_TRUE), for: UIControlState.normal)
+        }
+        else {
+            psychoType = "S"
+            checkboxButton2.setImage(UIImage (named: IMAGE_CHECK_BOX_TRUE), for: UIControlState.normal)
+        }
+    }
     
     func SetCheckBox(){
-        let IMAGE_CHECK_BOX_TRUE = "checkbox_on"
-        let IMAGE_CHECK_BOX_FALSE = "checkbox_off"
+        
         var imageName = ""
         
         if isCheckbox {
@@ -351,7 +378,8 @@ class ProsonalInformation:UITableViewController,UIPickerViewDelegate,UIPickerVie
                 "SelectDistictID" : SelectDistictID,
                 "SelectProvinceID2" : SelectProvinceID2,
                 "SelectAmphurID2" : SelectAmphurID2,
-                "SelectDistictID2" : SelectDistictID2
+                "SelectDistictID2" : SelectDistictID2,
+                "SelectPsychoType" : psychoType
             ]
 
         }
@@ -397,7 +425,8 @@ class ProsonalInformation:UITableViewController,UIPickerViewDelegate,UIPickerVie
                 "SelectDistictID" : SelectDistictID,
                 "SelectProvinceID2" : SelectProvinceID2,
                 "SelectAmphurID2" : SelectAmphurID2,
-                "SelectDistictID2" : SelectDistictID2
+                "SelectDistictID2" : SelectDistictID2,
+                "PsychoType" : psychoType
             ]
 
         }
@@ -451,8 +480,6 @@ class ProsonalInformation:UITableViewController,UIPickerViewDelegate,UIPickerVie
     }
     
     func setValueTextfield(){
-        
-        
         
         //IDTypeTextField.text = "" //socialWorkData.requesttype
         IDNumberTextField.text = socialWorkData.idcardno
