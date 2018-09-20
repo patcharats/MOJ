@@ -29,7 +29,7 @@ class HowToViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        for i in 1 ..< 14 {
+        for i in 1 ..< 13 {
             
             let imageString = "hw"+String(i)
             let ImageSources = ImageSource.init(imageString: imageString)
@@ -88,7 +88,7 @@ class HowToViewController: UIViewController {
         slideshow.currentPageChanged = { page in
             //print("current page:", page)
             
-            if page == 12 {
+            if page == 11 {
                 self.slideshow.slideshowInterval = 0.0
                 self.startButton.isEnabled = true
                 self.startButton.backgroundColor = self.design.hexStringToColor(hex: self.design.HEX_COLOR_ORANGE)

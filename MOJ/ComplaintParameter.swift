@@ -65,7 +65,12 @@ class ComplaintParameter: NSObject {
                      "firstname": accountData.getAccountFirstName(),
                      "lastname": accountData.getAccountLastName(),
                      "birthdate": birthdate,
-                     "laser": laser
+                     "laser": laser,
+                     "address": address!,
+                     "address_tumbon": address_tumbon!,
+                     "address_amphur": address_amphur!,
+                     "address_province": address_province!,
+                     "address_zip": address_zip!
             ]
         ]
         return parameters

@@ -201,14 +201,6 @@ class ProsonalInformation:UITableViewController,UIPickerViewDelegate,UIPickerVie
             provinceTextField2.isEnabled = true
             postalCodeTextField2.isEnabled = true
             
-            houseNoTextField2.text = ""
-            villageNoTextField2.text = ""
-            streetTextField2.text = ""
-            roadTextField2.text = ""
-            subDistrictTextField2.text = ""
-            districtTextField2.text = ""
-            provinceTextField2.text = ""
-            postalCodeTextField2.text = ""
             
         }
         else{
@@ -223,6 +215,14 @@ class ProsonalInformation:UITableViewController,UIPickerViewDelegate,UIPickerVie
             provinceTextField2.isEnabled = false
             postalCodeTextField2.isEnabled = false
             
+            houseNoTextField2.text = ""
+            villageNoTextField2.text = ""
+            streetTextField2.text = ""
+            roadTextField2.text = ""
+            subDistrictTextField2.text = ""
+            districtTextField2.text = ""
+            provinceTextField2.text = ""
+            postalCodeTextField2.text = ""
             
 //            houseNoTextField2.text = houseNoTextField.text
 //            villageNoTextField2.text = villageNoTextField.text
@@ -328,15 +328,6 @@ class ProsonalInformation:UITableViewController,UIPickerViewDelegate,UIPickerVie
         var dataDict:[String: Any] = [:]
         
         if isCheckbox {
-            
-            houseNoTextField.text = ""
-            villageNoTextField.text = ""
-            streetTextField.text = ""
-            roadTextField.text = ""
-            subDistrictTextField.text = ""
-            districtTextField.text = ""
-            provinceTextField.text = ""
-            
             dataDict = [
                 "IDNumberTextField": IDNumberTextField.text!,
                 "IDExpireTextField": IDExpireTextField.text!,
@@ -376,12 +367,11 @@ class ProsonalInformation:UITableViewController,UIPickerViewDelegate,UIPickerVie
                 "SelectProvinceID" : SelectProvinceID,
                 "SelectAmphurID" : SelectAmphurID,
                 "SelectDistictID" : SelectDistictID,
-                "SelectProvinceID2" : SelectProvinceID2,
-                "SelectAmphurID2" : SelectAmphurID2,
-                "SelectDistictID2" : SelectDistictID2,
-                "SelectPsychoType" : psychoType
+                "SelectProvinceID2" : SelectProvinceID,
+                "SelectAmphurID2" : SelectAmphurID,
+                "SelectDistictID2" : SelectDistictID,
+                "PsychoType" : psychoType
             ]
-
         }
         else{
             dataDict = [
@@ -428,6 +418,8 @@ class ProsonalInformation:UITableViewController,UIPickerViewDelegate,UIPickerVie
                 "SelectDistictID2" : SelectDistictID2,
                 "PsychoType" : psychoType
             ]
+            
+            
 
         }
         

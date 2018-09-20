@@ -179,6 +179,13 @@ class OccupationAndEducation:UITableViewController,UIPickerViewDelegate,UIPicker
         
         majorID = configData.getMajorID()
         major = configData.getMajor()
+        
+        print(fieldStudyID)
+        print(fieldStudy)
+        
+        print(majorID)
+        print(major)
+        
         degreeID = configData.getDegreeID()
         degree = configData.getDegree()
         occupationOptionID = configData.getOccupationOptionID()
@@ -398,13 +405,18 @@ class OccupationAndEducation:UITableViewController,UIPickerViewDelegate,UIPicker
         case DEGREE:
             educationTextField.text = degree[row]
             SelectDegreeID = degreeID[row]
+            
         case MAJOR:
             courseTextField.text = major[row]
+            SelectMajorID = majorID[row]
             
+            fieldTextField.text = ""
             selectFieldStudyID = fieldStudyID[row]
             selectFieldStudy = fieldStudy[row]
-            fieldTextField.text = ""
-            SelectMajorID = majorID[row]
+            
+            print(selectFieldStudyID)
+            print(selectFieldStudy)
+    
             
         case FIELD:
             fieldTextField.text = selectFieldStudy[row]
@@ -450,12 +462,17 @@ func textFieldDidBeginEditing(_ textField: UITextField) {
             selectFieldStudy = fieldStudy[0]
             fieldTextField.text = ""
             SelectMajorID = majorID[0]
+            
         }
         
         
         else if textField == fieldTextField {
-            fieldTextField.text = selectFieldStudy[0]
-            SelectFieldStudyIDS = selectFieldStudyID[0]
+            
+            if selectFieldStudy.count > 0 {
+                fieldTextField.text = selectFieldStudy[0]
+                SelectFieldStudyIDS = selectFieldStudyID[0]
+            }
+            
         }
         
         else if textField == provinceTextField {

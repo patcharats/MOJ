@@ -72,6 +72,8 @@ class Network: NSObject {
             print("******** api :\(self.API_BASE_URL+name)")
             activityIndicator.showActivityIndicator(uiView: viewController.view)
             print(param)
+            
+            
             Alamofire.request(API_BASE_URL+name, method: .post, parameters: param, encoding: JSONEncoding.default,headers: header)
                 .responseJSON { response in
                     if let result = response.result.value {

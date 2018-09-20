@@ -189,7 +189,7 @@ class StringHelper:NSObject{
         do {
             let key         = "bcb04b7e103a0cd8b54763051cef08bc"
             let iv          = "55abe029fdebae5e"
-            let encrypted   = try AES(key: key, iv: iv, blockMode: .CBC, padding: PKCS7())
+            let encrypted   = try AES(key: key, iv: iv, blockMode: .CBC, padding: .pkcs7)
             let ciphertext  = try encrypted.encrypt(Array(plainText.utf8))
             
             return ciphertext.toBase64()
@@ -202,7 +202,7 @@ class StringHelper:NSObject{
         do {
             let key         = "bcb04b7e103a0cd8b54763051cef08bc"
             let iv          = "55abe029fdebae5e"
-            let cipher      = try AES(key: key, iv: iv, blockMode: .CBC, padding: PKCS7())
+            let cipher      = try AES(key: key, iv: iv, blockMode: .CBC, padding: .pkcs7)
             let plainString = try aesString.decryptBase64ToString(cipher: cipher)
             return plainString
         } catch {

@@ -107,7 +107,7 @@ class PsychoServiceCreateNew: UIViewController {
     var SelectProvinceID2:Int = 0
     var SelectAmphurID2:Int = 0
     var SelectDistictID2:Int = 0
-    var PsychoType:String = ""
+    var PsychoType:String = "P"
     
     var SelectFieldStudyIDS:Int = 0
     var SelectMajorID:Int = 0
@@ -192,11 +192,6 @@ class PsychoServiceCreateNew: UIViewController {
         provinceTextField2 = notification.userInfo?["provinceTextField2"] as! String
         postalCodeTextField2 = notification.userInfo?["postalCodeTextField2"] as! String
         
-        phoneTextField = notification.userInfo?["phoneTextField"] as! String
-        mobilePhoneTextField = notification.userInfo?["mobilePhoneTextField"] as! String
-        faxTextField = notification.userInfo?["faxTextField"] as! String
-        emailTextField = notification.userInfo?["emailTextField"] as! String
-        
         SelectCardID = notification.userInfo?["SelectCardID"] as! Int
         SelectTitleID = notification.userInfo?["SelectTitleID"] as! Int
         SelectMaritalStatusID = notification.userInfo?["SelectMaritalStatusID"] as! Int
@@ -207,6 +202,11 @@ class PsychoServiceCreateNew: UIViewController {
         SelectProvinceID2 = notification.userInfo?["SelectProvinceID2"] as! Int
         SelectAmphurID2 = notification.userInfo?["SelectAmphurID2"] as! Int
         SelectDistictID2 = notification.userInfo?["SelectDistictID2"] as! Int
+        
+        phoneTextField = notification.userInfo?["phoneTextField"] as! String
+        mobilePhoneTextField = notification.userInfo?["mobilePhoneTextField"] as! String
+        faxTextField = notification.userInfo?["faxTextField"] as! String
+        emailTextField = notification.userInfo?["emailTextField"] as! String
         PsychoType = notification.userInfo?["PsychoType"] as! String
         
     }
@@ -290,7 +290,7 @@ class PsychoServiceCreateNew: UIViewController {
         param.addr1no = houseNoTextField
         param.addr1road = roadTextField
         param.addr1soi = streetTextField
-        param.addr1telephn = ""
+        param.addr1telephn = phoneTextField
         param.addr1zip = postalCodeTextField
         param.addr2email = emailTextField
         param.addr2fax = faxTextField

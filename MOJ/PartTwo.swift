@@ -248,9 +248,9 @@ class PartTwo:UITableViewController,UIPickerViewDelegate,UIPickerViewDataSource,
                 "SelectProvinceID" : SelectProvinceID,
                 "SelectAmphurID" : SelectAmphurID,
                 "SelectDistictID" : SelectDistictID,
-                "SelectProvinceID2" : SelectProvinceID2,
-                "SelectAmphurID2" : SelectAmphurID2,
-                "SelectDistictID2" : SelectDistictID2
+                "SelectProvinceID2" : SelectProvinceID,
+                "SelectAmphurID2" : SelectAmphurID,
+                "SelectDistictID2" : SelectDistictID
                 
             ]
         }
@@ -320,6 +320,7 @@ class PartTwo:UITableViewController,UIPickerViewDelegate,UIPickerViewDataSource,
         var imageName = ""
         
         if isCheckbox {
+            
             isCheckbox = false
             imageName = IMAGE_CHECK_BOX_FALSE
             houseNoTextField2.text = ""

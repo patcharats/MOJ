@@ -28,10 +28,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         IQKeyboardManager.sharedManager().enable = true
         FBSDKSettings.setAppID(FACEBOOK_APP_ID)
         setRootView(isShowHowto: account.isShowHowto())
-        
-        
-        
-        
+
         if #available(iOS 9.0, *) {
             let attributes = [
                 NSForegroundColorAttributeName : UIColor.black,
